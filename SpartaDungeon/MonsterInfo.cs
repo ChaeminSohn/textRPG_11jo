@@ -27,6 +27,7 @@ namespace SpartaDungeon
         public int CurrentHP { get;  set; }
         public int Attack { get;  set; }
         public int Defense { get;  set; }
+        public bool IsDead { get; }
 
         // 레벨당 증가량 설정
         private int hpPerLevel = 5; 
