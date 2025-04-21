@@ -206,7 +206,9 @@ namespace SpartaDungeon
         public void ShowPlayerInfo()
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("<상태 보기>");
+            Console.ResetColor();
             Console.WriteLine("캐릭터의 정보가 표시됩니다.");
             Console.WriteLine($"\nLv. {Level}");
             Console.WriteLine($"경험치 :  {Experience} / {ExpThresholds[Level - 1]}");

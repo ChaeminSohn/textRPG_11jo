@@ -12,6 +12,5 @@ namespace SpartaDungeon
         void OnDamage(int damage);
         void RecoverHP(int hp);
         void OnDie();
-
     }
 }
