@@ -25,7 +25,7 @@ namespace SpartaDungeon
             EquippedItems = new Equipment[2];   //0 : 무기 1 :방어구
             foreach (ITradable item in Items)
             {
-                /*switch (item.ItemType)
+                switch (item.ItemType)
                 {
                     case ItemType.Equipment:  //장비 아이템
                         Equipments.Add((Equipment)item);
@@ -38,7 +38,7 @@ namespace SpartaDungeon
                         break;
                     default:
                         break;
-                }*/
+                }
             }
         }
 
@@ -54,6 +54,12 @@ namespace SpartaDungeon
                     {
                         EquippedItems[(int)equip.EquipType] = equip;
                     }
+                    break;
+                case ItemType.Usable:  //소비 아이템   
+                    Usables.Add((Usable)item);
+                    break;
+                case ItemType.Other:  //기타 아이템  
+                    Usables.Add((OtherItem)item);
                     break;
                 default:
                     break;

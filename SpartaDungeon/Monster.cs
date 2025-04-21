@@ -37,11 +37,6 @@ namespace SpartaDungeon
             isDead = false;
         }
 
-        public Monster(MonsterInfo monsterInfo)
-        {
-
-        }
-
         public void OnDamage(int damage)
         {
             currentHP -= damage;

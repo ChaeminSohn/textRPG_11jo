@@ -36,8 +36,6 @@ namespace SpartaDungeon
             {
 
                 Console.Clear();
-                string exePath = AppContext.BaseDirectory;
-                Console.WriteLine(exePath);
                 Console.WriteLine("세이브 파일이 없습니다. 새로운 게임을 시작합니다..");
                 Utils.Pause(true);
                 NewGameSetting();
