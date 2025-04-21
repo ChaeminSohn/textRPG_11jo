@@ -13,6 +13,11 @@ namespace SpartaDungeon
         //보상 경험치
         public int[] ExpAward { get; private set; } = { 1, 2, 3 };
         private static Random rand = new Random();
+        private List<MonsterInfo> monsters;
+        public Dungeon(List<MonsterInfo> monsterInfos) 
+        {
+            monsters = monsterInfos;
+        }
 
         public void DungeonAction(Player player)    // 4 : 던전 입장 액션
         {

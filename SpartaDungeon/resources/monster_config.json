@@ -1,0 +1,28 @@
+{
+  "Monster": [
+    {
+      "Id" : 1,
+      "Name": "전사 미니언",
+      "Level": 1,
+      "FullHP": 30,
+      "Attack": 2,
+      "Defense": 4
+    },
+    {
+      "Id": 2,
+      "Name": "마법사 미니언",
+      "Level": 1,
+      "FullHP": 20,
+      "Attack": 4,
+      "Defense": 2
+    },
+    {
+      "Id": 3,
+      "Name": "대포 미니언",
+      "Level": 1,
+      "FullHP": 40,
+      "Attack": 4,
+      "Defense": 5
+    }
+  ]
+} 

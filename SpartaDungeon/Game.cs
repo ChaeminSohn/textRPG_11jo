@@ -20,6 +20,7 @@ namespace SpartaDungeon
         string folderPath = @"..\..\..\resources";
         bool isGameOver;
         string savePath;//저장 파일 경로
+        List<MonsterInfo> monsterList = new List<MonsterInfo>();
 
         public void GameStart()     //게임 시작
         {
@@ -41,6 +42,7 @@ namespace SpartaDungeon
                 Console.WriteLine("세이브 파일이 없습니다. 새로운 게임을 시작합니다..");
                 Utils.Pause(true);
                 NewGameSetting();
+
             }
             while (!isGameOver)     //게임이 종료될 때 까지 반복
             {
@@ -58,6 +60,18 @@ namespace SpartaDungeon
                 Console.WriteLine("아이템 데이터를 불러오지 못했습니다.");
                 Utils.Pause(false);
             }
+
+            //몬스터 데이터 불러오기
+            if (ConfigLoader.TryLoad<MonsterConfig>(@"..\..\..\resources/monster_config.json", out var monsterConfig))
+            {
+                monsterList = monsterConfig.Monster;
+            }
+            else
+            {
+                Console.WriteLine("몬스터 데이터를 불러오지 못했습니다.");
+                Utils.Pause(false);
+            }
+
             foreach (ItemInfo info in config.Items)    //아이템 정보를 통해 아이템 객체 생성
             {
                 ITradable instance;
@@ -86,7 +100,7 @@ namespace SpartaDungeon
             player = new Player(playerName, playerJob, inventory);
             player.OnPlayerDie += GameOver;
             shop = new Shop(player, itemList);
-            dungeon = new Dungeon();
+            dungeon = new Dungeon(monsterList);
             isGameOver = false;
         }
 
@@ -145,9 +159,10 @@ namespace SpartaDungeon
             player.RestoreAfterLoad();
             player.UpdatePlayerStats();
             shop = new Shop(player, itemList);
-            dungeon = new Dungeon();
+            dungeon = new Dungeon(monsterList);
             isGameOver = false;
         }
+
         public void TownAction()
         {
             Console.Clear();
