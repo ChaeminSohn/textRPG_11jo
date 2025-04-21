@@ -46,7 +46,5 @@ namespace SpartaDungeon
             ItemType = itemType;
             IsForSale = isForSale;
         }
-
-
     }
 }

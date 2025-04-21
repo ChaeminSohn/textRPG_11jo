@@ -19,7 +19,7 @@ namespace SpartaDungeon
         Attack,     //공격력
         Defense,    //방어력
     }
-    internal class Player
+    internal class Player : IBattleUnit
     {
         public string Name { get; private set; }    //이름
         public int Level { get; private set; }  //레벨
@@ -122,6 +122,10 @@ namespace SpartaDungeon
             {
                 CurrentHP = FullHP;
             }
+        }
+        public void OnDie()
+        {
+
         }
         public void UpdatePlayerStats()
         {
