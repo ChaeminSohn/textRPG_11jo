@@ -2,12 +2,12 @@ namespace SpartaDungeon
 {
     internal class Battle
     {
-        Player player;
-        //Monster[] monster
-        public Battle(Player player)
+        Player player;  //플레이어
+        Monster[] monsters;  //몬스터들
+        public Battle(Player player, Monster[] monsters)
         {
             this.player = player;
-            //this.monster = monster
+            this.monsters = monsters;
         }
 
         public void StartBattle()
@@ -27,7 +27,7 @@ namespace SpartaDungeon
             }
         }
 
-        void MyTurnAction()
+        void MyTurnAction()     //플레이어 턴
         {
             while (true)
             {
@@ -84,7 +84,7 @@ namespace SpartaDungeon
             }
         }
 
-        void EnemyTurnAction()
+        void EnemyTurnAction()      //몬스터 턴
         {
 
         }
