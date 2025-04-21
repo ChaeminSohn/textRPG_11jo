@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +41,7 @@ namespace SpartaDungeon
         public int Gold { get; private set; }   //골드
         public Inventory Inventory { get; private set; }    //인벤토리
         public event Action? OnPlayerDie; //플레이어 사망 이벤트
+        public bool IsDead { get; private set; }
 
         public Player(string name, Job job, Inventory inventory)    //새 게임 생성자
         {
@@ -50,6 +52,7 @@ namespace SpartaDungeon
             Inventory = inventory;
             LoadDefaultData();
             inventory.OnEquipChanged += UpdatePlayerStats;
+            IsDead = false;
         }
 
         public Player(PlayerData playerData, Inventory inventory)   //게임 불러오기 생성자
@@ -125,7 +128,7 @@ namespace SpartaDungeon
         }
         public void OnDie()
         {
-
+            IsDead = true;
         }
         public void UpdatePlayerStats()
         {
