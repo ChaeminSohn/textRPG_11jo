@@ -8,6 +8,7 @@ namespace SpartaDungeon
         int CurrentHP { get; }
         int Attack { get; }
         int Defense { get; }
+        bool IsDead { get; }
 
         void OnDamage(int damage);
         void RecoverHP(int hp);
