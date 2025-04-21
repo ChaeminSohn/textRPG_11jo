@@ -1,0 +1,60 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace SpartaDungeon
+{
+    public struct Monster : IBattleUnit
+    {
+        private string name;
+        private int level;
+        private int fullHP;
+        private int currentHP;
+        private int attack;
+        private int defense;
+        
+        public string Name { get { return name; } }
+        public int Level { get { return level; } }
+        public int FullHP { get { return FullHP; } }
+        public int CurrentHP { get { return currentHP; } }
+        public int Attack { get { return attack; } }
+        public int Defense { get { return defense; } }
+
+
+        public Monster(string name, int level, int fullHP, int currentHP, int attack, int defense)
+        {
+            this.name = name;
+            this.level = level;
+            this.fullHP = fullHP;
+            this.currentHP = currentHP;
+            this.attack = attack; 
+            this.defense = defense;
+        }
+
+        public void OnDamage(int damage)
+        {
+            currentHP -= damage;
+            if (currentHP <= 0)
+            {
+                currentHP = 0;
+                OnDie();
+            }
+
+        }
+
+        public void RecoverHP(int hp) 
+        {
+            currentHP += hp;
+            if (fullHP > currentHP)
+                currentHP = fullHP;
+        }
+        public void OnDie()
+        {
+
+        }
+
+    }
+}
