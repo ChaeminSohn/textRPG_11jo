@@ -17,21 +17,27 @@ namespace SpartaDungeon
         Dungeon dungeon;
         List<ITradable> itemList = new List<ITradable>();   //모든 아이템의 객체를 담는 리스트
         List<ItemInfo> itemDatas = new List<ItemInfo>();  //모든 아이템의 정보를 담는 리스트
+        string folderPath = @"..\..\..\resources";
         bool isGameOver;
-        string savePath = "saveData.json"; //저장 파일 경로
+        string savePath;//저장 파일 경로
 
         public void GameStart()     //게임 시작
         {
+            savePath = Path.Combine(folderPath, "saveData.json");
             if (File.Exists(savePath))  //세이브 파일이 존재할 경우
             {
                 Console.Clear();
+
                 Console.WriteLine("세이브 파일이 존재합니다. 이어서 게임을 시작합니다.");
                 LoadData();
                 Utils.Pause(true);
             }
             else    //세이브 파일이 존재하지 않을 경우
             {
+
                 Console.Clear();
+                string exePath = AppContext.BaseDirectory;
+                Console.WriteLine(exePath);
                 Console.WriteLine("세이브 파일이 없습니다. 새로운 게임을 시작합니다..");
                 Utils.Pause(true);
                 NewGameSetting();
@@ -47,7 +53,7 @@ namespace SpartaDungeon
         {
             itemList = new List<ITradable>();
             //아이템 데이터 불러오기
-            if (!ConfigLoader.TryLoad<ItemConfig>("items_config.json", out var config))
+            if (!ConfigLoader.TryLoad<ItemConfig>(@"..\..\..\resources/items_config.json", out var config))
             {
                 Console.WriteLine("아이템 데이터를 불러오지 못했습니다.");
                 Utils.Pause(false);

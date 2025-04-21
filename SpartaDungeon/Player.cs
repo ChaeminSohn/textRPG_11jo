@@ -70,7 +70,7 @@ namespace SpartaDungeon
         public void LoadDefaultData()
         {
             //플레이어 기본 데이터 파일 읽어오기
-            if (!ConfigLoader.TryLoad<PlayerConfig>("player_config.json", out var config))
+            if (!ConfigLoader.TryLoad<PlayerConfig>(@"..\..\..\resources/player_config.json", out var config))
             {
                 Console.WriteLine("플레이어 설정을 불러오지 못했습니다.");
                 return;
