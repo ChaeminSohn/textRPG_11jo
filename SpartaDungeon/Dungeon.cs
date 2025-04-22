@@ -7,8 +7,6 @@ namespace SpartaDungeon
     {
         private Player player;
 
-
-
         //권장 방어력
         public int[] DefenseLevel { get; private set; } = { 5, 10, 20 };
         //보상 골드
@@ -17,18 +15,11 @@ namespace SpartaDungeon
         public int[] ExpAward { get; private set; } = { 1, 2, 3 };
         private static Random rand = new Random();
         private List<Monster> monsters;
-        public Dungeon(List<Monster> monsterInfos)
-        public Dungeon(Player player)
 
+        public Dungeon(Player player, List<Monster> monsters)
         {
             this.player = player;
-
-        private MonsterConfig monsterConfig;
-
-        public Dungeon(Player player, MonsterConfig monsterConfig)
-        {
-            this.player = player;
-            this.monsterConfig = monsterConfig;
+            this.monsters = monsters;
 
         }
 
@@ -75,13 +66,13 @@ namespace SpartaDungeon
         {
             Battle battle = new Battle(player, monsters.ToArray());
 
-            BattleResult result = battle.StartBattle();// 파일 받으면 수정 or 다시
+            //BattleResult result = battle.StartBattle();// 파일 받으면 수정 or 다시
 
-            BattleResult result = battle.StartBattle(); // 배틀 결과 받기
+            //BattleResult result = battle.StartBattle(); // 배틀 결과 받기
 
 
             Console.Clear();
-            result.DisplayResult(player);
+            //result.DisplayResult(player);
 
             while (Utils.GetPlayerInput() != 0)
             {
@@ -92,7 +83,7 @@ namespace SpartaDungeon
         private List<Monster> GenerateMonsters(Difficulty difficulty)
         {
 
-            List<Monster> allMonsters = MonsterList.GetAllMonsters();// 파일 받으면 수정 or 다시
+            List<Monster> allMonsters = monsters;// 파일 받으면 수정 or 다시
             List<Monster> selectedMonsters = new List<Monster>();
             Random rand = new Random();
 
@@ -102,12 +93,8 @@ namespace SpartaDungeon
                 Difficulty.Normal => 4,
                 Difficulty.Hard => 5,
                 _ => 3
-
-            List<Monster> allMonsters = monsterConfig.Monster; // MonsterConfig에서 몬스터 리스트 가져오기
-            List<Monster> selectedMonsters = new List<Monster>();
-            Random rand = new Random();
-
-            int monsterCount = rand.Next(3, 6); // 3~5마리 랜덤 선택
+            };
+            monsterCount = rand.Next(3, 6); // 3~5마리 랜덤 선택
 
             int monsterLevel = difficulty switch
             {
@@ -122,9 +109,9 @@ namespace SpartaDungeon
             {
                 int index = rand.Next(allMonsters.Count);
 
-                selectedMonsters.Add(allMonsters[index].Clone());
+                selectedMonsters.Add(allMonsters[index]);
 
-                Monster monster = allMonsters[index].Clone(); // 몬스터 복제
+                Monster monster = allMonsters[index]; // 몬스터 복제
                 monster.Level = monsterLevel; // 난이도에 맞는 레벨 설정
                 selectedMonsters.Add(monster);
 
