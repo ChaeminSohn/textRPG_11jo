@@ -12,6 +12,7 @@ namespace SpartaDungeon
 
         public void StartBattle()
         {
+            int startHP = player.CurrentHP;
             while (true)
             {
                 MyTurnAction();
@@ -25,6 +26,24 @@ namespace SpartaDungeon
                     break;
                 }
             }
+            //배틀 결과 표시
+            Console.Clear();
+            Console.WriteLine("Battle!! - Result\n");
+            if (!player.IsDead)
+            {
+                Console.WriteLine("Victory");
+                Console.WriteLine($"\n던전에서 몬스터 {monsters.Length}마리를 잡았습니다.");
+                Console.WriteLine($"Lv.{player.Level} {player.Name}");
+                Console.WriteLine($"HP {startHP} -> {player.CurrentHP}");
+            }
+            else
+            {
+                Console.WriteLine("You Lose");
+                Console.WriteLine($"Lv.{player.Level} {player.Name}");
+                Console.WriteLine($"HP {startHP} -> 0");
+            }
+
+            Utils.Pause(true);
         }
 
         void MyTurnAction()     //플레이어 턴

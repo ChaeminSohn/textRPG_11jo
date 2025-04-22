@@ -10,11 +10,11 @@ namespace SpartaDungeon
     {
         public int EarnedExp { get; set; }
         public int EarnedGold { get; set; }
-        public List<ItemData> EarnedItems { get; set; }
+        public List<ItemInfo> EarnedItems { get; set; }
 
         public BattleResult()
         {
-            EarnedItems = new List<ItemData>();
+            EarnedItems = new List<ItemInfo>();
         }
 
         public void DisplayResult(Player player)

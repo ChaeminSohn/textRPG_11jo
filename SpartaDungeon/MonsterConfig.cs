@@ -8,6 +8,6 @@ namespace SpartaDungeon
 {
     public class MonsterConfig
     {
-        public List<MonsterInfo> Monster { get; set; } = new List<MonsterInfo>(); //모든 몬스터 리스트
+        public List<Monster> Monster { get; set; } = new List<Monster>(); //모든 몬스터 리스트
     }
 }

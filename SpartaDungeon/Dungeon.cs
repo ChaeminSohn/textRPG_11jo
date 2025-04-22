@@ -54,7 +54,7 @@ namespace SpartaDungeon
                         return;
                     default:
                         Console.WriteLine("잘못된 입력입니다.");
-
+                        Utils.Pause(false);
 
 
                         break;
