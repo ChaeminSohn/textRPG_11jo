@@ -81,6 +81,7 @@ namespace SpartaDungeon
             Job playerJob = GetJobFromPlayer(); ;
 
             inventory = new Inventory();
+
             player = new Player(playerName, playerJob, inventory);
             player.OnPlayerDie += GameOver;
             shop = new Shop(player, itemList);
