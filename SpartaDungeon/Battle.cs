@@ -3,8 +3,8 @@ namespace SpartaDungeon
     internal class Battle
     {
         Player player;  //플레이어
-        MonsterInfo[] monsters;  //몬스터들
-        public Battle(Player player, MonsterInfo[] monsters)
+        Monster[] monsters;  //몬스터들
+        public Battle(Player player, Monster[] monsters)
         {
             this.player = player;
             this.monsters = monsters;

@@ -20,7 +20,7 @@ namespace SpartaDungeon
         string folderPath = @"..\..\..\resources";
         bool isGameOver;
         string savePath;//저장 파일 경로
-        List<MonsterInfo> monsterList = new List<MonsterInfo>();
+        List<Monster> monsterList = new List<Monster>();
 
         public void GameStart()     //게임 시작
         {
