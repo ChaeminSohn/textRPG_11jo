@@ -170,6 +170,8 @@ namespace SpartaDungeon
             isGameOver = false;
         }
 
+        QuestMenu questMenu = new QuestMenu();
+
         public void TownAction()
         {
             Console.Clear();
@@ -181,7 +183,8 @@ namespace SpartaDungeon
             Console.WriteLine("3. 상점");
             Console.WriteLine("4. 던전 입장");
             Console.WriteLine("5. 휴식하기");
-            Console.WriteLine("6. 게임 종료\n");
+            Console.WriteLine("6. 게시판");
+            Console.WriteLine("7. 게임 종료\n");
             Console.Write("\n원하시는 행동을 입력해주세요.");
 
             switch (Utils.GetPlayerInput())
@@ -203,7 +206,10 @@ namespace SpartaDungeon
                 case 5:     //휴식하기
                     RestAction();
                     break;
-                case 6:     //게임 종료하기
+                case 6:     //퀘스트 게시판 열기
+                    questMenu.OpenQuestBoard();
+                    break;
+                case 7:     //게임 종료하기
                     ExitGame();
                     break;
                 default:
