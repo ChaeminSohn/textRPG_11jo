@@ -187,7 +187,7 @@ namespace SpartaDungeon
             //몬스터 정보 표시
             for (int i = 0; i < monsters.Length; i++)
             {
-                Console.WriteLine($"{i + 1}. Lv{monsters[i].Level} {monsters[i].Name}   {(monsters[i].IsDead ? "Dead" : monsters[i].CurrentHP)}");
+                Console.WriteLine($"{i + 1}. Lv{monsters[i].Level} {monsters[i].Name}   {(monsters[i].IsDead ? "Dead" : monsters[i].CurrentHP)} {(monsters[i].IsDead ? " " : monsters[i].Attack)}");
             }
             Console.WriteLine("\n\n[내정보]");
             Console.WriteLine($"Lv.{player.Level} {player.Name} ({player.Job})");

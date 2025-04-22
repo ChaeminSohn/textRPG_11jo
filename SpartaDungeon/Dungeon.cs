@@ -82,7 +82,7 @@ namespace SpartaDungeon
             {
                 int index = rand.Next(allMonsters.Count);
                 Monster monster = allMonsters[index].Clone(); // 몬스터 복제
-                monster.Level = monsterLevel; // 난이도에 맞는 레벨 설정
+                monster.Level = monsterLevel;
                 selectedMonsters.Add(monster);
             }
             return selectedMonsters;

@@ -9,13 +9,13 @@ namespace SpartaDungeon
 {
     public class Monster : IBattleUnit
     {
-        private int level;
+        private int level = 1;
 
         public int Id { get; set; }
         public string Name { get; set; }
         public int Level
         {
-            get => level;
+            get { return level; }
             set
             {
                 if (value < 1)
@@ -24,8 +24,6 @@ namespace SpartaDungeon
                 UpdateStats();    // 레벨이 바뀔 때마다 능력치 재계산
             }
         }
-
-
         public int FullHP { get; set; }
         public int CurrentHP { get; set; }
         public int Attack { get; set; }
@@ -77,9 +75,10 @@ namespace SpartaDungeon
             IsDead = true;
         }
 
-        private void UpdateStats()
+        public void UpdateStats()
         {
             FullHP += (level - 1) * hpPerLevel;
+            CurrentHP = FullHP;
             Attack += (int)((level - 1) * attackPerLevel);
             Defense += (level - 1) * defensePerLevel;
         }
