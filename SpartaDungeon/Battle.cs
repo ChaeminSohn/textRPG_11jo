@@ -50,7 +50,6 @@ namespace SpartaDungeon
                         Console.WriteLine("잘못된 입력입니다.");
                         Utils.Pause(false);
                         continue;
-
                 }
             }
         }
@@ -111,13 +110,31 @@ namespace SpartaDungeon
         void DealDamage(IBattleUnit attacker, IBattleUnit defender) //데미지 처리 과정
         {
             Random rand = new Random();
+
+            Console.WriteLine($"\n\nLv.{attacker.Level} {attacker.Name} 의 공격!");
+
+            if (rand.NextDouble() < defender.EvadeChance)   //회피 판정
+            {
+                Console.WriteLine($"Lv.{defender.Level} {defender.Name} 이(가) 공격을 회피했습니다!");
+                return;
+            }
+
             int currentHP = defender.CurrentHP;     //피격자의 현재 체력
             int damageVariance = (int)(attacker.Attack * 0.1);
-            defender.OnDamage(rand.Next(attacker.Attack - damageVariance,
-            attacker.Attack + damageVariance));
-            Console.WriteLine($"\n\nLv.{attacker.Level} {attacker.Name} 의 공격!");
-            Console.WriteLine($"Lv.{defender.Level} {player.Name} 을(를) 맞췄습니다.");
-            Console.WriteLine($"\nLv.{defender.Level} {player.Name}");
+            bool isCritical = rand.NextDouble() < attacker.CritChance;  //치명타 판정
+            int baseDamage = rand.Next(attacker.Attack - damageVariance, attacker.Attack + damageVariance + 1);
+            int finalDamage = isCritical ? (int)(baseDamage * 1.5f) : baseDamage;   //최종 데미지
+
+            defender.OnDamage(finalDamage); //데미지 처리
+
+            Console.WriteLine($"Lv.{defender.Level} {defender.Name} 을(를) 맞췄습니다.");
+
+            if (isCritical)
+            {
+                Console.WriteLine("[치명타!] 데미지가 1.5배 적용되었습니다.");
+            }
+
+            Console.WriteLine($"\nLv.{defender.Level} {defender.Name}");
             Console.WriteLine($"HP {currentHP} -> {(defender.IsDead ? "Dead" : defender.CurrentHP)}");
         }
 

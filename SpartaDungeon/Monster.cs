@@ -7,7 +7,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace SpartaDungeon
 {
-    public struct Monster : IBattleUnit
+    public class Monster : IBattleUnit
     {
         private string name;
         private int level;
