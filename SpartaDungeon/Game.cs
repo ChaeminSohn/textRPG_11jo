@@ -99,7 +99,9 @@ namespace SpartaDungeon
             player = new Player(playerName, playerJob, inventory);
             player.OnPlayerDie += GameOver;
             shop = new Shop(player, itemList);
+
             dungeon = new Dungeon(player,monsterList);
+
             isGameOver = false;
         }
 
