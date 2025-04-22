@@ -134,89 +134,90 @@ namespace SpartaDungeon
                     return;
                 }
             }
+        }
 
-            void EnemyTurnAction()      //몬스터 턴
+        void EnemyTurnAction()      //몬스터 턴
+        {
+            foreach (IBattleUnit monster in monsters)
             {
-                foreach (IBattleUnit monster in monsters)
+                if (!monster.IsDead)
                 {
-                    if (!monster.IsDead)
-                    {
-                        Console.Clear();
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.WriteLine("Battle!");
-                        Console.ResetColor();
-                        DealDamage(monster, player);
-                        Utils.Pause(true);
-                    }
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Battle!");
+                    Console.ResetColor();
+                    DealDamage(monster, player);
+                    Utils.Pause(true);
                 }
-            }
-            void DealDamage(IBattleUnit attacker, IBattleUnit defender) //데미지 처리 과정
-            {
-                Random rand = new Random();
-
-                Console.WriteLine($"\n\nLv.{attacker.Level} {attacker.Name} 의 공격!");
-
-                if (rand.NextDouble() < defender.EvadeChance)   //회피 판정
-                {
-                    Console.WriteLine($"Lv.{defender.Level} {defender.Name} 이(가) 공격을 회피했습니다!");
-                    return;
-                }
-
-                int currentHP = defender.CurrentHP;     //피격자의 현재 체력
-                int damageVariance = (int)(attacker.Attack * 0.1);
-                bool isCritical = rand.NextDouble() < attacker.CritChance;  //치명타 판정
-                int baseDamage = rand.Next(attacker.Attack - damageVariance, attacker.Attack + damageVariance + 1);
-                int finalDamage = isCritical ? (int)(baseDamage * 1.5f) : baseDamage;   //최종 데미지
-
-                defender.OnDamage(finalDamage); //데미지 처리
-
-                Console.WriteLine($"Lv.{defender.Level} {defender.Name} 을(를) 맞췄습니다.");
-
-                if (isCritical)
-                {
-                    Console.WriteLine("[치명타!] 데미지가 50% 증가했습니다.");
-                }
-
-                Console.WriteLine($"\nLv.{defender.Level} {defender.Name}");
-                Console.WriteLine($"HP {currentHP} -> {(defender.IsDead ? "Dead" : defender.CurrentHP)}");
-            }
-
-            void ShowBattleInfo()   //몬스터, 플레이어 정보 표시
-            {
-                //몬스터 정보 표시
-                for (int i = 0; i < monsters.Length; i++)
-                {
-                    Console.WriteLine($"{i + 1}. Lv{monsters[i].Level} {monsters[i].Name}   {(monsters[i].IsDead ? "Dead" : monsters[i].CurrentHP)}");
-                }
-                Console.WriteLine("\n\n[내정보]");
-                Console.WriteLine($"Lv.{player.Level} {player.Name} ({player.Job})");
-                Console.WriteLine($"HP {player.CurrentHP}/{player.FullHP}");
-            }
-
-            bool TryRun()       //도주 시도
-            {
-                Random rand = new Random();
-
-                //도망 성공률은 플레이어의 회피율 영향을 받음
-                if (rand.NextDouble() < 0.4f + player.EvadeChance)
-                {
-                    return true;
-                }
-                return false;
-            }
-
-            bool EveryMonsterIsDead()   //몬스터를 
-            {
-                foreach (Monster monster in monsters)
-                {
-                    if (!monster.IsDead)
-                    {
-                        return false;
-
-                    }
-                    return true;
-                }
-
             }
         }
+        void DealDamage(IBattleUnit attacker, IBattleUnit defender) //데미지 처리 과정
+        {
+            Random rand = new Random();
+
+            Console.WriteLine($"\n\nLv.{attacker.Level} {attacker.Name} 의 공격!");
+
+            if (rand.NextDouble() < defender.EvadeChance)   //회피 판정
+            {
+                Console.WriteLine($"Lv.{defender.Level} {defender.Name} 이(가) 공격을 회피했습니다!");
+                return;
+            }
+
+            int currentHP = defender.CurrentHP;     //피격자의 현재 체력
+            int damageVariance = (int)(attacker.Attack * 0.1);
+            bool isCritical = rand.NextDouble() < attacker.CritChance;  //치명타 판정
+            int baseDamage = rand.Next(attacker.Attack - damageVariance, attacker.Attack + damageVariance + 1);
+            int finalDamage = isCritical ? (int)(baseDamage * 1.5f) : baseDamage;   //최종 데미지
+
+            defender.OnDamage(finalDamage); //데미지 처리
+
+            Console.WriteLine($"Lv.{defender.Level} {defender.Name} 을(를) 맞췄습니다.");
+
+            if (isCritical)
+            {
+                Console.WriteLine("[치명타!] 데미지가 50% 증가했습니다.");
+            }
+
+            Console.WriteLine($"\nLv.{defender.Level} {defender.Name}");
+            Console.WriteLine($"HP {currentHP} -> {(defender.IsDead ? "Dead" : defender.CurrentHP)}");
+        }
+
+        void ShowBattleInfo()   //몬스터, 플레이어 정보 표시
+        {
+            //몬스터 정보 표시
+            for (int i = 0; i < monsters.Length; i++)
+            {
+                Console.WriteLine($"{i + 1}. Lv{monsters[i].Level} {monsters[i].Name}   {(monsters[i].IsDead ? "Dead" : monsters[i].CurrentHP)}");
+            }
+            Console.WriteLine("\n\n[내정보]");
+            Console.WriteLine($"Lv.{player.Level} {player.Name} ({player.Job})");
+            Console.WriteLine($"HP {player.CurrentHP}/{player.FullHP}");
+        }
+
+        bool TryRun()       //도주 시도
+        {
+            Random rand = new Random();
+
+            //도망 성공률은 플레이어의 회피율 영향을 받음
+            if (rand.NextDouble() < 0.4f + player.EvadeChance)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        bool EveryMonsterIsDead()   //몬스터를 
+        {
+            foreach (Monster monster in monsters)
+            {
+                if (!monster.IsDead)
+                {
+                    return false;
+
+                }
+
+            }
+            return true;
+        }
     }
+}
