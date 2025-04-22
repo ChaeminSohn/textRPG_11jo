@@ -16,6 +16,8 @@ namespace SpartaDungeon
         private int attack;
         private int defense;
         private bool isDead;
+        private float critChance;
+        private float evadeChance;
 
         public string Name { get { return name; } }
         public int Level { get { return level; } }
@@ -24,9 +26,11 @@ namespace SpartaDungeon
         public int Attack { get { return attack; } }
         public int Defense { get { return defense; } }
         public bool IsDead { get { return isDead; } }
+        public float CritChance { get { return critChance; } }
+        public float EvadeChance { get { return evadeChance; } }
 
-
-        public Monster(string name, int level, int fullHP, int currentHP, int attack, int defense)
+        public Monster(string name, int level, int fullHP, int currentHP, int attack, int defense,
+                        float critChance, float evadeChance)
         {
             this.name = name;
             this.level = level;
@@ -34,6 +38,8 @@ namespace SpartaDungeon
             this.currentHP = currentHP;
             this.attack = attack;
             this.defense = defense;
+            this.critChance = critChance;
+            this.evadeChance = evadeChance;
             isDead = false;
         }
 
@@ -45,7 +51,6 @@ namespace SpartaDungeon
                 currentHP = 0;
                 OnDie();
             }
-
         }
 
         public void RecoverHP(int hp)

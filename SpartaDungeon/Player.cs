@@ -37,6 +37,8 @@ namespace SpartaDungeon
         public int BaseDefense { get; private set; }    //기본 방어력
         public int BonusDefense { get; private set; }   //추가 방어력
         public int Defense => BaseDefense + BonusDefense;   //방어력
+        public float CritChance { get; private set; }
+        public float EvadeChance { get; private set; }
         public Job Job { get; private set; }    //직업
         public int Gold { get; private set; }   //골드
         public Inventory Inventory { get; private set; }    //인벤토리
@@ -225,7 +227,7 @@ namespace SpartaDungeon
         public PlayerData GetPlayerData()   //플레이어 데이터 추출
         {
             return new PlayerData(Name, Job, Level, MaxLevel, Experience, ExpThresholds, BaseFullHP, CurrentHP,
-                BaseAttack, BaseDefense, Gold);
+                BaseAttack, BaseDefense, CritChance, EvadeChance, Gold);
         }
     }
 }
