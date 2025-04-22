@@ -102,6 +102,8 @@ namespace SpartaDungeon
             CurrentHP = BaseFullHP;
             BaseAttack = defaultData.BaseAttack;
             BaseDefense = defaultData.BaseDefense;
+            CritChance = defaultData.CritChance;
+            EvadeChance = defaultData.EvadeChance;
             Gold = defaultData.Gold;
         }
 
@@ -219,6 +221,8 @@ namespace SpartaDungeon
             Console.WriteLine($"{Name} ({Utils.JobDisplayNames[Job]})");
             Console.WriteLine($"공격력 : {Attack}");
             Console.WriteLine($"방어력 : {Defense}");
+            Console.WriteLine($"치명타율 : {CritChance}");
+            Console.WriteLine($"회피율 : {EvadeChance}");
             Console.WriteLine($"체력 : {CurrentHP}/{FullHP}");
             Console.WriteLine($"Gold : {Gold} G");
         }

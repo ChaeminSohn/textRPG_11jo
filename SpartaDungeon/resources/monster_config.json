@@ -6,7 +6,9 @@
       "Level": 1,
       "FullHP": 30,
       "Attack": 2,
-      "Defense": 4
+      "Defense": 4,
+      "CritChance" : 0,
+      "EvadeChance" : 0
     },
     {
       "Id": 2,
@@ -14,7 +16,9 @@
       "Level": 1,
       "FullHP": 20,
       "Attack": 4,
-      "Defense": 2
+      "Defense": 2,
+      "CritChance" : 0,
+      "EvadeChance" : 0.1
     },
     {
       "Id": 3,
@@ -22,7 +26,9 @@
       "Level": 1,
       "FullHP": 40,
       "Attack": 4,
-      "Defense": 5
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0
     }
   ]
 } 

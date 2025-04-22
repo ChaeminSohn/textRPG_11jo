@@ -4,7 +4,7 @@ namespace SpartaDungeon
     {
         Player player;  //플레이어
         Monster[] monsters;  //몬스터들
-        int killCount = 0;  //처치한 몬스터 수
+        List<Monster> killedMonsters = new List<Monster>();  //처치한 몬스터 수
         bool isPlayerRun = false;   //도망가기 옵션
         public Battle(Player player, Monster[] monsters)
         {
@@ -34,7 +34,7 @@ namespace SpartaDungeon
             if (!player.IsDead)
             {
                 Console.WriteLine($"{(isPlayerRun ? "도망쳤습니다." : "승리!")}");
-                Console.WriteLine($"\n던전에서 몬스터 {killCount}마리를 잡았습니다.");
+                Console.WriteLine($"\n던전에서 몬스터 {killedMonsters.Count}마리를 잡았습니다.");
                 Console.WriteLine($"Lv.{player.Level} {player.Name}");
                 Console.WriteLine($"HP {startHP} -> {player.CurrentHP}");
             }
@@ -43,9 +43,14 @@ namespace SpartaDungeon
                 Console.WriteLine("패배!");
                 Console.WriteLine($"Lv.{player.Level} {player.Name}");
                 Console.WriteLine($"HP {startHP} -> 0");
+                return;
+            }
+            Utils.Pause(true);
+            foreach (Monster monster in killedMonsters)
+            {
+                player.GetEXP(monster.ExpReward);
             }
 
-            Utils.Pause(true);
         }
 
         void MyTurnAction()     //플레이어 턴
@@ -115,8 +120,8 @@ namespace SpartaDungeon
                 }
                 DealDamage(player, monsters[playerInput - 1]);
                 if (monsters[playerInput - 1].IsDead)
-                {
-                    killCount++;
+                {   //몬스터 처치 리스트에 추가
+                    killedMonsters.Add(monsters[playerInput - 1]);
                 }
                 Utils.Pause(true);
                 return;
@@ -134,8 +139,8 @@ namespace SpartaDungeon
                     Console.WriteLine("Battle!");
                     Console.ResetColor();
                     DealDamage(monster, player);
+                    Utils.Pause(true);
                 }
-                Utils.Pause(true);
             }
         }
         void DealDamage(IBattleUnit attacker, IBattleUnit defender) //데미지 처리 과정
@@ -162,7 +167,7 @@ namespace SpartaDungeon
 
             if (isCritical)
             {
-                Console.WriteLine("[치명타!] 데미지가 1.5배 적용되었습니다.");
+                Console.WriteLine("[치명타!] 데미지가 50% 증가했습니다.");
             }
 
             Console.WriteLine($"\nLv.{defender.Level} {defender.Name}");
