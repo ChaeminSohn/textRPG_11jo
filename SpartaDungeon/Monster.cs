@@ -9,60 +9,74 @@ namespace SpartaDungeon
 {
     public class Monster : IBattleUnit
     {
-        private string name;
         private int level;
-        private int fullHP;
-        private int currentHP;
-        private int attack;
-        private int defense;
-        private bool isDead;
-        private float critChance;
-        private float evadeChance;
 
-        public string Name { get { return name; } }
-        public int Level { get { return level; } }
-        public int FullHP { get { return FullHP; } }
-        public int CurrentHP { get { return currentHP; } }
-        public int Attack { get { return attack; } }
-        public int Defense { get { return defense; } }
-        public bool IsDead { get { return isDead; } }
-        public float CritChance { get { return critChance; } }
-        public float EvadeChance { get { return evadeChance; } }
+        public string Name { get; set; }
+        public int Level {
+            get => level;
+            set
+            {
+                if (value < 1)
+                    throw new ArgumentOutOfRangeException(nameof(value), "레벨은 1 이상이어야 합니다.");
+                level = value;
+                UpdateStats();    // 레벨이 바뀔 때마다 능력치 재계산
+            }
+        }
+        public int FullHP { get; set; }
+        public int CurrentHP { get; set; }
+        public int Attack { get; set; }
+        public int Defense { get; set; }
+        public bool IsDead { get; set; }
+        public float critChance { get; set; }
+        public float evadeChance { get; set; }
+
+        // 레벨당 증가량 설정
+        private int hpPerLevel = 5;
+        private float attackPerLevel = 0.5f;
+        private int defensePerLevel = 1;
 
         public Monster(string name, int level, int fullHP, int currentHP, int attack, int defense,
                         float critChance, float evadeChance)
         {
-            this.name = name;
-            this.level = level;
-            this.fullHP = fullHP;
-            this.currentHP = currentHP;
-            this.attack = attack;
-            this.defense = defense;
+            Name = name;
+            Level = level;
+            FullHP = fullHP;
+            CurrentHP = currentHP;
+            Attack = attack;
+            Defense = defense;
             this.critChance = critChance;
             this.evadeChance = evadeChance;
-            isDead = false;
+            IsDead = false;
         }
 
         public void OnDamage(int damage)
         {
-            currentHP -= damage;
-            if (currentHP <= 0)
+            CurrentHP -= damage;
+            if (CurrentHP <= 0)
             {
-                currentHP = 0;
+                CurrentHP = 0;
                 OnDie();
             }
         }
 
         public void RecoverHP(int hp)
         {
-            currentHP += hp;
-            if (fullHP > currentHP)
-                currentHP = fullHP;
+            CurrentHP += hp;
+            if (FullHP > CurrentHP)
+                CurrentHP = FullHP;
         }
         public void OnDie()
         {
-            isDead = true;
+            IsDead = true;
         }
+
+        private void UpdateStats()
+        {
+            FullHP += (level - 1) * hpPerLevel;
+            Attack += (int)((level - 1) * attackPerLevel);
+            Defense += (level - 1) * defensePerLevel;
+        }
+
 
     }
 }
