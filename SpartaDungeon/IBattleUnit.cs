@@ -11,8 +11,8 @@ namespace SpartaDungeon
         int Attack { get; }     //공격력
         int Defense { get; }    //방어력
         bool IsDead { get; }    //사망 여부
-        float critChance { get; }  //치명타 확률
-        float evadeChance { get; }     //회피 확률
+        float CritChance { get; }  //치명타 확률
+        float EvadeChance { get; }     //회피 확률
 
         void OnDamage(int damage);  //피격
         void RecoverHP(int hp);     //회복 
