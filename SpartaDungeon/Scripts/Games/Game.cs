@@ -25,6 +25,7 @@ namespace SpartaDungeon
         public void GameStart()     //게임 시작
         {
             savePath = Path.Combine(folderPath, "saveData.json");
+            ItemDataBase.Load(@"..\..\..\resources/items_config.json");
             if (File.Exists(savePath))  //세이브 파일이 존재할 경우
             {
                 Console.Clear();
@@ -367,7 +368,6 @@ namespace SpartaDungeon
         {
             while (true)
             {
-                //상점 인터페이스 표시
                 Console.Clear();
                 Console.WriteLine("<상태 보기>");
                 Console.WriteLine("캐릭터의 정보가 표시됩니다.");
