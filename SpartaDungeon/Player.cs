@@ -61,6 +61,7 @@ namespace SpartaDungeon
         {
             Inventory = inventory;
             Name = playerData.Name;
+            Job = playerData.Job;
             Level = playerData.Level;
             MaxLevel = playerData.MaxLevel;
             Experience = playerData.Experience;
@@ -69,6 +70,8 @@ namespace SpartaDungeon
             CurrentHP = playerData.CurrentHP;
             BaseAttack = playerData.BaseAttack;
             BaseDefense = playerData.BaseDefense;
+            CritChance = playerData.CritChance;
+            EvadeChance = playerData.EvadeChance;
             Gold = playerData.Gold;
         }
 
@@ -163,7 +166,7 @@ namespace SpartaDungeon
         public void GetEXP(int exp)   //경험치 획득
         {
             Experience += exp;
-            if (Experience >= ExpThresholds[Level - 1])
+            while (Experience >= ExpThresholds[Level - 1])
             {
                 if (Level == MaxLevel)      //이미 만랩인 경우
                 {

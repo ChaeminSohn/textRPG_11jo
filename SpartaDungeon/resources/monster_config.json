@@ -1,7 +1,7 @@
 {
   "Monster": [
     {
-      "Id" : 1,
+      "ID" : 1,
       "Name": "전사 미니언",
       "Level": 1,
       "FullHP": 30,
@@ -11,7 +11,7 @@
       "EvadeChance" : 0
     },
     {
-      "Id": 2,
+      "ID": 2,
       "Name": "마법사 미니언",
       "Level": 1,
       "FullHP": 20,
@@ -21,7 +21,7 @@
       "EvadeChance" : 0.1
     },
     {
-      "Id": 3,
+      "ID": 3,
       "Name": "대포 미니언",
       "Level": 1,
       "FullHP": 40,

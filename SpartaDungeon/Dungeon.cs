@@ -11,12 +11,21 @@ namespace SpartaDungeon
         private static Random random;
         private List<Monster> monsters;
 
-        public Dungeon(Player player, List<Monster> monsters)
+        public Dungeon(Player player)
         {
             this.player = player;
-            this.monsters = monsters;
             random = new Random();
 
+            //몬스터 데이터 불러오기
+            if (ConfigLoader.TryLoad<MonsterConfig>(@"..\..\..\resources/monster_config.json", out var monsterConfig))
+            {
+                monsters = monsterConfig.Monster;
+            }
+            else
+            {
+                Console.WriteLine("몬스터 데이터를 불러오지 못했습니다.");
+                Utils.Pause(false);
+            }
 
         }
 
