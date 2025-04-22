@@ -55,7 +55,7 @@ namespace SpartaDungeon
             }
         }
 
-        void PlayerAttackAction()
+        void PlayerAttackAction()       //플레이어 공격 액션
         {
             while (true)
             {
@@ -64,20 +64,32 @@ namespace SpartaDungeon
                 Console.WriteLine("Battle!");
                 Console.ResetColor();
                 ShowBattleInfo();
-
                 Console.WriteLine("\n0. 취소");
                 Console.WriteLine("\n대상을 선택해주세요.");
 
-                switch (Utils.GetPlayerInput())
+                int playerInput = Utils.GetPlayerInput();
+
+                if (playerInput > monsters.Length || playerInput == -1)   //잘못된 값 입력
                 {
-                    case 1:
-                        //DealDamage(player, monster);
-                        return;
-                    default:
-                        Console.WriteLine("잘못된 입력입니다.");
-                        Utils.Pause(false);
-                        continue;
+                    Console.WriteLine("잘못된 입력입니다.");
+                    Utils.Pause(false);
+                    continue;
                 }
+
+                else if (playerInput == 0)  //취소 선택
+                {
+                    return;
+                }
+
+                else if (monsters[playerInput - 1].IsDead)  //이미 죽은 몬스터 선택
+                {
+                    Console.WriteLine("이미 사망한 몬스터입니다.");
+                    Utils.Pause(false);
+                    continue;
+                }
+                DealDamage(player, monsters[playerInput - 1]);
+                Utils.Pause(true);
+                return;
             }
         }
 
@@ -123,7 +135,6 @@ namespace SpartaDungeon
             Console.WriteLine("\n\n[내정보]");
             Console.WriteLine($"Lv.{player.Level} {player.Name} ({player.Job})");
             Console.WriteLine($"HP {player.CurrentHP}/{player.FullHP}");
-
         }
 
         bool EveryMonsterIsDead()

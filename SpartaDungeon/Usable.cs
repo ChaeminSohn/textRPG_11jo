@@ -14,6 +14,7 @@ namespace SpartaDungeon
         public int Price => itemInfo.Price;
         public ItemType ItemType => itemInfo.ItemType;
         public bool IsForSale { get; private set; }   //판매 여부
+        public int itemCount { get; private set; } //아이템 개수
 
         public Usable(ItemInfo itemInfo)
         {
@@ -34,7 +35,7 @@ namespace SpartaDungeon
         {
 
         }
-        public void OnUse()
+        public void Use()
         {
 
         }

@@ -23,23 +23,6 @@ namespace SpartaDungeon
         {
             Items = new List<ITradable>(inventorySpace);
             EquippedItems = new Equipment[2];   //0 : 무기 1 :방어구
-            foreach (ITradable item in Items)
-            {
-                /*switch (item.ItemType)
-                {
-                    case ItemType.Equipment:  //장비 아이템
-                        Equipments.Add((Equipment)item);
-                        break;
-                    case ItemType.Usable:  //소비 아이템   
-                        Usables.Add((Usable)item);
-                        break;
-                    case ItemType.Other:  //기타 아이템  
-                        Usables.Add((OtherItem)item);
-                        break;
-                    default:
-                        break;
-                }*/
-            }
         }
 
         public void AddItem(ITradable item)  //인벤토리에 아이템 추가
@@ -54,6 +37,12 @@ namespace SpartaDungeon
                     {
                         EquippedItems[(int)equip.EquipType] = equip;
                     }
+                    break;
+                case ItemType.Usable:  //소비 아이템   
+                    Usables.Add((Usable)item);
+                    break;
+                case ItemType.Other:  //기타 아이템  
+                    Usables.Add((OtherItem)item);
                     break;
                 default:
                     break;

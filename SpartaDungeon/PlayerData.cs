@@ -14,10 +14,12 @@ namespace SpartaDungeon
         public int CurrentHP { get; set; }  //현재 체력
         public int BaseAttack { get; set; } //기본 공격력
         public int BaseDefense { get; set; }    //기본 방어력
+        public float CritChance { get; set; }   //치명타 확률
+        public float EvadeChance { get; set; }   //회피 확률
         public int Gold { get; set; }   //골드
 
         public PlayerData(string Name, Job job, int level, int maxLevel, int experience, int[] expThresholds,
-            int baseFullHP, int currentHP, int baseAttack, int baseDefense, int gold)
+            int baseFullHP, int currentHP, int baseAttack, int baseDefense, float critChance, float evadeChance, int gold)
         {
             this.Name = Name;
             Job = job;
@@ -29,6 +31,8 @@ namespace SpartaDungeon
             CurrentHP = currentHP;
             BaseAttack = baseAttack;
             BaseDefense = baseDefense;
+            CritChance = critChance;
+            EvadeChance = evadeChance;
             Gold = gold;
         }
     }
