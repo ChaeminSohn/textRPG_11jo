@@ -58,6 +58,16 @@ namespace SpartaDungeon
                 Console.WriteLine("아이템 데이터를 불러오지 못했습니다.");
                 Utils.Pause(false);
             }
+            //몬스터 데이터 불러오기
+            if (ConfigLoader.TryLoad<MonsterConfig>(@"..\..\..\resources/monster_config.json", out var monsterConfig))
+            {
+                monsterList = monsterConfig.Monster;
+            }
+            else
+            {
+                Console.WriteLine("몬스터 데이터를 불러오지 못했습니다.");
+                Utils.Pause(false);
+            }
 
             foreach (ItemInfo info in config.Items)    //아이템 정보를 통해 아이템 객체 생성
             {
@@ -88,7 +98,7 @@ namespace SpartaDungeon
             player = new Player(playerName, playerJob, inventory);
             player.OnPlayerDie += GameOver;
             shop = new Shop(player, itemList);
-            dungeon = new Dungeon(player);
+            dungeon = new Dungeon(player, monsterList);
 
             isGameOver = false;
         }
@@ -115,7 +125,7 @@ namespace SpartaDungeon
                 Utils.Pause(false);
                 return;
             }
-
+            //몬스터 데이터 불러오기
             if (ConfigLoader.TryLoad<MonsterConfig>(@"..\..\..\resources/monster_config.json", out var monsterConfig))
             {
                 monsterList = monsterConfig.Monster;
@@ -156,7 +166,7 @@ namespace SpartaDungeon
             player.RestoreAfterLoad();
             player.UpdatePlayerStats();
             shop = new Shop(player, itemList);
-            dungeon = new Dungeon(player);
+            dungeon = new Dungeon(player, monsterList);
             isGameOver = false;
         }
 
