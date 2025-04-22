@@ -45,7 +45,7 @@ namespace SpartaDungeon
         public event Action? OnPlayerDie; //플레이어 사망 이벤트
         public bool IsDead { get; private set; }
 
-        public Dictionary<int, int> monsterKillCounts = new Dictionary<int, int>(); // 몬스터 킬 카운트
+        public Dictionary<int, int> monsterKillCounts; // 몬스터 킬 카운트
 
         public Player(string name, Job job, Inventory inventory)    //새 게임 생성자
         {
@@ -57,6 +57,7 @@ namespace SpartaDungeon
             LoadDefaultData();
             inventory.OnEquipChanged += UpdatePlayerStats;
             IsDead = false;
+            monsterKillCounts = new Dictionary<int, int>();
         }
 
         public Player(PlayerData playerData, Inventory inventory)   //게임 불러오기 생성자
@@ -75,6 +76,7 @@ namespace SpartaDungeon
             CritChance = playerData.CritChance;
             EvadeChance = playerData.EvadeChance;
             Gold = playerData.Gold;
+            monsterKillCounts = playerData.MonsterKillCounts;
         }
 
         public void LoadDefaultData()

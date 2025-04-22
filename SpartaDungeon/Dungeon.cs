@@ -63,9 +63,6 @@ namespace SpartaDungeon
 
 
                         Utils.Pause(false);
-
-
-
                         break;
                 }
             }
@@ -81,13 +78,10 @@ namespace SpartaDungeon
         {
 
             List<Monster> allMonsters = monsters;
-
-
-
             List<Monster> selectedMonsters = new List<Monster>();
             Random rand = new Random();
 
-            int monsterCount = rand.Next(3, 5); // 3~5마리 랜덤 선택
+            int monsterCount = rand.Next(1, 2); // 3~5마리 랜덤 선택
 
             int monsterLevel = difficulty switch
             {
