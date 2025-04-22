@@ -352,6 +352,20 @@ namespace SpartaDungeon
             }
         }
 
+        public void ShowKillCount() // 킬 카운트 확인
+        {
+            Console.WriteLine("\n=== 처치 현황 ===");
+            foreach (var kv in player.monsterKillCounts)
+            {
+                var info = monsterList.FirstOrDefault(m => m.Id == kv.Key); // 키 확인
+                var name = info != null ? info.Name : $"ID:{kv.Key}"; // 이름 확인
+                Console.WriteLine($"{name} : {kv.Value}마리");
+            }
+
+            Utils.Pause(true);
+            Console.Clear();
+        }
+
         Job GetJobFromPlayer()    //직업 입력
         {
             while (true)

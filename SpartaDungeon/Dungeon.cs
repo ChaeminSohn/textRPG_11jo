@@ -88,7 +88,7 @@ namespace SpartaDungeon
                 Difficulty.Hard => 5,
                 _ => 3
             };
-            monsterCount = rand.Next(3, 5); // 3~5마리 랜덤 선택
+            monsterCount = rand.Next(1, 2); // 3~5마리 랜덤 선택
 
             int monsterLevel = difficulty switch
             {
@@ -102,9 +102,6 @@ namespace SpartaDungeon
             for (int i = 0; i < monsterCount; i++)
             {
                 int index = rand.Next(allMonsters.Count);
-
-                selectedMonsters.Add(allMonsters[index]);
-
                 Monster monster = allMonsters[index].Clone(); // 몬스터 복제
                 monster.Level = monsterLevel; // 난이도에 맞는 레벨 설정
                 selectedMonsters.Add(monster);

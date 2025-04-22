@@ -45,6 +45,8 @@ namespace SpartaDungeon
         public event Action? OnPlayerDie; //플레이어 사망 이벤트
         public bool IsDead { get; private set; }
 
+        public Dictionary<int, int> monsterKillCounts = new Dictionary<int, int>(); // 몬스터 킬 카운트
+
         public Player(string name, Job job, Inventory inventory)    //새 게임 생성자
         {
             Name = name;
@@ -227,7 +229,7 @@ namespace SpartaDungeon
         public PlayerData GetPlayerData()   //플레이어 데이터 추출
         {
             return new PlayerData(Name, Job, Level, MaxLevel, Experience, ExpThresholds, BaseFullHP, CurrentHP,
-                BaseAttack, BaseDefense, CritChance, EvadeChance, Gold);
+                BaseAttack, BaseDefense, CritChance, EvadeChance, Gold, monsterKillCounts);
         }
     }
 }

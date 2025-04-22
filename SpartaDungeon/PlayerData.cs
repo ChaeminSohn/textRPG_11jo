@@ -18,8 +18,10 @@ namespace SpartaDungeon
         public float EvadeChance { get; set; }   //회피 확률
         public int Gold { get; set; }   //골드
 
+        public Dictionary<int, int> MonsterKillCounts { get; set; }
+
         public PlayerData(string Name, Job job, int level, int maxLevel, int experience, int[] expThresholds,
-            int baseFullHP, int currentHP, int baseAttack, int baseDefense, float critChance, float evadeChance, int gold)
+            int baseFullHP, int currentHP, int baseAttack, int baseDefense, float critChance, float evadeChance, int gold, Dictionary<int, int> monsterKillCounts)
         {
             this.Name = Name;
             Job = job;
@@ -34,7 +36,10 @@ namespace SpartaDungeon
             CritChance = critChance;
             EvadeChance = evadeChance;
             Gold = gold;
+            MonsterKillCounts = monsterKillCounts;
         }
+
+
     }
 
 

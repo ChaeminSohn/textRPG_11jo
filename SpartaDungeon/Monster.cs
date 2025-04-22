@@ -11,6 +11,7 @@ namespace SpartaDungeon
     {
         private int level;
 
+        public int Id { get; set; }
         public string Name { get; set; }
         public int Level
         {
@@ -37,9 +38,10 @@ namespace SpartaDungeon
         private int defensePerLevel = 1;
 
        
-        public Monster(string name, int level, int fullHP,  int attack, int defense,
+        public Monster(int id, string name, int level, int fullHP,  int attack, int defense,
                         float critChance, float evadeChance)
         {
+            Id = id;
             Name = name;
             Level = level;
             FullHP = fullHP;
@@ -82,12 +84,8 @@ namespace SpartaDungeon
         public Monster Clone()
         {
             // Clone 시 레벨에 맞게 능력치 업데이트가 필요하므로, 새로 복사한 후 능력치 업데이트
-            Monster clone = new Monster(Name, Level, FullHP, Attack, Defense, CritChance, EvadeChance);
-           
-
+            Monster clone = new Monster(Id ,Name, Level, FullHP, Attack, Defense, CritChance, EvadeChance);
             return clone;
-
-
         }
     }
 }

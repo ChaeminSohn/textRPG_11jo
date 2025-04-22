@@ -150,14 +150,20 @@ namespace SpartaDungeon
             Console.WriteLine($"HP {player.CurrentHP}/{player.FullHP}");
         }
 
-        bool EveryMonsterIsDead()   //몬스터를 
+        bool EveryMonsterIsDead()   //몬스터가 다 죽었을 때
         {
             foreach (Monster monster in monsters)
             {
                 if (!monster.IsDead)
                 {
                     return false;
+
                 }
+
+                if (player.monsterKillCounts.ContainsKey(monster.Id))
+                    player.monsterKillCounts[monster.Id]++;
+                else
+                    player.monsterKillCounts[monster.Id] = 1;
             }
             return true;
         }
