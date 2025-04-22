@@ -9,6 +9,7 @@ namespace SpartaDungeon
     internal class OtherItem : ITradable    //기타 아이템
     {
         private ItemInfo itemInfo;
+        public int ID => itemInfo.ID;
         public string Name => itemInfo.Name;
 
         public string Description => itemInfo.Description;

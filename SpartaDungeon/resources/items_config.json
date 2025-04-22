@@ -1,6 +1,11 @@
 {
     "Items" :[
     {
+        "ID" : 0,
+        "Name" : "Gold",
+        "ItemCount" : 100
+     },
+    {
         "Name": "수련자 갑옷",
         "Description": "수련에 도움을 주는 갑옷입니다.",
         "Price": 1000,

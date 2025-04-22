@@ -14,6 +14,7 @@ namespace SpartaDungeon
     internal class Equipment : ITradable  //장비 아이템을 구현하는 클래스
     {
         private ItemInfo itemInfo;
+        public int ID => itemInfo.ID;
         public string Name => itemInfo.Name;
         public string Description => itemInfo.Description;
         public int Price => itemInfo.Price;
@@ -71,7 +72,7 @@ namespace SpartaDungeon
 
         public ItemInfo GetItemInfo()   //아이템 정보 추출
         {
-            return new ItemInfo(Name, ItemType, EquipType, Stat, StatValue, Description, Price, IsForSale, IsEquipped);
+            return new ItemInfo(ID, Name, ItemType, EquipType, Stat, StatValue, Description, Price, IsForSale, IsEquipped);
         }
         public void Equip()     //아이템 장착
         {
