@@ -181,8 +181,7 @@ namespace SpartaDungeon
             switch (Utils.GetPlayerInput())
             {
                 case 1:     //상태창 표시
-                    player.ShowPlayerInfo();
-                    Utils.Pause(true);
+                    ShowState();
                     Console.Clear();
                     break;
                 case 2:     //인벤토리 열기
@@ -352,8 +351,47 @@ namespace SpartaDungeon
             }
         }
 
+        public void ShowState() // 상태 창
+        {
+            while (true)
+            {
+                //상점 인터페이스 표시
+                Console.Clear();
+                Console.WriteLine("<상태 보기>");
+                Console.WriteLine("캐릭터의 정보가 표시됩니다.");
+
+                //플레이어 입력 받기
+                Console.WriteLine("\n1. 캐릭터 정보 ");
+                Console.WriteLine("2. 처치 현황");
+                Console.WriteLine("0. 나가기");
+                Console.Write("\n원하시는 행동을 입력해주세요.");
+                switch (Utils.GetPlayerInput())
+                {
+                    case 0:
+                        return;
+                    case 1:
+                        player.ShowPlayerInfo();
+                        Utils.Pause(true);
+                        break;
+                    case 2:
+                        ShowKillCount();
+                        Utils.Pause(true);
+                        break;
+                    default:
+                        Console.WriteLine("잘못된 입력입니다.");
+                        Utils.Pause(false);
+                        break;
+
+                }
+            }
+        }
+
+
         public void ShowKillCount() // 킬 카운트 확인
         {
+            Console.Clear();
+            Console.WriteLine("<상태 보기>");
+            Console.WriteLine("처치 현황이 표시됩니다.");
             Console.WriteLine("\n=== 처치 현황 ===");
             foreach (var kv in player.monsterKillCounts)
             {
@@ -362,8 +400,6 @@ namespace SpartaDungeon
                 Console.WriteLine($"{name} : {kv.Value}마리");
             }
 
-            Utils.Pause(true);
-            Console.Clear();
         }
 
         Job GetJobFromPlayer()    //직업 입력

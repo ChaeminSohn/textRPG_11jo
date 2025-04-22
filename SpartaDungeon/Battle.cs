@@ -1,3 +1,5 @@
+using System.Threading;
+
 namespace SpartaDungeon
 {
     internal class Battle
@@ -116,7 +118,10 @@ namespace SpartaDungeon
                 DealDamage(player, monsters[playerInput - 1]);
                 if (monsters[playerInput - 1].IsDead)
                 {
-                    killCount++;
+                    if (player.monsterKillCounts.ContainsKey(monsters[playerInput - 1].Id))
+                        player.monsterKillCounts[monsters[playerInput - 1].Id]++;
+                    else
+                        player.monsterKillCounts[monsters[playerInput - 1].Id] = 1;
                 }
                 Utils.Pause(true);
                 return;
@@ -181,9 +186,6 @@ namespace SpartaDungeon
             Console.WriteLine($"HP {player.CurrentHP}/{player.FullHP}");
         }
 
-
-        bool EveryMonsterIsDead()   //몬스터가 다 죽었을 때
-
         bool TryRun()       //도주 시도
         {
             Random rand = new Random();
@@ -205,11 +207,6 @@ namespace SpartaDungeon
                     return false;
 
                 }
-
-                if (player.monsterKillCounts.ContainsKey(monster.Id))
-                    player.monsterKillCounts[monster.Id]++;
-                else
-                    player.monsterKillCounts[monster.Id] = 1;
             }
             return true;
         }
