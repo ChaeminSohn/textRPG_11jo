@@ -8,8 +8,6 @@ namespace SpartaDungeon
         public List<ItemInfo> Usables { get; set; } = new List<ItemInfo>();  //소비 아이템 리스트
         public List<ItemInfo> Others { get; set; } = new List<ItemInfo>();  //기타 아이템 리스트
 
-        public List<Monster> Monsters { get; set; } = new List<Monster>();
-
         public ItemData(List<ItemInfo> items)
         {
             Items = items;
