@@ -118,7 +118,6 @@ namespace SpartaDungeon
             File.WriteAllText(savePath, json);
         }
 
-
         void LoadData()     //게임 불러오기
         {
             itemList = new List<ITradable>();
@@ -128,6 +127,17 @@ namespace SpartaDungeon
                 Utils.Pause(false);
                 return;
             }
+
+            if (ConfigLoader.TryLoad<MonsterConfig>(@"..\..\..\resources/monster_config.json", out var monsterConfig))
+            {
+                monsterList = monsterConfig.Monster;
+            }
+            else
+            {
+                Console.WriteLine("몬스터 데이터를 불러오지 못했습니다.");
+                Utils.Pause(false);
+            }
+
             inventory = new Inventory();
             foreach (ItemInfo info in config.ItemData)    //아이템 정보를 통해 객체화 실행
             {
