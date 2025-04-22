@@ -6,10 +6,19 @@ namespace SpartaDungeon
     internal class Dungeon
     {
         private Player player;
+<<<<<<< Updated upstream
 
         public Dungeon(Player player)
         {
             this.player = player;
+=======
+        private MonsterConfig monsterConfig;
+
+        public Dungeon(Player player, MonsterConfig monsterConfig)
+        {
+            this.player = player;
+            this.monsterConfig = monsterConfig;
+>>>>>>> Stashed changes
         }
 
         public void Enter()
@@ -43,7 +52,10 @@ namespace SpartaDungeon
                         return;
                     default:
                         Console.WriteLine("잘못된 입력입니다.");
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
                         break;
                 }
             }
@@ -52,7 +64,11 @@ namespace SpartaDungeon
         private void StartBattle(List<Monster> monsters)
         {
             Battle battle = new Battle(player, monsters.ToArray());
+<<<<<<< Updated upstream
             BattleResult result = battle.StartBattle();// 파일 받으면 수정 or 다시
+=======
+            BattleResult result = battle.StartBattle(); // 배틀 결과 받기
+>>>>>>> Stashed changes
 
             Console.Clear();
             result.DisplayResult(player);
@@ -65,6 +81,7 @@ namespace SpartaDungeon
 
         private List<Monster> GenerateMonsters(Difficulty difficulty)
         {
+<<<<<<< Updated upstream
             List<Monster> allMonsters = MonsterList.GetAllMonsters();// 파일 받으면 수정 or 다시
             List<Monster> selectedMonsters = new List<Monster>();
             Random rand = new Random();
@@ -75,12 +92,32 @@ namespace SpartaDungeon
                 Difficulty.Normal => 4,
                 Difficulty.Hard => 5,
                 _ => 3
+=======
+            List<Monster> allMonsters = monsterConfig.Monster; // MonsterConfig에서 몬스터 리스트 가져오기
+            List<Monster> selectedMonsters = new List<Monster>();
+            Random rand = new Random();
+
+            int monsterCount = rand.Next(3, 6); // 3~5마리 랜덤 선택
+
+            int monsterLevel = difficulty switch
+            {
+                Difficulty.Easy => 1,
+                Difficulty.Normal => 3,
+                Difficulty.Hard => 5,
+                _ => 1
+>>>>>>> Stashed changes
             };
 
             for (int i = 0; i < monsterCount; i++)
             {
                 int index = rand.Next(allMonsters.Count);
+<<<<<<< Updated upstream
                 selectedMonsters.Add(allMonsters[index].Clone());
+=======
+                Monster monster = allMonsters[index].Clone(); // 몬스터 복제
+                monster.Level = monsterLevel; // 난이도에 맞는 레벨 설정
+                selectedMonsters.Add(monster);
+>>>>>>> Stashed changes
             }
 
             return selectedMonsters;
