@@ -63,6 +63,7 @@ namespace SpartaDungeon
         {
             Inventory = inventory;
             Name = playerData.Name;
+            Job = playerData.Job;
             Level = playerData.Level;
             MaxLevel = playerData.MaxLevel;
             Experience = playerData.Experience;
@@ -71,6 +72,8 @@ namespace SpartaDungeon
             CurrentHP = playerData.CurrentHP;
             BaseAttack = playerData.BaseAttack;
             BaseDefense = playerData.BaseDefense;
+            CritChance = playerData.CritChance;
+            EvadeChance = playerData.EvadeChance;
             Gold = playerData.Gold;
         }
 
@@ -104,6 +107,8 @@ namespace SpartaDungeon
             CurrentHP = BaseFullHP;
             BaseAttack = defaultData.BaseAttack;
             BaseDefense = defaultData.BaseDefense;
+            CritChance = defaultData.CritChance;
+            EvadeChance = defaultData.EvadeChance;
             Gold = defaultData.Gold;
         }
 
@@ -163,7 +168,7 @@ namespace SpartaDungeon
         public void GetEXP(int exp)   //경험치 획득
         {
             Experience += exp;
-            if (Experience >= ExpThresholds[Level - 1])
+            while (Experience >= ExpThresholds[Level - 1])
             {
                 if (Level == MaxLevel)      //이미 만랩인 경우
                 {
@@ -221,6 +226,8 @@ namespace SpartaDungeon
             Console.WriteLine($"{Name} ({Utils.JobDisplayNames[Job]})");
             Console.WriteLine($"공격력 : {Attack}");
             Console.WriteLine($"방어력 : {Defense}");
+            Console.WriteLine($"치명타율 : {CritChance}");
+            Console.WriteLine($"회피율 : {EvadeChance}");
             Console.WriteLine($"체력 : {CurrentHP}/{FullHP}");
             Console.WriteLine($"Gold : {Gold} G");
         }

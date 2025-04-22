@@ -24,6 +24,8 @@ namespace SpartaDungeon
                 UpdateStats();    // 레벨이 바뀔 때마다 능력치 재계산
             }
         }
+
+
         public int FullHP { get; set; }
         public int CurrentHP { get; set; }
         public int Attack { get; set; }
@@ -31,14 +33,15 @@ namespace SpartaDungeon
         public bool IsDead { get; set; }
         public float CritChance { get; set; }
         public float EvadeChance { get; set; }
+        public int ExpReward { get; set; }  //처치 시 보상 경험치
 
         // 레벨당 증가량 설정
         private int hpPerLevel = 5;
         private float attackPerLevel = 0.5f;
         private int defensePerLevel = 1;
 
-       
-        public Monster(int id, string name, int level, int fullHP,  int attack, int defense,
+
+        public Monster(int id, string name, int level, int fullHP, int attack, int defense,
                         float critChance, float evadeChance)
         {
             Id = id;
@@ -48,8 +51,8 @@ namespace SpartaDungeon
             CurrentHP = FullHP;
             Attack = attack;
             Defense = defense;
-            this.CritChance = critChance;
-            this.EvadeChance = evadeChance;
+            CritChance = critChance;
+            EvadeChance = evadeChance;
             IsDead = false;
         }
 
@@ -84,7 +87,7 @@ namespace SpartaDungeon
         public Monster Clone()
         {
             // Clone 시 레벨에 맞게 능력치 업데이트가 필요하므로, 새로 복사한 후 능력치 업데이트
-            Monster clone = new Monster(Id ,Name, Level, FullHP, Attack, Defense, CritChance, EvadeChance);
+            Monster clone = new Monster(Id, Name, Level, FullHP, Attack, Defense, CritChance, EvadeChance);
             return clone;
         }
     }

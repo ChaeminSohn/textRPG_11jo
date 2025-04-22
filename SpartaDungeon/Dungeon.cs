@@ -11,12 +11,21 @@ namespace SpartaDungeon
         private static Random random;
         private List<Monster> monsters;
 
-        public Dungeon(Player player, List<Monster> monsters)
+        public Dungeon(Player player)
         {
             this.player = player;
-            this.monsters = monsters;
             random = new Random();
 
+            //몬스터 데이터 불러오기
+            if (ConfigLoader.TryLoad<MonsterConfig>(@"..\..\..\resources/monster_config.json", out var monsterConfig))
+            {
+                monsters = monsterConfig.Monster;
+            }
+            else
+            {
+                Console.WriteLine("몬스터 데이터를 불러오지 못했습니다.");
+                Utils.Pause(false);
+            }
 
         }
 
@@ -66,13 +75,6 @@ namespace SpartaDungeon
         {
             Battle battle = new Battle(player, monsters.ToArray());
             battle.StartBattle();
-
-            Console.Clear();
-
-            while (Utils.GetPlayerInput() != 0)
-            {
-                Console.WriteLine("0번을 눌러 다음으로 진행하세요.");
-            }
         }
 
         private List<Monster> GenerateMonsters(Difficulty difficulty)
@@ -80,7 +82,7 @@ namespace SpartaDungeon
 
             List<Monster> allMonsters = monsters;
 
-          
+
 
             List<Monster> selectedMonsters = new List<Monster>();
             Random rand = new Random();
