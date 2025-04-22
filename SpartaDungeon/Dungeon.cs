@@ -6,6 +6,8 @@ namespace SpartaDungeon
     internal class Dungeon
     {
         private Player player;
+
+
         private static Random random;
         private List<Monster> monsters;
 
@@ -14,6 +16,8 @@ namespace SpartaDungeon
             this.player = player;
             this.monsters = monsters;
             random = new Random();
+
+
         }
 
         public void Enter()
@@ -47,6 +51,12 @@ namespace SpartaDungeon
                         return;
                     default:
                         Console.WriteLine("잘못된 입력입니다.");
+
+
+                        Utils.Pause(false);
+
+
+
                         break;
                 }
             }
@@ -67,7 +77,11 @@ namespace SpartaDungeon
 
         private List<Monster> GenerateMonsters(Difficulty difficulty)
         {
+
             List<Monster> allMonsters = monsters;
+
+          
+
             List<Monster> selectedMonsters = new List<Monster>();
             Random rand = new Random();
 
@@ -88,7 +102,6 @@ namespace SpartaDungeon
                 monster.Level = monsterLevel; // 난이도에 맞는 레벨 설정
                 selectedMonsters.Add(monster);
             }
-
             return selectedMonsters;
         }
     }

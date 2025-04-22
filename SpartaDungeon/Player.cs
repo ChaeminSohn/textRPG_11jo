@@ -103,7 +103,6 @@ namespace SpartaDungeon
             BaseAttack = defaultData.BaseAttack;
             BaseDefense = defaultData.BaseDefense;
             Gold = defaultData.Gold;
-
         }
 
         public void RestoreAfterLoad()  //게임 불러오기 후 실행
