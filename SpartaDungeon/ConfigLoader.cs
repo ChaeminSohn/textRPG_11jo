@@ -20,7 +20,7 @@ namespace SpartaDungeon
             catch (Exception ex)
             {
                 Console.WriteLine($"게임 데이터 로드 중 오류 발생: {ex.Message}");
-                result = default(T);
+                result = default;
                 return false;
             }
         }

@@ -12,7 +12,8 @@ namespace SpartaDungeon
         private int level;
 
         public string Name { get; set; }
-        public int Level {
+        public int Level
+        {
             get => level;
             set
             {
@@ -27,8 +28,8 @@ namespace SpartaDungeon
         public int Attack { get; set; }
         public int Defense { get; set; }
         public bool IsDead { get; set; }
-        public float critChance { get; set; }
-        public float evadeChance { get; set; }
+        public float CritChance { get; set; }
+        public float EvadeChance { get; set; }
 
         // 레벨당 증가량 설정
         private int hpPerLevel = 5;
@@ -44,8 +45,8 @@ namespace SpartaDungeon
             CurrentHP = currentHP;
             Attack = attack;
             Defense = defense;
-            this.critChance = critChance;
-            this.evadeChance = evadeChance;
+            this.CritChance = critChance;
+            this.EvadeChance = evadeChance;
             IsDead = false;
         }
 
