@@ -4,6 +4,8 @@ namespace SpartaDungeon
     {
         Player player;  //플레이어
         Monster[] monsters;  //몬스터들
+        int killCount = 0;  //처치한 몬스터 수
+        bool isPlayerRun = false;   //도망가기 옵션
         public Battle(Player player, Monster[] monsters)
         {
             this.player = player;
@@ -16,7 +18,7 @@ namespace SpartaDungeon
             while (true)
             {
                 MyTurnAction();
-                if (EveryMonsterIsDead())
+                if (EveryMonsterIsDead() || isPlayerRun)
                 {
                     break;
                 }
@@ -31,14 +33,14 @@ namespace SpartaDungeon
             Console.WriteLine("Battle!! - Result\n");
             if (!player.IsDead)
             {
-                Console.WriteLine("Victory");
-                Console.WriteLine($"\n던전에서 몬스터 {monsters.Length}마리를 잡았습니다.");
+                Console.WriteLine($"{(isPlayerRun ? "도망쳤습니다." : "승리!")}");
+                Console.WriteLine($"\n던전에서 몬스터 {killCount}마리를 잡았습니다.");
                 Console.WriteLine($"Lv.{player.Level} {player.Name}");
                 Console.WriteLine($"HP {startHP} -> {player.CurrentHP}");
             }
             else
             {
-                Console.WriteLine("You Lose");
+                Console.WriteLine("패배!");
                 Console.WriteLine($"Lv.{player.Level} {player.Name}");
                 Console.WriteLine($"HP {startHP} -> 0");
             }
@@ -57,11 +59,17 @@ namespace SpartaDungeon
                 ShowBattleInfo();
 
                 Console.WriteLine("\n1. 공격");
+                Console.WriteLine("\n0. 도망가기");
 
                 Console.Write("\n원하시는 행동을 입력해주세요.");
 
                 switch (Utils.GetPlayerInput())
                 {
+                    case 0:     //도망 시도
+                        isPlayerRun = TryRun();
+                        Console.WriteLine($"\n{(isPlayerRun ? "도망 성공" : "도망 실패")}");
+                        Utils.Pause(false);
+                        return;
                     case 1:
                         PlayerAttackAction();
                         return;
@@ -106,6 +114,10 @@ namespace SpartaDungeon
                     continue;
                 }
                 DealDamage(player, monsters[playerInput - 1]);
+                if (monsters[playerInput - 1].IsDead)
+                {
+                    killCount++;
+                }
                 Utils.Pause(true);
                 return;
             }
@@ -162,13 +174,24 @@ namespace SpartaDungeon
             //몬스터 정보 표시
             for (int i = 0; i < monsters.Length; i++)
             {
-                Console.WriteLine($"Lv{monsters[i].Level} {monsters[i].Name}   {(monsters[i].IsDead ? "Dead" : monsters[i].CurrentHP)}");
+                Console.WriteLine($"{i + 1}. Lv{monsters[i].Level} {monsters[i].Name}   {(monsters[i].IsDead ? "Dead" : monsters[i].CurrentHP)}");
             }
             Console.WriteLine("\n\n[내정보]");
             Console.WriteLine($"Lv.{player.Level} {player.Name} ({player.Job})");
             Console.WriteLine($"HP {player.CurrentHP}/{player.FullHP}");
         }
 
+        bool TryRun()       //도주 시도
+        {
+            Random rand = new Random();
+
+            //도망 성공률은 플레이어의 회피율 영향을 받음
+            if (rand.NextDouble() < 0.4f + player.EvadeChance)
+            {
+                return true;
+            }
+            return false;
+        }
         bool EveryMonsterIsDead()   //몬스터를 
         {
             foreach (Monster monster in monsters)

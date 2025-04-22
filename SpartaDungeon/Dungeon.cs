@@ -20,7 +20,6 @@ namespace SpartaDungeon
         {
             this.player = player;
             this.monsters = monsters;
-
         }
 
         public void Enter()
@@ -67,7 +66,7 @@ namespace SpartaDungeon
             Battle battle = new Battle(player, monsters.ToArray());
 
             //BattleResult result = battle.StartBattle();// 파일 받으면 수정 or 다시
-
+            battle.StartBattle();
             //BattleResult result = battle.StartBattle(); // 배틀 결과 받기
 
 
@@ -82,7 +81,6 @@ namespace SpartaDungeon
 
         private List<Monster> GenerateMonsters(Difficulty difficulty)
         {
-
             List<Monster> allMonsters = monsters;// 파일 받으면 수정 or 다시
             List<Monster> selectedMonsters = new List<Monster>();
             Random rand = new Random();
@@ -116,7 +114,6 @@ namespace SpartaDungeon
                 selectedMonsters.Add(monster);
 
             }
-
             return selectedMonsters;
         }
     }
