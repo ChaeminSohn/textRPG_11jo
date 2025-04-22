@@ -99,7 +99,7 @@ namespace SpartaDungeon
             player = new Player(playerName, playerJob, inventory);
             player.OnPlayerDie += GameOver;
             shop = new Shop(player, itemList);
-            dungeon = new Dungeon(monsterList);
+            dungeon = new Dungeon(player, monsterList);
             isGameOver = false;
         }
 
@@ -158,7 +158,7 @@ namespace SpartaDungeon
             player.RestoreAfterLoad();
             player.UpdatePlayerStats();
             shop = new Shop(player, itemList);
-            dungeon = new Dungeon(monsterList);
+            dungeon = new Dungeon(player, monsterList);
             isGameOver = false;
         }
 
@@ -191,7 +191,7 @@ namespace SpartaDungeon
                     shop.ShowShop();
                     break;
                 case 4:     //던전 입장
-                    dungeon.DungeonAction(player);
+                    dungeon.Enter();
                     break;
                 case 5:     //휴식하기
                     RestAction();
