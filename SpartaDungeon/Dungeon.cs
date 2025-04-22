@@ -7,6 +7,7 @@ namespace SpartaDungeon
     {
         private Player player;
 
+
         private static Random random;
         private List<Monster> monsters;
 
@@ -15,6 +16,7 @@ namespace SpartaDungeon
             this.player = player;
             this.monsters = monsters;
             random = new Random();
+
 
         }
 
@@ -49,7 +51,10 @@ namespace SpartaDungeon
                         return;
                     default:
                         Console.WriteLine("잘못된 입력입니다.");
+
+
                         Utils.Pause(false);
+
 
 
                         break;
@@ -60,14 +65,9 @@ namespace SpartaDungeon
         private void StartBattle(List<Monster> monsters)
         {
             Battle battle = new Battle(player, monsters.ToArray());
-
-            //BattleResult result = battle.StartBattle();// 파일 받으면 수정 or 다시
             battle.StartBattle();
-            //BattleResult result = battle.StartBattle(); // 배틀 결과 받기
-
 
             Console.Clear();
-            //result.DisplayResult(player);
 
             while (Utils.GetPlayerInput() != 0)
             {
@@ -77,18 +77,15 @@ namespace SpartaDungeon
 
         private List<Monster> GenerateMonsters(Difficulty difficulty)
         {
-            List<Monster> allMonsters = monsters;// 파일 받으면 수정 or 다시
+
+            List<Monster> allMonsters = monsters;
+
+          
+
             List<Monster> selectedMonsters = new List<Monster>();
             Random rand = new Random();
 
-            int monsterCount = difficulty switch
-            {
-                Difficulty.Easy => 3,
-                Difficulty.Normal => 4,
-                Difficulty.Hard => 5,
-                _ => 3
-            };
-            monsterCount = rand.Next(1, 2); // 3~5마리 랜덤 선택
+            int monsterCount = rand.Next(3, 5); // 3~5마리 랜덤 선택
 
             int monsterLevel = difficulty switch
             {
@@ -96,7 +93,6 @@ namespace SpartaDungeon
                 Difficulty.Normal => 3,
                 Difficulty.Hard => 5,
                 _ => 1
-
             };
 
             for (int i = 0; i < monsterCount; i++)
@@ -105,12 +101,10 @@ namespace SpartaDungeon
                 Monster monster = allMonsters[index].Clone(); // 몬스터 복제
                 monster.Level = monsterLevel; // 난이도에 맞는 레벨 설정
                 selectedMonsters.Add(monster);
-
             }
             return selectedMonsters;
         }
     }
-
     public enum Difficulty
     {
         Easy,
