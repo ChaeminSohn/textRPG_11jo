@@ -6,21 +6,15 @@ namespace SpartaDungeon
     internal class Dungeon
     {
         private Player player;
-
-        //권장 방어력
-        public int[] DefenseLevel { get; private set; } = { 5, 10, 20 };
-        //보상 골드
-        public int[] GoldReward { get; private set; } = { 1000, 1700, 2500 };
-        //보상 경험치
-        public int[] ExpAward { get; private set; } = { 1, 2, 3 };
-        private static Random rand = new Random();
+        
+        private static Random random;
         private List<Monster> monsters;
 
         public Dungeon(Player player, List<Monster> monsters)
         {
             this.player = player;
             this.monsters = monsters;
-
+            random= new Random();
         }
 
         public void Enter()
@@ -67,7 +61,7 @@ namespace SpartaDungeon
             Battle battle = new Battle(player, monsters.ToArray());
 
             //BattleResult result = battle.StartBattle();// 파일 받으면 수정 or 다시
-
+            battle.StartBattle();
             //BattleResult result = battle.StartBattle(); // 배틀 결과 받기
 
 
