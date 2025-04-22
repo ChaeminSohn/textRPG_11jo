@@ -33,7 +33,7 @@ namespace SpartaDungeon
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("Battle!");
+                Console.WriteLine("Battle!\n");
                 Console.ResetColor();
                 ShowBattleInfo();
 
@@ -61,7 +61,7 @@ namespace SpartaDungeon
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("Battle!");
+                Console.WriteLine("Battle!\n");
                 Console.ResetColor();
                 ShowBattleInfo();
                 Console.WriteLine("\n0. 취소");
@@ -118,26 +118,22 @@ namespace SpartaDungeon
             Console.WriteLine($"\n\nLv.{attacker.Level} {attacker.Name} 의 공격!");
             Console.WriteLine($"Lv.{defender.Level} {player.Name} 을(를) 맞췄습니다.");
             Console.WriteLine($"\nLv.{defender.Level} {player.Name}");
-
-            if (defender.IsDead)
-            {
-                Console.WriteLine($"HP {currentHP}-> Dead");
-            }
-            else
-            {
-                Console.WriteLine($"HP {currentHP}-> {defender.CurrentHP}");
-            }
+            Console.WriteLine($"HP {currentHP} -> {(defender.IsDead ? "Dead" : defender.CurrentHP)}");
         }
 
         void ShowBattleInfo()   //몬스터, 플레이어 정보 표시
         {
             //몬스터 정보 표시
+            for (int i = 0; i < monsters.Length; i++)
+            {
+                Console.WriteLine($"Lv{monsters[i].Level} {monsters[i].Name}   {(monsters[i].IsDead ? "Dead" : monsters[i].CurrentHP)}");
+            }
             Console.WriteLine("\n\n[내정보]");
             Console.WriteLine($"Lv.{player.Level} {player.Name} ({player.Job})");
             Console.WriteLine($"HP {player.CurrentHP}/{player.FullHP}");
         }
 
-        bool EveryMonsterIsDead()
+        bool EveryMonsterIsDead()   //몬스터를 
         {
             foreach (Monster monster in monsters)
             {
