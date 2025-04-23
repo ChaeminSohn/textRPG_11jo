@@ -111,7 +111,6 @@ namespace SpartaDungeon
 
                 int input = Utils.GetPlayerInput();
 
-<
                 
 
                 if (input == 6 && stageCleared.Values.All(x => x))
@@ -316,7 +315,7 @@ namespace SpartaDungeon
             if (boss == null)
             {
              
-=            Console.WriteLine($"[경고] 보스는 휴가중");
+             Console.WriteLine($"[경고] 보스는 휴가중");
 
                 boss = monsters.First();
             }
