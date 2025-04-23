@@ -27,10 +27,6 @@ namespace SpartaDungeon
 
         public void AddItem(ITradable item)  //인벤토리에 아이템 추가
         {
-            if (item.ID == 0)    //메소
-            {
-
-            }
             Items.Add(item);
             switch (item.ItemType)   //아이템 분류 과정
             {
@@ -43,10 +39,26 @@ namespace SpartaDungeon
                     }
                     break;
                 case ItemType.Usable:  //소비 아이템   
-                    Usables.Add((Usable)item);
+                    ITradable? existingUsable = Usables.FirstOrDefault(aaa => aaa.ID == item.ID);
+                    if (existingUsable != null)   //아이템이 원래 인벤토리에 존재하는 경우
+                    {
+                        ((Usable)existingUsable).ChangeItemCount(((Usable)item).ItemCount);
+                    }
+                    else
+                    {
+                        Usables.Add((Usable)item);
+                    }
                     break;
                 case ItemType.Other:  //기타 아이템  
-                    Usables.Add((OtherItem)item);
+                    ITradable? existingOther = Others.FirstOrDefault(aaa => aaa.ID == item.ID);
+                    if (existingOther != null)   //아이템이 원래 인벤토리에 존재하는 경우
+                    {
+                        ((Usable)existingOther).ChangeItemCount(((OtherItem)item).ItemCount);
+                    }
+                    else
+                    {
+                        Others.Add((Usable)item);
+                    }
                     break;
                 default:
                     break;

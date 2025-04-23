@@ -179,19 +179,6 @@ namespace SpartaDungeon
         {
             Meso += meso;
         }
-        public void BuyItem(ITradable item)
-        {
-            ChangeMeso(-item.Price);
-            item.OnTrade();
-            Inventory.AddItem(item);
-        }
-
-        public void SellItem(ITradable item, int meso)
-        {
-            ChangeMeso(meso);
-            item.OnTrade();
-            Inventory.RemoveItem(item);
-        }
 
         public void ShowInventory()
         {
@@ -228,7 +215,7 @@ namespace SpartaDungeon
             }
         }
 
-        private void InitializeSkills() 
+        private void InitializeSkills()
         {
             switch (Job)
             {

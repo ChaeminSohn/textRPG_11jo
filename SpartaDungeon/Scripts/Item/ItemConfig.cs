@@ -14,5 +14,7 @@ namespace SpartaDungeon
     public List<ItemInfo> Equipments { get; set; } = new List<ItemInfo>();  //장비 아이템 리스트
     public List<ItemInfo> Usables { get; set; } = new List<ItemInfo>();  //소비 아이템 리스트
     public List<ItemInfo> Others { get; set; } = new List<ItemInfo>();  //기타 아이템 리스트
+
+    public List<ItemInfo> ShopItems { get; set; } = new List<ItemInfo>(); //상점 아이템 리스트
   }
 }
