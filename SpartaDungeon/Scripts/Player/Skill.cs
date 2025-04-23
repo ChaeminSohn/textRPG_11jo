@@ -14,21 +14,23 @@ namespace SpartaDungeon
         public string Description { get; protected set; }
         public int MP { get; protected set; }
 
-        public Skill(string name, string description, int mp)
+        public int Damage { get; private set; }
+
+        public Skill(string name, string description, int mp, int damage)
         {
             Name = name;
             Description = description;
             MP = mp;
+            Damage = damage;
         }
 
-        protected abstract void Activate(Player player, Monster target);
     }
 
     // 스킬을 직업 별로 구분
     public abstract class WarriorSkill : Skill
     {
-        protected WarriorSkill(string name, string description, int mp)
-            : base(name, description, mp) { }
+        protected WarriorSkill(string name, string description, int mp, int damage)
+            : base(name, description, mp, damage) { }
     }
 
 }

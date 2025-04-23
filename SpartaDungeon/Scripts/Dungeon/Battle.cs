@@ -107,7 +107,7 @@ namespace SpartaDungeon
                         Utils.Pause(false);
                         return;
                     case 1:
-                        PlayerAttackAction();
+                        PlayerAttackAction(-1);
                         return;
                     case 2:
                         PlayerSkillAction();
@@ -120,8 +120,10 @@ namespace SpartaDungeon
             }
         }
 
-        void PlayerAttackAction() //플레이어 공격 액션
+        void PlayerAttackAction(int skillNum) //플레이어 공격 액션
         {
+            bool isSkill = skillNum > -1 ? true : false;
+
             while (true)
             {
                 Console.Clear();
@@ -129,6 +131,7 @@ namespace SpartaDungeon
                 Console.WriteLine("Battle!\n");
                 Console.ResetColor();
                 ShowBattleInfo();
+                if (isSkill == true) Console.WriteLine($"\n[스킬] \n {player.Skills[skillNum].Name} : {player.Skills[skillNum].Description}");
                 Console.WriteLine("\n0. 취소");
                 Console.WriteLine("\n대상을 선택해주세요.");
 
@@ -152,7 +155,7 @@ namespace SpartaDungeon
                 }
                 else
                 {
-                    DealDamage(player, monsters[playerInput - 1], false, 0);
+                    DealDamage(player, monsters[playerInput - 1], isSkill, skillNum);
                     MonsterDead(playerInput);
                     Utils.Pause(true);
                     return;
@@ -171,7 +174,7 @@ namespace SpartaDungeon
                 ShowBattleInfo();
                 player.ShowSkillList();
                 Console.WriteLine("\n0. 취소");
-                Console.WriteLine("\n대상을 선택해주세요.");
+                Console.WriteLine("\n스킬을 선택해주세요.");
 
                 int skillNumInput = Utils.GetPlayerInput();
 
@@ -187,9 +190,7 @@ namespace SpartaDungeon
                 }
                 else
                 {
-                    DealDamage(player, monsters[skillNumInput - 1], false, skillNumInput - 1);
-                    MonsterDead(skillNumInput);
-                    Utils.Pause(true);
+                    PlayerAttackAction(skillNumInput - 1);
                     return;
                 }
             }
@@ -228,7 +229,7 @@ namespace SpartaDungeon
         void DealDamage(IBattleUnit attacker, IBattleUnit defender, bool isSkill, int skillNum) //데미지 처리 과정
         {
             Random rand = new Random();
-
+            int baseDamage; // 데미지
             Console.WriteLine($"\n\nLv.{attacker.Level} {attacker.Name} 의 공격!");
 
             if (rand.NextDouble() < defender.EvadeChance)   //회피 판정
@@ -238,14 +239,26 @@ namespace SpartaDungeon
             }
 
             int currentHP = defender.CurrentHP;     //피격자의 현재 체력
-            int damageVariance = (int)(attacker.Attack * 0.1);
+            int damageVariance = (int)(attacker.Attack * 0.1); // 데미지 편차
+
             bool isCritical = rand.NextDouble() < attacker.CritChance;  //치명타 판정
-            int baseDamage = rand.Next(attacker.Attack - damageVariance, attacker.Attack + damageVariance + 1);
+            if (isSkill == false) baseDamage = rand.Next(attacker.Attack - damageVariance, attacker.Attack + damageVariance + 1); // 기본 공격 데미지
+            else // 스킬 데미지
+            {
+                int skillDamage = player.Skills[skillNum].Damage + attacker.Attack;
+                baseDamage = rand.Next(skillDamage - damageVariance, skillDamage + damageVariance + 1);
+            }
+
             int finalDamage = isCritical ? (int)(baseDamage * 1.5f) : baseDamage;   //최종 데미지
 
             defender.OnDamage(finalDamage); //데미지 처리
 
-            Console.WriteLine($"Lv.{defender.Level} {defender.Name} 을(를) 맞췄습니다.");
+            if (isSkill == false) Console.WriteLine($"Lv.{defender.Level} {defender.Name} 을(를) 맞췄습니다."); // 기본 공격
+            else
+            {
+                Console.WriteLine($"[스킬] : {player.Skills[skillNum].Name}");
+                Console.WriteLine($"Lv.{defender.Level} {defender.Name} 을(를) 맞췄습니다.");
+            }
 
             if (isCritical)
             {
