@@ -193,7 +193,7 @@ namespace SpartaDungeon
             }
 
             
-            var filtered = monsters.Where(mon => mon.ID() >= minId && mon.ID() <= maxId).ToList();
+            var filtered = monsters.Where(mon => mon.Id >= minId && mon.Id <= maxId).ToList();
             return filtered.Count > 0 ? filtered : monsters;
         }
 
