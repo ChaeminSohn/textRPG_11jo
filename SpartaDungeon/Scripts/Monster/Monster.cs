@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace SpartaDungeon
 {
-    [Serializable]
     public class Monster : IBattleUnit
     {
         private int level = 1;
@@ -33,14 +33,15 @@ namespace SpartaDungeon
         public float CritChance { get; set; }
         public float EvadeChance { get; set; }
         public int ExpReward { get; set; }  //처치 시 보상 경험치
-        public List<DropTableEntry> Drops { get; set; } //아이템 드랍 테이블
+        public int GoldReward { get; set; }   //처치 시 골드 보상
+        public List<DropTableEntry> Drops { get; set; } = new List<DropTableEntry>();  //아이템 드랍 테이블
 
         // 레벨당 증가량 설정
         private int hpPerLevel = 5;
         private float attackPerLevel = 0.5f;
         private int defensePerLevel = 1;
 
-
+        [JsonConstructor]
         public Monster(int id, string name, int level, int fullHP, int attack, int defense,
                         float critChance, float evadeChance, List<DropTableEntry> drops)
         {

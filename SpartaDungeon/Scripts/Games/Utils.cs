@@ -63,8 +63,6 @@ namespace SpartaDungeon
                     int quantity = rand.Next(entry.MinQuantity, entry.MaxQuantity);
                     for (int i = 0; i < quantity; i++)
                     {
-                        Console.WriteLine(entry.ItemID);
-                        Utils.Pause(false);
                         droppedItems.Add(ItemDataBase.ItemInfoDict[entry.ItemID]);
                     }
                 }

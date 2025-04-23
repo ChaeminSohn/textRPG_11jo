@@ -70,8 +70,6 @@ namespace SpartaDungeon
                         itemCounts[itemInfo.Name] = 1;
                     }
                     player.Inventory.AddItem(ItemFactory.CreateItem(itemInfo));
-
-                    Utils.Pause(false);
                 }
             }
             Console.Clear();
