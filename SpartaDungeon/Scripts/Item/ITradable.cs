@@ -20,7 +20,8 @@ namespace SpartaDungeon
         String Description { get; }
         int Price { get; }
         ItemType ItemType { get; }
-        bool IsForSale { get; }
+        bool IsShopItem { get; }    //상점에서 판매하는가?
+        bool IsSoldOut { get; }     //품절 상태인가?
         public void ShowInfo(bool ShowPrice);
         public void OnTrade();
         public ItemInfo GetItemInfo();

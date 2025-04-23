@@ -1,5 +1,4 @@
-{
-    "Items" :[
+[
     {
         "ID" : 0,
         "Name" : "Gold",
@@ -13,6 +12,7 @@
         "EquipType": "Armor",
         "Stat": "Defense",
         "StatValue": 5,
+        "IsShopItem" : true,
         "IsForSale" : true,
         "IsEquipped" : false
     },
@@ -24,6 +24,7 @@
         "EquipType": "Armor",
         "Stat": "Defense",
         "StatValue": 9,
+        "IsShopItem" : true,
         "IsForSale" : true,
         "IsEquipped" : false
     },
@@ -35,6 +36,7 @@
         "EquipType": "Armor",
         "Stat": "Defense",
         "StatValue": 15,
+        "IsShopItem" : true,
         "IsForSale" : true,
         "IsEquipped" : false
     },
@@ -46,6 +48,7 @@
         "EquipType": "Weapon",
         "Stat": "Attack",
         "StatValue": 2,
+        "IsShopItem" : true,
         "IsForSale" : true,
         "IsEquipped" : false
     },
@@ -57,6 +60,7 @@
         "EquipType": "Weapon",
         "Stat": "Attack",
         "StatValue": 5,
+        "IsShopItem" : true,
         "IsForSale" : true,
         "IsEquipped" : false
     },
@@ -68,6 +72,7 @@
         "EquipType": "Weapon",
         "Stat": "Attack",
         "StatValue": 7,
+        "IsShopItem" : true,
         "IsForSale" : true,
         "IsEquipped" : false
     },
@@ -79,9 +84,10 @@
         "EquipType": "Weapon",
         "Stat": "Attack",
         "StatValue": 15,
+        "IsShopItem" : true,
         "IsForSale" : true,
         "IsEquipped" : false
     }
+
 ]
-}
 

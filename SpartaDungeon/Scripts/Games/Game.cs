@@ -15,8 +15,6 @@ namespace SpartaDungeon
         Player player;
         Shop shop;
         Dungeon dungeon;
-        List<ITradable> itemList = new List<ITradable>();   //모든 아이템의 객체를 담는 리스트
-        List<ItemInfo> itemDatas = new List<ItemInfo>();  //모든 아이템의 정보를 담는 리스트
         string folderPath = @"..\..\..\resources";
         bool isGameOver;
         string savePath;//저장 파일 경로
@@ -26,6 +24,7 @@ namespace SpartaDungeon
         {
             savePath = Path.Combine(folderPath, "saveData.json");
             ItemDataBase.Load(@"..\..\..\resources/items_config.json");
+
             if (File.Exists(savePath))  //세이브 파일이 존재할 경우
             {
                 Console.Clear();
@@ -52,13 +51,6 @@ namespace SpartaDungeon
         }
         void NewGameSetting()   //새로운 게임 설정
         {
-            itemList = new List<ITradable>();
-            //아이템 데이터 불러오기
-            if (!ConfigLoader.TryLoad<ItemConfig>(@"..\..\..\resources/items_config.json", out var config))
-            {
-                Console.WriteLine("아이템 데이터를 불러오지 못했습니다.");
-                Utils.Pause(false);
-            }
             //몬스터 데이터 불러오기
             if (ConfigLoader.TryLoad<MonsterConfig>(@"..\..\..\resources/monster_config.json", out var monsterConfig))
             {
@@ -70,27 +62,6 @@ namespace SpartaDungeon
                 Utils.Pause(false);
             }
 
-            foreach (ItemInfo info in config.Items)    //아이템 정보를 통해 아이템 객체 생성
-            {
-                ITradable instance;
-                switch (info.ItemType)
-                {
-                    case ItemType.Equipment:      //장비 아이템
-                        instance = new Equipment(info);
-                        break;
-                    case ItemType.Usable:       //소비 아이템
-                        instance = new Usable(info);
-                        break;
-                    case ItemType.Other:        //기타 아이템
-                        instance = new OtherItem(info);
-                        break;
-                    default:
-                        instance = new OtherItem(info);
-                        break;
-                }
-                itemList.Add(instance);
-            }
-
             string playerName = GetNameFromPlayer(); ;
             Job playerJob = GetJobFromPlayer(); ;
 
@@ -98,7 +69,7 @@ namespace SpartaDungeon
 
             player = new Player(playerName, playerJob, inventory);
             player.OnPlayerDie += GameOver;
-            shop = new Shop(player, itemList);
+            shop = new Shop(player);
             dungeon = new Dungeon(player, monsterList);
 
             isGameOver = false;
@@ -106,20 +77,26 @@ namespace SpartaDungeon
 
         void SaveData()     //게임 저장
         {
-            itemDatas = new List<ItemInfo>();
-            foreach (ITradable item in itemList)
-            {
-                itemDatas.Add(item.GetItemInfo());
-            }
-            GameSaveData gameSaveData = new GameSaveData(player.GetPlayerData(), itemDatas);
+            List<ItemInfo> inventoryItemData = new List<ItemInfo>();
+            List<ItemInfo> shopItemData = new List<ItemInfo>();
 
+            foreach (ITradable item in inventory.Items)
+            {
+                inventoryItemData.Add(item.GetItemInfo());
+            }
+            foreach (ITradable item in shop.Items)
+            {
+                inventoryItemData.Add(item.GetItemInfo());
+            }
+
+            GameSaveData gameSaveData = new GameSaveData(player.GetPlayerData(), inventoryItemData, shopItemData);
             string json = JsonSerializer.Serialize(gameSaveData);
             File.WriteAllText(savePath, json);
         }
 
         void LoadData()     //게임 불러오기
         {
-            itemList = new List<ITradable>();
+
             if (!ConfigLoader.TryLoad<GameSaveData>(savePath, out var config))
             {
                 Console.WriteLine("저장 데이터 불러오기 실패");
@@ -136,32 +113,17 @@ namespace SpartaDungeon
                 Console.WriteLine("몬스터 데이터를 불러오지 못했습니다.");
                 Utils.Pause(false);
             }
-
             inventory = new Inventory();
-            foreach (ItemInfo info in config.ItemData)    //아이템 정보를 통해 객체화 실행
+            foreach (ItemInfo info in config.InventoryItemData)    //아이템 정보를 통해 객체화 실행
             {
-                ITradable instance;
-                switch (info.ItemType)
-                {
-                    case ItemType.Equipment:      //장비 아이템
-                        instance = new Equipment(info);
-                        break;
-                    case ItemType.Usable:       //소비 아이템
-                        instance = new Usable(info);
-                        break;
-                    case ItemType.Other:        //기타 아이템
-                        instance = new OtherItem(info);
-                        break;
-                    default:
-                        instance = new OtherItem(info);
-                        break;
-                }
-                itemList.Add(instance);
-                if (!instance.IsForSale)    //플레이어의 소유인 경우
-                {
-                    inventory.AddItem(instance);    //인벤토리에 추가
-                }
+                inventory.AddItem(ItemFactory.CreateItem(info));
             }
+            List<ITradable> itemList = new List<ITradable>();
+            foreach (ItemInfo info in config.ShopItemData)
+            {
+                itemList.Add(ItemFactory.CreateItem(info));
+            }
+
             player = new Player(config.PlayerData, inventory);
             player.OnPlayerDie += GameOver;
             player.RestoreAfterLoad();

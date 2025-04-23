@@ -16,7 +16,8 @@ namespace SpartaDungeon
         public string Description { get; set; } //설명
         public int Price { get; set; }  //가격
         public ItemType ItemType { get; set; }  //아이템 종류 (장비, 소비, 기타)
-        public bool IsForSale { get; set; }  //판매 여부
+        public bool IsShopItem { get; set; }    //상점 아이템 여부
+        public bool IsSoldOut { get; set; }  //판매 여부
 
         //장비 전용 필드
         public EquipType EquipType { get; set; } = default; //장착 종류(방어구, 무기)
@@ -30,7 +31,7 @@ namespace SpartaDungeon
 
         //장비 아이템 생성자
         public ItemInfo(int id, string name, ItemType itemType, EquipType equipType, Stat stat, int statValue, string description, int price,
-            bool isForSale, bool isEquipped)
+            bool isShopItem, bool isSoldOut, bool isEquipped)
         {
             ID = id;
             Name = name;
@@ -40,19 +41,21 @@ namespace SpartaDungeon
             Description = description;
             Price = price;
             ItemType = itemType;
-            IsForSale = isForSale;
+            IsShopItem = isShopItem;
+            IsSoldOut = isSoldOut;
             IsEquipped = isEquipped;
         }
 
         //소비, 기타 아이템 생성자
-        public ItemInfo(int id, string name, ItemType itemType, string description, int price, bool isForSale, int itemCount)
+        public ItemInfo(int id, string name, ItemType itemType, string description, int price, bool isShopItem, bool isSoldOut, int itemCount)
         {
             ID = id;
             Name = name;
             Description = description;
             Price = price;
             ItemType = itemType;
-            IsForSale = isForSale;
+            IsShopItem = isShopItem;
+            IsSoldOut = isSoldOut;
             ItemCount = itemCount;
         }
     }
