@@ -8,8 +8,7 @@ namespace SpartaDungeon
         Player player;  //플레이어
         Monster[] monsters;  //몬스터들
         List<Monster> killedMonsters = new List<Monster>();  //처치한 몬스터 수
-        List<ITradable> droppedItems = new List<ITradable>(); //드랍 아이템 모음
-
+        int droppedMeso; //몬스터가 드랍한 메소 총합
         bool isPlayerRun = false;   //도망가기 옵션
         public Battle(Player player, Monster[] monsters)
         {
@@ -57,8 +56,8 @@ namespace SpartaDungeon
             foreach (Monster monster in killedMonsters) //처치한 몬스터 경험치, 드랍 아이템 정리
             {
                 player.GetEXP(monster.ExpReward);
-
-                //몬스터 드랍 테이블에서 랜덤 아이템 추출
+                droppedMeso += monster.MesoReward;
+                //몬스터 드랍 테이블에서 랜덤 아이템 추출 
                 foreach (ItemInfo itemInfo in Utils.GetDroppedItems(monster.Drops))
                 {
                     if (itemCounts.ContainsKey(itemInfo.Name))
@@ -74,6 +73,8 @@ namespace SpartaDungeon
             }
             Console.Clear();
             Console.WriteLine("[획득 아이템]");
+            Console.WriteLine($"{droppedMeso} 메소");
+            player.ChangeMeso(droppedMeso);
             foreach (var entry in itemCounts)
             {
                 Console.WriteLine($"{entry.Key} x {entry.Value}");
@@ -243,7 +244,7 @@ namespace SpartaDungeon
             if (isSkill == false) baseDamage = rand.Next(attacker.Attack - damageVariance, attacker.Attack + damageVariance + 1); // 기본 공격 데미지
             else // 스킬 데미지
             {
-                int skillDamage = (int)(player.Skills[skillNum].Damage * attacker.Attack);
+                int skillDamage = (int)(player.Skills[skillNum].Damage + attacker.Attack);
                 baseDamage = rand.Next(skillDamage - damageVariance, skillDamage + damageVariance + 1);
             }
 

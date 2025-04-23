@@ -33,7 +33,7 @@ namespace SpartaDungeon
         public float CritChance { get; set; }
         public float EvadeChance { get; set; }
         public int ExpReward { get; set; }  //처치 시 보상 경험치
-        public int GoldReward { get; set; }   //처치 시 골드 보상
+        public int MesoReward { get; set; }   //처치 시 메소 보상
         public List<DropTableEntry> Drops { get; set; } = new List<DropTableEntry>();  //아이템 드랍 테이블
 
         // 레벨당 증가량 설정
@@ -42,7 +42,7 @@ namespace SpartaDungeon
         private int defensePerLevel = 1;
 
         [JsonConstructor]
-        public Monster(int id, string name, int level, int fullHP, int attack, int defense,
+        public Monster(int id, string name, int level, int fullHP, int attack, int defense, int expReward, int mesoReward,
                         float critChance, float evadeChance, List<DropTableEntry> drops)
         {
             Id = id;
@@ -52,6 +52,8 @@ namespace SpartaDungeon
             CurrentHP = FullHP;
             Attack = attack;
             Defense = defense;
+            ExpReward = expReward;
+            MesoReward = mesoReward;
             CritChance = critChance;
             EvadeChance = evadeChance;
             IsDead = false;
@@ -90,7 +92,8 @@ namespace SpartaDungeon
         public Monster Clone()
         {
             // Clone 시 레벨에 맞게 능력치 업데이트가 필요하므로, 새로 복사한 후 능력치 업데이트
-            Monster clone = new Monster(Id, Name, Level, FullHP, Attack, Defense, CritChance, EvadeChance, Drops);
+            Monster clone = new Monster(Id, Name, Level, FullHP, Attack, Defense, ExpReward, MesoReward,
+            CritChance, EvadeChance, Drops);
             return clone;
         }
     }

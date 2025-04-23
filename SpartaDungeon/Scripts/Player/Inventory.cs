@@ -27,7 +27,7 @@ namespace SpartaDungeon
 
         public void AddItem(ITradable item)  //인벤토리에 아이템 추가
         {
-            if (item.ID == 0)    //골드
+            if (item.ID == 0)    //메소
             {
 
             }
