@@ -10,7 +10,7 @@ namespace SpartaDungeon
         private static Random random;
         private List<Monster> monsters;
 
-        // 사냥터(던전) 소개 문구 (각 난이도마다 고유한 내용)
+       
         private readonly Dictionary<Difficulty, string> dungeonIntroductions = new Dictionary<Difficulty, string>
         {
             { Difficulty.VeryEasy, "버섯...좋아하세요?!" },
@@ -20,7 +20,45 @@ namespace SpartaDungeon
             { Difficulty.VeryHard, "템은 다 맞추고 오시는거 맞죠? 못 잡으실거에요ㅎㅎ" }
         };
 
-        // 각 난이도의 일반 전투 클리어 여부를 저장 (초기값 false)
+      
+        private readonly Dictionary<Difficulty, string> dungeonDecorations = new Dictionary<Difficulty, string>
+        {
+            { Difficulty.VeryEasy,
+@"  +---------------------------+
+  |         HENESIS           |
+  |  The Beginner's Refuge    |
+  +---------------------------+" },
+            { Difficulty.Easy,
+@"  /===========================\
+  |          ELYNIA           |
+  |   Realm of the Slime      |
+  \===========================/" },
+            { Difficulty.Normal,
+@"  .---------------------------.
+  |       CONNINGCITY         |
+  |    Town of Intrigues      |
+  '---------------------------'" },
+            { Difficulty.Hard,
+@"  #############################
+  #          PERRION          #
+  #  The Warrior's Fortress   #
+  #############################" },
+            { Difficulty.VeryHard,
+@"  *****************************
+  *        SLEEPYWOOD         *
+  *   Land of Eternal Dreams  *
+  *****************************" }
+        };
+
+       
+        private readonly string hiddenBossRoomDecoration =
+@"  _________________________________
+ /                                 \
+|      ELNAS (ABANDONED MINE)       |
+|   Heart of the Ruined Mine        |
+ \_________________________________/";
+
+      
         private Dictionary<Difficulty, bool> stageCleared = new Dictionary<Difficulty, bool>
         {
             { Difficulty.VeryEasy, false },
@@ -30,7 +68,7 @@ namespace SpartaDungeon
             { Difficulty.VeryHard, false }
         };
 
-        // 각 난이도별 보스 등장 대사
+      
         private readonly Dictionary<Difficulty, string> bossDialogues = new Dictionary<Difficulty, string>
         {
             { Difficulty.VeryEasy, "머쉬맘: ㅂ...ㅓ....ㅅ..ㅓ..ㅅ!!!!!" },
@@ -40,8 +78,8 @@ namespace SpartaDungeon
             { Difficulty.VeryHard, "좀비 머쉬맘: 안녕하세요 좀비입니다. 버섯이죠!" }
         };
 
-        // 히든 보스 전용 대사
-        private readonly string hiddenBossDialogue = "자쿰: 모든 것을 파괴하기 위해 왔다.";
+       
+        private readonly string hiddenBossDialogue = "자쿰: 파괴...혼돈...망각!!!";
 
         public Dungeon(Player player, List<Monster> monsters)
         {
@@ -64,7 +102,7 @@ namespace SpartaDungeon
                 Console.WriteLine("3. 컨닝시티");
                 Console.WriteLine("4. 페리온");
                 Console.WriteLine("5. 슬리피우드");
-                // 모든 스테이지 클리어 시 히든 보스룸 옵션 보임
+                
                 if (stageCleared.Values.All(cleared => cleared))
                 {
                     Console.WriteLine("6. 엘나스(폐광)");
@@ -73,7 +111,6 @@ namespace SpartaDungeon
 
                 int input = Utils.GetPlayerInput();
 
-                // 히든 보스룸 옵션 처리 (6번)
                 if (input == 6 && stageCleared.Values.All(x => x))
                 {
                     StartHiddenBossBattle();
@@ -137,7 +174,6 @@ namespace SpartaDungeon
             }
         }
 
-        
         private int ShowDungeonIntro(Difficulty difficulty, bool cleared)
         {
             int minLevel = difficulty switch
@@ -161,6 +197,15 @@ namespace SpartaDungeon
             };
 
             Console.Clear();
+
+            // 던전 꾸밈 출력
+            if (dungeonDecorations.TryGetValue(difficulty, out string decoration))
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(decoration);
+                Console.ResetColor();
+            }
+
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("이곳은 어딜까요?!");
             Console.ResetColor();
@@ -184,7 +229,6 @@ namespace SpartaDungeon
             return input;
         }
 
-       
         private void StartNormalBattle(Difficulty difficulty)
         {
             List<Monster> normalMonsters = GenerateNormalMonsters(difficulty);
@@ -192,7 +236,7 @@ namespace SpartaDungeon
             battle.StartBattle();
         }
 
-       
+        
         private void StartBossBattle(Difficulty difficulty)
         {
             Monster boss = GenerateBoss(difficulty);
@@ -210,16 +254,24 @@ namespace SpartaDungeon
        
         private void StartHiddenBossBattle()
         {
-            Monster hiddenBoss = GenerateHiddenBoss();
+            Console.Clear();
+          
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine(hiddenBossRoomDecoration);
+            Console.ResetColor();
+
+            
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine(hiddenBossDialogue);
             Console.ResetColor();
             Utils.Pause(false);
+
+            Monster hiddenBoss = GenerateHiddenBoss();
             Battle battle = new Battle(player, new Monster[] { hiddenBoss });
             battle.StartBattle();
         }
 
-       
+      
         private List<Monster> GenerateNormalMonsters(Difficulty difficulty)
         {
             List<Monster> filteredMonsters = FilterMonstersByDifficulty(difficulty);
@@ -235,14 +287,14 @@ namespace SpartaDungeon
             return selectedMonsters;
         }
 
-        
+       
         private Monster GenerateBoss(Difficulty difficulty)
         {
             int bossId = GetBossId(difficulty);
             Monster boss = monsters.FirstOrDefault(mon => mon.Id == bossId);
             if (boss == null)
             {
-                Console.WriteLine($"[경고] Boss with ID {bossId} not found. Fallback으로 첫 번째 몬스터를 사용합니다.");
+                Console.WriteLine($"[경고] 보스는 휴가중");
                 boss = monsters.First();
             }
             boss = boss.Clone();
@@ -250,14 +302,14 @@ namespace SpartaDungeon
             return boss;
         }
 
-      
+       
         private Monster GenerateHiddenBoss()
         {
             int hiddenBossId = 999;
             Monster boss = monsters.FirstOrDefault(mon => mon.Id == hiddenBossId);
             if (boss == null)
             {
-                Console.WriteLine($"[경고] 히든 보스 with ID {hiddenBossId} not found. Fallback으로 첫 번째 몬스터를 사용합니다.");
+                Console.WriteLine($"[경고] 보스는 휴가중");
                 boss = monsters.First();
             }
             boss = boss.Clone();
@@ -326,11 +378,11 @@ namespace SpartaDungeon
         {
             return difficulty switch
             {
-                Difficulty.VeryEasy => random.Next(1, 4),   
-                Difficulty.Easy => random.Next(3, 6),    
-                Difficulty.Normal => random.Next(5, 8),    
-                Difficulty.Hard => random.Next(7, 10),  
-                Difficulty.VeryHard => random.Next(9, 11),   
+                Difficulty.VeryEasy => random.Next(1, 4),    // 1 ~ 3
+                Difficulty.Easy => random.Next(3, 6),         // 3 ~ 5
+                Difficulty.Normal => random.Next(5, 8),       // 5 ~ 7
+                Difficulty.Hard => random.Next(7, 10),         // 7 ~ 9
+                Difficulty.VeryHard => random.Next(9, 11),      // 9 ~ 10
                 _ => 1
             };
         }
@@ -339,11 +391,11 @@ namespace SpartaDungeon
         {
             return difficulty switch
             {
-                Difficulty.VeryEasy => random.Next(3, 5),    
-                Difficulty.Easy => random.Next(5, 7),   
-                Difficulty.Normal => random.Next(7, 9),    
-                Difficulty.Hard => random.Next(9, 11),   
-                Difficulty.VeryHard => random.Next(11, 13),   
+                Difficulty.VeryEasy => random.Next(3, 5),     // 예: 3 ~ 4
+                Difficulty.Easy => random.Next(5, 7),          // 예: 5 ~ 6
+                Difficulty.Normal => random.Next(7, 9),        // 예: 7 ~ 8
+                Difficulty.Hard => random.Next(9, 11),         // 예: 9 ~ 10
+                Difficulty.VeryHard => random.Next(11, 13),      // 예: 11 ~ 12
                 _ => 1
             };
         }
