@@ -73,7 +73,7 @@ namespace SpartaDungeon
 
                 int input = Utils.GetPlayerInput();
 
-                // 히든 보스룸 옵션 처리 (6번)
+                
                 if (input == 6 && stageCleared.Values.All(x => x))
                 {
                     StartHiddenBossBattle();
@@ -243,7 +243,7 @@ namespace SpartaDungeon
             Monster boss = monsters.FirstOrDefault(mon => mon.Id == bossId);
             if (boss == null)
             {
-                Console.WriteLine($"[경고] Boss with ID {bossId} not found. Fallback으로 첫 번째 몬스터를 사용합니다.");
+                Console.WriteLine("보스가 없습니다.");
                 boss = monsters.First();
             }
             boss = boss.Clone();
@@ -258,7 +258,7 @@ namespace SpartaDungeon
             Monster boss = monsters.FirstOrDefault(mon => mon.Id == hiddenBossId);
             if (boss == null)
             {
-                Console.WriteLine($"[경고] 히든 보스 with ID {hiddenBossId} not found. Fallback으로 첫 번째 몬스터를 사용합니다.");
+                Console.WriteLine("보스가 없습니다.");
                 boss = monsters.First();
             }
             boss = boss.Clone();
