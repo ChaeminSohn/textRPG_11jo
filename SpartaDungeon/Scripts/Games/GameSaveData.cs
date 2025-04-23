@@ -5,12 +5,14 @@ namespace SpartaDungeon
     public class GameSaveData   //게임 데이터 저장용 래퍼 클래스
     {
         public PlayerData PlayerData { get; set; }  //플레이어의 정보를 담는 객체
-        public List<ItemInfo> ItemData { get; set; }    //모든 아이템들의 정보를 담는 객체
+        public List<ItemInfo> InventoryItemData { get; set; }    //인벤토리 아이템들의 정보를 담는 객체
+        public List<ItemInfo> ShopItemData { get; set; }    //상점 아이템들의 정보를 담는 객체
 
-        public GameSaveData(PlayerData playerData, List<ItemInfo> itemData)
+        public GameSaveData(PlayerData playerData, List<ItemInfo> inventoryItemData, List<ItemInfo> shopItemData)
         {
             PlayerData = playerData;
-            ItemData = itemData;
+            InventoryItemData = inventoryItemData;
+            ShopItemData = shopItemData;
         }
     }
 }

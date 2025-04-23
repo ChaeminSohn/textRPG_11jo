@@ -11,9 +11,10 @@ namespace SpartaDungeon
         Weapon = 0,
         Armor = 1
     }
-    internal class Equipment : ITradable  //장비 아이템을 구현하는 클래스
+    public class Equipment : ITradable  //장비 아이템을 구현하는 클래스
     {
         private ItemInfo itemInfo;
+        public int ID => itemInfo.ID;
         public string Name => itemInfo.Name;
         public string Description => itemInfo.Description;
         public int Price => itemInfo.Price;
@@ -22,25 +23,26 @@ namespace SpartaDungeon
         public Stat Stat => itemInfo.Stat;
         public int StatValue => itemInfo.StatValue;
         public bool IsEquipped { get; private set; }
-        public bool IsForSale { get; private set; }
+        public bool IsShopItem { get; private set; }
+        public bool IsSoldOut { get; private set; }
 
         public Equipment(ItemInfo itemInfo)
         {
             this.itemInfo = itemInfo;
             IsEquipped = itemInfo.IsEquipped;
-            IsForSale = itemInfo.IsForSale;
+            IsSoldOut = itemInfo.IsSoldOut;
         }
 
         public void OnTrade()   //상점에서 구매/판매 시 호출
         {
-            if (IsForSale)
+            if (!IsSoldOut)
             {
-                IsForSale = false;
+                UnEquip();
+                IsSoldOut = true;
             }
             else
             {
-                UnEquip();
-                IsForSale = true;
+                IsSoldOut = false;
             }
         }
 
@@ -53,7 +55,7 @@ namespace SpartaDungeon
             if (showPrice)
             {   //가격 표시 - 주로 상점에서 이용
                 string priceFormatted;
-                if (IsForSale)
+                if (!IsSoldOut)
                 {
                     priceFormatted = Utils.PadToWidth($"{Price} G", 8);
                 }
@@ -71,7 +73,7 @@ namespace SpartaDungeon
 
         public ItemInfo GetItemInfo()   //아이템 정보 추출
         {
-            return new ItemInfo(Name, ItemType, EquipType, Stat, StatValue, Description, Price, IsForSale, IsEquipped);
+            return new ItemInfo(ID, Name, ItemType, EquipType, Stat, StatValue, Description, Price, IsShopItem, IsSoldOut, IsEquipped);
         }
         public void Equip()     //아이템 장착
         {

@@ -1,16 +1,20 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpartaDungeon.Scripts.Item
+namespace SpartaDungeon
 {
     internal class Potion
     {
         public string Name { get; set; }
         public string Description { get; set; }
         public int HealAmount { get; set; }
+        public void ShowPotion()
+        {
+            int health = 70; 
+            int maxHealth = 100;             
 
         public Potion(string name, string description, int healAmount)
         {
@@ -35,9 +39,9 @@ namespace SpartaDungeon.Scripts.Item
     }
 
 
-    class Program
+    class PotionInfo
     {
-        public static void Main()
+        public void PotionList()
         {
             int health = 70;
             int maxHealth = 100;
