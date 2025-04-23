@@ -43,7 +43,7 @@ namespace SpartaDungeon
         public Shop(Player player, List<ITradable> items)   //게임 불러오기 생성자
         {
             this.player = player;
-
+            Items = items;
             foreach (ITradable item in items)
             {
                 switch (item.ItemType)     //아이템 분류 작업

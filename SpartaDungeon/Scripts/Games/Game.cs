@@ -80,15 +80,15 @@ namespace SpartaDungeon
             List<ItemInfo> inventoryItemData = new List<ItemInfo>();
             List<ItemInfo> shopItemData = new List<ItemInfo>();
 
-            foreach (ITradable item in inventory.Items)
+            foreach (ITradable item in inventory.Items) //인벤토리 아이템 정보 저장
             {
                 inventoryItemData.Add(item.GetItemInfo());
             }
-            foreach (ITradable item in shop.Items)
+            foreach (ITradable item in shop.Items)      //상점 아이템 정보 저장
             {
-                inventoryItemData.Add(item.GetItemInfo());
+                shopItemData.Add(item.GetItemInfo());
             }
-
+            Utils.Pause(false);
             GameSaveData gameSaveData = new GameSaveData(player.GetPlayerData(), inventoryItemData, shopItemData);
             string json = JsonSerializer.Serialize(gameSaveData);
             File.WriteAllText(savePath, json);
@@ -114,12 +114,12 @@ namespace SpartaDungeon
                 Utils.Pause(false);
             }
             inventory = new Inventory();
-            foreach (ItemInfo info in config.InventoryItemData)    //아이템 정보를 통해 객체화 실행
+            foreach (ItemInfo info in config.InventoryItemData)    //인벤토리 아이템 불러오기
             {
                 inventory.AddItem(ItemFactory.CreateItem(info));
             }
             List<ITradable> itemList = new List<ITradable>();
-            foreach (ItemInfo info in config.ShopItemData)
+            foreach (ItemInfo info in config.ShopItemData)      //상점 아이템 불러오기
             {
                 itemList.Add(ItemFactory.CreateItem(info));
             }
