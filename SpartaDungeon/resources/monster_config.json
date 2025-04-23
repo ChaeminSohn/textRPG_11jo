@@ -1,10 +1,10 @@
 {
   "Monster": [
     {
-      "Id" : 1,
-      "Name": "전사 미니언",
+      "Id" : 10,
+      "Name": "빨간 달팽이",
       "Level": 1,
-      "FullHP": 30,
+      "FullHP": 10,
       "Attack": 2,
       "Defense": 4,
       "CritChance" : 0,
@@ -13,36 +13,737 @@
         {
           "ItemID": 0,
           "DropChance": 0.5,
-          "MinQuantity": 2,
-          "MaxQuantity": 1
+          "MinQuantity": 1,
+          "MaxQuantity": 2
         },
         {
-          "ItemID": 1,
+          "ItemID": 10,
           "DropChance": 0.9,
-          "MinQuantity": 5,
-          "MaxQuantity": 15
+          "MinQuantity": 1,
+          "MaxQuantity": 1
         }
       ]
     },
     {
-      "Id": 2,
-      "Name": "마법사 미니언",
+      "Id": 11,
+      "Name": "파란 달팽이",
       "Level": 1,
-      "FullHP": 20,
+      "FullHP": 12,
       "Attack": 4,
       "Defense": 2,
       "CritChance" : 0,
-      "EvadeChance" : 0.1
+      "EvadeChance" : 0.1,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 11,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
     },
     {
-      "Id": 3,
-      "Name": "대포 미니언",
+      "Id": 12,
+      "Name": "스포아",
       "Level": 1,
-      "FullHP": 40,
+      "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
       "CritChance" : 0,
-      "EvadeChance" : 0
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 12,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 13,
+      "Name": "주황버섯",
+      "Level": 1,
+      "FullHP": 17,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 13,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 14,
+      "Name": "파랑버섯",
+      "Level": 1,
+      "FullHP": 17,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 14,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 15,
+      "Name": "돼지",
+      "Level": 1,
+      "FullHP": 10,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 13,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 16,
+      "Name": "리본돼지",
+      "Level": 1,
+      "FullHP": 10,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 16,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 20,
+      "Name": "슬라임",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 20,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 21,
+      "Name": "초록버섯",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 21,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 22,
+      "Name": "페어리",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 22,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 23,
+      "Name": "루팡",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 10,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 23,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 24,
+      "Name": "이블아이",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 10,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 24,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 30,
+      "Name": "옥토퍼스",
+      "Level": 1,
+      "FullHP": 20,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 30,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+
+    {
+      "Id": 31,
+      "Name": "스티지",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 31,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 32,
+      "Name": "주니어 레이스",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 32,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 33,
+      "Name": "레이스",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 33,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 40,
+      "Name": "스텀프",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 40,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 41,
+      "Name": "엑스텀프",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 41,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 42,
+      "Name": "와일드보어",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 42,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 43,
+      "Name": "파이어보어",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 43,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 44,
+      "Name": "아이언보어",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 44,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 50,
+      "Name": "뿔버섯",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 50,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 51,
+      "Name": "좀비버섯",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 51,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 52,
+      "Name": "커즈아이",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 52,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 53,
+      "Name": "스톤골렘",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 53,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 54,
+      "Name": "다크 스톤골렘",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 54,
+          "DropChance": 0.9,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 101,
+      "Name": "머쉬맘",
+      "Level": 1,
+      "FullHP": 200,
+      "Attack": 10,
+      "Defense": 10,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 101,
+          "DropChance": 1,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 102,
+      "Name": "킹 슬라임",
+      "Level": 1,
+      "FullHP": 300,
+      "Attack": 15,
+      "Defense": 10,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 102,
+          "DropChance": 1,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 103,
+      "Name": "주니어 발록",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 103,
+          "DropChance": 1,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 104,
+      "Name": "크림슨 발록",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 104,
+          "DropChance": 1,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 105,
+      "Name": "좀비 머쉬맘",
+      "Level": 1,
+      "FullHP": 15,
+      "Attack": 4,
+      "Defense": 5,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
+        },
+        {
+          "ItemID": 105,
+          "DropChance": 1,
+          "MinQuantity": 1,
+          "MaxQuantity": 1
+        }
+      ]
     }
   ]
 } 
