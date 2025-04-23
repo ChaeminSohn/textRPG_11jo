@@ -81,7 +81,7 @@ namespace SpartaDungeon
 
         }
 
-        void MyTurnAction()     //플레이어 턴
+        void MyTurnAction() //플레이어 턴
         {
             while (true)
             {
@@ -92,6 +92,7 @@ namespace SpartaDungeon
                 ShowBattleInfo();
 
                 Console.WriteLine("\n1. 공격");
+                Console.WriteLine("2. 스킬");
                 Console.WriteLine("\n0. 도망가기");
 
                 Console.Write("\n원하시는 행동을 입력해주세요.");
@@ -106,6 +107,9 @@ namespace SpartaDungeon
                     case 1:
                         PlayerAttackAction();
                         return;
+                    case 2:
+                        PlayerSkillAction();
+                        return;
                     default:
                         Console.WriteLine("잘못된 입력입니다.");
                         Utils.Pause(false);
@@ -114,7 +118,7 @@ namespace SpartaDungeon
             }
         }
 
-        void PlayerAttackAction()       //플레이어 공격 액션
+        void PlayerAttackAction() //플레이어 공격 액션
         {
             while (true)
             {
@@ -134,35 +138,76 @@ namespace SpartaDungeon
                     Utils.Pause(false);
                     continue;
                 }
-
                 else if (playerInput == 0)  //취소 선택
                 {
                     return;
                 }
-
                 else if (monsters[playerInput - 1].IsDead)  //이미 죽은 몬스터 선택
                 {
                     Console.WriteLine("이미 사망한 몬스터입니다.");
                     Utils.Pause(false);
                     continue;
                 }
-                DealDamage(player, monsters[playerInput - 1]);
-                if (monsters[playerInput - 1].IsDead)
-                {   //몬스터 처치 리스트에 추가
-                    killedMonsters.Add(monsters[playerInput - 1]);
-                    {
-                        if (player.monsterKillCounts.ContainsKey(monsters[playerInput - 1].Id))
-                            player.monsterKillCounts[monsters[playerInput - 1].Id]++;
-                        else
-                            player.monsterKillCounts[monsters[playerInput - 1].Id] = 1;
-                    }
+                else
+                {
+                    DealDamage(player, monsters[playerInput - 1], false, 0);
+                    MonsterDead(playerInput);
                     Utils.Pause(true);
                     return;
                 }
             }
         }
 
-        void EnemyTurnAction()      //몬스터 턴
+        void PlayerSkillAction()  //플레이어 스킬 액션
+        {
+            while (true)
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("Battle!\n");
+                Console.ResetColor();
+                ShowBattleInfo();
+                player.ShowSkillList();
+                Console.WriteLine("\n0. 취소");
+                Console.WriteLine("\n대상을 선택해주세요.");
+
+                int skillNumInput = Utils.GetPlayerInput();
+
+                if (skillNumInput > player.Skills.Count || skillNumInput == -1)   //잘못된 값 입력
+                {
+                    Console.WriteLine("잘못된 입력입니다.");
+                    Utils.Pause(false);
+                    continue;
+                }
+                else if (skillNumInput == 0)  //취소 선택
+                {
+                    return;
+                }
+                else
+                {
+                    DealDamage(player, monsters[skillNumInput - 1], false, skillNumInput - 1);
+                    MonsterDead(skillNumInput);
+                    Utils.Pause(true);
+                    return;
+                }
+            }
+        }
+
+        private void MonsterDead(int playerInput)
+        {
+            if (monsters[playerInput - 1].IsDead)
+            {   //몬스터 처치 리스트에 추가
+                killedMonsters.Add(monsters[playerInput - 1]);
+                {
+                    if (player.monsterKillCounts.ContainsKey(monsters[playerInput - 1].Id))
+                        player.monsterKillCounts[monsters[playerInput - 1].Id]++;
+                    else
+                        player.monsterKillCounts[monsters[playerInput - 1].Id] = 1;
+                }
+            }
+        }
+
+        void EnemyTurnAction()  //몬스터 턴
         {
             foreach (IBattleUnit monster in monsters)
             {
@@ -172,12 +217,13 @@ namespace SpartaDungeon
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("Battle!");
                     Console.ResetColor();
-                    DealDamage(monster, player);
+                    DealDamage(monster, player, false , 0);
                     Utils.Pause(true);
                 }
             }
         }
-        void DealDamage(IBattleUnit attacker, IBattleUnit defender) //데미지 처리 과정
+
+        void DealDamage(IBattleUnit attacker, IBattleUnit defender, bool isSkill , int skillNum) //데미지 처리 과정
         {
             Random rand = new Random();
 
