@@ -11,7 +11,7 @@ namespace SpartaDungeon
         Weapon = 0,
         Armor = 1
     }
-    internal class Equipment : ITradable  //장비 아이템을 구현하는 클래스
+    public class Equipment : ITradable  //장비 아이템을 구현하는 클래스
     {
         private ItemInfo itemInfo;
         public int ID => itemInfo.ID;

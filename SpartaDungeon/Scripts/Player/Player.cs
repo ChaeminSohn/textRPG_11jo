@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Dynamic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace SpartaDungeon
         Attack,     //공격력
         Defense,    //방어력
     }
-    internal class Player : IBattleUnit
+    public class Player : IBattleUnit
     {
         public string Name { get; private set; }    //이름
         public int Level { get; private set; }  //레벨
@@ -47,6 +48,11 @@ namespace SpartaDungeon
 
         public Dictionary<int, int> monsterKillCounts; // 몬스터 킬 카운트
 
+        public int FullMP { get; private set; }  //최대 체력
+        public int CurrentMP { get; private set; }      //현재 체력
+
+        public List<Skill> Skills { get; } = new List<Skill>(); // 스킬 목록
+
         public Player(string name, Job job, Inventory inventory)    //새 게임 생성자
         {
             Name = name;
@@ -58,6 +64,7 @@ namespace SpartaDungeon
             inventory.OnEquipChanged += UpdatePlayerStats;
             IsDead = false;
             monsterKillCounts = new Dictionary<int, int>();
+            InitializeSkills();
         }
 
         public Player(PlayerData playerData, Inventory inventory)   //게임 불러오기 생성자
@@ -77,6 +84,9 @@ namespace SpartaDungeon
             EvadeChance = playerData.EvadeChance;
             Gold = playerData.Gold;
             monsterKillCounts = playerData.MonsterKillCounts;
+            FullMP = playerData.FullMP;
+            CurrentMP = playerData.CurrentMP;
+            InitializeSkills();
         }
 
         public void LoadDefaultData()
@@ -112,6 +122,8 @@ namespace SpartaDungeon
             CritChance = defaultData.CritChance;
             EvadeChance = defaultData.EvadeChance;
             Gold = defaultData.Gold;
+            FullMP = defaultData.FullMP;
+            CurrentMP = FullMP;
         }
 
         public void RestoreAfterLoad()  //게임 불러오기 후 실행
@@ -136,10 +148,12 @@ namespace SpartaDungeon
                 CurrentHP = FullHP;
             }
         }
+
         public void OnDie()
         {
             IsDead = true;
         }
+
         public void UpdatePlayerStats()
         {
             BonusFullHP = 0;
@@ -231,13 +245,43 @@ namespace SpartaDungeon
             Console.WriteLine($"치명타율 : {CritChance}");
             Console.WriteLine($"회피율 : {EvadeChance}");
             Console.WriteLine($"체력 : {CurrentHP}/{FullHP}");
+            Console.WriteLine($"마나 : {CurrentMP}/{FullMP}");
             Console.WriteLine($"Gold : {Gold} G");
+            ShowSkillList();
         }
+
+        public void ShowSkillList()
+        {
+            for(int i = 0; i < Skills.Count; i++ ) 
+            {
+                Console.WriteLine($"\n[스킬]");
+                Console.WriteLine($"{i + 1}. {Skills[i].Name} : {Skills[i].Description}");
+            }
+        }
+
+
+        private void InitializeSkills()
+        {
+            switch (Job)
+            {
+                case Job.Warrior:
+                    Skills.Add(new PawerStrike());
+                    break;
+                case Job.Mage:
+                    Skills.Add(new PawerStrike());
+                    break;
+                case Job.Archer:
+                    Skills.Add(new PawerStrike());
+                    break;
+            }
+        }
+
+
 
         public PlayerData GetPlayerData()   //플레이어 데이터 추출
         {
             return new PlayerData(Name, Job, Level, MaxLevel, Experience, ExpThresholds, BaseFullHP, CurrentHP,
-                BaseAttack, BaseDefense, CritChance, EvadeChance, Gold, monsterKillCounts);
+                BaseAttack, BaseDefense, CritChance, EvadeChance, Gold, monsterKillCounts, FullMP, CurrentMP);
         }
     }
 }
