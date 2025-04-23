@@ -1,5 +1,9 @@
-{
-    "Items" :[
+[
+    {
+        "ID" : 0,
+        "Name" : "Gold",
+        "ItemCount" : 100
+     },
     {
         "Name": "수련자 갑옷",
         "Description": "수련에 도움을 주는 갑옷입니다.",
@@ -8,6 +12,7 @@
         "EquipType": "Armor",
         "Stat": "Defense",
         "StatValue": 5,
+        "IsShopItem" : true,
         "IsForSale" : true,
         "IsEquipped" : false
     },
@@ -19,6 +24,7 @@
         "EquipType": "Armor",
         "Stat": "Defense",
         "StatValue": 9,
+        "IsShopItem" : true,
         "IsForSale" : true,
         "IsEquipped" : false
     },
@@ -30,6 +36,7 @@
         "EquipType": "Armor",
         "Stat": "Defense",
         "StatValue": 15,
+        "IsShopItem" : true,
         "IsForSale" : true,
         "IsEquipped" : false
     },
@@ -41,6 +48,7 @@
         "EquipType": "Weapon",
         "Stat": "Attack",
         "StatValue": 2,
+        "IsShopItem" : true,
         "IsForSale" : true,
         "IsEquipped" : false
     },
@@ -52,6 +60,7 @@
         "EquipType": "Weapon",
         "Stat": "Attack",
         "StatValue": 5,
+        "IsShopItem" : true,
         "IsForSale" : true,
         "IsEquipped" : false
     },
@@ -63,6 +72,7 @@
         "EquipType": "Weapon",
         "Stat": "Attack",
         "StatValue": 7,
+        "IsShopItem" : true,
         "IsForSale" : true,
         "IsEquipped" : false
     },
@@ -74,9 +84,10 @@
         "EquipType": "Weapon",
         "Stat": "Attack",
         "StatValue": 15,
+        "IsShopItem" : true,
         "IsForSale" : true,
         "IsEquipped" : false
     }
+
 ]
-}
 
