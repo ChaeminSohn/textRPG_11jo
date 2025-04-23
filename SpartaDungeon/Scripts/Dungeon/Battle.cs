@@ -243,7 +243,7 @@ namespace SpartaDungeon
             if (isSkill == false) baseDamage = rand.Next(attacker.Attack - damageVariance, attacker.Attack + damageVariance + 1); // 기본 공격 데미지
             else // 스킬 데미지
             {
-                int skillDamage = player.Skills[skillNum].Damage + attacker.Attack;
+                int skillDamage = (int)(player.Skills[skillNum].Damage * attacker.Attack);
                 baseDamage = rand.Next(skillDamage - damageVariance, skillDamage + damageVariance + 1);
             }
 

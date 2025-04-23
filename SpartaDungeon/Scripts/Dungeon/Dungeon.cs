@@ -9,6 +9,8 @@ namespace SpartaDungeon
         private Player player;
         private static Random random;
         private List<Monster> monsters;
+
+        // 사냥터(던전) 소개 문구 (각 난이도마다 고유한 내용)
         private readonly Dictionary<Difficulty, string> dungeonIntroductions = new Dictionary<Difficulty, string>
         {
             { Difficulty.VeryEasy, "버섯...좋아하세요?!" },
@@ -16,6 +18,26 @@ namespace SpartaDungeon
             { Difficulty.Normal,   "문어와 유령의 공통점은?? '두발'로 설 수 없습니다. 탈모죠..." },
             { Difficulty.Hard,     "돼지와 나무...꾼?" },
             { Difficulty.VeryHard, "템은 다 맞추고 오시는거 맞죠? 못 잡으실거에요ㅎㅎ" }
+        };
+
+        // 각 난이도의 일반 전투 클리어 여부를 저장 (초기값 false)
+        private Dictionary<Difficulty, bool> stageCleared = new Dictionary<Difficulty, bool>
+        {
+            { Difficulty.VeryEasy, false },
+            { Difficulty.Easy, false },
+            { Difficulty.Normal, false },
+            { Difficulty.Hard, false },
+            { Difficulty.VeryHard, false }
+        };
+
+        // 각 난이도별 보스의 등장 대사를 저장합니다.
+        private readonly Dictionary<Difficulty, string> bossDialogues = new Dictionary<Difficulty, string>
+        {
+            { Difficulty.VeryEasy, "머쉬맘: ㅂ..ㅓ..ㅅ..ㅓ..ㅅ..!!!!" },
+            { Difficulty.Easy,     "킹 슬라임: 다시 태어나보니...슬라임???" },
+            { Difficulty.Normal,   "블루 머쉬맘: ㅍ...ㅏ...ㄹ.ㅏ..ㄴ..ㅂ..ㅓ..서...ㅅ" },
+            { Difficulty.Hard,     "주니어 발록: 매직클로 맞아볼래?" },
+            { Difficulty.VeryHard, "좀비 머쉬맘: 내 이름은 좀비...버섯이죠!" }
         };
 
         public Dungeon(Player player, List<Monster> monsters)
@@ -77,21 +99,35 @@ namespace SpartaDungeon
                     continue;
                 }
 
-                bool beginBattle = ShowDungeonIntro(selectedDifficulty);
-                if (!beginBattle)
-                {
-                    continue;
-                }
+                bool exitDungeon = false;
 
-                StartBattle(GenerateMonsters(selectedDifficulty));
+                while (!exitDungeon)
+                {
+                    int option = ShowDungeonIntro(selectedDifficulty, stageCleared[selectedDifficulty]);
+                    if (option == 0)
+                    {
+                        exitDungeon = true;
+                    }
+                    else if (option == 1)
+                    {
+
+                        StartNormalBattle(selectedDifficulty);
+                        stageCleared[selectedDifficulty] = true;
+                    }
+                    else if (option == 2 && stageCleared[selectedDifficulty])
+                    {
+
+                        StartBossBattle(selectedDifficulty);
+                        exitDungeon = true;
+                    }
+                }
                 return;
             }
         }
 
 
-        private bool ShowDungeonIntro(Difficulty difficulty)
+        private int ShowDungeonIntro(Difficulty difficulty, bool cleared)
         {
-
             int minLevel = difficulty switch
             {
                 Difficulty.VeryEasy => 1,
@@ -118,47 +154,78 @@ namespace SpartaDungeon
             Console.ResetColor();
             Console.WriteLine($"선택한 사냥터: {difficulty}");
 
-
             if (dungeonIntroductions.TryGetValue(difficulty, out string introduction))
-            {
                 Console.WriteLine(introduction);
+            else
+                Console.WriteLine("사냥터 개업준비중...");
+
+            Console.WriteLine($"\n이곳에서는 몬스터 레벨이 {minLevel} ~ {maxLevel} 사이에서 랜덤으로 결정됩니다.");
+            if (cleared)
+            {
+
+                Console.WriteLine("\n옵션: 1. 전투 다시하기    2. 숨겨진 보스방 입장    0. 뒤로가기");
             }
             else
             {
-                Console.WriteLine("사냥터 개업준비중...");
+                Console.WriteLine("\n옵션: 1. 전투 시작    0. 뒤로가기");
             }
-
-            Console.WriteLine($"\n이곳에서는 몬스터 레벨이 {minLevel} ~ {maxLevel} 사이에서 랜덤으로 결정됩니다.");
-            Console.WriteLine("\n1. 전투 시작");
-            Console.WriteLine("0. 뒤로가기");
-
             int input = Utils.GetPlayerInput();
-            return input == 1;
+            return input;
         }
 
-        private void StartBattle(List<Monster> monsters)
+
+        private void StartNormalBattle(Difficulty difficulty)
         {
-            Battle battle = new Battle(player, monsters.ToArray());
+            List<Monster> normalMonsters = GenerateNormalMonsters(difficulty);
+            Battle battle = new Battle(player, normalMonsters.ToArray());
             battle.StartBattle();
         }
 
-        private List<Monster> GenerateMonsters(Difficulty difficulty)
+
+        private void StartBossBattle(Difficulty difficulty)
+        {
+            Monster boss = GenerateBoss(difficulty);
+
+            if (bossDialogues.TryGetValue(difficulty, out string dialogue))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(dialogue);
+                Console.ResetColor();
+                Utils.Pause(false);
+            }
+            Battle battle = new Battle(player, new Monster[] { boss });
+            battle.StartBattle();
+        }
+
+
+        private List<Monster> GenerateNormalMonsters(Difficulty difficulty)
         {
             List<Monster> filteredMonsters = FilterMonstersByDifficulty(difficulty);
             List<Monster> selectedMonsters = new List<Monster>();
-
-            int monsterCount = random.Next(3, 6); // 3~5마리 랜덤 선택
-
+            int monsterCount = random.Next(3, 6);
             for (int i = 0; i < monsterCount; i++)
             {
                 int index = random.Next(filteredMonsters.Count);
                 Monster monster = filteredMonsters[index].Clone();
-                // 난이도에 따른 몬스터 레벨 범위 내에서 랜덤하게 할당
                 monster.Level = GetMonsterLevel(difficulty);
                 selectedMonsters.Add(monster);
             }
-
             return selectedMonsters;
+        }
+
+
+        private Monster GenerateBoss(Difficulty difficulty)
+        {
+            int bossId = GetBossId(difficulty);
+            Monster boss = monsters.FirstOrDefault(mon => mon.Id == bossId);
+            if (boss == null)
+            {
+                Console.WriteLine($"[경고] Boss with ID {bossId} not found. 404 Not Found.");
+                boss = monsters.First();
+            }
+            boss = boss.Clone();
+            boss.Level = GetBossLevel(difficulty);
+            return boss;
         }
 
         private List<Monster> FilterMonstersByDifficulty(Difficulty difficulty)
@@ -167,34 +234,40 @@ namespace SpartaDungeon
             switch (difficulty)
             {
                 case Difficulty.VeryEasy:
-                    minId = 10;
-                    maxId = 19;
+                    minId = 10; maxId = 19;
                     break;
                 case Difficulty.Easy:
-                    minId = 20;
-                    maxId = 29;
+                    minId = 20; maxId = 29;
                     break;
                 case Difficulty.Normal:
-                    minId = 30;
-                    maxId = 39;
+                    minId = 30; maxId = 39;
                     break;
                 case Difficulty.Hard:
-                    minId = 40;
-                    maxId = 49;
+                    minId = 40; maxId = 49;
                     break;
                 case Difficulty.VeryHard:
-                    minId = 50;
-                    maxId = 59;
+                    minId = 50; maxId = 59;
                     break;
                 default:
-                    minId = 1;
-                    maxId = int.MaxValue;
+                    minId = 1; maxId = int.MaxValue;
                     break;
             }
-
-
             var filtered = monsters.Where(mon => mon.Id >= minId && mon.Id <= maxId).ToList();
             return filtered.Count > 0 ? filtered : monsters;
+        }
+
+
+        private int GetBossId(Difficulty difficulty)
+        {
+            return difficulty switch
+            {
+                Difficulty.VeryEasy => 101,
+                Difficulty.Easy => 102,
+                Difficulty.Normal => 103,
+                Difficulty.Hard => 104,
+                Difficulty.VeryHard => 105,
+                _ => 101
+            };
         }
 
         private int GetRequiredLevel(Difficulty difficulty)
@@ -219,6 +292,19 @@ namespace SpartaDungeon
                 Difficulty.Normal => random.Next(5, 8),    // 5 ~ 7
                 Difficulty.Hard => random.Next(7, 10),   // 7 ~ 9
                 Difficulty.VeryHard => random.Next(9, 11),   // 9 ~ 10
+                _ => 1
+            };
+        }
+
+        private int GetBossLevel(Difficulty difficulty)
+        {
+            return difficulty switch
+            {
+                Difficulty.VeryEasy => random.Next(3, 5),    // 예: 3 ~ 4
+                Difficulty.Easy => random.Next(5, 7),    // 예: 5 ~ 6
+                Difficulty.Normal => random.Next(7, 9),    // 예: 7 ~ 8
+                Difficulty.Hard => random.Next(9, 11),   // 예: 9 ~ 10
+                Difficulty.VeryHard => random.Next(11, 13),  // 예: 11 ~ 12
                 _ => 1
             };
         }
