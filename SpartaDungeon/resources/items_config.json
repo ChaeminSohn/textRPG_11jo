@@ -4,6 +4,224 @@
         "Name" : "Gold",
         "ItemCount" : 100
      },
+     {
+        "ID" : 10,
+        "Name" : "빨간 달팽이 껍질",
+        "Description" : "빨간 달팽이의 껍질을 벗긴 것이다.",
+        "ItemType" : "Other",
+        "Price" : 10
+     },
+     {
+        "ID" : 11,
+        "Name" : "파란 달팽이 껍질",
+        "Description" : "파란 달팽이의 껍질을 벗긴 것이다.",
+        "ItemType" : "Other",
+        "Price" : 10
+     },
+     {
+        "ID" : 12,
+        "Name" : "버섯의 포자",
+        "Description" : "버섯의 포자이다.",
+        "ItemType" : "Other",
+        "Price" : 10
+     },
+     {
+        "ID" : 13,
+        "Name" : "주황버섯의 갓",
+        "Description" : "주황버섯의 갓을 자른 것이다.",
+        "ItemType" : "Other",
+        "Price" : 10
+     },
+     {
+        "ID" : 14,
+        "Name" : "파란버섯의 갓",
+        "Description" : "파란버섯의 갓을 자른 것이다.",
+        "ItemType" : "Other",
+        "Price" : 10
+     },
+     {
+        "ID" : 15,
+        "Name" : "돼지의 머리",
+        "Description" : "돼지의 머리이다.",
+        "ItemType" : "Other",
+        "Price" : 10
+     },
+     {
+        "ID" : 16,
+        "Name" : "돼지의 리본",
+        "Description" : "리본돼지의 리본을 끊은 것이다.",
+        "ItemType" : "Other",
+        "Price" : 10
+     },
+     {
+        "ID" : 20,
+        "Name" : "물컹물컹한 액체",
+        "Description" : "점성이 높아 끈적끈적한 액체이다.",
+        "ItemType" : "Other",
+        "Price" : 20
+     },
+     {
+        "ID" : 21,
+        "Name" : "초록버섯의 갓",
+        "Description" : "초록버섯의 갓을 자른 것이다.",
+        "ItemType" : "Other",
+        "Price" : 20
+     },
+     {
+        "ID" : 22,
+        "Name" : "페어리의 더듬이",
+        "Description" : "페어리의 더듬이를 잘라온 것이다.",
+        "ItemType" : "Other",
+        "Price" : 20
+     },
+     {
+        "ID" : 23,
+        "Name" : "루팡의 바나나",
+        "Description" : "루팡이 좋아하는 맛있는 바나나이다.",
+        "ItemType" : "Other",
+        "Price" : 20
+     },
+     {
+        "ID" : 24,
+        "Name" : "이블아이의 꼬리",
+        "Description" : "이블아이의 꼬리를 자른 것이다.",
+        "ItemType" : "Other",
+        "Price" : 20
+     },
+     {
+        "ID" : 30,
+        "Name" : "옥토퍼스의 다리",
+        "Description" : "문어의 다리를 자른 것이다.",
+        "ItemType" : "Other",
+        "Price" : 30
+     },
+     {
+        "ID" : 31,
+        "Name" : "스티지의 날개",
+        "Description" : "작은 박쥐인 스티지의 날개를 때어온 것이다.",
+        "ItemType" : "Other",
+        "Price" : 30
+     },
+     {
+        "ID" : 32,
+        "Name" : "식탁보",
+        "Description" : "주니어 레이스가 쓰고 다니던 식탁보이다",
+        "ItemType" : "Other",
+        "Price" : 30
+     },
+     {
+        "ID" : 33,
+        "Name" : "이상한 느낌의 약",
+        "Description" : "레이스가 남긴 이상한 느낌이 드는 약이다.",
+        "ItemType" : "Other",
+        "Price" : 30
+     },
+     {
+        "ID" : 40,
+        "Name" : "나뭇가지",
+        "Description" : "나무의 가지를 때어온 것이다.",
+        "ItemType" : "Other",
+        "Price" : 40
+     },
+     {
+        "ID" : 41,
+        "Name" : "장작",
+        "Description" : "엑스텀프에서 때어낸 고품질 장작이다.",
+        "ItemType" : "Other",
+        "Price" : 40
+     },
+     {
+        "ID" : 42,
+        "Name" : "와일드보어의 송곳니",
+        "Description" : "와일드보어의 송곳니를 잘라온 것이다.",
+        "ItemType" : "Other",
+        "Price" : 40
+     },
+     {
+        "ID" : 43,
+        "Name" : "파이어보어의 송곳니",
+        "Description" : "파이어보어의 송곳니를 잘라온 것이다.",
+        "ItemType" : "Other",
+        "Price" : 40
+     },
+     {
+        "ID" : 44,
+        "Name" : "아이언보어의 갑옷 조각",
+        "Description" : "아이언보어의 단단한 갑옷의 작은 조각이다.",
+        "ItemType" : "Other",
+        "Price" : 40
+     },
+     {
+        "ID" : 50,
+        "Name" : "뿔버섯의 갓",
+        "Description" : "뿔버섯의 갓을 자른 것이다.",
+        "ItemType" : "Other",
+        "Price" : 50
+     },
+     {
+        "ID" : 51,
+        "Name" : "죽은 자의 부적",
+        "Description" : "좀비버섯의 부적을 떼어 온 것이다.",
+        "ItemType" : "Other",
+        "Price" : 50
+     },
+     {
+        "ID" : 52,
+        "Name" : "커즈아이의 꼬리",
+        "Description" : "커즈아이의 꼬리를 자른 것이다.",
+        "ItemType" : "Other",
+        "Price" : 50
+     },
+     {
+        "ID" : 53,
+        "Name" : "스톤골렘의 돌조각",
+        "Description" : "스톤골렘의 몸의 일부분을 이루고 있던 신비로운 돌조각이다.",
+        "ItemType" : "Other",
+        "Price" : 50
+     },
+     {
+        "ID" : 54,
+        "Name" : "다크 스톤골렘의 돌조각",
+        "Description" : "다크 스톤골렘의 몸의 일부분을 이루고 있던 신비로운 돌조각이다.",
+        "ItemType" : "Other",
+        "Price" : 50
+     },
+
+     {
+        "ID" : 101,
+        "Name" : "머쉬맘의 포자",
+        "Description" : "머쉬맘의 포자이다.",
+        "ItemType" : "Other",
+        "Price" : 100
+     },
+     {
+      "ID" : 102,
+      "Name" : "킹 슬라임의 방울",
+      "Description" : "킹 슬라임의 방울을 떼어온 거이다.",
+      "ItemType" : "Other",
+      "Price" : 2000
+     },
+     {
+      "ID" : 103,
+      "Name" : "블루 머쉬맘의 포자",
+      "Description" : "블루 머쉬맘의 포자이다.",
+      "ItemType" : "Other",
+      "Price" : 300
+     },
+     {
+      "ID" : 104,
+      "Name" : "주니어 발록의 발톱",
+      "Description" : "고대의 악마 주니어 발록의 발톱이다.",
+      "ItemType" : "Other",
+      "Price" : 400
+     },
+     {
+      "ID" : 105,
+      "Name" : "독버섯",
+      "Description" : "거대한 좀비 머쉬맘에 기생하는 독버섯이다.",
+      "ItemType" : "Other",
+      "Price" : 500
+     },
     {
         "Name": "수련자 갑옷",
         "Description": "수련에 도움을 주는 갑옷입니다.",
