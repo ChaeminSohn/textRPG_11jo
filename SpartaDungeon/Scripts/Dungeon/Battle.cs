@@ -152,7 +152,8 @@ namespace SpartaDungeon
                 }
                 else
                 {
-                    DamageResult(player, monsters[playerInput - 1], isSkill, skillNum);
+                    if (isSkill == false) DamageResult(player, monsters[playerInput - 1]);
+                    if (isSkill == true) DamageResult(player, monsters[playerInput - 1], skillNum, monsters);
                     MonsterDead(playerInput);
                     Utils.Pause(true);
                     return;
@@ -217,23 +218,22 @@ namespace SpartaDungeon
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("Battle!");
                     Console.ResetColor();
-                    DamageResult(monster, player, false, 0);
+                    DamageResult(monster, player);
                     Utils.Pause(true);
                 }
             }
         }
 
-        void DamageResult(IBattleUnit attacker, IBattleUnit defender, bool isSkill, int skillNum) //데미지 처리 결과
+        public void DamageResult(IBattleUnit attacker, IBattleUnit defender) //기본 데미지 처리 결과
         {
-            if (isSkill == false) // 기본 공격
-            {
-               attacker.AutoAttack(defender);
-            }
-            else // 스킬 발동
-            {
-
-            }
+            attacker.AutoAttack(defender);
         }
+
+        public void DamageResult(IBattleUnit attacker, IBattleUnit defender, int skillNum, Monster[] monsters) // 스킬 데미지 처리 결과
+        {
+            attacker.Skills[skillNum].Activate(attacker, defender, monsters);
+        }
+
 
         void ShowBattleInfo()   //몬스터, 플레이어 정보 표시
         {

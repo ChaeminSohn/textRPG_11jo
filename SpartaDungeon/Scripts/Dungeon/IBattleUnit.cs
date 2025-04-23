@@ -34,6 +34,7 @@ namespace SpartaDungeon
         public int CurrentMP { get; protected set; }      //현재 마나
 
         public List<Skill> Skills { get; } = new List<Skill>(); // 스킬 목록
+
         public void OnDamage(int damage) //피격
         {
             CurrentHP -= damage;
