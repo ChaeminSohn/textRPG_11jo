@@ -45,6 +45,10 @@ namespace SpartaDungeon
             while (!isGameOver)     //게임이 종료될 때 까지 반복
             {
                 TownAction();
+                if (player.IsDead)
+                {
+                    GameOver();
+                }
             }
             Console.Clear();
             Console.WriteLine("게임이 종료되었습니다.");
@@ -68,7 +72,7 @@ namespace SpartaDungeon
             inventory = new Inventory();
 
             player = new Player(playerName, playerJob, inventory);
-            player.OnPlayerDie += GameOver;
+            //player.OnPlayerDie += GameOver;
             shop = new Shop(player);
             dungeon = new Dungeon(player, monsterList);
 
@@ -125,7 +129,6 @@ namespace SpartaDungeon
             }
 
             player = new Player(config.PlayerData, inventory);
-            player.OnPlayerDie += GameOver;
             player.RestoreAfterLoad();
             player.UpdatePlayerStats();
             shop = new Shop(player, itemList);
@@ -277,54 +280,7 @@ namespace SpartaDungeon
             }
         }
 
-        string GetNameFromPlayer()  //이름 입력
-        {
-            while (true)
-            {
-                Console.Clear();
-                Console.WriteLine("스파르타 던전에 오신 걸 환영합니다!");
-                Console.WriteLine("플레이어 이름을 입력해주세요.\n");
-                string input = Console.ReadLine();
 
-                // 입력이 null이거나 공백인 경우
-                if (string.IsNullOrWhiteSpace(input))
-                {
-                    Console.WriteLine("이름은 비워둘 수 없습니다. 다시 입력해주세요.");
-                    Utils.Pause(false);
-                    continue;
-                }
-
-                // 너무 짧거나 긴 이름인 경우
-                if (input.Length < 2 || input.Length > 12)
-                {
-                    Console.WriteLine("이름은 2자 이상 12자 이하여야 합니다.");
-                    Utils.Pause(false);
-                    continue;
-                }
-
-                while (true)
-                {
-                    Console.Clear();
-                    Console.WriteLine($"입력하신 이름은 {input} 입니다.");
-                    Console.WriteLine("\n1. 확인");
-                    Console.WriteLine("2. 취소");
-
-
-                    switch (Utils.GetPlayerInput())
-                    {
-                        case 1:
-                            return input;
-                        case 2:
-                            break;
-                        default:
-                            Console.WriteLine("잘못된 입력입니다.");
-                            Utils.Pause(false);
-                            continue;
-                    }
-                    break;
-                }
-            }
-        }
 
         public void ShowState() // 상태 창
         {
@@ -374,6 +330,55 @@ namespace SpartaDungeon
                 Console.WriteLine($"{name} : {kv.Value}마리");
             }
 
+        }
+
+        string GetNameFromPlayer()  //이름 입력
+        {
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("스파르타 던전에 오신 걸 환영합니다!");
+                Console.WriteLine("플레이어 이름을 입력해주세요.\n");
+                string input = Console.ReadLine();
+
+                // 입력이 null이거나 공백인 경우
+                if (string.IsNullOrWhiteSpace(input))
+                {
+                    Console.WriteLine("이름은 비워둘 수 없습니다. 다시 입력해주세요.");
+                    Utils.Pause(false);
+                    continue;
+                }
+
+                // 너무 짧거나 긴 이름인 경우
+                if (input.Length < 2 || input.Length > 12)
+                {
+                    Console.WriteLine("이름은 2자 이상 12자 이하여야 합니다.");
+                    Utils.Pause(false);
+                    continue;
+                }
+
+                while (true)
+                {
+                    Console.Clear();
+                    Console.WriteLine($"입력하신 이름은 {input} 입니다.");
+                    Console.WriteLine("\n1. 확인");
+                    Console.WriteLine("2. 취소");
+
+
+                    switch (Utils.GetPlayerInput())
+                    {
+                        case 1:
+                            return input;
+                        case 2:
+                            break;
+                        default:
+                            Console.WriteLine("잘못된 입력입니다.");
+                            Utils.Pause(false);
+                            continue;
+                    }
+                    break;
+                }
+            }
         }
 
         Job GetJobFromPlayer()    //직업 입력
