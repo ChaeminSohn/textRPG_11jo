@@ -252,9 +252,10 @@ namespace SpartaDungeon
 
         public void ShowSkillList()
         {
-            for(int i = 0; i < Skills.Count; i++ ) 
+            Console.WriteLine($"\n[스킬]");
+
+            for (int i = 0; i < Skills.Count; i++ ) 
             {
-                Console.WriteLine($"\n[스킬]");
                 Console.WriteLine($"{i + 1}. {Skills[i].Name} : {Skills[i].Description}");
             }
         }
@@ -266,12 +267,15 @@ namespace SpartaDungeon
             {
                 case Job.Warrior:
                     Skills.Add(new PawerStrike());
+                    Skills.Add(new SlashBlust());
                     break;
                 case Job.Mage:
-                    Skills.Add(new PawerStrike());
+                    Skills.Add(new MagicClaw());
+                    Skills.Add(new Thunderbolt());
                     break;
                 case Job.Archer:
-                    Skills.Add(new PawerStrike());
+                    Skills.Add(new ArrowBlow());
+                    Skills.Add(new ArrowBomb());
                     break;
             }
         }
