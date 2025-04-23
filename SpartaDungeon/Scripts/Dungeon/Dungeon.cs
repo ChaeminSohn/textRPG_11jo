@@ -88,10 +88,10 @@ namespace SpartaDungeon
             }
         }
 
-       
+
         private bool ShowDungeonIntro(Difficulty difficulty)
         {
-         
+
             int minLevel = difficulty switch
             {
                 Difficulty.VeryEasy => 1,
@@ -118,7 +118,7 @@ namespace SpartaDungeon
             Console.ResetColor();
             Console.WriteLine($"선택한 사냥터: {difficulty}");
 
-           
+
             if (dungeonIntroductions.TryGetValue(difficulty, out string introduction))
             {
                 Console.WriteLine(introduction);
@@ -192,8 +192,8 @@ namespace SpartaDungeon
                     break;
             }
 
-            
-            var filtered = monsters.Where(mon => mon.ID() >= minId && mon.ID() <= maxId).ToList();
+
+            var filtered = monsters.Where(mon => mon.Id >= minId && mon.Id <= maxId).ToList();
             return filtered.Count > 0 ? filtered : monsters;
         }
 
