@@ -31,8 +31,8 @@ namespace SpartaDungeon
             CurrentHP = FullHP;
             BaseAttack = attack;
             BaseDefense = defense;
-            Attack = attack;
-            Defense = defense;
+            BaseAttack = attack;
+            BaseDefense = defense;
             ExpReward = expReward;
             MesoReward = mesoReward;
             CritChance = critChance;
