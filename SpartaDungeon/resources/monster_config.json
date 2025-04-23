@@ -8,16 +8,10 @@
       "Attack": 2,
       "Defense": 4,
       "ExpReward" : 1,
-      "GoldReward" : 3,
+      "MesoReward" : 10,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 10,
           "DropChance": 0.9,
@@ -34,16 +28,10 @@
       "Attack": 4,
       "Defense": 2,
       "ExpReward" : 1,
-      "GoldReward" : 4,
+      "MesoReward" : 10,
       "CritChance" : 0,
       "EvadeChance" : 0.1,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 11,
           "DropChance": 0.9,
@@ -59,17 +47,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
-      "ExpReward" : 1,
-      "GoldReward" : 4,
+      "ExpReward" : 15,
+      "MesoReward" : 4,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 12,
           "DropChance": 0.9,
@@ -86,16 +68,10 @@
       "Attack": 4,
       "Defense": 5,
       "ExpReward" : 3,
-      "GoldReward" : 5,
+      "MesoReward" : 20,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 13,
           "DropChance": 0.9,
@@ -112,16 +88,10 @@
       "Attack": 4,
       "Defense": 5,
       "ExpReward" : 4,
-      "GoldReward" : 6,
+      "MesoReward" : 20,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 14,
           "DropChance": 0.9,
@@ -138,16 +108,10 @@
       "Attack": 4,
       "Defense": 5,
       "ExpReward" : 5,
-      "GoldReward" : 7,
+      "MesoReward" : 20,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 13,
           "DropChance": 0.9,
@@ -164,16 +128,10 @@
       "Attack": 4,
       "Defense": 5,
       "ExpReward" : 6,
-      "GoldReward" : 9,
+      "MesoReward" : 25,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 16,
           "DropChance": 0.9,
@@ -189,15 +147,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 7,
+      "MesoReward" : 30,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 20,
           "DropChance": 0.9,
@@ -213,15 +167,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 8,
+      "MesoReward" : 30,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 21,
           "DropChance": 0.9,
@@ -237,15 +187,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 9,
+      "MesoReward" : 35,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 22,
           "DropChance": 0.9,
@@ -261,15 +207,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 9,
+      "MesoReward" : 35,
       "CritChance" : 0,
       "EvadeChance" : 10,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 23,
           "DropChance": 0.9,
@@ -285,15 +227,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 10,
+      "MesoReward" : 40,
       "CritChance" : 0,
       "EvadeChance" : 10,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 24,
           "DropChance": 0.9,
@@ -309,15 +247,11 @@
       "FullHP": 20,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 11,
+      "MesoReward" : 50,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 30,
           "DropChance": 0.9,
@@ -334,15 +268,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 11,
+      "MesoReward" : 50,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 31,
           "DropChance": 0.9,
@@ -358,15 +288,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 12,
+      "MesoReward" : 55,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 32,
           "DropChance": 0.9,
@@ -382,15 +308,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 13,
+      "MesoReward" : 60,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 33,
           "DropChance": 0.9,
@@ -406,15 +328,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 14,
+      "MesoReward" : 70,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 40,
           "DropChance": 0.9,
@@ -430,15 +348,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 14,
+      "MesoReward" : 75,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 41,
           "DropChance": 0.9,
@@ -454,15 +368,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 15,
+      "MesoReward" : 80,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 42,
           "DropChance": 0.9,
@@ -478,15 +388,12 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 15,
+      "MesoReward" : 80,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
+
         {
           "ItemID": 43,
           "DropChance": 0.9,
@@ -502,15 +409,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 16,
+      "MesoReward" : 90,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 44,
           "DropChance": 0.9,
@@ -526,15 +429,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 14,
+      "MesoReward" : 75,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 50,
           "DropChance": 0.9,
@@ -550,15 +449,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 15,
+      "MesoReward" : 90,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 51,
           "DropChance": 0.9,
@@ -574,15 +469,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 16,
+      "MesoReward" : 90,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 52,
           "DropChance": 0.9,
@@ -598,15 +489,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 17,
+      "MesoReward" : 100,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 53,
           "DropChance": 0.9,
@@ -622,15 +509,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 17,
+      "MesoReward" : 110,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 54,
           "DropChance": 0.9,
@@ -646,15 +529,11 @@
       "FullHP": 200,
       "Attack": 10,
       "Defense": 10,
+      "ExpReward" : 30,
+      "MesoReward" : 500,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 101,
           "DropChance": 1,
@@ -670,15 +549,11 @@
       "FullHP": 300,
       "Attack": 15,
       "Defense": 10,
+      "ExpReward" : 60,
+      "MesoReward" : 1000,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 102,
           "DropChance": 1,
@@ -694,15 +569,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 100,
+      "MesoReward" : 2000,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 103,
           "DropChance": 1,
@@ -718,15 +589,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 200,
+      "MesoReward" : 3000,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 104,
           "DropChance": 1,
@@ -742,15 +609,11 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 250,
+      "MesoReward" : 4000,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        },
         {
           "ItemID": 105,
           "DropChance": 1,
@@ -766,15 +629,12 @@
       "FullHP": 999,
       "Attack": 99,
       "Defense": 99,
+      "ExpReward" : 999,
+      "MesoReward" : 9999,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
-        {
-          "ItemID": 0,
-          "DropChance": 0.5,
-          "MinQuantity": 1,
-          "MaxQuantity": 2
-        }
+
       ]
     }
   ]

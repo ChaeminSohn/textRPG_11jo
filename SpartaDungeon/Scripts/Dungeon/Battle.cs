@@ -8,6 +8,7 @@ namespace SpartaDungeon
         Player player;  //플레이어
         Monster[] monsters;  //몬스터들
         List<Monster> killedMonsters = new List<Monster>();  //처치한 몬스터 수
+        int droppedMeso; //몬스터가 드랍한 메소 총합
         bool isPlayerRun = false;   //도망가기 옵션
         public Battle(Player player, Monster[] monsters)
         {
@@ -55,7 +56,7 @@ namespace SpartaDungeon
             foreach (Monster monster in killedMonsters) //처치한 몬스터 경험치, 드랍 아이템 정리
             {
                 player.GetEXP(monster.ExpReward);
-
+                droppedMeso += monster.MesoReward;
                 //몬스터 드랍 테이블에서 랜덤 아이템 추출 
                 foreach (ItemInfo itemInfo in Utils.GetDroppedItems(monster.Drops))
                 {
@@ -70,13 +71,10 @@ namespace SpartaDungeon
                     player.Inventory.AddItem(ItemFactory.CreateItem(itemInfo));
                 }
             }
-            if (itemCounts.ContainsKey("Gold")) //골드 아이템은 개당 100골드로 취급
-            {
-                itemCounts["Gold"] *= 100;
-            }
-
             Console.Clear();
             Console.WriteLine("[획득 아이템]");
+            Console.WriteLine($"{droppedMeso} 메소");
+            player.ChangeMeso(droppedMeso);
             foreach (var entry in itemCounts)
             {
                 Console.WriteLine($"{entry.Key} x {entry.Value}");

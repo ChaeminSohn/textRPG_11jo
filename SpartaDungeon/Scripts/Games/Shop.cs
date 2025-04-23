@@ -225,7 +225,7 @@ namespace SpartaDungeon
                     {
                         //구매 확정 단계
                         Console.WriteLine($"\n{selectedItem.Name}");
-                        Console.WriteLine($"아이템 가격 : {selectedItem.Price} G , 보유 골드 : {player.Meso} G");
+                        Console.WriteLine($"아이템 가격 : {selectedItem.Price} G , 보유 메소 : {player.Meso} G");
                         Console.WriteLine("1. 구매");
                         Console.WriteLine("2. 다시 생각해본다");
                         Console.Write("\n원하시는 행동을 입력해주세요.");
@@ -248,7 +248,7 @@ namespace SpartaDungeon
                     //돈이 부족한 경우
                     else
                     {
-                        Console.WriteLine("\n골드가 부족합니다.");
+                        Console.WriteLine("\n메소가 부족합니다.");
                         Utils.Pause(false);
                     }
                 }

@@ -41,7 +41,7 @@ namespace SpartaDungeon
         public float CritChance { get; private set; }
         public float EvadeChance { get; private set; }
         public Job Job { get; private set; }    //직업
-        public int Gold { get; private set; }   //골드
+        public int Meso { get; private set; }   //메소
         public Inventory Inventory { get; private set; }    //인벤토리
         public event Action? OnPlayerDie; //플레이어 사망 이벤트
         public bool IsDead { get; private set; }
@@ -82,7 +82,7 @@ namespace SpartaDungeon
             BaseDefense = playerData.BaseDefense;
             CritChance = playerData.CritChance;
             EvadeChance = playerData.EvadeChance;
-            Gold = playerData.Meso;
+            Meso = playerData.Meso;
             monsterKillCounts = playerData.MonsterKillCounts;
             FullMP = playerData.FullMP;
             CurrentMP = playerData.CurrentMP;
@@ -285,7 +285,7 @@ namespace SpartaDungeon
         public PlayerData GetPlayerData()   //플레이어 데이터 추출
         {
             return new PlayerData(Name, Job, Level, MaxLevel, Experience, ExpThresholds, BaseFullHP, CurrentHP,
-                BaseAttack, BaseDefense, CritChance, EvadeChance, Gold, monsterKillCounts, FullMP, CurrentMP);
+                BaseAttack, BaseDefense, CritChance, EvadeChance, Meso, monsterKillCounts, FullMP, CurrentMP);
         }
     }
 }

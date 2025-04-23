@@ -190,7 +190,7 @@ namespace SpartaDungeon
                 Console.Clear();
                 Console.WriteLine("<휴식하기>");
                 Console.WriteLine($"500 G 를 내면 체력을 회복할 수 있습니다." +
-                    $" (보유 골드 : {player.Meso} G)");
+                    $" (보유 메소 : {player.Meso} G)");
                 Console.WriteLine("\n1. 휴식하기");
                 Console.WriteLine("0. 나가기");
                 Console.Write("\n원하시는 행동을 입력해주세요.");
@@ -210,7 +210,7 @@ namespace SpartaDungeon
                         }
                         else
                         {
-                            Console.WriteLine("\n골드가 부족합니다.");
+                            Console.WriteLine("\n메소가 부족합니다.");
                             Utils.Pause(false);
                         }
                         return;
