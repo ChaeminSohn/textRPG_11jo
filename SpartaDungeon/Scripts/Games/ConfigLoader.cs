@@ -12,7 +12,8 @@ namespace SpartaDungeon
                 string json = File.ReadAllText(path);
                 var options = new JsonSerializerOptions
                 {
-                    Converters = { new JsonStringEnumConverter() }  //Enum 대응
+                    Converters = { new JsonStringEnumConverter() },  //Enum 대응
+                    PropertyNameCaseInsensitive = true // 대소문자 무시
                 };
                 result = JsonSerializer.Deserialize<T>(json, options);
                 return true;

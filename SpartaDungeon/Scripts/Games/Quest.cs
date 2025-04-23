@@ -8,9 +8,9 @@ namespace SpartaDungeon
 {
     public enum QuestStatus
     {
-        NotAccepted,
-        InProgress,
-        Completed
+        수락되지않음,
+        진행중,
+        완료됨
     }
 
     internal class Quest
@@ -21,13 +21,17 @@ namespace SpartaDungeon
         public string Reward;
         public QuestStatus Status;
 
+
         public void DisplayDetails()
         {
+            string rewardStr = "100";
+            int Reward = int.Parse(rewardStr); // 예외 가능성 있음
+
             Console.WriteLine($"\n===== 퀘스트 상세 정보 =====");
             Console.WriteLine($"제목     : {Title}");
             Console.WriteLine($"설명     : {Description}");
             Console.WriteLine($"조건     : {Condition}");
-            Console.WriteLine($"보상     : {Reward}");
+            Console.WriteLine($"보상     : {Reward}G");
             Console.WriteLine($"상태     : {Status}");
         }
     }
@@ -46,8 +50,8 @@ namespace SpartaDungeon
                 Title = "간단하고 맛있는 옥토퍼스다리구이",
                 Description = "옥토퍼스다리구이 요리법 1. 재료를 구한다. 2. 석쇠로 구우면 끝! ",
                 Condition = "컨닝시티 옥토퍼스 사냥터로 가 옥토퍼스다리를 구해보자",
-                Reward = "20G",
-                Status = QuestStatus.NotAccepted
+                Reward = "20",
+                Status = QuestStatus.수락되지않음
             });
 
             availableQuests.Add(new Quest
@@ -55,8 +59,8 @@ namespace SpartaDungeon
                 Title = "모자가 필요해!",
                 Description = "일곱 난쟁이 버섯과 머쉬맘 연극을 하는데 하필 주황색 버섯 모자가 없어요 도와주세요!",
                 Condition = "헤네시스 사낭터로 가 주황색버섯을 잡아 모자를 얻자!",
-                Reward = "15G",
-                Status = QuestStatus.NotAccepted
+                Reward = "15",
+                Status = QuestStatus.수락되지않음
             });
 
             availableQuests.Add(new Quest
@@ -64,8 +68,8 @@ namespace SpartaDungeon
                 Title = "알록달록 달팽이 껍질을 모아봐요!",
                 Description = "달팽이 껍질을 모을거예요! 어디에 쓸냐고요? 후후후 그건 비밀~!",
                 Condition = "페리온 사낭터로 가 빨간 달팽이 1, 파란달팽이 1 를 잡아 아이템을 얻어보자",
-                Reward = "5G",
-                Status = QuestStatus.NotAccepted
+                Reward = "5",
+                Status = QuestStatus.수락되지않음
             });
 
             availableQuests.Add(new Quest
@@ -73,8 +77,8 @@ namespace SpartaDungeon
                 Title = "커즈아이 꼬리구이?",
                 Description = "옥토퍼스다리구이처럼 커즈아이 꼬리도 맛있을것같아요! 그러니 꼬리 좀 구해주세요",
                 Condition = "슬리피우드 사냥터에서 커즈아이 꼬리를 구해보자",
-                Reward = "10G",
-                Status = QuestStatus.NotAccepted
+                Reward = "10",
+                Status = QuestStatus.수락되지않음
             });
 
             availableQuests.Add(new Quest
@@ -82,8 +86,8 @@ namespace SpartaDungeon
                 Title = "현상수배 킹 슬라임",
                 Description = "킹 슬라임을 잡아줘",
                 Condition = "엘리니아 던전 보스몹을 잡자",
-                Reward = "200G",
-                Status = QuestStatus.NotAccepted
+                Reward = "200",
+                Status = QuestStatus.수락되지않음
             });
         }
 
@@ -170,7 +174,7 @@ namespace SpartaDungeon
             string input = Console.ReadLine();
             if (input == "1")
             {
-                selected.Status = QuestStatus.InProgress;
+                selected.Status = QuestStatus.진행중;
                 myQuests.Add(selected);
                 availableQuests.RemoveAt(index);
                 Console.WriteLine("\n퀘스트를 수락했습니다!");
