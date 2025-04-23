@@ -190,7 +190,7 @@ namespace SpartaDungeon
                 Console.Clear();
                 Console.WriteLine("<휴식하기>");
                 Console.WriteLine($"500 G 를 내면 체력을 회복할 수 있습니다." +
-                    $" (보유 골드 : {player.Gold} G)");
+                    $" (보유 골드 : {player.Meso} G)");
                 Console.WriteLine("\n1. 휴식하기");
                 Console.WriteLine("0. 나가기");
                 Console.Write("\n원하시는 행동을 입력해주세요.");
@@ -200,10 +200,10 @@ namespace SpartaDungeon
                     case 0:
                         return;
                     case 1:
-                        if (player.Gold >= 500)
+                        if (player.Meso >= 500)
                         {
                             player.RecoverHP(player.FullHP);
-                            player.ChangeGold(-500);
+                            player.ChangeMeso(-500);
                             Console.WriteLine("\n푹 쉬었습니다.");
                             Console.WriteLine($"체력 {health} -> {player.CurrentHP}");
                             Utils.Pause(true);

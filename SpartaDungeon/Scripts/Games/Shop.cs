@@ -105,8 +105,8 @@ namespace SpartaDungeon
                 Console.Clear();
                 Console.WriteLine("<장비 아이템>");
                 Console.WriteLine("인생은 템빨이라는 말이 있죠.");
-                Console.WriteLine("\n[보유 골드]");
-                Console.WriteLine($"{player.Gold} G");
+                Console.WriteLine("\n[보유 메소]");
+                Console.WriteLine($"{player.Meso} G");
                 Console.WriteLine("\n[아이템 목록]\n");
                 //아이템 목록 보여줌
                 foreach (ITradable item in equipments)
@@ -186,8 +186,8 @@ namespace SpartaDungeon
                 Console.Clear();
                 Console.WriteLine("<아이템 구매>");
                 Console.WriteLine("필요한 아이템을 살 수 있습니다.");
-                Console.WriteLine("\n[보유 골드]");
-                Console.WriteLine($"{player.Gold} G");
+                Console.WriteLine("\n[보유 메소]");
+                Console.WriteLine($"{player.Meso} G");
 
                 Console.WriteLine("\n[아이템 목록]");
                 //아이템 목록 보여줌
@@ -221,11 +221,11 @@ namespace SpartaDungeon
                         Utils.Pause(false);
                     }
                     //돈이 충분한 경우
-                    else if (player.Gold >= selectedItem.Price)
+                    else if (player.Meso >= selectedItem.Price)
                     {
                         //구매 확정 단계
                         Console.WriteLine($"\n{selectedItem.Name}");
-                        Console.WriteLine($"아이템 가격 : {selectedItem.Price} G , 보유 골드 : {player.Gold} G");
+                        Console.WriteLine($"아이템 가격 : {selectedItem.Price} G , 보유 골드 : {player.Meso} G");
                         Console.WriteLine("1. 구매");
                         Console.WriteLine("2. 다시 생각해본다");
                         Console.Write("\n원하시는 행동을 입력해주세요.");
@@ -262,8 +262,8 @@ namespace SpartaDungeon
                 Console.Clear();
                 Console.WriteLine("<아이템 판매>");
                 Console.WriteLine("선택한 아이템을 팔 수 있습니다.");
-                Console.WriteLine("\n[보유 골드]");
-                Console.WriteLine($"{player.Gold} G");
+                Console.WriteLine("\n[보유 메소]");
+                Console.WriteLine($"{player.Meso} G");
 
                 Console.WriteLine("\n[아이템 목록]");
                 //아이템 목록 보여줌

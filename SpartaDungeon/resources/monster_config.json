@@ -7,6 +7,8 @@
       "FullHP": 10,
       "Attack": 2,
       "Defense": 4,
+      "ExpReward" : 1,
+      "GoldReward" : 3,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
@@ -31,6 +33,8 @@
       "FullHP": 12,
       "Attack": 4,
       "Defense": 2,
+      "ExpReward" : 1,
+      "GoldReward" : 4,
       "CritChance" : 0,
       "EvadeChance" : 0.1,
       "Drops": [
@@ -55,6 +59,8 @@
       "FullHP": 15,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 1,
+      "GoldReward" : 4,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
@@ -79,6 +85,8 @@
       "FullHP": 17,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 3,
+      "GoldReward" : 5,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
@@ -103,6 +111,8 @@
       "FullHP": 17,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 4,
+      "GoldReward" : 6,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
@@ -127,6 +137,8 @@
       "FullHP": 10,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 5,
+      "GoldReward" : 7,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
@@ -151,6 +163,8 @@
       "FullHP": 10,
       "Attack": 4,
       "Defense": 5,
+      "ExpReward" : 6,
+      "GoldReward" : 9,
       "CritChance" : 0,
       "EvadeChance" : 0,
       "Drops": [
@@ -742,6 +756,24 @@
           "DropChance": 1,
           "MinQuantity": 1,
           "MaxQuantity": 1
+        }
+      ]
+    },
+    {
+      "Id": 999,
+      "Name": "자쿰",
+      "Level": 1,
+      "FullHP": 999,
+      "Attack": 99,
+      "Defense": 99,
+      "CritChance" : 0,
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 1,
+          "MaxQuantity": 2
         }
       ]
     }

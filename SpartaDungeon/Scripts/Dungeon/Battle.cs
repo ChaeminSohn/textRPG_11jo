@@ -8,8 +8,6 @@ namespace SpartaDungeon
         Player player;  //플레이어
         Monster[] monsters;  //몬스터들
         List<Monster> killedMonsters = new List<Monster>();  //처치한 몬스터 수
-        List<ITradable> droppedItems = new List<ITradable>(); //드랍 아이템 모음
-
         bool isPlayerRun = false;   //도망가기 옵션
         public Battle(Player player, Monster[] monsters)
         {
@@ -58,7 +56,7 @@ namespace SpartaDungeon
             {
                 player.GetEXP(monster.ExpReward);
 
-                //몬스터 드랍 테이블에서 랜덤 아이템 추출
+                //몬스터 드랍 테이블에서 랜덤 아이템 추출 
                 foreach (ItemInfo itemInfo in Utils.GetDroppedItems(monster.Drops))
                 {
                     if (itemCounts.ContainsKey(itemInfo.Name))
@@ -72,6 +70,11 @@ namespace SpartaDungeon
                     player.Inventory.AddItem(ItemFactory.CreateItem(itemInfo));
                 }
             }
+            if (itemCounts.ContainsKey("Gold")) //골드 아이템은 개당 100골드로 취급
+            {
+                itemCounts["Gold"] *= 100;
+            }
+
             Console.Clear();
             Console.WriteLine("[획득 아이템]");
             foreach (var entry in itemCounts)
@@ -243,7 +246,7 @@ namespace SpartaDungeon
             if (isSkill == false) baseDamage = rand.Next(attacker.Attack - damageVariance, attacker.Attack + damageVariance + 1); // 기본 공격 데미지
             else // 스킬 데미지
             {
-                int skillDamage = (int)(player.Skills[skillNum].Damage * attacker.Attack);
+                int skillDamage = (int)(player.Skills[skillNum].Damage + attacker.Attack);
                 baseDamage = rand.Next(skillDamage - damageVariance, skillDamage + damageVariance + 1);
             }
 

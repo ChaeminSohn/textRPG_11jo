@@ -16,13 +16,13 @@ namespace SpartaDungeon
         public int BaseDefense { get; set; }    //기본 방어력
         public float CritChance { get; set; }   //치명타 확률
         public float EvadeChance { get; set; }   //회피 확률
-        public int Gold { get; set; }   //골드
+        public int Meso { get; set; }   //메소
         public int FullMP { get; set; }  // 최대 마나
         public int CurrentMP { get; set; }  // 현재 마나
         public Dictionary<int, int> MonsterKillCounts { get; set; }
 
         public PlayerData(string Name, Job job, int level, int maxLevel, int experience, int[] expThresholds,
-            int baseFullHP, int currentHP, int baseAttack, int baseDefense, float critChance, float evadeChance, int gold, Dictionary<int, int> monsterKillCounts, int fullMP, int currentMP)
+            int baseFullHP, int currentHP, int baseAttack, int baseDefense, float critChance, float evadeChance, int meso, Dictionary<int, int> monsterKillCounts, int fullMP, int currentMP)
         {
             this.Name = Name;
             Job = job;
@@ -36,7 +36,7 @@ namespace SpartaDungeon
             BaseDefense = baseDefense;
             CritChance = critChance;
             EvadeChance = evadeChance;
-            Gold = gold;
+            Meso = meso;
             MonsterKillCounts = monsterKillCounts;
             FullMP = fullMP;
             CurrentMP = currentMP;

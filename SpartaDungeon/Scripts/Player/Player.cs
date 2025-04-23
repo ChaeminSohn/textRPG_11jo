@@ -82,7 +82,7 @@ namespace SpartaDungeon
             BaseDefense = playerData.BaseDefense;
             CritChance = playerData.CritChance;
             EvadeChance = playerData.EvadeChance;
-            Gold = playerData.Gold;
+            Gold = playerData.Meso;
             monsterKillCounts = playerData.MonsterKillCounts;
             FullMP = playerData.FullMP;
             CurrentMP = playerData.CurrentMP;
@@ -121,7 +121,7 @@ namespace SpartaDungeon
             BaseDefense = defaultData.BaseDefense;
             CritChance = defaultData.CritChance;
             EvadeChance = defaultData.EvadeChance;
-            Gold = defaultData.Gold;
+            Meso = defaultData.Meso;
             FullMP = defaultData.FullMP;
             CurrentMP = FullMP;
         }
@@ -207,20 +207,20 @@ namespace SpartaDungeon
             Utils.Pause(true);
         }
 
-        public void ChangeGold(int gold)
+        public void ChangeMeso(int meso)
         {
-            Gold += gold;
+            Meso += meso;
         }
         public void BuyItem(ITradable item)
         {
-            ChangeGold(-item.Price);
+            ChangeMeso(-item.Price);
             item.OnTrade();
             Inventory.AddItem(item);
         }
 
-        public void SellItem(ITradable item, int gold)
+        public void SellItem(ITradable item, int meso)
         {
-            ChangeGold(gold);
+            ChangeMeso(meso);
             item.OnTrade();
             Inventory.RemoveItem(item);
         }
@@ -246,7 +246,7 @@ namespace SpartaDungeon
             Console.WriteLine($"회피율 : {EvadeChance}");
             Console.WriteLine($"체력 : {CurrentHP}/{FullHP}");
             Console.WriteLine($"마나 : {CurrentMP}/{FullMP}");
-            Console.WriteLine($"Gold : {Gold} G");
+            Console.WriteLine($"메소 : {Meso} ");
             ShowSkillList();
         }
 
@@ -254,7 +254,7 @@ namespace SpartaDungeon
         {
             Console.WriteLine($"\n[스킬]");
 
-            for (int i = 0; i < Skills.Count; i++ ) 
+            for (int i = 0; i < Skills.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. {Skills[i].Name} : {Skills[i].Description}");
             }
