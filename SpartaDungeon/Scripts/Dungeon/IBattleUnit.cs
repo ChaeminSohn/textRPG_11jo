@@ -33,7 +33,7 @@ namespace SpartaDungeon
         public int FullMP { get; protected set; }  //최대 마나
         public int CurrentMP { get; protected set; }      //현재 마나
 
-
+        public List<Skill> Skills { get; } = new List<Skill>(); // 스킬 목록
         public void OnDamage(int damage) //피격
         {
             CurrentHP -= damage;
@@ -57,5 +57,42 @@ namespace SpartaDungeon
         }
 
         protected abstract void LevelUpStats(); // 레벨 업 능력치 상승
+
+        public int FinalDamage(IBattleUnit defender, int skillDmg) //최종 데미지
+        {
+            Random _rand = new Random();
+            int baseDamage; // 데미지
+            int damageVariance = (int)(Attack * 0.1); // 데미지 편차
+
+            bool isCritical = _rand.NextDouble() < CritChance; // 크리티컬 확률
+            baseDamage = _rand.Next(Attack - damageVariance, Attack + damageVariance + 1); // 기본 공격 데미지
+            int finalDamage = isCritical ? (int)(baseDamage * 1.5f) : baseDamage;   //최종 데미지
+
+            if (isCritical)
+            {
+                Console.WriteLine("[치명타!] 데미지가 50% 증가했습니다.");
+            }
+
+            return finalDamage;
+        }
+
+        public void AutoAttack(IBattleUnit defender)
+        {
+            Random rand = new Random();
+            Console.WriteLine($"\n\nLv.{Level} {Name} 의 공격!");
+
+            if (rand.NextDouble() < defender.EvadeChance)   //회피 판정
+            {
+                Console.WriteLine($"Lv.{defender.Level} {defender.Name} 이(가) 공격을 회피했습니다!");
+                return;
+            }
+
+            defender.OnDamage(FinalDamage(defender, 0)); //데미지 처리
+            Console.WriteLine($"Lv.{defender.Level} {defender.Name} 을(를) 맞췄습니다.");
+
+            Console.WriteLine($"\nLv.{defender.Level} {defender.Name}");
+            Console.WriteLine($"HP {defender.CurrentHP} -> {(defender.IsDead ? "Dead" : defender.CurrentHP)}");
+        }
+
     }
 }

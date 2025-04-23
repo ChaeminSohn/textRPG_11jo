@@ -35,8 +35,6 @@ namespace SpartaDungeon
 
         public Dictionary<int, int> monsterKillCounts; // 몬스터 킬 카운트
 
-        public List<Skill> Skills { get; } = new List<Skill>(); // 스킬 목록
-
         public Player(string name, Job job, Inventory inventory)    //새 게임 생성자
         {
 

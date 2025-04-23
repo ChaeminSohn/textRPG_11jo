@@ -121,7 +121,7 @@ namespace SpartaDungeon
 
         void PlayerAttackAction(int skillNum) //플레이어 공격 액션
         {
-            bool isSkill = skillNum > -1 ? true : false;
+            bool isSkill = skillNum > -1 ? true : false; // skillNum이 -1보다 크다면 스킬을 발동
 
             while (true)
             {
@@ -140,7 +140,6 @@ namespace SpartaDungeon
                 {
                     Console.WriteLine("잘못된 입력입니다.");
                     Utils.Pause(false);
-                    continue;
                 }
                 else if (playerInput == 0)  //취소 선택
                 {
@@ -150,11 +149,10 @@ namespace SpartaDungeon
                 {
                     Console.WriteLine("이미 사망한 몬스터입니다.");
                     Utils.Pause(false);
-                    continue;
                 }
                 else
                 {
-                    DealDamage(player, monsters[playerInput - 1], isSkill, skillNum);
+                    DamageResult(player, monsters[playerInput - 1], isSkill, skillNum);
                     MonsterDead(playerInput);
                     Utils.Pause(true);
                     return;
@@ -195,10 +193,10 @@ namespace SpartaDungeon
             }
         }
 
-        private void MonsterDead(int playerInput)
+        private void MonsterDead(int playerInput) //몬스터 처치시 킬카운트 상승
         {
             if (monsters[playerInput - 1].IsDead)
-            {   //몬스터 처치 리스트에 추가
+            {
                 killedMonsters.Add(monsters[playerInput - 1]);
                 {
                     if (player.monsterKillCounts.ContainsKey(monsters[playerInput - 1].Id))
@@ -219,53 +217,22 @@ namespace SpartaDungeon
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("Battle!");
                     Console.ResetColor();
-                    DealDamage(monster, player, false, 0);
+                    DamageResult(monster, player, false, 0);
                     Utils.Pause(true);
                 }
             }
         }
 
-        void DealDamage(IBattleUnit attacker, IBattleUnit defender, bool isSkill, int skillNum) //데미지 처리 과정
+        void DamageResult(IBattleUnit attacker, IBattleUnit defender, bool isSkill, int skillNum) //데미지 처리 결과
         {
-            Random rand = new Random();
-            int baseDamage; // 데미지
-            Console.WriteLine($"\n\nLv.{attacker.Level} {attacker.Name} 의 공격!");
-
-            if (rand.NextDouble() < defender.EvadeChance)   //회피 판정
+            if (isSkill == false) // 기본 공격
             {
-                Console.WriteLine($"Lv.{defender.Level} {defender.Name} 이(가) 공격을 회피했습니다!");
-                return;
+               attacker.AutoAttack(defender);
             }
-
-            int currentHP = defender.CurrentHP;     //피격자의 현재 체력
-            int damageVariance = (int)(attacker.Attack * 0.1); // 데미지 편차
-
-            bool isCritical = rand.NextDouble() < attacker.CritChance;  //치명타 판정
-            if (isSkill == false) baseDamage = rand.Next(attacker.Attack - damageVariance, attacker.Attack + damageVariance + 1); // 기본 공격 데미지
-            else // 스킬 데미지
+            else // 스킬 발동
             {
-                int skillDamage = (int)(player.Skills[skillNum].Damage + attacker.Attack);
-                baseDamage = rand.Next(skillDamage - damageVariance, skillDamage + damageVariance + 1);
+
             }
-
-            int finalDamage = isCritical ? (int)(baseDamage * 1.5f) : baseDamage;   //최종 데미지
-
-            defender.OnDamage(finalDamage); //데미지 처리
-
-            if (isSkill == false) Console.WriteLine($"Lv.{defender.Level} {defender.Name} 을(를) 맞췄습니다."); // 기본 공격
-            else
-            {
-                Console.WriteLine($"[스킬] : {player.Skills[skillNum].Name}");
-                Console.WriteLine($"Lv.{defender.Level} {defender.Name} 을(를) 맞췄습니다.");
-            }
-
-            if (isCritical)
-            {
-                Console.WriteLine("[치명타!] 데미지가 50% 증가했습니다.");
-            }
-
-            Console.WriteLine($"\nLv.{defender.Level} {defender.Name}");
-            Console.WriteLine($"HP {currentHP} -> {(defender.IsDead ? "Dead" : defender.CurrentHP)}");
         }
 
         void ShowBattleInfo()   //몬스터, 플레이어 정보 표시
@@ -292,17 +259,16 @@ namespace SpartaDungeon
             return false;
         }
 
-        bool EveryMonsterIsDead()   //몬스터를 
+        bool EveryMonsterIsDead()   // 모든 몬스터 죽음 
         {
             foreach (Monster monster in monsters)
             {
                 if (!monster.IsDead)
                 {
                     return false;
-
                 }
-
             }
+
             return true;
         }
     }
