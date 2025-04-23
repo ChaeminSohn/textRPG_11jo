@@ -29,7 +29,7 @@ namespace SpartaDungeon
         public int[] ExpThresholds { get; private set; } //경험치 상한선
 
         public Job Job { get; private set; }    //직업
-        public int Gold { get; private set; }   //골드
+        public int Meso { get; private set; }   //메소
         public Inventory Inventory { get; private set; }    //인벤토리
         public event Action? OnPlayerDie; //플레이어 사망 이벤트
 
@@ -67,7 +67,7 @@ namespace SpartaDungeon
             BaseDefense = playerData.BaseDefense;
             CritChance = playerData.CritChance;
             EvadeChance = playerData.EvadeChance;
-            Gold = playerData.Gold;
+            Meso = playerData.Meso;
             monsterKillCounts = playerData.MonsterKillCounts;
             FullMP = playerData.FullMP;
             CurrentMP = playerData.CurrentMP;
@@ -106,7 +106,7 @@ namespace SpartaDungeon
             BaseDefense = defaultData.BaseDefense;
             CritChance = defaultData.CritChance;
             EvadeChance = defaultData.EvadeChance;
-            Gold = defaultData.Gold;
+            Meso = defaultData.Meso;
             FullMP = defaultData.FullMP;
             CurrentMP = FullMP;
         }
@@ -175,20 +175,20 @@ namespace SpartaDungeon
             Utils.Pause(true);
         }
 
-        public void ChangeGold(int gold)
+        public void ChangeMeso(int meso)
         {
-            Gold += gold;
+            Meso += meso;
         }
         public void BuyItem(ITradable item)
         {
-            ChangeGold(-item.Price);
+            ChangeMeso(-item.Price);
             item.OnTrade();
             Inventory.AddItem(item);
         }
 
-        public void SellItem(ITradable item, int gold)
+        public void SellItem(ITradable item, int meso)
         {
-            ChangeGold(gold);
+            ChangeMeso(meso);
             item.OnTrade();
             Inventory.RemoveItem(item);
         }
@@ -214,7 +214,7 @@ namespace SpartaDungeon
             Console.WriteLine($"회피율 : {EvadeChance}");
             Console.WriteLine($"체력 : {CurrentHP}/{FullHP}");
             Console.WriteLine($"마나 : {CurrentMP}/{FullMP}");
-            Console.WriteLine($"Gold : {Gold} G");
+            Console.WriteLine($"메소 : {Meso} ");
             ShowSkillList();
         }
 
@@ -222,7 +222,7 @@ namespace SpartaDungeon
         {
             Console.WriteLine($"\n[스킬]");
 
-            for (int i = 0; i < Skills.Count; i++ ) 
+            for (int i = 0; i < Skills.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. {Skills[i].Name} : {Skills[i].Description}");
             }
@@ -250,7 +250,7 @@ namespace SpartaDungeon
         public PlayerData GetPlayerData()   //플레이어 데이터 추출
         {
             return new PlayerData(Name, Job, Level, MaxLevel, Experience, ExpThresholds, BaseFullHP, CurrentHP,
-                BaseAttack, BaseDefense, CritChance, EvadeChance, Gold, monsterKillCounts, FullMP, CurrentMP);
+                BaseAttack, BaseDefense, CritChance, EvadeChance, Meso, monsterKillCounts, FullMP, CurrentMP);
         }
     }
 }

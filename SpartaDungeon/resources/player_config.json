@@ -7,7 +7,7 @@
     "BaseDefense" : 5,
     "CritChance" : 0.1,
     "EvadeChance" : 0,
-    "Gold" : 1000,
+    "Meso" : 1000,
     "ExpThresholds" : [1, 3, 5, 10, 20],
     "MaxLevel" : 5
     },
@@ -19,7 +19,7 @@
     "BaseDefense" : 3,
     "CritChance" : 0.1,
     "EvadeChance" : 0.1,
-    "Gold" : 1000,
+    "Meso" : 1000,
     "ExpThresholds" : [1, 3, 5, 10, 20],
     "MaxLevel" : 5
     },
@@ -31,7 +31,7 @@
     "BaseDefense" : 3,
     "CritChance" : 0.2,
     "EvadeChance" : 0.2,
-    "Gold" : 1000,
+    "Meso" : 1000,
     "ExpThresholds" : [1, 3, 5, 10, 20],
     "MaxLevel" : 5
     }
