@@ -50,7 +50,7 @@ namespace SpartaDungeon
                 Console.WriteLine($"HP {startHP} -> 0");
                 return;
             }
-            Utils.Pause(true);
+            Utils.Pause(false);
 
             Dictionary<string, int> itemCounts = new Dictionary<string, int>(); //드랍 아이템 정리용 딕셔너리
 
@@ -59,7 +59,7 @@ namespace SpartaDungeon
                 player.GetEXP(monster.ExpReward);
 
                 //몬스터 드랍 테이블에서 랜덤 아이템 추출
-                foreach (ItemInfo itemInfo in Utils.GetDroppedItems(monster.DropTable))
+                foreach (ItemInfo itemInfo in Utils.GetDroppedItems(monster.Drops))
                 {
                     if (itemCounts.ContainsKey(itemInfo.Name))
                     {
@@ -78,7 +78,7 @@ namespace SpartaDungeon
             {
                 Console.WriteLine($"{entry.Key} x {entry.Value}");
             }
-
+            Utils.Pause(true);
         }
 
         void MyTurnAction() //플레이어 턴
@@ -218,13 +218,13 @@ namespace SpartaDungeon
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("Battle!");
                     Console.ResetColor();
-                    DealDamage(monster, player, false , 0);
+                    DealDamage(monster, player, false, 0);
                     Utils.Pause(true);
                 }
             }
         }
 
-        void DealDamage(IBattleUnit attacker, IBattleUnit defender, bool isSkill , int skillNum) //데미지 처리 과정
+        void DealDamage(IBattleUnit attacker, IBattleUnit defender, bool isSkill, int skillNum) //데미지 처리 과정
         {
             Random rand = new Random();
             int baseDamage; // 데미지
@@ -272,7 +272,7 @@ namespace SpartaDungeon
             //몬스터 정보 표시
             for (int i = 0; i < monsters.Length; i++)
             {
-                Console.WriteLine($"{i + 1}. Lv{monsters[i].Level} {monsters[i].Name}   {(monsters[i].IsDead ? "Dead" : monsters[i].CurrentHP)} {(monsters[i].IsDead ? " " : monsters[i].Attack)}");
+                Console.WriteLine($"{i + 1}. Lv{monsters[i].Level} {monsters[i].Name}   {(monsters[i].IsDead ? "Dead" : "HP : " + monsters[i].CurrentHP)}");
             }
             Console.WriteLine("\n\n[내정보]");
             Console.WriteLine($"Lv.{player.Level} {player.Name} ({player.Job})");

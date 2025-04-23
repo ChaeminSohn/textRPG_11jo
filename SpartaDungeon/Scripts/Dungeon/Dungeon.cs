@@ -100,7 +100,7 @@ namespace SpartaDungeon
                 }
 
                 bool exitDungeon = false;
-                
+
                 while (!exitDungeon)
                 {
                     int option = ShowDungeonIntro(selectedDifficulty, stageCleared[selectedDifficulty]);
@@ -110,13 +110,13 @@ namespace SpartaDungeon
                     }
                     else if (option == 1)
                     {
-                        
+
                         StartNormalBattle(selectedDifficulty);
-                        stageCleared[selectedDifficulty] = true; 
+                        stageCleared[selectedDifficulty] = true;
                     }
                     else if (option == 2 && stageCleared[selectedDifficulty])
                     {
-                        
+
                         StartBossBattle(selectedDifficulty);
                         exitDungeon = true;
                     }
@@ -125,7 +125,7 @@ namespace SpartaDungeon
             }
         }
 
-        
+
         private int ShowDungeonIntro(Difficulty difficulty, bool cleared)
         {
             int minLevel = difficulty switch
@@ -162,7 +162,7 @@ namespace SpartaDungeon
             Console.WriteLine($"\n이곳에서는 몬스터 레벨이 {minLevel} ~ {maxLevel} 사이에서 랜덤으로 결정됩니다.");
             if (cleared)
             {
-                
+
                 Console.WriteLine("\n옵션: 1. 전투 다시하기    2. 숨겨진 보스방 입장    0. 뒤로가기");
             }
             else
@@ -173,7 +173,7 @@ namespace SpartaDungeon
             return input;
         }
 
-       
+
         private void StartNormalBattle(Difficulty difficulty)
         {
             List<Monster> normalMonsters = GenerateNormalMonsters(difficulty);
@@ -181,11 +181,11 @@ namespace SpartaDungeon
             battle.StartBattle();
         }
 
-       
+
         private void StartBossBattle(Difficulty difficulty)
         {
             Monster boss = GenerateBoss(difficulty);
-          
+
             if (bossDialogues.TryGetValue(difficulty, out string dialogue))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -197,7 +197,7 @@ namespace SpartaDungeon
             battle.StartBattle();
         }
 
-       
+
         private List<Monster> GenerateNormalMonsters(Difficulty difficulty)
         {
             List<Monster> filteredMonsters = FilterMonstersByDifficulty(difficulty);
@@ -213,7 +213,7 @@ namespace SpartaDungeon
             return selectedMonsters;
         }
 
-       
+
         private Monster GenerateBoss(Difficulty difficulty)
         {
             int bossId = GetBossId(difficulty);
@@ -256,7 +256,7 @@ namespace SpartaDungeon
             return filtered.Count > 0 ? filtered : monsters;
         }
 
-      
+
         private int GetBossId(Difficulty difficulty)
         {
             return difficulty switch
