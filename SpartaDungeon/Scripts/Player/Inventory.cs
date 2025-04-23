@@ -10,7 +10,7 @@ namespace SpartaDungeon
     //플레이어의 인벤토리를 구현하는 클래스
     //플레이어가 소유한 모든 아이템 관리
     //장비 아이템들의 장착 관리
-    internal class Inventory
+    public class Inventory
     {
         int inventorySpace = 8;
         public List<ITradable> Items { get; private set; } //보유중인 모든 아이템

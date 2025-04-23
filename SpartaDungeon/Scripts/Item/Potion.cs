@@ -8,7 +8,7 @@ namespace SpartaDungeon.Scripts.Item
 {
     internal class Potion
     {
-        static void Main()
+        public void ShowPotion()
         {
             int health = 70; //현재체력
             int maxHealth = 100; //최대체력
