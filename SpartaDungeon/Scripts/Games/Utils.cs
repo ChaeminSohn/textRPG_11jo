@@ -49,6 +49,25 @@ namespace SpartaDungeon
             Console.ReadKey();
         }
 
+        //드롭 테이블에서 랜덤으로 아이템을 고르는 기능
+        public static List<ItemInfo> GetDroppedItems(DropTable table)
+        {
+            List<ItemInfo> droppedItems = new List<ItemInfo>();
+
+            Random rand = new Random();
+
+            foreach (var entry in table.Drops)
+            {
+                int quantity = rand.Next(entry.MinQuantity, entry.MaxQuantity);
+                for (int i = 0; i < quantity; i++)
+                {
+                    droppedItems.Add(ItemDataBase.Items[entry.itemID]);
+                }
+
+            }
+
+            return droppedItems;
+        }
 
         // 열거형 출력 전용 딕셔너리 모음
         public static Dictionary<Job, string> JobDisplayNames = new Dictionary<Job, string>

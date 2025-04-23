@@ -1,4 +1,5 @@
 using System.Threading;
+using Microsoft.VisualBasic;
 
 namespace SpartaDungeon
 {
@@ -7,6 +8,8 @@ namespace SpartaDungeon
         Player player;  //플레이어
         Monster[] monsters;  //몬스터들
         List<Monster> killedMonsters = new List<Monster>();  //처치한 몬스터 수
+        List<ITradable> droppedItems = new List<ITradable>(); //드랍 아이템 모음
+
         bool isPlayerRun = false;   //도망가기 옵션
         public Battle(Player player, Monster[] monsters)
         {
@@ -48,9 +51,32 @@ namespace SpartaDungeon
                 return;
             }
             Utils.Pause(true);
-            foreach (Monster monster in killedMonsters)
+
+            Dictionary<string, int> itemCounts = new Dictionary<string, int>(); //드랍 아이템 정리용 딕셔너리
+
+            foreach (Monster monster in killedMonsters) //처치한 몬스터 경험치, 드랍 아이템 정리
             {
                 player.GetEXP(monster.ExpReward);
+
+                //몬스터 드랍 테이블에서 랜덤 아이템 추출
+                foreach (ItemInfo itemInfo in Utils.GetDroppedItems(monster.DropTable))
+                {
+                    if (itemCounts.ContainsKey(itemInfo.Name))
+                    {
+                        itemCounts[itemInfo.Name]++;
+                    }
+                    else
+                    {
+                        itemCounts[itemInfo.Name] = 1;
+                    }
+                    player.Inventory.AddItem(ItemFactory.CreateItem(itemInfo));
+                }
+            }
+            Console.Clear();
+            Console.WriteLine("[획득 아이템]");
+            foreach (var entry in itemCounts)
+            {
+                Console.WriteLine($"{entry.Key} x {entry.Value}");
             }
 
         }

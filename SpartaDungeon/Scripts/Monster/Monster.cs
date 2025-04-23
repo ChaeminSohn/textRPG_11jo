@@ -32,6 +32,7 @@ namespace SpartaDungeon
         public float CritChance { get; set; }
         public float EvadeChance { get; set; }
         public int ExpReward { get; set; }  //처치 시 보상 경험치
+        public DropTable DropTable { get; set; }
 
         // 레벨당 증가량 설정
         private int hpPerLevel = 5;

@@ -9,15 +9,41 @@ namespace SpartaDungeon
 {
     internal class Shop
     {
+        public List<ITradable> Items { get; private set; } = new List<ITradable>();      //판매하는 모든 아이템
         List<ITradable> equipments = new List<ITradable>();     //판매하는 장비 아이템
         List<ITradable> usables = new List<ITradable>();   //판매하는 소비 아이템 목록
         List<ITradable> others = new List<ITradable>();     //판매하는 기타 아이템 목록
-        ItemType[] itemTypes = (ItemType[])Enum.GetValues(typeof(ItemType));    //모든 아이템 타입을 담는 배열
         Player player;
-        public Shop(Player player, List<ITradable> items)
+
+        public Shop(Player player)      //새 게임 생성자
         {
             this.player = player;
-
+            foreach (ItemInfo itemInfo in ItemDataBase.Items)
+            {
+                if (itemInfo.IsShopItem)
+                {
+                    switch (itemInfo.ItemType)     //아이템 분류 작업
+                    {
+                        case ItemType.Equipment:
+                            equipments.Add(new Equipment(itemInfo));
+                            break;
+                        case ItemType.Usable:
+                            usables.Add(new Usable(itemInfo));
+                            break;
+                        case ItemType.Other:
+                            others.Add(new OtherItem(itemInfo));
+                            break;
+                    }
+                }
+            }
+            Items.AddRange(equipments);
+            Items.AddRange(usables);
+            Items.AddRange(others);
+        }
+        public Shop(Player player, List<ITradable> items)   //게임 불러오기 생성자
+        {
+            this.player = player;
+            Items = items;
             foreach (ITradable item in items)
             {
                 switch (item.ItemType)     //아이템 분류 작업
@@ -67,7 +93,6 @@ namespace SpartaDungeon
                         Console.WriteLine("잘못된 입력입니다.");
                         Utils.Pause(false);
                         break;
-
                 }
             }
         }
@@ -190,7 +215,7 @@ namespace SpartaDungeon
                 else    //올바른 아이템 번호 입력
                 {
                     ITradable selectedItem = sellingItems[playerInput - 1];   //선택된 아이템
-                    if (!selectedItem.IsForSale)  //이미 판매된 아이템인 경우
+                    if (selectedItem.IsSoldOut)  //이미 판매된 아이템인 경우
                     {
                         Console.WriteLine("\n이미 판매된 아이템입니다.");
                         Utils.Pause(false);

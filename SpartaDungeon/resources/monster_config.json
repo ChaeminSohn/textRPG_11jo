@@ -8,7 +8,21 @@
       "Attack": 2,
       "Defense": 4,
       "CritChance" : 0,
-      "EvadeChance" : 0
+      "EvadeChance" : 0,
+      "Drops": [
+        {
+          "ItemID": 0,
+          "DropChance": 0.5,
+          "MinQuantity": 2,
+          "MaxQuantity": 1
+        },
+        {
+          "ItemID": 1,
+          "DropChance": 0.9,
+          "MinQuantity": 5,
+          "MaxQuantity": 15
+        }
+      ]
     },
     {
       "Id": 2,

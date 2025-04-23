@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,13 +13,15 @@ namespace SpartaDungeon
         Usable,     //소비 아이템
         Other //기타 아이템
     }
-    internal interface ITradable //거래 가능한 아이템 구현 시 사용
+    public interface ITradable //거래 가능한 아이템 구현 시 사용
     {
+        int ID { get; }
         String Name { get; }
         String Description { get; }
         int Price { get; }
         ItemType ItemType { get; }
-        bool IsForSale { get; }
+        bool IsShopItem { get; }    //상점에서 판매하는가?
+        bool IsSoldOut { get; }     //품절 상태인가?
         public void ShowInfo(bool ShowPrice);
         public void OnTrade();
         public ItemInfo GetItemInfo();
