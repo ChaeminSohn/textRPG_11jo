@@ -110,8 +110,8 @@ namespace SpartaDungeon
                     }
                     else if (option == 1)
                     {
-
                         StartNormalBattle(selectedDifficulty);
+                        if (player.IsDead) return;
                         stageCleared[selectedDifficulty] = true;
                     }
                     else if (option == 2 && stageCleared[selectedDifficulty])
