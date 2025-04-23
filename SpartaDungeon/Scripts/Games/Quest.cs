@@ -44,6 +44,24 @@ namespace SpartaDungeon
             availableQuests.Add(new Quest
             {
                 Title = "",
+                Description = " ",
+                Condition = "",
+                Reward = "G",
+                Status = QuestStatus.NotAccepted
+            });
+
+            availableQuests.Add(new Quest
+            {
+                Title = "",
+                Description = "",
+                Condition = "",
+                Reward = "G",
+                Status = QuestStatus.NotAccepted
+            });
+
+            availableQuests.Add(new Quest
+            {
+                Title = "",
                 Description = "",
                 Condition = "",
                 Reward = "G",
