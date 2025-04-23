@@ -3,7 +3,7 @@ namespace SpartaDungeon
     public static class ItemDataBase  //json 파일 아이템 리스트 저장용 클래스
     {
         public static List<ItemInfo> Items { get; private set; }
-
+        public static Dictionary<int, ItemInfo> ItemInfoDict = new Dictionary<int, ItemInfo>();
         public static List<ItemInfo> Equipments { get; set; } = new List<ItemInfo>();  //장비 아이템 리스트
         public static List<ItemInfo> Usables { get; set; } = new List<ItemInfo>();  //소비 아이템 리스트
         public static List<ItemInfo> Others { get; set; } = new List<ItemInfo>();  //기타 아이템 리스트
@@ -18,7 +18,14 @@ namespace SpartaDungeon
                 return;
             }
             Items = config;
+
+            foreach (ItemInfo info in Items)
+            {
+                ItemInfoDict[info.ID] = info;
+            }
         }
+
+
     }
 
     //ItemInfo를 기반으로 아이템 객체를 만들어주는 기능 제공

@@ -50,20 +50,24 @@ namespace SpartaDungeon
         }
 
         //드롭 테이블에서 랜덤으로 아이템을 고르는 기능
-        public static List<ItemInfo> GetDroppedItems(DropTable table)
+        public static List<ItemInfo> GetDroppedItems(List<DropTableEntry> dropTable)
         {
             List<ItemInfo> droppedItems = new List<ItemInfo>();
 
             Random rand = new Random();
 
-            foreach (var entry in table.Drops)
+            foreach (var entry in dropTable)
             {
-                int quantity = rand.Next(entry.MinQuantity, entry.MaxQuantity);
-                for (int i = 0; i < quantity; i++)
+                if (rand.NextDouble() <= entry.DropChance)
                 {
-                    droppedItems.Add(ItemDataBase.Items[entry.itemID]);
+                    int quantity = rand.Next(entry.MinQuantity, entry.MaxQuantity);
+                    for (int i = 0; i < quantity; i++)
+                    {
+                        Console.WriteLine(entry.ItemID);
+                        Utils.Pause(false);
+                        droppedItems.Add(ItemDataBase.ItemInfoDict[entry.ItemID]);
+                    }
                 }
-
             }
 
             return droppedItems;
