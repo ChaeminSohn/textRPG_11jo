@@ -23,7 +23,7 @@ namespace SpartaDungeon
             MP = mp;
             Damage = damage;
         }
-
+        //public override void Activate(Player user, Monster target)
     }
 
     // 스킬을 직업 별로 구분

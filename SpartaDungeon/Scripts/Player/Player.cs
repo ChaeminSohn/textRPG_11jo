@@ -21,40 +21,25 @@ namespace SpartaDungeon
         Attack,     //공격력
         Defense,    //방어력
     }
+
     public class Player : IBattleUnit
     {
-        public string Name { get; private set; }    //이름
-        public int Level { get; private set; }  //레벨
         public int MaxLevel { get; private set; }     //만랩
         public int Experience { get; private set; }   //경험치
         public int[] ExpThresholds { get; private set; } //경험치 상한선
-        public int BaseFullHP { get; private set; }     //기본 최대 체력
-        public int BonusFullHP { get; private set; }    //추가 최대 체력
-        public int FullHP => BaseFullHP + BonusFullHP;  //최대 체력
-        public int CurrentHP { get; private set; }      //현재 체력
-        public int BaseAttack { get; private set; }     //기본 공격력
-        public int BonusAttack { get; private set; }    //추가 공격력
-        public int Attack => BaseAttack + BonusAttack;  //공력력
-        public int BaseDefense { get; private set; }    //기본 방어력
-        public int BonusDefense { get; private set; }   //추가 방어력
-        public int Defense => BaseDefense + BonusDefense;   //방어력
-        public float CritChance { get; private set; }
-        public float EvadeChance { get; private set; }
+
         public Job Job { get; private set; }    //직업
         public int Gold { get; private set; }   //골드
         public Inventory Inventory { get; private set; }    //인벤토리
         public event Action? OnPlayerDie; //플레이어 사망 이벤트
-        public bool IsDead { get; private set; }
 
         public Dictionary<int, int> monsterKillCounts; // 몬스터 킬 카운트
-
-        public int FullMP { get; private set; }  //최대 체력
-        public int CurrentMP { get; private set; }      //현재 체력
 
         public List<Skill> Skills { get; } = new List<Skill>(); // 스킬 목록
 
         public Player(string name, Job job, Inventory inventory)    //새 게임 생성자
         {
+
             Name = name;
             Job = job;
             Level = 1;
@@ -131,28 +116,7 @@ namespace SpartaDungeon
             Inventory.OnEquipChanged += UpdatePlayerStats;
             UpdatePlayerStats();
         }
-        public void OnDamage(int damage)
-        {
-            CurrentHP -= damage;
-            if (CurrentHP <= 0)
-            {
-                CurrentHP = 0;
-                OnPlayerDie?.Invoke();
-            }
-        }
-        public void RecoverHP(int hp)
-        {
-            CurrentHP += hp;
-            if (CurrentHP >= FullHP)
-            {
-                CurrentHP = FullHP;
-            }
-        }
 
-        public void OnDie()
-        {
-            IsDead = true;
-        }
 
         public void UpdatePlayerStats()
         {
@@ -197,10 +161,14 @@ namespace SpartaDungeon
             }
         }
 
-        public void LevelUP()   //레벨 업
+        protected override void LevelUpStats()
         {
             BaseAttack += 1;
             BaseDefense += 1;
+        }
+
+        public void LevelUP()   //레벨 업
+        {
             Console.Clear();
             Console.WriteLine("\n레벨업!");
             Console.WriteLine($"레벨 {Level++} -> {Level}");
@@ -260,8 +228,7 @@ namespace SpartaDungeon
             }
         }
 
-
-        private void InitializeSkills()
+        private void InitializeSkills() 
         {
             switch (Job)
             {
@@ -279,8 +246,6 @@ namespace SpartaDungeon
                     break;
             }
         }
-
-
 
         public PlayerData GetPlayerData()   //플레이어 데이터 추출
         {

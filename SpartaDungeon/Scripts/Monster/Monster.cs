@@ -10,34 +10,13 @@ namespace SpartaDungeon
 {
     public class Monster : IBattleUnit
     {
-        private int level = 1;
-
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int Level
-        {
-            get { return level; }
-            set
-            {
-                if (value < 1)
-                    throw new ArgumentOutOfRangeException(nameof(value), "레벨은 1 이상이어야 합니다.");
-                level = value;
-                UpdateStats();    // 레벨이 바뀔 때마다 능력치 재계산
-            }
-        }
-        public int FullHP { get; set; }
-        public int CurrentHP { get; set; }
-        public int Attack { get; set; }
-        public int Defense { get; set; }
-        public bool IsDead { get; set; }
-        public float CritChance { get; set; }
-        public float EvadeChance { get; set; }
         public int ExpReward { get; set; }  //처치 시 보상 경험치
         public int GoldReward { get; set; }   //처치 시 골드 보상
         public List<DropTableEntry> Drops { get; set; } = new List<DropTableEntry>();  //아이템 드랍 테이블
 
         // 레벨당 증가량 설정
-        private int hpPerLevel = 5;
+        private int hpPerLevel = 1;
         private float attackPerLevel = 0.5f;
         private int defensePerLevel = 1;
 
@@ -48,43 +27,22 @@ namespace SpartaDungeon
             Id = id;
             Name = name;
             Level = level;
-            FullHP = fullHP;
+            BaseFullHP = fullHP;
             CurrentHP = FullHP;
-            Attack = attack;
-            Defense = defense;
+            BaseAttack = attack;
+            BaseDefense = defense;
             CritChance = critChance;
             EvadeChance = evadeChance;
             IsDead = false;
             Drops = drops;
         }
 
-        public void OnDamage(int damage)
+        protected override void LevelUpStats()
         {
-            CurrentHP -= damage;
-            if (CurrentHP <= 0)
-            {
-                CurrentHP = 0;
-                OnDie();
-            }
-        }
-
-        public void RecoverHP(int hp)
-        {
-            CurrentHP += hp;
-            if (FullHP > CurrentHP)
-                CurrentHP = FullHP;
-        }
-        public void OnDie()
-        {
-            IsDead = true;
-        }
-
-        public void UpdateStats()
-        {
-            FullHP += (level - 1) * hpPerLevel;
+            BaseFullHP += (level - 1) * hpPerLevel;
             CurrentHP = FullHP;
-            Attack += (int)((level - 1) * attackPerLevel);
-            Defense += (level - 1) * defensePerLevel;
+            BaseAttack += (int)((level - 1) * attackPerLevel);
+            BaseDefense += (level - 1) * defensePerLevel;
         }
 
         public Monster Clone()
