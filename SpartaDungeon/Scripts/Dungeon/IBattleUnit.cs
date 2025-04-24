@@ -49,14 +49,14 @@ namespace SpartaDungeon
         public void RecoverHP(int hp)  // HP회복
         {
             CurrentHP += hp;
-            if (FullHP > CurrentHP)
+            if (FullHP < CurrentHP)
                 CurrentHP = FullHP;
         }
 
         public void RecoverMP(int mp)  // MP회복
         {
             CurrentMP += mp;
-            if (FullMP > CurrentMP)
+            if (FullMP < CurrentMP)
                 CurrentMP = FullMP;
         }
 
@@ -81,7 +81,7 @@ namespace SpartaDungeon
             int damageVariance = (int)(Attack * 0.1); // 데미지 편차
 
             bool isCritical = _rand.NextDouble() < CritChance; // 크리티컬 확률
-            if(skillDmg == 0) baseDamage = _rand.Next(Attack - damageVariance, Attack + damageVariance + 1); // 기본 공격 데미지
+            if (skillDmg == 0) baseDamage = _rand.Next(Attack - damageVariance, Attack + damageVariance + 1); // 기본 공격 데미지
             else // 스킬 데미지 계산
             {
                 int dmg = (int)(Attack * skillDmg);
@@ -112,7 +112,7 @@ namespace SpartaDungeon
             DamageResult(defender, 0);
         }
 
-        public void DamageResult(IBattleUnit defender , float skillDmg) // 데미지 결과
+        public void DamageResult(IBattleUnit defender, float skillDmg) // 데미지 결과
         {
             int previousHP = defender.CurrentHP;
             int dmg = FinalDamage(defender, skillDmg);

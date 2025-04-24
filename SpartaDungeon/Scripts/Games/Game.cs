@@ -15,6 +15,7 @@ namespace SpartaDungeon
         Player player;
         Shop shop;
         Dungeon dungeon;
+        Inn inn = new Inn();
         string folderPath = @"..\..\..\resources";
         bool isGameOver;
         string savePath;//저장 파일 경로
@@ -42,6 +43,7 @@ namespace SpartaDungeon
                 NewGameSetting();
 
             }
+
             while (!isGameOver)     //게임이 종료될 때 까지 반복
             {
                 TownAction();
@@ -170,7 +172,7 @@ namespace SpartaDungeon
                     dungeon.Enter();
                     break;
                 case 5:     //휴식하기
-                    RestAction();
+                    inn.EnterInn(player);
                     break;
                 case 6:     //퀘스트 게시판 열기
                     questMenu.OpenQuestBoard();
@@ -182,46 +184,6 @@ namespace SpartaDungeon
                     Console.WriteLine("잘못된 입력입니다.");
                     Utils.Pause(false);
                     break;
-            }
-        }
-
-        void RestAction()   //5: 휴식 액션
-        {
-            while (true)
-            {
-                int health = player.CurrentHP;
-                Console.Clear();
-                Console.WriteLine("<휴식하기>");
-                Console.WriteLine($"500 메소를 내면 체력을 회복할 수 있습니다." +
-                    $" (보유 메소 : {player.Meso} 메소)");
-                Console.WriteLine("\n1. 휴식하기");
-                Console.WriteLine("0. 나가기");
-                Console.Write("\n원하시는 행동을 입력해주세요.");
-
-                switch (Utils.GetPlayerInput())
-                {
-                    case 0:
-                        return;
-                    case 1:
-                        if (player.Meso >= 500)
-                        {
-                            player.RecoverHP(player.FullHP);
-                            player.ChangeMeso(-500);
-                            Console.WriteLine("\n푹 쉬었습니다.");
-                            Console.WriteLine($"체력 {health} -> {player.CurrentHP}");
-                            Utils.Pause(true);
-                        }
-                        else
-                        {
-                            Console.WriteLine("\n메소가 부족합니다.");
-                            Utils.Pause(false);
-                        }
-                        return;
-                    default:
-                        Console.WriteLine("잘못된 입력입니다.");
-                        Utils.Pause(false);
-                        break;
-                }
             }
         }
 
