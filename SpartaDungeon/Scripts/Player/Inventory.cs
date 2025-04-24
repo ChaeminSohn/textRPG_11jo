@@ -251,7 +251,6 @@ namespace SpartaDungeon
             {
                 return;
             }
-
         }
     }
 }
