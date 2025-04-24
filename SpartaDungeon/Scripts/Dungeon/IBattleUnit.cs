@@ -1,4 +1,5 @@
 using System.Dynamic;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SpartaDungeon
 {
@@ -59,14 +60,19 @@ namespace SpartaDungeon
 
         protected abstract void LevelUpStats(); // 레벨 업 능력치 상승
 
-        public int FinalDamage(IBattleUnit defender, int skillDmg) //최종 데미지
+        public int FinalDamage(IBattleUnit defender, float skillDmg) //최종 데미지 계산
         {
             Random _rand = new Random();
             int baseDamage; // 데미지
             int damageVariance = (int)(Attack * 0.1); // 데미지 편차
 
             bool isCritical = _rand.NextDouble() < CritChance; // 크리티컬 확률
-            baseDamage = _rand.Next(Attack - damageVariance, Attack + damageVariance + 1); // 기본 공격 데미지
+            if(skillDmg == 0) baseDamage = _rand.Next(Attack - damageVariance, Attack + damageVariance + 1); // 기본 공격 데미지
+            else // 스킬 데미지 계산
+            {
+                int dmg = (int)(Attack * skillDmg);
+                baseDamage = _rand.Next(dmg - damageVariance, dmg + damageVariance + 1);
+            }
             int finalDamage = isCritical ? (int)(baseDamage * 1.5f) : baseDamage;   //최종 데미지
 
             if (isCritical)
@@ -77,23 +83,29 @@ namespace SpartaDungeon
             return finalDamage;
         }
 
-        public void AutoAttack(IBattleUnit defender)
+        public void AutoAttack(IBattleUnit defender) // 기본 공격
         {
-            Random rand = new Random();
-            Console.WriteLine($"\n\nLv.{Level} {Name} 의 공격!");
+            Console.WriteLine($"\n\nLv.{Level} [{Name}] 의 공격!");
 
+            Random rand = new Random();
             if (rand.NextDouble() < defender.EvadeChance)   //회피 판정
             {
                 Console.WriteLine($"Lv.{defender.Level} {defender.Name} 이(가) 공격을 회피했습니다!");
                 return;
             }
 
-            defender.OnDamage(FinalDamage(defender, 0)); //데미지 처리
-            Console.WriteLine($"Lv.{defender.Level} {defender.Name} 을(를) 맞췄습니다.");
-
-            Console.WriteLine($"\nLv.{defender.Level} {defender.Name}");
-            Console.WriteLine($"HP {defender.CurrentHP} -> {(defender.IsDead ? "Dead" : defender.CurrentHP)}");
+            DamageResult(defender, 0);
         }
 
+        public void DamageResult(IBattleUnit defender , float skillDmg) // 데미지 결과
+        {
+            int previousHP = defender.CurrentHP;
+            int dmg = FinalDamage(defender, skillDmg);
+            defender.OnDamage(dmg); //데미지 처리
+
+            Console.Write($"Lv.{defender.Level} [{defender.Name}] ");
+            Console.Write($"HP {previousHP} -> {(defender.IsDead ? "Dead" : defender.CurrentHP)} ");
+            Console.Write($"[데미지 : {dmg}]\n");
+        }
     }
 }
