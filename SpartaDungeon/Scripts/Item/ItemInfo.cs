@@ -25,7 +25,9 @@ namespace SpartaDungeon
         public bool IsEquipped { get; set; } = false; //플레이어 착용 여부
 
         //소비, 기타 전용 필드
+        public UsableType UsableType { get; set; } = default;    //소비 아이템 종류
         public int ItemCount { get; set; } = 0;  //아이템 개수
+        public int HealAmount { get; set; } = 0;   //포션의 체력 회복량
 
         //장비 아이템 생성자
         public ItemInfo(int id, string name, ItemType itemType, EquipType equipType, Stat stat, int statValue, string description, int price,
@@ -43,7 +45,22 @@ namespace SpartaDungeon
             IsEquipped = isEquipped;
         }
 
-        //소비 , 기타 아이템 생성자
+        //소비 아이템 생성자
+        public ItemInfo(int id, string name, ItemType itemType, UsableType usableType, string description, int price, bool isSoldOut, int itemCount,
+            int healAmount)
+        {
+            ID = id;
+            Name = name;
+            Description = description;
+            Price = price;
+            ItemType = itemType;
+            UsableType = usableType;
+            IsSoldOut = isSoldOut;
+            ItemCount = itemCount;
+            HealAmount = healAmount;
+        }
+
+        //기타 아이템 생성자
         public ItemInfo(int id, string name, ItemType itemType, string description, int price, bool isSoldOut, int itemCount)
         {
             ID = id;

@@ -182,8 +182,6 @@
         "ItemType" : "Other",
         "Price" : 50
      },
-
-
     {
         "ID": 101,
         "Name": "머쉬맘의 포자",
@@ -224,7 +222,9 @@
         "Name": "네미의 도시락",
         "Description": "루디브리엄의 '네미'가 아버지인 장난감 공장의 '공장장 카호'를 위해 정성스럽게 싼 도시락이다.HP를 10회복시킨다.",
         "ItemType": "Usable",
-        "Price": 10
+        "UsableType": "HealPotion",
+        "Price": 10,
+        "HealAmount": 10
     },
     {
         "ID": 1102,
@@ -236,28 +236,28 @@
     {
         "ID": 1103,
         "Name": "대추",
-        "Description": "빨갛게 잘 익은 대추다. Hp를 약30 회복시킨다",
+        "Description": "빨갛게 잘 익은 대추다. Hp를 약 30 회복시킨다",
         "ItemType": "Usable",
         "Price": 20
     },
     {
         "ID": 1104,
         "Name": "로저의 사과",
-        "Description": "빨갛게 잘 익은 사과이다. Hp를 약30 회복시킨다",
+        "Description": "빨갛게 잘 익은 사과이다. Hp를 약 30 회복시킨다",
         "ItemType": "Usable",
         "Price": 20
     },
     {
         "ID": 1105,
         "Name": "정의의 꿀밤",
-        "Description": "알이 크고 잘 익은 밤이다. Hp를 약30 회복시킨다",
+        "Description": "알이 크고 잘 익은 밤이다. Hp를 약 30 회복시킨다",
         "ItemType": "Usable",
         "Price": 20
     },
     {
         "ID": 1106,
         "Name": "배",
-        "Description": "크고 물이 많은 배이다. Hp를 약30 회복시킨다",
+        "Description": "크고 물이 많은 배이다. Hp를 약 30 회복시킨다",
         "ItemType": "Usable",
         "Price": 20
     },

@@ -178,11 +178,6 @@ namespace SpartaDungeon
             Meso += meso;
         }
 
-        public void ShowInventory()
-        {
-            Inventory.ShowItems();
-        }
-
         public void ShowPlayerInfo()
         {
             Console.Clear();

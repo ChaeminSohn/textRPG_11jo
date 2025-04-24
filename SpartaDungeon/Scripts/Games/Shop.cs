@@ -426,7 +426,7 @@ namespace SpartaDungeon
                 }
                 else    //상점에 존재하지 않는 경우
                 {
-                    usables.Add(otherItem.CloneItem(count));   //새로운 객체 복사하여 추가
+                    others.Add(otherItem.CloneItem(count));   //새로운 객체 복사하여 추가
                 }
                 otherItem.ChangeItemCount(-count);
                 if (otherItem.ItemCount == 0)   //개수가 0이 된 경우
