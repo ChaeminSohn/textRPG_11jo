@@ -43,7 +43,7 @@ namespace SpartaDungeon
             IsEquipped = isEquipped;
         }
 
-        //소비, 기타 아이템 생성자
+        //소비 , 기타 아이템 생성자
         public ItemInfo(int id, string name, ItemType itemType, string description, int price, bool isSoldOut, int itemCount)
         {
             ID = id;
@@ -53,16 +53,6 @@ namespace SpartaDungeon
             ItemType = itemType;
             IsSoldOut = isSoldOut;
             ItemCount = itemCount;
-        }
-
-        //기타 아이템 생성자
-        public ItemInfo(int id, string name, ItemType itemType, string description, int price)
-        {
-            ID = id;
-            Name = name;
-            Description = description;
-            Price = price;
-            ItemType = itemType;
         }
     }
 }
