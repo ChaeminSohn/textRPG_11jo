@@ -9,6 +9,7 @@ namespace SpartaDungeon
         Monster[] monsters;  //몬스터들
         List<Monster> killedMonsters = new List<Monster>();  //처치한 몬스터 수
         int droppedMeso; //몬스터가 드랍한 메소 총합
+        Dictionary<string, int> droppedItemCounts = new Dictionary<string, int>(); //드랍 아이템 정리용 딕셔너리
         bool isPlayerRun = false;   //도망가기 옵션
         bool isPlayerTurn = true;
 
@@ -53,31 +54,11 @@ namespace SpartaDungeon
             }
             Utils.Pause(false);
 
-            Dictionary<string, int> itemCounts = new Dictionary<string, int>(); //드랍 아이템 정리용 딕셔너리
-
-            foreach (Monster monster in killedMonsters) //처치한 몬스터 경험치, 드랍 아이템 정리
-            {
-                player.GetEXP(monster.ExpReward);
-                droppedMeso += monster.MesoReward;
-                //몬스터 드랍 테이블에서 랜덤 아이템 추출 
-                foreach (ItemInfo itemInfo in Utils.GetDroppedItems(monster.Drops))
-                {
-                    if (itemCounts.ContainsKey(itemInfo.Name))
-                    {
-                        itemCounts[itemInfo.Name]++;
-                    }
-                    else
-                    {
-                        itemCounts[itemInfo.Name] = 1;
-                    }
-                    player.Inventory.AddItem(ItemFactory.CreateItem(itemInfo));
-                }
-            }
             Console.Clear();
-            Console.WriteLine("[획득 아이템]");
+            Console.WriteLine("[사냥 결과]");
             Console.WriteLine($"{droppedMeso} 메소");
             player.ChangeMeso(droppedMeso);
-            foreach (var entry in itemCounts)
+            foreach (var entry in droppedItemCounts)
             {
                 Console.WriteLine($"{entry.Key} x {entry.Value}");
             }
@@ -154,11 +135,25 @@ namespace SpartaDungeon
                 }
                 else
                 {
-                    isPlayerTurn= false;
-                    if (isSkill == false) player.AutoAttack(monsters[playerInput - 1]);
-                    if (isSkill == true) player.Skills[skillNum].Activate(player, monsters[playerInput - 1], monsters);
-                    MonsterDead(playerInput);
+                    isPlayerTurn = false;
+                    if (isSkill == false)
+                    {
+                        player.AutoAttack(monsters[playerInput - 1]);
+                    }
+                    if (isSkill == true)
+                    {
+                        player.Skills[skillNum].Activate(player, monsters[playerInput - 1], monsters);
+                    }
                     Utils.Pause(true);
+                    foreach (Monster monster in monsters)
+                    {
+                        if (monster.IsDead)
+                        {
+                            {
+                                MonsterDead(monster);
+                            }
+                        }
+                    }
                     return;
                 }
             }
@@ -197,18 +192,41 @@ namespace SpartaDungeon
             }
         }
 
-        private void MonsterDead(int playerInput) //몬스터 처치시 킬카운트 상승
+        private void MonsterDead(Monster monster) //몬스터 처치시 킬카운트 상승 + 전리품 표시
         {
-            if (monsters[playerInput - 1].IsDead)
+            if (killedMonsters.Contains(monster))   //이미 보상 처리한 몬스터인 경우
             {
-                killedMonsters.Add(monsters[playerInput - 1]);
-                {
-                    if (player.monsterKillCounts.ContainsKey(monsters[playerInput - 1].Id))
-                        player.monsterKillCounts[monsters[playerInput - 1].Id]++;
-                    else
-                        player.monsterKillCounts[monsters[playerInput - 1].Id] = 1;
-                }
+                return;
             }
+            killedMonsters.Add(monster);
+            {
+                if (player.monsterKillCounts.ContainsKey(monster.Id))
+                    player.monsterKillCounts[monster.Id]++;
+                else
+                    player.monsterKillCounts[monster.Id] = 1;
+            }
+
+            player.GetEXP(monster.ExpReward);       //경험치 획득
+            droppedMeso += monster.MesoReward;      //골드 획득 
+            Console.Clear();
+            Console.WriteLine($"{monster.Name} 을 잡았다!");
+            Console.WriteLine("[획득 아이템]");
+            Console.WriteLine($"{monster.MesoReward} 메소");
+            //드랍 아이템 처리
+            foreach (ItemInfo itemInfo in Utils.GetDroppedItems(monster.Drops))
+            {
+                if (droppedItemCounts.ContainsKey(itemInfo.Name))
+                {
+                    droppedItemCounts[itemInfo.Name]++;
+                }
+                else
+                {
+                    droppedItemCounts[itemInfo.Name] = 1;
+                }
+                player.Inventory.AddItem(itemInfo); //드랍 아이템 획득
+                Console.WriteLine($"{itemInfo.Name} x {itemInfo.ItemCount}");
+            }
+            Utils.Pause(true);
         }
 
         void EnemyTurnAction()  //몬스터 턴
@@ -236,7 +254,7 @@ namespace SpartaDungeon
                 Console.WriteLine($"{i + 1}. Lv{monsters[i].Level} {monsters[i].Name}   {(monsters[i].IsDead ? "Dead" : "HP : " + monsters[i].CurrentHP)}");
             }
             Console.WriteLine("\n\n[내정보]");
-            Console.WriteLine($"Lv.{player.Level} [{player.Name}] ({player.Job})");
+            Console.WriteLine($"Lv.{player.Level} [{player.Name}] ({Utils.JobDisplayNames[player.Job]})");
             Console.WriteLine($"HP {player.CurrentHP}/{player.FullHP}");
             Console.WriteLine($"MP {player.CurrentMP}/{player.FullMP}");
         }

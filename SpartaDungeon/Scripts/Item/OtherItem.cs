@@ -46,7 +46,7 @@ namespace SpartaDungeon
         }
         public void ShowInfo(bool showPrice)
         {
-            string countFormatted = Utils.PadToWidth($"{ItemCount}개", 5);
+            string countFormatted = Utils.PadToWidth($"x{ItemCount}", 5);
             string nameFormatted = Utils.PadToWidth(Name, 15);
             string descFormatted = Utils.PadToWidth(Description, 50);
             if (showPrice)

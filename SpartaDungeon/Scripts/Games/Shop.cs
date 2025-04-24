@@ -335,8 +335,6 @@ namespace SpartaDungeon
                     ITradable selectedItem = sellingItems[playerInput - 1];     //선택된 아이템
                     if (selectedItem.ItemType == ItemType.Equipment)
                     {
-
-
                         //판매 시 80% 절감
                         int sellPrice = (int)(selectedItem.Price * 0.8);
                         //판매 확정 단계

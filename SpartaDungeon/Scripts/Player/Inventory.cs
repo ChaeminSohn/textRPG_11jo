@@ -17,14 +17,19 @@ namespace SpartaDungeon
         public List<ITradable> Equipments { get; private set; } = new List<ITradable>(); //장비 아이템
         public List<ITradable> Usables { get; private set; } = new List<ITradable>(); //소비 아이템
         public List<ITradable> Others { get; private set; } = new List<ITradable>(); //기타 아이템
-        public Dictionary<EquipType, Equipment?> EquippedItems = new Dictionary<EquipType, Equipment?>();  //플레이어가 장비중인 아이템 
+        public Dictionary<EquipType, Equipment?> EquippedItems =  //플레이어가 장비중인 아이템 
+             Enum.GetValues(typeof(EquipType))
+                .Cast<EquipType>()
+                    .ToDictionary(type => type, type => (Equipment?)null);
+
         public event Action? OnEquipChanged;    //플레이어 장비 변환 이벤트
         public Inventory()
         {
             Items = new List<ITradable>(inventorySpace);
         }
 
-        public void AddItem(ITradable item)  //인벤토리에 아이템 추가
+        //인벤토리에 아이템 추가
+        public void AddItem(ITradable item)  //객체를 직접 전달(장비 아이템)
         {
             Items.Add(item);
             if (item is Equipment equipment)
@@ -43,9 +48,45 @@ namespace SpartaDungeon
             {
                 Others.Add(other);
             }
-
         }
 
+        public void AddItem(ItemInfo itemInfo)  //정보만 전달하여 객체를 생성할지 결정(소비, 기타 아이템)
+        {
+            switch (itemInfo.ItemType)
+            {
+                case ItemType.Equipment:
+                    Equipment equipItem = new Equipment(itemInfo);
+                    Equipments.Add(equipItem);
+                    Items.Add(equipItem);
+                    break;
+                case ItemType.Usable:   //소비, 기티 아이템은 이미 가지고 있는지 확인
+                    ITradable? existingUsable = Usables.FirstOrDefault(item => item.ID == itemInfo.ID);
+                    if (existingUsable != null)   //이미 가지고 있는 경우
+                    {
+                        ((Usable)existingUsable).ChangeItemCount(itemInfo.ItemCount);      //개수만 추가
+                    }
+                    else
+                    {
+                        Usable usableItem = new Usable(itemInfo);
+                        Usables.Add(usableItem);
+                        Items.Add(usableItem);
+                    }
+                    break;
+                case ItemType.Other:
+                    ITradable? existingOther = Others.FirstOrDefault(item => item.ID == itemInfo.ID);
+                    if (existingOther != null)   //이미 가지고 있는 경우
+                    {
+                        ((OtherItem)existingOther).ChangeItemCount(itemInfo.ItemCount);      //개수만 추가
+                    }
+                    else
+                    {
+                        OtherItem otherItem = new OtherItem(itemInfo);
+                        Others.Add(otherItem);
+                        Items.Add(otherItem);
+                    }
+                    break;
+            }
+        }
         public void RemoveItem(ITradable item)  //인벤토리에서 아이템 제거
         {
             Items.Remove(item);

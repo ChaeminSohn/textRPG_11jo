@@ -62,10 +62,12 @@ namespace SpartaDungeon
                 if (rand.NextDouble() <= entry.DropChance)
                 {
                     int quantity = rand.Next(entry.MinQuantity, entry.MaxQuantity);
+                    ItemInfo itemInfo = ItemDataBase.ItemInfoDict[entry.ItemID];
                     for (int i = 0; i < quantity; i++)
                     {
-                        droppedItems.Add(ItemDataBase.ItemInfoDict[entry.ItemID]);
+                        itemInfo.ItemCount++;
                     }
+                    droppedItems.Add(itemInfo);
                 }
             }
 
