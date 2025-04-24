@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Emit;
-using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace SpartaDungeon
 {
-    public class PawerStrike : WarriorSkill
+    public class ArrowBlow : ArcherSkill
     {
         public float Damage { get; private set; }
 
-        public PawerStrike() : base("파워 스트라이크", "MP 12 소비, 적 하나에 데미지 260%", 12) 
+        public ArrowBlow() : base("애로우 블로우", "MP 14 소비, 적 하나에 데미지 260%", 14)
         {
             Damage = 2.6f;
         }
@@ -26,23 +23,23 @@ namespace SpartaDungeon
         }
     }
 
-    public class SlashBlust : WarriorSkill
+    public class ArrowBomb : ArcherSkill
     {
         public float Damage { get; private set; }
 
-        public SlashBlust() : base("슬래시 블러스트", "MP 30 소비, 모든 적에게 데미지 130%", 30) 
+        public ArrowBomb() : base("애로우 봄", "MP 28 소비, 모든 적에게 150% 데미지", 28)
         {
-            Damage = 1.3f;
+            Damage = 1.5f;
         }
 
         public override void Activate(IBattleUnit attacker, IBattleUnit defender, Monster[] monsters)
         {
             Console.WriteLine($"\n\nLv.{attacker.Level} [{attacker.Name}] 의 [{Name}]!\n");
 
-            foreach( Monster monster in monsters )
+            foreach (Monster monster in monsters)
             {
-                if(monster.IsDead ==  false )
-                attacker.DamageResult(monster, Damage);
+                if (monster.IsDead == false)
+                    attacker.DamageResult(monster, Damage);
             }
         }
     }

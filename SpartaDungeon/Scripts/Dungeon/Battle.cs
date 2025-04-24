@@ -8,9 +8,11 @@ namespace SpartaDungeon
         Player player;  //플레이어
         Monster[] monsters;  //몬스터들
         List<Monster> killedMonsters = new List<Monster>();  //처치한 몬스터 수
-        List<ITradable> droppedItems = new List<ITradable>(); //드랍 아이템 모음
-
+        int droppedMeso; //몬스터가 드랍한 메소 총합
+        Dictionary<string, int> droppedItemCounts = new Dictionary<string, int>(); //드랍 아이템 정리용 딕셔너리
         bool isPlayerRun = false;   //도망가기 옵션
+        bool isPlayerTurn = true;
+
         public Battle(Player player, Monster[] monsters)
         {
             this.player = player;
@@ -52,29 +54,11 @@ namespace SpartaDungeon
             }
             Utils.Pause(false);
 
-            Dictionary<string, int> itemCounts = new Dictionary<string, int>(); //드랍 아이템 정리용 딕셔너리
-
-            foreach (Monster monster in killedMonsters) //처치한 몬스터 경험치, 드랍 아이템 정리
-            {
-                player.GetEXP(monster.ExpReward);
-
-                //몬스터 드랍 테이블에서 랜덤 아이템 추출
-                foreach (ItemInfo itemInfo in Utils.GetDroppedItems(monster.Drops))
-                {
-                    if (itemCounts.ContainsKey(itemInfo.Name))
-                    {
-                        itemCounts[itemInfo.Name]++;
-                    }
-                    else
-                    {
-                        itemCounts[itemInfo.Name] = 1;
-                    }
-                    player.Inventory.AddItem(ItemFactory.CreateItem(itemInfo));
-                }
-            }
             Console.Clear();
-            Console.WriteLine("[획득 아이템]");
-            foreach (var entry in itemCounts)
+            Console.WriteLine("[사냥 결과]");
+            Console.WriteLine($"{droppedMeso} 메소");
+            player.ChangeMeso(droppedMeso);
+            foreach (var entry in droppedItemCounts)
             {
                 Console.WriteLine($"{entry.Key} x {entry.Value}");
             }
@@ -83,7 +67,7 @@ namespace SpartaDungeon
 
         void MyTurnAction() //플레이어 턴
         {
-            while (true)
+            while (isPlayerTurn)
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -106,10 +90,10 @@ namespace SpartaDungeon
                         return;
                     case 1:
                         PlayerAttackAction(-1);
-                        return;
+                        break;
                     case 2:
                         PlayerSkillAction();
-                        return;
+                        break;
                     default:
                         Console.WriteLine("잘못된 입력입니다.");
                         Utils.Pause(false);
@@ -120,7 +104,7 @@ namespace SpartaDungeon
 
         void PlayerAttackAction(int skillNum) //플레이어 공격 액션
         {
-            bool isSkill = skillNum > -1 ? true : false;
+            bool isSkill = skillNum > -1 ? true : false; // skillNum이 -1보다 크다면 스킬을 발동
 
             while (true)
             {
@@ -139,7 +123,6 @@ namespace SpartaDungeon
                 {
                     Console.WriteLine("잘못된 입력입니다.");
                     Utils.Pause(false);
-                    continue;
                 }
                 else if (playerInput == 0)  //취소 선택
                 {
@@ -149,13 +132,28 @@ namespace SpartaDungeon
                 {
                     Console.WriteLine("이미 사망한 몬스터입니다.");
                     Utils.Pause(false);
-                    continue;
                 }
                 else
                 {
-                    DealDamage(player, monsters[playerInput - 1], isSkill, skillNum);
-                    MonsterDead(playerInput);
+                    isPlayerTurn = false;
+                    if (isSkill == false)
+                    {
+                        player.AutoAttack(monsters[playerInput - 1]);
+                    }
+                    if (isSkill == true)
+                    {
+                        player.Skills[skillNum].Activate(player, monsters[playerInput - 1], monsters);
+                    }
                     Utils.Pause(true);
+                    foreach (Monster monster in monsters)
+                    {
+                        if (monster.IsDead)
+                        {
+                            {
+                                MonsterDead(monster);
+                            }
+                        }
+                    }
                     return;
                 }
             }
@@ -194,18 +192,41 @@ namespace SpartaDungeon
             }
         }
 
-        private void MonsterDead(int playerInput)
+        private void MonsterDead(Monster monster) //몬스터 처치시 킬카운트 상승 + 전리품 표시
         {
-            if (monsters[playerInput - 1].IsDead)
-            {   //몬스터 처치 리스트에 추가
-                killedMonsters.Add(monsters[playerInput - 1]);
-                {
-                    if (player.monsterKillCounts.ContainsKey(monsters[playerInput - 1].Id))
-                        player.monsterKillCounts[monsters[playerInput - 1].Id]++;
-                    else
-                        player.monsterKillCounts[monsters[playerInput - 1].Id] = 1;
-                }
+            if (killedMonsters.Contains(monster))   //이미 보상 처리한 몬스터인 경우
+            {
+                return;
             }
+            killedMonsters.Add(monster);
+            {
+                if (player.monsterKillCounts.ContainsKey(monster.Id))
+                    player.monsterKillCounts[monster.Id]++;
+                else
+                    player.monsterKillCounts[monster.Id] = 1;
+            }
+
+            player.GetEXP(monster.ExpReward);       //경험치 획득
+            droppedMeso += monster.MesoReward;      //골드 획득 
+            Console.Clear();
+            Console.WriteLine($"{monster.Name} 을 잡았다!");
+            Console.WriteLine("[획득 아이템]");
+            Console.WriteLine($"{monster.MesoReward} 메소");
+            //드랍 아이템 처리
+            foreach (ItemInfo itemInfo in Utils.GetDroppedItems(monster.Drops))
+            {
+                if (droppedItemCounts.ContainsKey(itemInfo.Name))
+                {
+                    droppedItemCounts[itemInfo.Name]++;
+                }
+                else
+                {
+                    droppedItemCounts[itemInfo.Name] = 1;
+                }
+                player.Inventory.AddItem(itemInfo); //드랍 아이템 획득
+                Console.WriteLine($"{itemInfo.Name} x {itemInfo.ItemCount}");
+            }
+            Utils.Pause(true);
         }
 
         void EnemyTurnAction()  //몬스터 턴
@@ -218,53 +239,11 @@ namespace SpartaDungeon
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("Battle!");
                     Console.ResetColor();
-                    DealDamage(monster, player, false, 0);
+                    monster.AutoAttack(player);
                     Utils.Pause(true);
                 }
             }
-        }
-
-        void DealDamage(IBattleUnit attacker, IBattleUnit defender, bool isSkill, int skillNum) //데미지 처리 과정
-        {
-            Random rand = new Random();
-            int baseDamage; // 데미지
-            Console.WriteLine($"\n\nLv.{attacker.Level} {attacker.Name} 의 공격!");
-
-            if (rand.NextDouble() < defender.EvadeChance)   //회피 판정
-            {
-                Console.WriteLine($"Lv.{defender.Level} {defender.Name} 이(가) 공격을 회피했습니다!");
-                return;
-            }
-
-            int currentHP = defender.CurrentHP;     //피격자의 현재 체력
-            int damageVariance = (int)(attacker.Attack * 0.1); // 데미지 편차
-
-            bool isCritical = rand.NextDouble() < attacker.CritChance;  //치명타 판정
-            if (isSkill == false) baseDamage = rand.Next(attacker.Attack - damageVariance, attacker.Attack + damageVariance + 1); // 기본 공격 데미지
-            else // 스킬 데미지
-            {
-                int skillDamage = (int)(player.Skills[skillNum].Damage * attacker.Attack);
-                baseDamage = rand.Next(skillDamage - damageVariance, skillDamage + damageVariance + 1);
-            }
-
-            int finalDamage = isCritical ? (int)(baseDamage * 1.5f) : baseDamage;   //최종 데미지
-
-            defender.OnDamage(finalDamage); //데미지 처리
-
-            if (isSkill == false) Console.WriteLine($"Lv.{defender.Level} {defender.Name} 을(를) 맞췄습니다."); // 기본 공격
-            else
-            {
-                Console.WriteLine($"[스킬] : {player.Skills[skillNum].Name}");
-                Console.WriteLine($"Lv.{defender.Level} {defender.Name} 을(를) 맞췄습니다.");
-            }
-
-            if (isCritical)
-            {
-                Console.WriteLine("[치명타!] 데미지가 50% 증가했습니다.");
-            }
-
-            Console.WriteLine($"\nLv.{defender.Level} {defender.Name}");
-            Console.WriteLine($"HP {currentHP} -> {(defender.IsDead ? "Dead" : defender.CurrentHP)}");
+            isPlayerTurn = true; // 다시 플레이어 턴으로
         }
 
         void ShowBattleInfo()   //몬스터, 플레이어 정보 표시
@@ -275,8 +254,9 @@ namespace SpartaDungeon
                 Console.WriteLine($"{i + 1}. Lv{monsters[i].Level} {monsters[i].Name}   {(monsters[i].IsDead ? "Dead" : "HP : " + monsters[i].CurrentHP)}");
             }
             Console.WriteLine("\n\n[내정보]");
-            Console.WriteLine($"Lv.{player.Level} {player.Name} ({player.Job})");
+            Console.WriteLine($"Lv.{player.Level} [{player.Name}] ({Utils.JobDisplayNames[player.Job]})");
             Console.WriteLine($"HP {player.CurrentHP}/{player.FullHP}");
+            Console.WriteLine($"MP {player.CurrentMP}/{player.FullMP}");
         }
 
         bool TryRun()       //도주 시도
@@ -291,17 +271,16 @@ namespace SpartaDungeon
             return false;
         }
 
-        bool EveryMonsterIsDead()   //몬스터를 
+        bool EveryMonsterIsDead()   // 모든 몬스터 죽음 
         {
             foreach (Monster monster in monsters)
             {
                 if (!monster.IsDead)
                 {
                     return false;
-
                 }
-
             }
+
             return true;
         }
     }
