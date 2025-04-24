@@ -160,7 +160,7 @@ namespace SpartaDungeon
                     Console.Clear();
                     break;
                 case 2:     //인벤토리 열기
-                    inventory.ShowItems();
+                    inventory.ShowInventory();
                     Console.Clear();
                     break;
                 case 3:     //상점 열기

@@ -6,14 +6,21 @@ using System.Threading.Tasks;
 
 namespace SpartaDungeon
 {
+    public enum UsableType
+    {
+        None,       //기본값
+        HealPotion,   //체력 포션
+        ManaPotion   //마나 포션
+    }
     public class Usable : ITradable   //소비 아이템
     {
-        private ItemInfo itemInfo;
+        ItemInfo itemInfo;
         public int ID => itemInfo.ID;
         public string Name => itemInfo.Name;
         public string Description => itemInfo.Description;
         public int Price => itemInfo.Price;
         public ItemType ItemType => itemInfo.ItemType;
+        public UsableType UsableType => itemInfo.UsableType;
         public bool IsSoldOut { get; private set; }   //판매 여부
         public int ItemCount { get; private set; } //아이템 개수
 
@@ -23,24 +30,19 @@ namespace SpartaDungeon
             IsSoldOut = itemInfo.IsSoldOut;
             ItemCount = itemInfo.ItemCount;
         }
-        public ItemInfo GetItemInfo()
+        public virtual ItemInfo GetItemInfo()
         {
-            return new ItemInfo(ID, Name, ItemType, Description, Price, IsSoldOut, ItemCount);
+            return new ItemInfo(ID, Name, ItemType, UsableType, Description, Price, IsSoldOut, ItemCount, 0);
         }
 
         public void OnTrade()
         {
             if (!IsSoldOut)
             {
-                if (--ItemCount == 0)
+                if (ItemCount == 0)
                 {
                     IsSoldOut = true;
                 }
-
-            }
-            else
-            {
-
             }
         }
         public void ChangeItemCount(int change)
@@ -75,7 +77,7 @@ namespace SpartaDungeon
                 Console.WriteLine($"{countFormatted} | {nameFormatted} | {descFormatted}");
             }
         }
-        public virtual void Use()
+        public virtual void Use(Player player)
         {
             ChangeItemCount(-1);
         }
