@@ -91,7 +91,8 @@ namespace SpartaDungeon
 
             if (isCritical)
             {
-                Console.WriteLine("[치명타!] 데미지가 50% 증가했습니다.");
+                ColorFont.Write("[치명타]", Color.Yellow);
+                Console.Write(" 데미지가 50% 증가했습니다!\n");
             }
 
             return finalDamage;
