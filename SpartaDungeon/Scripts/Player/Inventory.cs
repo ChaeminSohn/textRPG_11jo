@@ -27,25 +27,23 @@ namespace SpartaDungeon
         public void AddItem(ITradable item)  //인벤토리에 아이템 추가
         {
             Items.Add(item);
-            switch (item.ItemType)   //아이템 분류 과정
+            if (item is Equipment equipment)
             {
-                case ItemType.Equipment:
-                    Equipment equip = (Equipment)item;
-                    Equipments.Add(equip);
-                    if (equip.IsEquipped)   //장착된 아이템인 경우
-                    {
-                        EquippedItems[equip.EquipType] = equip;
-                    }
-                    break;
-                case ItemType.Usable:  //소비 아이템   
-                    Usables.Add((Usable)item);
-                    break;
-                case ItemType.Other:  //기타 아이템  
-                    Others.Add((Usable)item);
-                    break;
-                default:
-                    break;
+                Equipments.Add(equipment);
+                if (equipment.IsEquipped)   //장착중인 장비인 경우
+                {   //장착 해제 및 장착 목록에서 제거
+                    EquippedItems[equipment.EquipType] = equipment;
+                }
             }
+            else if (item is Usable usable)
+            {
+                Usables.Add(usable);
+            }
+            else if (item is OtherItem other)
+            {
+                Others.Add(other);
+            }
+
         }
 
         public void RemoveItem(ITradable item)  //인벤토리에서 아이템 제거
@@ -60,14 +58,14 @@ namespace SpartaDungeon
                     EquippedItems[equipment.EquipType] = null;
                     OnEquipChanged?.Invoke();
                 }
-                else if (item is Usable usable)
-                {
-                    Usables.Remove(usable);
-                }
-                else if (item is OtherItem other)
-                {
-                    Others.Remove(other);
-                }
+            }
+            else if (item is Usable usable)
+            {
+                Usables.Remove(usable);
+            }
+            else if (item is OtherItem other)
+            {
+                Others.Remove(other);
             }
         }
 
