@@ -46,11 +46,25 @@ namespace SpartaDungeon
             }
         }
 
-        public void RecoverHP(int hp)  //회복
+        public void RecoverHP(int hp)  // HP회복
         {
             CurrentHP += hp;
             if (FullHP > CurrentHP)
                 CurrentHP = FullHP;
+        }
+
+        public void RecoverMP(int mp)  // MP회복
+        {
+            CurrentMP += mp;
+            if (FullMP > CurrentMP)
+                CurrentMP = FullMP;
+        }
+
+        public void UseMP(int mp)  // MP사용
+        {
+            CurrentMP -= mp;
+            if (CurrentMP <= 0)
+                CurrentHP = 0;
         }
 
         private void OnDie() //사망

@@ -20,6 +20,8 @@ namespace SpartaDungeon
             Console.WriteLine($"\n\nLv.{attacker.Level} [{attacker.Name}] 의 [{Name}]!\n");
 
             attacker.DamageResult(defender, Damage);
+
+            attacker.UseMP(MP);
         }
     }
 
@@ -41,6 +43,8 @@ namespace SpartaDungeon
                 if (monster.IsDead == false)
                     attacker.DamageResult(monster, Damage);
             }
+
+            attacker.UseMP(MP);
         }
     }
 }
