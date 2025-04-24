@@ -31,7 +31,7 @@ namespace SpartaDungeon
             Console.WriteLine($"제목     : {Title}");
             Console.WriteLine($"설명     : {Description}");
             Console.WriteLine($"조건     : {Condition}");
-            Console.WriteLine($"보상     : {Reward}G");
+            Console.WriteLine($"보상     : {Reward}메소");
             Console.WriteLine($"상태     : {Status}");
         }
     }
@@ -58,7 +58,7 @@ namespace SpartaDungeon
             {
                 Title = "모자가 필요해!",
                 Description = "일곱 난쟁이 버섯과 머쉬맘 연극을 하는데 하필 주황색 버섯 모자가 없어요 도와주세요!",
-                Condition = "헤네시스 사낭터로 가 주황색버섯을 잡아 모자를 얻자!",
+                Condition = "헤네시스 사낭터로 가 주황버섯을 잡아 갓을 얻자!",
                 Reward = "15",
                 Status = QuestStatus.수락되지않음
             });
