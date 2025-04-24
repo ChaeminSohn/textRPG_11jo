@@ -46,7 +46,7 @@ namespace SpartaDungeon
         }
         public void ShowInfo(bool showPrice)
         {
-            string countFormatted = Utils.PadToWidth($"x{ItemCount}", 5);
+            string countFormatted = Utils.PadToWidth($"x{ItemCount}", 3);
             string nameFormatted = Utils.PadToWidth(Name, 15);
             string descFormatted = Utils.PadToWidth(Description, 50);
             if (showPrice)
@@ -60,11 +60,11 @@ namespace SpartaDungeon
                 {
                     priceFormatted = Utils.PadToWidth("[판매 완료]", 8);
                 }
-                Console.WriteLine($"{countFormatted} | {nameFormatted} | {descFormatted} | {priceFormatted}");
+                Console.WriteLine($"{countFormatted} | {nameFormatted} | {priceFormatted} \n  - {descFormatted}");
             }
             else    //가격 미표시 
             {
-                Console.WriteLine($"{countFormatted} | {nameFormatted} | {descFormatted}");
+                Console.WriteLine($"{countFormatted} | {nameFormatted} \n  - {descFormatted}");
             }
         }
 

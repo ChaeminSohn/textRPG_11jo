@@ -109,6 +109,7 @@ namespace SpartaDungeon
                 {
                     Console.Write("- ");
                     item.ShowInfo(true);
+                    Console.WriteLine();
                 }
 
                 Console.WriteLine("\n1. 아이템 구매");

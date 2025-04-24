@@ -62,11 +62,11 @@ namespace SpartaDungeon
                 {
                     priceFormatted = Utils.PadToWidth("[판매 완료]", 8);
                 }
-                Console.WriteLine($"{typeFormatted} | {nameFormatted} | {statFormatted} | {descFormatted} | {priceFormatted}");
+                Console.WriteLine($"{typeFormatted} | {nameFormatted} | {statFormatted} | {priceFormatted} \n  - {descFormatted}");
             }
             else    //가격 미표시 
             {
-                Console.WriteLine($"{typeFormatted} | {nameFormatted} | {statFormatted} | {descFormatted}");
+                Console.WriteLine($"{typeFormatted} | {nameFormatted} | {statFormatted} \n  - {descFormatted}");
             }
         }
 

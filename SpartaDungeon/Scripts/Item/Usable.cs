@@ -70,11 +70,11 @@ namespace SpartaDungeon
                 {
                     priceFormatted = Utils.PadToWidth("[판매 완료]", 8);
                 }
-                Console.WriteLine($"{countFormatted} | {nameFormatted} | {descFormatted} | {priceFormatted}");
+                Console.WriteLine($"{countFormatted} | {nameFormatted} | {priceFormatted} \n  -  {descFormatted}");
             }
             else    //가격 미표시 
             {
-                Console.WriteLine($"{countFormatted} | {nameFormatted} | {descFormatted}");
+                Console.WriteLine($"{countFormatted} | {nameFormatted} \n  - {descFormatted}");
             }
         }
         public virtual void Use(Player player)
