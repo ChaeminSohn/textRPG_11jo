@@ -102,7 +102,7 @@ namespace SpartaDungeon
                 Console.Clear();
                 Console.WriteLine($"<{categoryName}>");
                 Console.WriteLine("\n[보유 메소]");
-                Console.WriteLine($"{player.Meso} G");
+                Console.WriteLine($"{player.Meso} 메소");
                 Console.WriteLine("\n[아이템 목록]\n");
 
                 foreach (ITradable item in shopItems)
@@ -141,7 +141,7 @@ namespace SpartaDungeon
                 Console.WriteLine("<아이템 구매>");
                 Console.WriteLine("필요한 아이템을 살 수 있습니다.");
                 Console.WriteLine("\n[보유 메소]");
-                Console.WriteLine($"{player.Meso} G");
+                Console.WriteLine($"{player.Meso} 메소");
 
                 Console.WriteLine("\n[아이템 목록]");
                 //아이템 목록 보여줌
@@ -181,7 +181,7 @@ namespace SpartaDungeon
                         {
                             //구매 확정 단계
                             Console.WriteLine($"\n{selectedItem.Name}");
-                            Console.WriteLine($"아이템 가격 : {selectedItem.Price} G , 보유 메소 : {player.Meso} G");
+                            Console.WriteLine($"아이템 가격 : {selectedItem.Price} meso , 보유 메소 : {player.Meso} 메소");
                             Console.WriteLine("1. 구매");
                             Console.WriteLine("2. 다시 생각해본다");
                             Console.Write("\n원하시는 행동을 입력해주세요.");
@@ -237,7 +237,7 @@ namespace SpartaDungeon
 
             Console.Clear();
             Console.WriteLine($"남은 수량 : {itemCount} | 가격 : {item.Price} 메소 ");
-            Console.WriteLine($"몇 개를 구매하시겠습니까? (보유: {player.Meso}G)");
+            Console.WriteLine($"몇 개를 구매하시겠습니까? (보유: {player.Meso} 메소)");
             Console.Write(">> ");
 
             if (!int.TryParse(Console.ReadLine(), out int count) || count <= 0 || count > itemCount)
@@ -306,7 +306,7 @@ namespace SpartaDungeon
                 Console.WriteLine("<아이템 판매>");
                 Console.WriteLine("선택한 아이템을 팔 수 있습니다.");
                 Console.WriteLine("\n[보유 메소]");
-                Console.WriteLine($"{player.Meso} G");
+                Console.WriteLine($"{player.Meso} 메소");
 
                 Console.WriteLine("\n[아이템 목록]");
                 //아이템 목록 보여줌
@@ -338,7 +338,7 @@ namespace SpartaDungeon
                         //판매 시 80% 절감
                         int sellPrice = (int)(selectedItem.Price * 0.8);
                         //판매 확정 단계
-                        Console.WriteLine($"\n{selectedItem.Name} : {sellPrice} G");
+                        Console.WriteLine($"\n{selectedItem.Name} : {sellPrice} 메소");
                         Console.WriteLine("1. 판매");
                         Console.WriteLine("2. 다시 생각해본다");
                         Console.Write("\n원하시는 행동을 입력해주세요.");
@@ -436,7 +436,7 @@ namespace SpartaDungeon
             }
 
             player.ChangeMeso(totalPrice);
-            Console.WriteLine($"{item.Name} {count}개를 판매하여 {totalPrice}G를 얻었습니다.");
+            Console.WriteLine($"{item.Name} {count}개를 판매하여 {totalPrice}메소를 얻었습니다.");
             Utils.Pause(true);
         }
     }

@@ -141,7 +141,7 @@ namespace SpartaDungeon
         public void TownAction()
         {
             Console.Clear();
-            Console.WriteLine("스파르타 마을에 오신 여러분 환영합니다.");
+            Console.WriteLine("메이플 월드에 오신 여러분 환영합니다.");
             Console.WriteLine("이곳에서 던전으로 들어가기전 활동을 할 수 있습니다.\n\n");
 
             Console.WriteLine("1. 상태 보기");
@@ -192,8 +192,8 @@ namespace SpartaDungeon
                 int health = player.CurrentHP;
                 Console.Clear();
                 Console.WriteLine("<휴식하기>");
-                Console.WriteLine($"500 G 를 내면 체력을 회복할 수 있습니다." +
-                    $" (보유 메소 : {player.Meso} G)");
+                Console.WriteLine($"500 메소를 내면 체력을 회복할 수 있습니다." +
+                    $" (보유 메소 : {player.Meso} 메소)");
                 Console.WriteLine("\n1. 휴식하기");
                 Console.WriteLine("0. 나가기");
                 Console.Write("\n원하시는 행동을 입력해주세요.");
@@ -322,14 +322,13 @@ namespace SpartaDungeon
             Console.Clear();
             Console.WriteLine("<상태 보기>");
             Console.WriteLine("처치 현황이 표시됩니다.");
-            Console.WriteLine("\n=== 처치 현황 ===");
+            Console.WriteLine("\n[처치 현황]");
             foreach (var kv in player.monsterKillCounts)
             {
                 var info = monsterList.FirstOrDefault(m => m.Id == kv.Key); // 키 확인
                 var name = info != null ? info.Name : $"ID:{kv.Key}"; // 이름 확인
                 Console.WriteLine($"{name} : {kv.Value}마리");
             }
-
         }
 
         string GetNameFromPlayer()  //이름 입력
@@ -337,7 +336,7 @@ namespace SpartaDungeon
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("스파르타 던전에 오신 걸 환영합니다!");
+                Console.WriteLine("메이플 월드에 오신 걸 환영합니다!");
                 Console.WriteLine("플레이어 이름을 입력해주세요.\n");
                 string input = Console.ReadLine();
 
