@@ -10,6 +10,8 @@ namespace SpartaDungeon
         List<Monster> killedMonsters = new List<Monster>();  //처치한 몬스터 수
         int droppedMeso; //몬스터가 드랍한 메소 총합
         bool isPlayerRun = false;   //도망가기 옵션
+        bool isPlayerTurn = true;
+
         public Battle(Player player, Monster[] monsters)
         {
             this.player = player;
@@ -84,7 +86,7 @@ namespace SpartaDungeon
 
         void MyTurnAction() //플레이어 턴
         {
-            while (true)
+            while (isPlayerTurn)
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -107,10 +109,10 @@ namespace SpartaDungeon
                         return;
                     case 1:
                         PlayerAttackAction(-1);
-                        return;
+                        break;
                     case 2:
                         PlayerSkillAction();
-                        return;
+                        break;
                     default:
                         Console.WriteLine("잘못된 입력입니다.");
                         Utils.Pause(false);
@@ -152,7 +154,9 @@ namespace SpartaDungeon
                 }
                 else
                 {
-                    DamageResult(player, monsters[playerInput - 1], isSkill, skillNum);
+                    isPlayerTurn= false;
+                    if (isSkill == false) player.AutoAttack(monsters[playerInput - 1]);
+                    if (isSkill == true) player.Skills[skillNum].Activate(player, monsters[playerInput - 1], monsters);
                     MonsterDead(playerInput);
                     Utils.Pause(true);
                     return;
@@ -217,22 +221,11 @@ namespace SpartaDungeon
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("Battle!");
                     Console.ResetColor();
-                    DamageResult(monster, player, false, 0);
+                    monster.AutoAttack(player);
                     Utils.Pause(true);
                 }
             }
-        }
-
-        void DamageResult(IBattleUnit attacker, IBattleUnit defender, bool isSkill, int skillNum) //데미지 처리 결과
-        {
-            if (isSkill == false) // 기본 공격
-            {
-               attacker.AutoAttack(defender);
-            }
-            else // 스킬 발동
-            {
-
-            }
+            isPlayerTurn = true; // 다시 플레이어 턴으로
         }
 
         void ShowBattleInfo()   //몬스터, 플레이어 정보 표시
@@ -243,8 +236,9 @@ namespace SpartaDungeon
                 Console.WriteLine($"{i + 1}. Lv{monsters[i].Level} {monsters[i].Name}   {(monsters[i].IsDead ? "Dead" : "HP : " + monsters[i].CurrentHP)}");
             }
             Console.WriteLine("\n\n[내정보]");
-            Console.WriteLine($"Lv.{player.Level} {player.Name} ({player.Job})");
+            Console.WriteLine($"Lv.{player.Level} [{player.Name}] ({player.Job})");
             Console.WriteLine($"HP {player.CurrentHP}/{player.FullHP}");
+            Console.WriteLine($"MP {player.CurrentMP}/{player.FullMP}");
         }
 
         bool TryRun()       //도주 시도
