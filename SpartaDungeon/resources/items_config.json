@@ -220,6 +220,76 @@
         "Price": 500
     },
     {
+        "ID": 201,
+        "Name": "에메랄드의 원석",
+        "Description": "초록빛을 띄는 보석의 원석이다. 제련시 희귀하게 마법의 가루(초록)을 얻을수있다",
+        "ItemType": "Other",
+        "Price": 50
+    },
+    {
+        "ID": 240,
+        "Name": "아다만티움 원석",
+        "Description": "무겁고 강한 아다만티움 원석이다. 제련시 희귀하게 마법의 가루(갈색)을 얻을수있다.",
+        "ItemType": "Other",
+        "Price": 50
+    },
+    {
+        "ID": 295,
+        "Name": "자수정의 원석",
+        "Description": "보랏빛을 띄는 보석의 원석이다.",
+        "ItemType": "Other",
+        "Price": 50
+    },
+    {
+        "ID": 342,
+        "Name": "오팔의 원석",
+        "Description": "여러 가지 색을 띄는 보석의 원석이다.",
+        "ItemType": "Other",
+        "Price": 50
+    },
+    {
+        "ID": 375,
+        "Name": "미스릴의 원석",
+        "Description": "가볍고 강한 미스릴의 원석이다. 제련시 희귀하게마법의 가루(초록)를 얻을 수 있다.",
+        "ItemType": "Other",
+        "Price": 50
+    },
+    {
+        "ID": 395,
+        "Name": "토파즈의 원석",
+        "Description": "노란빛을 띄는 보석의 원석이다.제련시 희귀하게 마법의 가루(노랑)을 얻을수 있다.",
+        "ItemType": "Other",
+        "Price": 50
+    },
+    {
+        "ID": 425,
+        "Name": "금의 원석",
+        "Description": "매우 희귀한 광석인 금의 원석이다. 제련시 희귀하게 마법의 가루(노랑)를 얻을 수 있다.",
+        "ItemType": "Other",
+        "Price": 50
+    },
+    {
+        "ID": 445,
+        "Name": "마법의 가루(파랑)",
+        "Description": "파란 빛을 띄는 마법의 가루이다. 제작 3레벨의 재료이다.",
+        "ItemType": "Other",
+        "Price": 200
+    },
+    {
+        "ID": 485,
+        "Name": "마법의 가루(초록)",
+        "Description": "초록 빛을 띄는 마법의 가루이다. 제작 5레벨의 재료이다.",
+        "ItemType": "Other",
+        "Price": 200
+    },
+    {
+        "ID": 558,
+        "Name": "강철의 원석",
+        "Description": "강한 강철의 원석이다. 제련시 희귀하게 마법의 가루(파랑)를 얻을 수 있다.",
+        "ItemType": "Other",
+        "Price": 50
+    },
+    {
         "ID": 1101,
         "Name": "네미의 도시락",
         "Description": "루디브리엄의 '네미'가 아버지인 장난감 공장의 '공장장 카호'를 위해 정성스럽게 싼 도시락이다.HP를 10회복시킨다.",
