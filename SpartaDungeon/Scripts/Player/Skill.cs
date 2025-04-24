@@ -43,4 +43,10 @@ namespace SpartaDungeon
             : base(name, description, mp) { }
     }
 
+    public abstract class MonsterSkill : Skill
+    {
+        protected MonsterSkill(string name, string description, int mp)
+            : base(name, description, mp) { }
+    }
+
 }

@@ -39,6 +39,7 @@ namespace SpartaDungeon
             EvadeChance = evadeChance;
             IsDead = false;
             Drops = drops;
+            InitializeSkills();
         }
 
         protected override void LevelUpStats()
@@ -56,5 +57,41 @@ namespace SpartaDungeon
             CritChance, EvadeChance, Drops);
             return clone;
         }
+
+
+        private void InitializeSkills()
+        {
+            switch (Id)
+            {
+                case (int)MonsterId.머쉬맘:
+                    // 쿵! "눈을 번뜩이면 점프"
+                    break;
+                case (int)MonsterId.킹슬라임:
+                    // 뿡야!
+                    break;
+                case (int)MonsterId.블루머쉬맘:
+                    // 쿵웅!
+                    break;
+                case (int)MonsterId.주니어발록:
+                    // 파이어 볼
+                    break;
+                case (int)MonsterId.좀비머쉬맘:
+                    // 쿵우웅!
+                    break;
+                case (int)MonsterId.자쿰:
+                    // 격노의 불길
+                    break;
+            }
+        }
+    }
+
+    public enum MonsterId
+    {
+        머쉬맘 = 101,
+        킹슬라임,
+        블루머쉬맘,
+        주니어발록,
+        좀비머쉬맘,
+        자쿰 = 999
     }
 }
