@@ -40,6 +40,7 @@ namespace SpartaDungeon
             return selectedIndex; //-1이 반환될 경우, 잘못된 입력
         }
 
+
         public static void Pause(bool withText)  //게임 퍼즈 - 아무 키나 입력하면 진행
         {
             if (withText)

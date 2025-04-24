@@ -23,7 +23,6 @@ namespace SpartaDungeon
         public Stat Stat => itemInfo.Stat;
         public int StatValue => itemInfo.StatValue;
         public bool IsEquipped { get; private set; }
-        public bool IsShopItem { get; private set; }
         public bool IsSoldOut { get; private set; }
 
         public Equipment(ItemInfo itemInfo)
@@ -73,7 +72,7 @@ namespace SpartaDungeon
 
         public ItemInfo GetItemInfo()   //아이템 정보 추출
         {
-            return new ItemInfo(ID, Name, ItemType, EquipType, Stat, StatValue, Description, Price, IsShopItem, IsSoldOut, IsEquipped);
+            return new ItemInfo(ID, Name, ItemType, EquipType, Stat, StatValue, Description, Price, IsSoldOut, IsEquipped);
         }
         public void Equip()     //아이템 장착
         {

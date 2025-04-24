@@ -12,59 +12,60 @@ namespace SpartaDungeon
     //장비 아이템들의 장착 관리
     public class Inventory
     {
-        int inventorySpace = 8;
+        int inventorySpace = 16;
         public List<ITradable> Items { get; private set; } //보유중인 모든 아이템
         public List<ITradable> Equipments { get; private set; } = new List<ITradable>(); //장비 아이템
         public List<ITradable> Usables { get; private set; } = new List<ITradable>(); //소비 아이템
         public List<ITradable> Others { get; private set; } = new List<ITradable>(); //기타 아이템
-        public Equipment[] EquippedItems { get; private set; } //플레이어가 장비중인 아이템
+        public Dictionary<EquipType, Equipment?> EquippedItems = new Dictionary<EquipType, Equipment?>();  //플레이어가 장비중인 아이템 
         public event Action? OnEquipChanged;    //플레이어 장비 변환 이벤트
         public Inventory()
         {
             Items = new List<ITradable>(inventorySpace);
-            EquippedItems = new Equipment[2];   //0 : 무기 1 :방어구
         }
 
         public void AddItem(ITradable item)  //인벤토리에 아이템 추가
         {
-            if (item.ID == 0)    //메소
-            {
-
-            }
             Items.Add(item);
-            switch (item.ItemType)   //아이템 분류 과정
+            if (item is Equipment equipment)
             {
-                case ItemType.Equipment:
-                    Equipment equip = (Equipment)item;
-                    Equipments.Add(equip);
-                    if (equip.IsEquipped)   //장착된 아이템인 경우
-                    {
-                        EquippedItems[(int)equip.EquipType] = equip;
-                    }
-                    break;
-                case ItemType.Usable:  //소비 아이템   
-                    Usables.Add((Usable)item);
-                    break;
-                case ItemType.Other:  //기타 아이템  
-                    Usables.Add((OtherItem)item);
-                    break;
-                default:
-                    break;
+                Equipments.Add(equipment);
+                if (equipment.IsEquipped)   //장착중인 장비인 경우
+                {   //장착 해제 및 장착 목록에서 제거
+                    EquippedItems[equipment.EquipType] = equipment;
+                }
             }
+            else if (item is Usable usable)
+            {
+                Usables.Add(usable);
+            }
+            else if (item is OtherItem other)
+            {
+                Others.Add(other);
+            }
+
         }
 
         public void RemoveItem(ITradable item)  //인벤토리에서 아이템 제거
         {
             Items.Remove(item);
-            switch (item.ItemType)   //아이템 분류 과정
+            if (item is Equipment equipment)
             {
-                case ItemType.Equipment:
-                    Equipments.Remove(item);
-                    EquippedItems[(int)EquipType.Armor] = null;
+                Equipments.Remove(equipment);
+                if (equipment.IsEquipped)   //장착중인 장비인 경우
+                {   //장착 해제 및 장착 목록에서 제거
+                    equipment.UnEquip();
+                    EquippedItems[equipment.EquipType] = null;
                     OnEquipChanged?.Invoke();
-                    break;
-                default:
-                    break;
+                }
+            }
+            else if (item is Usable usable)
+            {
+                Usables.Remove(usable);
+            }
+            else if (item is OtherItem other)
+            {
+                Others.Remove(other);
             }
         }
 
@@ -145,18 +146,18 @@ namespace SpartaDungeon
                     if (selected.IsEquipped)    //이미 장착된 경우
                     {
                         selected.UnEquip();     //장착 해제
-                        EquippedItems[equipIndex] = null;
+                        EquippedItems[selected.EquipType] = null;
                     }
                     else
                     {
                         //같은 종류 장비가 이미 장착되어 있으면 해제
-                        if (EquippedItems[equipIndex] != null)
+                        if (EquippedItems[selected.EquipType] != null)
                         {
-                            EquippedItems[equipIndex].UnEquip();
+                            EquippedItems[selected.EquipType]!.UnEquip();
                         }
 
                         selected.Equip();
-                        EquippedItems[equipIndex] = selected;
+                        EquippedItems[selected.EquipType] = selected;
                     }
                     OnEquipChanged?.Invoke();
                 }
