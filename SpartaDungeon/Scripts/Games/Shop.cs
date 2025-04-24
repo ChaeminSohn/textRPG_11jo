@@ -18,23 +18,21 @@ namespace SpartaDungeon
         public Shop(Player player)      //새 게임 생성자
         {
             this.player = player;
-            foreach (int itemID in ItemDataBase.ShopItemsID)
+            foreach (ItemInfo itemInfo in ItemDataBase.ShopItems)
             {
-                if (ItemDataBase.TryGetItemInfo(itemID, out var itemInfo) && itemInfo != null)
+                switch (itemInfo.ItemType)     //아이템 분류 작업
                 {
-                    switch (itemInfo.Value.ItemType)     //아이템 분류 작업
-                    {
-                        case ItemType.Equipment:
-                            equipments.Add(new Equipment(itemInfo.Value));
-                            break;
-                        case ItemType.Usable:
-                            usables.Add(new Usable(itemInfo.Value));
-                            break;
-                        case ItemType.Other:
-                            others.Add(new OtherItem(itemInfo.Value));
-                            break;
-                    }
+                    case ItemType.Equipment:
+                        equipments.Add(new Equipment(itemInfo));
+                        break;
+                    case ItemType.Usable:
+                        usables.Add(new Usable(itemInfo));
+                        break;
+                    case ItemType.Other:
+                        others.Add(new OtherItem(itemInfo));
+                        break;
                 }
+
             }
             Items.AddRange(equipments);
             Items.AddRange(usables);

@@ -15,6 +15,6 @@ namespace SpartaDungeon
     public List<ItemInfo> Usables { get; set; } = new List<ItemInfo>();  //소비 아이템 리스트
     public List<ItemInfo> Others { get; set; } = new List<ItemInfo>();  //기타 아이템 리스트
 
-    public List<int> ShopItemsID { get; set; } = new List<int>(); //상점 아이템 ID 목록
+    public Dictionary<int, int> ShopItems { get; set; } = new Dictionary<int, int>(); //상점 아이템 목록(ID , 개수)
   }
 }

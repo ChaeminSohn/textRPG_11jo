@@ -25,7 +25,7 @@ namespace SpartaDungeon
         public bool IsEquipped { get; set; } = false; //플레이어 착용 여부
 
         //소비, 기타 전용 필드
-        public int ItemCount { get; set; } = 1;  //아이템 개수
+        public int ItemCount { get; set; } = 0;  //아이템 개수
 
         //장비 아이템 생성자
         public ItemInfo(int id, string name, ItemType itemType, EquipType equipType, Stat stat, int statValue, string description, int price,

@@ -24,6 +24,7 @@ namespace SpartaDungeon
         {
             this.itemInfo = itemInfo;
             IsSoldOut = itemInfo.IsSoldOut;
+            ItemCount = itemInfo.ItemCount;
         }
         public ItemInfo GetItemInfo()
         {
