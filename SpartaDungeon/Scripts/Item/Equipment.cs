@@ -56,7 +56,7 @@ namespace SpartaDungeon
                 string priceFormatted;
                 if (!IsSoldOut)
                 {
-                    priceFormatted = Utils.PadToWidth($"{Price} G", 8);
+                    priceFormatted = Utils.PadToWidth($"{Price} 메소", 8);
                 }
                 else
                 {

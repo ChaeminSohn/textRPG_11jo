@@ -194,7 +194,7 @@ namespace SpartaDungeon
             Console.WriteLine($"회피율 : {EvadeChance}");
             Console.WriteLine($"체력 : {CurrentHP}/{FullHP}");
             Console.WriteLine($"마나 : {CurrentMP}/{FullMP}");
-            Console.WriteLine($"메소 : {Meso} ");
+            Console.WriteLine($"메소 : {Meso} 메소");
             ShowSkillList();
         }
 
