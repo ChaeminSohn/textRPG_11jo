@@ -10,7 +10,7 @@ namespace SpartaDungeon
         private static Random random;
         private List<Monster> monsters;
 
-       
+
         private readonly Dictionary<Difficulty, string> dungeonIntroductions = new Dictionary<Difficulty, string>
         {
             { Difficulty.VeryEasy, "버섯의 모습을 본뜬 건물들이 가득한 헤네시스에 오신걸 환영합니다." },
@@ -20,7 +20,7 @@ namespace SpartaDungeon
             { Difficulty.VeryHard, "고요하고 어두운 꿈의땅, 슬리피우드에 오신걸 환영합니다." }
         };
 
-      
+
         private readonly Dictionary<Difficulty, string> dungeonDecorations = new Dictionary<Difficulty, string>
         {
             { Difficulty.VeryEasy,
@@ -50,7 +50,7 @@ namespace SpartaDungeon
   *****************************" }
         };
 
-       
+
         private readonly string hiddenBossRoomDecoration =
 @"  _________________________________
  /                                 \
@@ -58,7 +58,7 @@ namespace SpartaDungeon
 |   Heart of the Ruined Mine        |
  \_________________________________/";
 
-      
+
         private Dictionary<Difficulty, bool> stageCleared = new Dictionary<Difficulty, bool>
         {
             { Difficulty.VeryEasy, false },
@@ -68,7 +68,7 @@ namespace SpartaDungeon
             { Difficulty.VeryHard, false }
         };
 
-      
+
         private readonly Dictionary<Difficulty, string> bossDialogues = new Dictionary<Difficulty, string>
         {
             { Difficulty.VeryEasy, "어디선가 커다란 버섯이 나타났습니다." },
@@ -78,7 +78,7 @@ namespace SpartaDungeon
             { Difficulty.VeryHard, "어디선가 음산한 기운을 풍기는 커다란 버섯이 나타났습니다." }
         };
 
-       
+
         private readonly string hiddenBossDialogue = "원석의 힘으로 자쿰이 소환됩니다.";
 
         public Dungeon(Player player, List<Monster> monsters)
@@ -102,7 +102,7 @@ namespace SpartaDungeon
                 Console.WriteLine("3. 컨닝시티");
                 Console.WriteLine("4. 페리온");
                 Console.WriteLine("5. 슬리피우드");
-                
+
                 if (stageCleared.Values.All(cleared => cleared))
                 {
                     Console.WriteLine("6. 엘나스(폐광)");
@@ -111,7 +111,7 @@ namespace SpartaDungeon
 
                 int input = Utils.GetPlayerInput();
 
-                
+
 
                 if (input == 6 && stageCleared.Values.All(x => x))
                 {
@@ -202,7 +202,7 @@ namespace SpartaDungeon
             Console.Clear();
 
             // 던전 꾸밈 출력
-            if (dungeonDecorations.TryGetValue(difficulty, out string decoration))
+            if (dungeonDecorations.TryGetValue(difficulty, out string? decoration))
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine(decoration);
@@ -214,7 +214,7 @@ namespace SpartaDungeon
             Console.ResetColor();
             Console.WriteLine($"선택한 사냥터: {difficulty}");
 
-            if (dungeonIntroductions.TryGetValue(difficulty, out string introduction))
+            if (dungeonIntroductions.TryGetValue(difficulty, out string? introduction))
                 Console.WriteLine(introduction);
             else
                 Console.WriteLine("사냥터 개업준비중...");
@@ -239,11 +239,11 @@ namespace SpartaDungeon
             battle.StartBattle();
         }
 
-        
+
         private void StartBossBattle(Difficulty difficulty)
         {
             Monster boss = GenerateBoss(difficulty);
-            if (bossDialogues.TryGetValue(difficulty, out string dialogue))
+            if (bossDialogues.TryGetValue(difficulty, out string? dialogue))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(dialogue);
@@ -254,16 +254,16 @@ namespace SpartaDungeon
             battle.StartBattle();
         }
 
-       
+
         private void StartHiddenBossBattle()
         {
             Console.Clear();
-          
+
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine(hiddenBossRoomDecoration);
             Console.ResetColor();
 
-            
+
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine(hiddenBossDialogue);
             Console.ResetColor();
@@ -274,7 +274,7 @@ namespace SpartaDungeon
             battle.StartBattle();
         }
 
-      
+
         private List<Monster> GenerateNormalMonsters(Difficulty difficulty)
         {
             List<Monster> filteredMonsters = FilterMonstersByDifficulty(difficulty);
@@ -290,11 +290,11 @@ namespace SpartaDungeon
             return selectedMonsters;
         }
 
-       
+
         private Monster GenerateBoss(Difficulty difficulty)
         {
             int bossId = GetBossId(difficulty);
-            Monster boss = monsters.FirstOrDefault(mon => mon.Id == bossId);
+            Monster? boss = monsters.FirstOrDefault(mon => mon.Id == bossId);
             if (boss == null)
             {
 
@@ -307,25 +307,25 @@ namespace SpartaDungeon
             return boss;
         }
 
-       
+
         private Monster GenerateHiddenBoss()
         {
             int hiddenBossId = 999;
-            Monster boss = monsters.FirstOrDefault(mon => mon.Id == hiddenBossId);
+            Monster? boss = monsters.FirstOrDefault(mon => mon.Id == hiddenBossId);
             if (boss == null)
             {
-             
-             Console.WriteLine($"[경고] 보스는 휴가중");
+
+                Console.WriteLine($"[경고] 보스는 휴가중");
 
                 boss = monsters.First();
             }
             boss = boss.Clone();
-          
+
             boss.Level = random.Next(20, 26);
             return boss;
         }
 
-      
+
         private List<Monster> FilterMonstersByDifficulty(Difficulty difficulty)
         {
             int minId, maxId;
@@ -354,7 +354,7 @@ namespace SpartaDungeon
             return filtered.Count > 0 ? filtered : monsters;
         }
 
-       
+
         private int GetBossId(Difficulty difficulty)
         {
             return difficulty switch

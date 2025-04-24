@@ -22,6 +22,7 @@ namespace SpartaDungeon
         public void StartBattle()
         {
             int startHP = player.CurrentHP;
+            int startMP = player.CurrentMP;
             while (true)
             {
                 MyTurnAction();
@@ -44,6 +45,7 @@ namespace SpartaDungeon
                 Console.WriteLine($"\n던전에서 몬스터 {killedMonsters.Count}마리를 잡았습니다.");
                 Console.WriteLine($"Lv.{player.Level} {player.Name}");
                 Console.WriteLine($"HP {startHP} -> {player.CurrentHP}");
+                Console.WriteLine($"MP {startMP} -> {player.CurrentMP}");
             }
             else
             {
@@ -215,7 +217,7 @@ namespace SpartaDungeon
             player.GetEXP(monster.ExpReward);       //경험치 획득
             droppedMeso += monster.MesoReward;      //골드 획득 
             Console.Clear();
-            Console.WriteLine($"{monster.Name} 을 잡았다!");
+            Console.WriteLine($"{monster.Name}을(를) 잡았다!");
             Console.WriteLine("[획득 아이템]");
             Console.WriteLine($"{monster.MesoReward} 메소");
             //드랍 아이템 처리
@@ -254,10 +256,16 @@ namespace SpartaDungeon
 
         void ShowBattleInfo()   //몬스터, 플레이어 정보 표시
         {
+            string levelFormatted;
+            string nameFormatted;
+            string stateFormatted;
             //몬스터 정보 표시
             for (int i = 0; i < monsters.Length; i++)
             {
-                Console.WriteLine($"{i + 1}. Lv{monsters[i].Level} {monsters[i].Name}   {(monsters[i].IsDead ? "Dead" : "HP : " + monsters[i].CurrentHP)}");
+                levelFormatted = Utils.PadToWidth($"{monsters[i].Level}", 2);
+                nameFormatted = Utils.PadToWidth(monsters[i].Name, 12);
+                stateFormatted = Utils.PadToWidth(monsters[i].IsDead ? "Dead" : "HP : " + monsters[i].CurrentHP, 10);
+                Console.WriteLine($"{i + 1}. Lv{levelFormatted} {nameFormatted} {stateFormatted}");
             }
             Console.WriteLine("\n\n[내정보]");
             Console.WriteLine($"Lv.{player.Level} [{player.Name}] ({Utils.JobDisplayNames[player.Job]})");
