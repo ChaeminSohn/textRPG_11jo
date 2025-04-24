@@ -12,8 +12,12 @@ namespace SpartaDungeon
         public string Description { get; set; }
         public int HealAmount { get; set; }
 
-        int health = 70;
-        int maxHealth = 100;
+        public void ShowPotion()
+        {
+            int health = 70;
+            int maxHealth = 100;
+            Console.WriteLine($"{Name} - {Description} (회복량: {HealAmount})");
+        }             
 
         public Potion(string name, string description, int healAmount)
         {
@@ -22,10 +26,6 @@ namespace SpartaDungeon
             HealAmount = healAmount;
         }
 
-        public void ShowPotion()
-        {
-            Console.WriteLine($"{Name} - {Description} (회복량: {HealAmount})");
-        }
         public void Use()
         {
             Console.WriteLine($"{Name}를 사용했습니다. 체력을 {HealAmount} 회복했습니다.");
