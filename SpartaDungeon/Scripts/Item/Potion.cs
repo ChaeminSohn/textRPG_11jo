@@ -38,7 +38,6 @@ namespace SpartaDungeon
 
     }
 
-
     class PotionInfo
     {
         public void PotionList()
