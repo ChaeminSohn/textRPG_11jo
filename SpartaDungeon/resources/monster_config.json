@@ -210,7 +210,7 @@
       "ExpReward" : 9,
       "MesoReward" : 35,
       "CritChance" : 0,
-      "EvadeChance" : 10,
+      "EvadeChance" : 0.1,
       "Drops": [
         {
           "ItemID": 23,
@@ -230,7 +230,7 @@
       "ExpReward" : 10,
       "MesoReward" : 40,
       "CritChance" : 0,
-      "EvadeChance" : 10,
+      "EvadeChance" : 0.1,
       "Drops": [
         {
           "ItemID": 24,
