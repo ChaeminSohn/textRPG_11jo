@@ -41,9 +41,8 @@ namespace SpartaDungeon
                 Console.WriteLine("세이브 파일이 없습니다. 새로운 게임을 시작합니다.");
                 Utils.Pause(true);
                 NewGameSetting();
-
             }
-
+            inventory.SetOwner(player);
             while (!isGameOver)     //게임이 종료될 때 까지 반복
             {
                 TownAction();
@@ -70,11 +69,8 @@ namespace SpartaDungeon
 
             string playerName = GetNameFromPlayer(); ;
             Job playerJob = GetJobFromPlayer(); ;
-
             inventory = new Inventory();
-
             player = new Player(playerName, playerJob, inventory);
-            //player.OnPlayerDie += GameOver;
             shop = new Shop(player);
             dungeon = new Dungeon(player, monsterList);
 
