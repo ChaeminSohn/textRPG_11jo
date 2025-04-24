@@ -41,9 +41,5 @@ namespace SpartaDungeon
             FullMP = fullMP;
             CurrentMP = currentMP;
         }
-
-
     }
-
-
 }

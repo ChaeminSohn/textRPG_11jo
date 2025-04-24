@@ -10,7 +10,7 @@ namespace SpartaDungeon
                 int mana = player.CurrentMP;
                 Console.Clear();
                 Console.WriteLine("<휴식하기>");
-                Console.WriteLine($"500 메소를 내면 체력과 마나를 회복할 수 있습니다." +
+                Console.WriteLine($"500 메소를 내면 체력과 마나를 전부 회복할 수 있습니다." +
                     $" (보유 메소 : {player.Meso} 메소)");
                 Console.WriteLine("\n1. 휴식하기");
                 Console.WriteLine("0. 나가기");
@@ -23,8 +23,8 @@ namespace SpartaDungeon
                     case 1:
                         if (player.Meso >= 500)
                         {
-                            player.RecoverHP(player.FullHP / 2);
-                            player.RecoverMP(player.FullMP / 2);
+                            player.RecoverHP(player.FullHP);
+                            player.RecoverMP(player.FullMP);
                             player.ChangeMeso(-500);
                             Console.WriteLine("\n푹 쉬었습니다.");
                             Console.WriteLine($"체력 {health} -> {player.CurrentHP}");
