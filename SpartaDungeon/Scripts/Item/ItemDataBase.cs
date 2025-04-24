@@ -1,3 +1,5 @@
+using System.Collections;
+
 namespace SpartaDungeon
 {
     public static class ItemDataBase  //json 파일 아이템 리스트 저장용 클래스
@@ -51,6 +53,23 @@ namespace SpartaDungeon
     {
         public static ITradable CreateItem(ItemInfo info)
         {
+            switch (info.ItemType)
+            {
+                case ItemType.Equipment:
+                    return new Equipment(info);
+                case ItemType.Usable:
+                    switch (info.UsableType)
+                    {
+                        case UsableType.HealPotion:
+                        case UsableType.ManaPotion:
+                            return new Potion(info);
+                        default:
+                            return new Usable(info);
+
+                    }
+                case ItemType.Other:
+                    return new OtherItem(info);
+            }
             return info.ItemType switch
             {
                 ItemType.Equipment => new Equipment(info),

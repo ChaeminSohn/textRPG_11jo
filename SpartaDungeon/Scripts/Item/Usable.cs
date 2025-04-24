@@ -14,7 +14,7 @@ namespace SpartaDungeon
     }
     public class Usable : ITradable   //소비 아이템
     {
-        ItemInfo itemInfo;
+        public ItemInfo itemInfo;
         public int ID => itemInfo.ID;
         public string Name => itemInfo.Name;
         public string Description => itemInfo.Description;
@@ -22,7 +22,7 @@ namespace SpartaDungeon
         public ItemType ItemType => itemInfo.ItemType;
         public UsableType UsableType => itemInfo.UsableType;
         public bool IsSoldOut { get; private set; }   //판매 여부
-        public int ItemCount { get; private set; } //아이템 개수
+        public int ItemCount { get; set; } //아이템 개수
 
         public Usable(ItemInfo itemInfo)
         {
@@ -34,7 +34,6 @@ namespace SpartaDungeon
         {
             return new ItemInfo(ID, Name, ItemType, UsableType, Description, Price, IsSoldOut, ItemCount, 0);
         }
-
         public void OnTrade()
         {
             if (!IsSoldOut)
@@ -53,7 +52,6 @@ namespace SpartaDungeon
                 IsSoldOut = true;
             }
         }
-
         public void ShowInfo(bool showPrice)
         {
             string countFormatted = Utils.PadToWidth($"x{ItemCount}", 5);
@@ -81,7 +79,7 @@ namespace SpartaDungeon
         {
             ChangeItemCount(-1);
         }
-        public Usable CloneItem(int itemCount)      //상점, 인벤토리에 전달 시, 새로운 객체를 복사하여 전달
+        public virtual Usable CloneItem(int itemCount)      //상점, 인벤토리에 전달 시, 새로운 객체를 복사하여 전달
         {
             var clone = new Usable(itemInfo);
             clone.ItemCount = itemCount;

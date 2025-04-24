@@ -20,19 +20,19 @@ namespace SpartaDungeon
             this.player = player;
             foreach (ItemInfo itemInfo in ItemDataBase.ShopItems)
             {
-                switch (itemInfo.ItemType)     //아이템 분류 작업
+                ITradable createdItem = ItemFactory.CreateItem(itemInfo);
+                switch (itemInfo.ItemType)
                 {
                     case ItemType.Equipment:
-                        equipments.Add(new Equipment(itemInfo));
+                        equipments.Add(createdItem);
                         break;
                     case ItemType.Usable:
-                        usables.Add(new Usable(itemInfo));
+                        usables.Add(createdItem);
                         break;
                     case ItemType.Other:
-                        others.Add(new OtherItem(itemInfo));
+                        others.Add(createdItem);
                         break;
                 }
-
             }
             Items.AddRange(equipments);
             Items.AddRange(usables);

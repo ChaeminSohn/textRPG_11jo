@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SpartaDungeon
 {
-    internal class Potion : Usable
+    public class Potion : Usable
     {
 
         public int HealAmount { get; private set; }
@@ -19,13 +19,19 @@ namespace SpartaDungeon
         {
             base.Use(player);
             player.RecoverHP(HealAmount);
-            Console.WriteLine($"{Name}를 사용했습니다. 체력을 {HealAmount} 회복했습니다.");
-
+            Console.WriteLine($"{Name}를 사용했습니다. {(UsableType == UsableType.HealPotion ? "체력을" : "마나를")} {HealAmount} 회복했습니다.");
         }
 
         public override ItemInfo GetItemInfo()
         {
             return new ItemInfo(ID, Name, ItemType, UsableType, Description, Price, IsSoldOut, ItemCount, HealAmount);
+        }
+
+        public override Usable CloneItem(int itemCount)
+        {
+            var clone = new Potion(itemInfo);
+            clone.ItemCount = itemCount;
+            return clone;
         }
     }
 }

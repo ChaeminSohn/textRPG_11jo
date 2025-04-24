@@ -12,8 +12,8 @@ namespace SpartaDungeon
     //장비 아이템들의 장착 관리
     public class Inventory
     {
-        int inventorySpace = 16;
-        public List<ITradable> Items { get; private set; } //보유중인 모든 아이템
+        Player player;
+        public List<ITradable> Items { get; private set; } = new List<ITradable>(16); //보유중인 모든 아이템
         public List<ITradable> Equipments { get; private set; } = new List<ITradable>(); //장비 아이템
         public List<ITradable> Usables { get; private set; } = new List<ITradable>(); //소비 아이템
         public List<ITradable> Others { get; private set; } = new List<ITradable>(); //기타 아이템
@@ -23,9 +23,9 @@ namespace SpartaDungeon
                     .ToDictionary(type => type, type => (Equipment?)null);
 
         public event Action? OnEquipChanged;    //플레이어 장비 변환 이벤트
-        public Inventory()
+        public void SetOwner(Player player)     //인벤토리 주인(플레이어) 할당
         {
-            Items = new List<ITradable>(inventorySpace);
+            this.player = player;
         }
 
         //인벤토리에 아이템 추가
@@ -210,25 +210,54 @@ namespace SpartaDungeon
 
         public void ControlUsables()
         {
-            Console.Clear();
-            Console.WriteLine("인벤토리 - 소비 아이템");
-            Console.WriteLine("보유 중인 아이템을 관리할 수 있습니다.");
-            Console.WriteLine("\n[아이템 목록]");
-            foreach (ITradable item in Usables)
+            while (true)
             {
-                Console.Write("- ");
-                item.ShowInfo(false);
+                Console.Clear();
+                Console.WriteLine("인벤토리 - 소비 아이템");
+                Console.WriteLine("보유 중인 아이템을 관리할 수 있습니다.");
+                Console.WriteLine("\n[아이템 목록]");
+                for (int i = 0; i < Usables.Count; i++)
+                {
+                    Console.Write($"- {i + 1}.  ");
+                    Usables[i].ShowInfo(false);
+                }
+                Console.WriteLine("\n0. 나가기");
+                Console.Write("\n사용할 아이템을 선택하세요.");
+
+                int playerInput = Utils.GetPlayerInput();
+
+                if (playerInput == 0) //인풋 0 : 나가기
+                {
+                    return;
+                }
+                else if (playerInput > Usables.Count || playerInput == -1)
+                {   //인풋이 아이템 개수보다 크거나 완전 잘못된 값일 때
+                    Console.WriteLine("\n잘못된 입력입니다.");
+                    Utils.Pause(false);
+                }
+                else
+                {
+                    Usable selected = (Usable)Usables[playerInput - 1];
+                    Console.Clear();
+                    Console.WriteLine($"{selected.Name} 을(를) 사용하시겠습니까?");
+                    Console.WriteLine("\n1. 사용");
+                    Console.WriteLine("0. 취소");
+
+                    switch (Utils.GetPlayerInput())
+                    {
+                        case 0:
+                            continue;
+                        case 1:
+                            selected.Use(player); //아이템 사용
+                            Utils.Pause(true);
+                            break;
+                        default:
+                            Console.WriteLine("잘못된 입력입니다.");
+                            Utils.Pause(false);
+                            break;
+                    }
+                }
             }
-            Console.WriteLine("\n0. 나가기");
-            Console.Write("\n원하시는 행동을 입력해주세요.");
-
-            int playerInput = Utils.GetPlayerInput();
-
-            if (playerInput == 0) //인풋 0 : 나가기
-            {
-                return;
-            }
-
         }
 
         public void ControlOthers()

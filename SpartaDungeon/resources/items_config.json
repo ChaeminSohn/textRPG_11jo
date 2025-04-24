@@ -360,7 +360,9 @@
             "Name": "빨간 포션",
             "Description": "붉은 약초로 만든 물약이다. Hp를 약 50 회복시킨다",
             "ItemType": "Usable",
-            "Price": 50
+            "UsableType": "HealPotion",
+            "Price": 50,
+            "HealAmount": 50
         },
         {
             "ID": 1111,
