@@ -248,22 +248,38 @@ namespace SpartaDungeon
 
             int totalPrice = item.Price * count;
 
-            if (player.Meso >= totalPrice)
+            if (player.Meso >= totalPrice)      //돈이 충분한 경우
             {
                 player.ChangeMeso(-totalPrice);
                 if (item is Usable usableItem)
                 {
-                    player.Inventory.AddItem(usableItem.CloneItem(count));
-                    usableItem.ChangeItemCount(-count);
+                    ITradable? existingItem = player.Inventory.Usables.FirstOrDefault(item => item.ID == usableItem.ID);
+                    if (existingItem != null)   //아이템이 인벤토리에 이미 존재하는 경우
+                    {
+                        ((Usable)existingItem).ChangeItemCount(count);  //인벤토리 객체는 개수 추가           
+                    }
+                    else    //인벤토리에 존재하지 않는 경우
+                    {
+                        player.Inventory.AddItem(usableItem.CloneItem(count));     //새로운 객체 복사하여 전달
+                    }
+                    usableItem.ChangeItemCount(-count);     //상점 객체는 개수 감소
                 }
                 else if (item is OtherItem otherItem)
                 {
-                    player.Inventory.AddItem(otherItem.CloneItem(count));
+                    ITradable? existingItem = player.Inventory.Others.FirstOrDefault(item => item.ID == otherItem.ID);
+                    if (existingItem != null)   //아이템이 인벤토리에 이미 존재하는 경우
+                    {
+                        ((OtherItem)existingItem).ChangeItemCount(count);  //인벤토리 객체는 개수 추가           
+                    }
+                    else    //인벤토리에 존재하지 않는 경우
+                    {
+                        player.Inventory.AddItem(otherItem.CloneItem(count));     //새로운 객체 복사하여 전달
+                    }
                     otherItem.ChangeItemCount(-count);
                 }
                 Console.WriteLine($"{item.Name} {count}개를 구매했습니다.");
             }
-            else
+            else    //돈이 부족한 경우
             {
                 Console.WriteLine("메소가 부족합니다.");
             }
