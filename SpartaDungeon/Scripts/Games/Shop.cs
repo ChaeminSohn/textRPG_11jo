@@ -18,19 +18,22 @@ namespace SpartaDungeon
         public Shop(Player player)      //새 게임 생성자
         {
             this.player = player;
-            foreach (ItemInfo itemInfo in ItemDataBase.ShopItems)
+            foreach (int itemID in ItemDataBase.ShopItemsID)
             {
-                switch (itemInfo.ItemType)     //아이템 분류 작업
+                if (ItemDataBase.TryGetItemInfo(itemID, out var itemInfo) && itemInfo != null)
                 {
-                    case ItemType.Equipment:
-                        equipments.Add(new Equipment(itemInfo));
-                        break;
-                    case ItemType.Usable:
-                        usables.Add(new Usable(itemInfo));
-                        break;
-                    case ItemType.Other:
-                        others.Add(new OtherItem(itemInfo));
-                        break;
+                    switch (itemInfo.Value.ItemType)     //아이템 분류 작업
+                    {
+                        case ItemType.Equipment:
+                            equipments.Add(new Equipment(itemInfo.Value));
+                            break;
+                        case ItemType.Usable:
+                            usables.Add(new Usable(itemInfo.Value));
+                            break;
+                        case ItemType.Other:
+                            others.Add(new OtherItem(itemInfo.Value));
+                            break;
+                    }
                 }
             }
             Items.AddRange(equipments);
@@ -208,7 +211,8 @@ namespace SpartaDungeon
                             Utils.Pause(false);
                         }
                     }
-                    else if (selectedItem.ItemType == ItemType.Usable)   //소비, 기타 아이템 - 한번에 여러 개수 구매 가능
+                    else if (selectedItem.ItemType == ItemType.Usable ||
+                        selectedItem.ItemType == ItemType.Other)   //소비, 기타 아이템 - 한번에 여러 개수 구매 가능
                     {
                         BuyMultipleItems(selectedItem);
                     }
@@ -250,33 +254,43 @@ namespace SpartaDungeon
 
             if (player.Meso >= totalPrice)      //돈이 충분한 경우
             {
-                player.ChangeMeso(-totalPrice);
                 if (item is Usable usableItem)
                 {
                     ITradable? existingItem = player.Inventory.Usables.FirstOrDefault(item => item.ID == usableItem.ID);
                     if (existingItem != null)   //아이템이 인벤토리에 이미 존재하는 경우
                     {
-                        ((Usable)existingItem).ChangeItemCount(count);  //인벤토리 객체는 개수 추가           
+                        ((Usable)existingItem).ChangeItemCount(count);  //개수만 추가           
                     }
                     else    //인벤토리에 존재하지 않는 경우
                     {
                         player.Inventory.AddItem(usableItem.CloneItem(count));     //새로운 객체 복사하여 전달
                     }
                     usableItem.ChangeItemCount(-count);     //상점 객체는 개수 감소
+                    if (usableItem.ItemCount == 0)  //개수가 0이 된 경우
+                    {
+                        usables.Remove(usableItem);     //판매 목록에서 삭제
+                        Items.Remove(usableItem);
+                    }
                 }
                 else if (item is OtherItem otherItem)
                 {
                     ITradable? existingItem = player.Inventory.Others.FirstOrDefault(item => item.ID == otherItem.ID);
                     if (existingItem != null)   //아이템이 인벤토리에 이미 존재하는 경우
                     {
-                        ((OtherItem)existingItem).ChangeItemCount(count);  //인벤토리 객체는 개수 추가           
+                        ((OtherItem)existingItem).ChangeItemCount(count);  //개수만 추가           
                     }
                     else    //인벤토리에 존재하지 않는 경우
                     {
                         player.Inventory.AddItem(otherItem.CloneItem(count));     //새로운 객체 복사하여 전달
                     }
                     otherItem.ChangeItemCount(-count);
+                    if (otherItem.ItemCount == 0)
+                    {
+                        others.Remove(otherItem);
+                        Items.Remove(otherItem);
+                    }
                 }
+                player.ChangeMeso(-totalPrice);
                 Console.WriteLine($"{item.Name} {count}개를 구매했습니다.");
             }
             else    //돈이 부족한 경우
@@ -318,31 +332,40 @@ namespace SpartaDungeon
                 {
                     return;
                 }
-                else
+                else    //올바른 아이템 번호 입력
                 {
-                    ITradable selectedItem = sellingItems[playerInput - 1];
-                    //판매 시 80% 절감
-                    int sellPrice = (int)(selectedItem.Price * 0.8);
-                    //판매 확정 단계
-                    Console.WriteLine($"\n{selectedItem.Name} : {sellPrice} G");
-                    Console.WriteLine("1. 판매");
-                    Console.WriteLine("2. 다시 생각해본다");
-                    Console.Write("\n원하시는 행동을 입력해주세요.");
-                    switch (Utils.GetPlayerInput())
+                    ITradable selectedItem = sellingItems[playerInput - 1];     //선택된 아이템
+                    if (selectedItem.ItemType == ItemType.Equipment)
                     {
-                        case 1:
-                            player.ChangeMeso(selectedItem.Price);
-                            player.Inventory.RemoveItem(selectedItem);
-                            Console.WriteLine("\n판매 감사합니다!");
-                            Utils.Pause(true);
-                            break;
-                        case 2:
-                            break;
-                        default: //잘못된 입력
-                            Console.WriteLine("잘못된 입력입니다.");
-                            Utils.Pause(false);
-                            break;
 
+
+                        //판매 시 80% 절감
+                        int sellPrice = (int)(selectedItem.Price * 0.8);
+                        //판매 확정 단계
+                        Console.WriteLine($"\n{selectedItem.Name} : {sellPrice} G");
+                        Console.WriteLine("1. 판매");
+                        Console.WriteLine("2. 다시 생각해본다");
+                        Console.Write("\n원하시는 행동을 입력해주세요.");
+                        switch (Utils.GetPlayerInput())
+                        {
+                            case 1:
+                                player.ChangeMeso(selectedItem.Price);
+                                player.Inventory.RemoveItem(selectedItem);
+                                Console.WriteLine("\n판매 감사합니다!");
+                                Utils.Pause(true);
+                                break;
+                            case 2:
+                                break;
+                            default: //잘못된 입력
+                                Console.WriteLine("잘못된 입력입니다.");
+                                Utils.Pause(false);
+                                break;
+                        }
+                    }
+                    else if (selectedItem.ItemType == ItemType.Usable ||
+                        selectedItem.ItemType == ItemType.Other)
+                    {
+                        SellMultipleItems(selectedItem);
                     }
                 }
             }
@@ -381,13 +404,39 @@ namespace SpartaDungeon
 
             int totalPrice = ((int)(item.Price * 0.8)) * count;
 
-            if (item is Usable usableItem)
+            if (item is Usable usableItem)  //소비 아이템
             {
+                ITradable? existingItem = usables.FirstOrDefault(item => item.ID == usableItem.ID);
+                if (existingItem != null)   //아이템이 이미 상점에 존재하는 경우
+                {
+                    ((Usable)existingItem).ChangeItemCount(count);      //개수만 추가
+                }
+                else    //상점에 존재하지 않는 경우
+                {
+                    usables.Add(usableItem.CloneItem(count));   //새로운 객체 복사하여 추가
+                }
                 usableItem.ChangeItemCount(-count);
+                if (usableItem.ItemCount == 0)  //개수가 0이 된 경우
+                {
+                    player.Inventory.RemoveItem(usableItem);    //인벤토리에서 삭제
+                }
             }
-            else if (item is OtherItem otherItem)
+            else if (item is OtherItem otherItem)   //기타 아이템
             {
+                ITradable? existingItem = others.FirstOrDefault(item => item.ID == otherItem.ID);
+                if (existingItem != null)   //아이템이 이미 상점에 존재하는 경우
+                {
+                    ((OtherItem)existingItem).ChangeItemCount(count);      //개수만 추가
+                }
+                else    //상점에 존재하지 않는 경우
+                {
+                    usables.Add(otherItem.CloneItem(count));   //새로운 객체 복사하여 추가
+                }
                 otherItem.ChangeItemCount(-count);
+                if (otherItem.ItemCount == 0)   //개수가 0이 된 경우
+                {
+                    player.Inventory.RemoveItem(otherItem); //인벤토리에서 삭제
+                }
             }
 
             player.ChangeMeso(totalPrice);

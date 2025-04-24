@@ -7,7 +7,7 @@ namespace SpartaDungeon
         public static List<ItemInfo> Equipments { get; set; } = new List<ItemInfo>();  //장비 아이템 리스트
         public static List<ItemInfo> Usables { get; set; } = new List<ItemInfo>();  //소비 아이템 리스트
         public static List<ItemInfo> Others { get; set; } = new List<ItemInfo>();  //기타 아이템 리스트
-        public static List<ItemInfo> ShopItems { get; set; } = new List<ItemInfo>(); //상점 아이템 리스트
+        public static List<int> ShopItemsID { get; set; } = new List<int>(); //상점 아이템 리스트
 
         public static void Load(string path)
         {
@@ -19,13 +19,18 @@ namespace SpartaDungeon
                 return;
             }
             Items = config.Items;
-            ShopItems = config.ShopItems;
+            ShopItemsID = config.ShopItemsID;
             foreach (ItemInfo info in Items)
             {
                 ItemInfoDict[info.ID] = info;
             }
         }
 
+        public static bool TryGetItemInfo(int id, out ItemInfo? itemInfo)
+        {
+            itemInfo = Items.FirstOrDefault(i => i.ID == id);
+            return itemInfo != null;
+        }
 
     }
 

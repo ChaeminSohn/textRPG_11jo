@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SpartaDungeon
 {
-    internal class OtherItem : ITradable    //기타 아이템
+    public class OtherItem : ITradable    //기타 아이템
     {
         private ItemInfo itemInfo;
         public int ID => itemInfo.ID;

@@ -123,7 +123,7 @@ namespace SpartaDungeon
             BonusFullHP = 0;
             BonusAttack = 0;
             BonusDefense = 0;
-            foreach (Equipment item in Inventory.EquippedItems)
+            foreach (Equipment? item in Inventory.EquippedItems.Values)
             {
                 if (item != null)
                 {

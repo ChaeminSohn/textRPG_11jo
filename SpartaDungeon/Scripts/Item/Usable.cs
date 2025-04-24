@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SpartaDungeon
 {
-    internal class Usable : ITradable   //소비 아이템
+    public class Usable : ITradable   //소비 아이템
     {
         private ItemInfo itemInfo;
         public int ID => itemInfo.ID;
@@ -42,8 +42,6 @@ namespace SpartaDungeon
 
             }
         }
-
-
         public void ChangeItemCount(int change)
         {
             ItemCount += change;
@@ -80,8 +78,6 @@ namespace SpartaDungeon
         {
             ChangeItemCount(-1);
         }
-
-
         public Usable CloneItem(int itemCount)      //상점, 인벤토리에 전달 시, 새로운 객체를 복사하여 전달
         {
             var clone = new Usable(itemInfo);
