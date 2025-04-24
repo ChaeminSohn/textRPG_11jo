@@ -1242,46 +1242,53 @@
         "Price": 4000
     },
     {
-        "ID": 1433,
+        "ID": 1446,
         "Name": "마나 회복 포션 4000",
         "Description": "연금술로 만든 물약이다. Mp를 약 4000 회복시킨다.",
         "ItemType": "Usable",
         "Price": 4000
     },
     {
-        "ID": 1433,
+        "ID": 1447,
         "Name": "마나 회복 알약 4000",
         "Description": "연금술로 만든 알약이다. Mp를 약 4000 회복시킨다.",
         "ItemType": "Usable",
         "Price": 4000
     },
     {
-        "ID": 1433,
+        "ID": 1448,
         "Name": "새벽의 이슬",
         "Description": "새벽에 내려앉은 이슬을 모은 것이다. Mp를 약 2000 회복시킨다.",
         "ItemType": "Usable",
         "Price": 4100
     },
     {
-        "ID": 1433,
+        "ID": 1449,
         "Name": "크로스헌터 상급 마력 포션",
         "Description": "크로스헌터에게 보급되는 물약이다. Mp를 약 4000 회복시킨다.",
         "ItemType": "Usable",
         "Price": 4200
     },
     {
-        "ID": 1433,
+        "ID": 1450,
         "Name": "김밥",
         "Description": "속재료가 푸짐하게 들어간 맛있는 김밥이다. 입속에 넣으면 너무 맛있어서 초롱초롱한 표정이 된다. Mp4050  회복",
         "ItemType": "Usable",
         "Price": 4300
     },
     {
-        "ID": 1433,
-        "Name": "마나 회복 알약 2000",
-        "Description": "연금술로 만든 알약이다. Mp를 약 2000 회복시킨다.",
+        "ID": 1451,
+        "Name": "파란 포션 알약",
+        "Description": "파란 포션을 정제하여 알약으로 만든 것이다. Mp를 약 100 회복시키며 부피가 작아서 더 많이 들수있다.",
         "ItemType": "Usable",
-        "Price": 2000
+        "Price": 200
+    },
+    {
+        "ID": 1551,
+        "Name": "하얀 포션 알약",
+        "Description": "하얀 포션을 정제하여 알약으로 만든 것이다. Hp를 약 300 회복시키며 부피가 작아서 더 많이 들수있다.",
+        "ItemType": "Usable",
+        "Price": 200
     },
     {
         "ID": 2001,
