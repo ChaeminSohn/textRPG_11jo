@@ -9,12 +9,12 @@ namespace SpartaDungeon
         Dictionary<int, int> TargetCount { get; set; }
         Dictionary<int, int> CurrentCount { get; set; }
 
-        void ShowCondition();
-        void OnQuestExcepted();
+        void ShowCondition();   //퀘스트 조건 보여주기
+        void OnQuestExcepted();     //퀘스트 수락 시 실행
         void OnDataLoad();      //게임 불러오기 시 실행
         void ShowProgress();    //진행 상황 표시
-        void UpdateProgress(Player player);
-        void OnQuestComplete(Player player);
+        void UpdateProgress(Player player);     //진행상황 업데이트
+        void OnQuestComplete(Player player);    //퀘스트 완료 시 실행
     }
 
     public class KillMonsterCondition : IQuestCondition
@@ -122,8 +122,9 @@ namespace SpartaDungeon
         public void UpdateProgress(Player player)
         {
             bool isFinished = true;
+            //진행 조건에 있는 아이템 종류별 확인
             foreach (var key in TargetCount.Keys)
-            {
+            {   //플레이어 인벤토리에 아이템이 충분한지 확인
                 CurrentCount[key] = player.Inventory.GetItemCount(key);
                 if (CurrentCount[key] < TargetCount[key])
                 {

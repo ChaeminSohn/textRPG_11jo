@@ -46,8 +46,8 @@ namespace SpartaDungeon
             ";
 
         public static string asciiArt_2 = @" ";
-        public static  string asciiArt_3 = @" ";
-        public static  string asciiArt_4 = @" ";
+        public static string asciiArt_3 = @" ";
+        public static string asciiArt_4 = @" ";
 
 
 
