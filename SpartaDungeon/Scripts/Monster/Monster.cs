@@ -64,19 +64,19 @@ namespace SpartaDungeon
             switch (Id)
             {
                 case (int)MonsterId.머쉬맘:
-                    // 쿵! "눈을 번뜩이면 점프"
+                    Skills.Add(new Thud());
                     break;
                 case (int)MonsterId.킹슬라임:
-                    // 뿡야!
+                    Skills.Add(new Bboong());
                     break;
                 case (int)MonsterId.블루머쉬맘:
-                    // 쿵웅!
+                    Skills.Add(new Thud());
                     break;
                 case (int)MonsterId.주니어발록:
-                    // 파이어 볼
+                    Skills.Add(new Fireball());
                     break;
                 case (int)MonsterId.좀비머쉬맘:
-                    // 쿵우웅!
+                    Skills.Add(new Thud());
                     break;
                 case (int)MonsterId.자쿰:
                     // 격노의 불길
@@ -87,7 +87,8 @@ namespace SpartaDungeon
 
     public enum MonsterId
     {
-        머쉬맘 = 101,
+        Boss = 100,
+        머쉬맘,
         킹슬라임,
         블루머쉬맘,
         주니어발록,
