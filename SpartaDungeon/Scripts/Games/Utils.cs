@@ -79,7 +79,8 @@ namespace SpartaDungeon
         {
             {Job.Warrior, "전사"},
             {Job.Mage, "마법사"},
-            {Job.Archer, "궁수"}
+            {Job.Archer, "궁수"},
+            {Job.Assassin, "도적"}
         };
         public static Dictionary<Stat, string> StatDisplayNames = new Dictionary<Stat, string>
         {

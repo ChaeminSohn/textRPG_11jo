@@ -17,7 +17,8 @@ namespace SpartaDungeon
 
         public override void Activate(IBattleUnit attacker, IBattleUnit defender, Monster[] monsters)
         {
-            Console.WriteLine($"\n\nLv.{attacker.Level} [{attacker.Name}] 의 [{Name}]!\n");
+            Console.Write($"\n\nLv.{attacker.Level} [{attacker.Name}] 의 ");
+            ColorFont.Write($"[{Name}]\n\n", Color.Blue);
 
             attacker.DamageResult(defender, Damage);
 
@@ -36,7 +37,8 @@ namespace SpartaDungeon
 
         public override void Activate(IBattleUnit attacker, IBattleUnit defender, Monster[] monsters)
         {
-            Console.WriteLine($"\n\nLv.{attacker.Level} [{attacker.Name}] 의 [{Name}]!\n");
+            Console.Write($"\n\nLv.{attacker.Level} [{attacker.Name}] 의 ");
+            ColorFont.Write($"[{Name}]\n\n", Color.Blue);
 
             foreach (Monster monster in monsters)
             {
