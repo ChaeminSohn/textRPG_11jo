@@ -5,6 +5,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 namespace SpartaDungeon
 {
     public enum Job    //직업 종류
@@ -33,7 +34,6 @@ namespace SpartaDungeon
         public int Meso { get; private set; }   //메소
         public Inventory Inventory { get; private set; }    //인벤토리
         public event Action? OnPlayerDie; //플레이어 사망 이벤트
-
         public Dictionary<int, int> monsterKillCounts; // 몬스터 킬 카운트
 
         public Player(string name, Job job, Inventory inventory)    //새 게임 생성자

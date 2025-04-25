@@ -26,8 +26,6 @@ namespace SpartaDungeon
 
         public event Action? OnEquipChanged;    //플레이어 장비 변환 이벤트
         public void SetOwner(Player player)     //인벤토리 주인(플레이어) 할당
-
-     
         {
             this.player = player;
         }
@@ -283,6 +281,7 @@ namespace SpartaDungeon
             {
                 return;
             }
+        }
 
         // ✅ 퀘스트 조건 체크를 위한 아이템 개수 조회
         public int GetItemCount(int itemId)
@@ -296,23 +295,20 @@ namespace SpartaDungeon
         }
 
         // ✅ 퀘스트 제출을 위한 아이템 차감
-        public bool ReduceItemCount(int itemId, int count)
+        public void ReduceItemCount(int itemId, int count)
         {
             var target = Items.FirstOrDefault(i => i.ID == itemId);
             if (target is Usable usable && usable.ItemCount >= count)
             {
                 usable.ChangeItemCount(-count);
                 if (usable.ItemCount == 0) RemoveItem(usable);
-                return true;
+
             }
             else if (target is OtherItem other && other.ItemCount >= count)
             {
                 other.ChangeItemCount(-count);
                 if (other.ItemCount == 0) RemoveItem(other);
-                return true;
             }
-            return false;
-
         }
     }
 }

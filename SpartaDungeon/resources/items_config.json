@@ -1297,7 +1297,7 @@
         "Description": "컨닝시티에서 사들여온 모자입니다.",
         "Price": 1000,
         "ItemType": "Equipment",
-        "EquipType": "Armor",
+        "EquipType": "Head",
         "Stat": "Defense",
         "StatValue": 8     
         },    
@@ -1327,5 +1327,5 @@
             "2199" : 1,
             "2201" : 1
         }
-
 }
+

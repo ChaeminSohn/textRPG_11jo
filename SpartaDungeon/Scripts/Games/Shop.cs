@@ -20,7 +20,7 @@ namespace SpartaDungeon
             this.player = player;
             foreach (ItemInfo itemInfo in ItemDataBase.ShopItems)
             {
-                ITradable createdItem = ItemFactory.CreateItem(itemInfo);
+                ITradable createdItem = ItemFactory.Create(itemInfo);
                 switch (itemInfo.ItemType)
                 {
                     case ItemType.Equipment:

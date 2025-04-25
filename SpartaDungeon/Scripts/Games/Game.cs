@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using SpartaDungeon.SpartaDungeon;
 
 namespace SpartaDungeon
 {
@@ -21,18 +20,18 @@ namespace SpartaDungeon
         bool isGameOver;
         string savePath;//저장 파일 경로
         List<Monster> monsterList = new List<Monster>();
-      
+
         QuestMenu questMenu;
 
         public void GameStart()     //게임 시작
         {
             savePath = Path.Combine(folderPath, "saveData.json");
             ItemDataBase.Load(@"..\..\..\resources/items_config.json");
-
+            MonsterDataBase.Load(Path.Combine(folderPath, "monster_config.json"));
+            QuestDataBase.Load(Path.Combine(folderPath, "quest_config.json"));
             if (File.Exists(savePath))  //세이브 파일이 존재할 경우
             {
                 Console.Clear();
-
                 Console.WriteLine("세이브 파일이 존재합니다. 이어서 게임을 시작합니다.");
                 LoadData();
                 Utils.Pause(true);
@@ -76,13 +75,8 @@ namespace SpartaDungeon
             player = new Player(playerName, playerJob, inventory);
             shop = new Shop(player);
             dungeon = new Dungeon(player, monsterList);
-
+            questMenu = new QuestMenu(player);
             isGameOver = false;
-
-     
-
-            questMenu = new QuestMenu(inventory);
-            questMenu.InitQuests();
         }
 
         void SaveData()     //게임 저장
@@ -99,7 +93,8 @@ namespace SpartaDungeon
                 shopItemData.Add(item.GetItemInfo());
             }
             Utils.Pause(false);
-            GameSaveData gameSaveData = new GameSaveData(player.GetPlayerData(), inventoryItemData, shopItemData);
+            GameSaveData gameSaveData = new GameSaveData(player.GetPlayerData(),
+                inventoryItemData, shopItemData, questMenu.GetQuestSaveData());
             string json = JsonSerializer.Serialize(gameSaveData);
             File.WriteAllText(savePath, json);
         }
@@ -127,13 +122,13 @@ namespace SpartaDungeon
             inventory = new Inventory();
             foreach (ItemInfo info in config.InventoryItemData)
             {
-                inventory.AddItem(ItemFactory.CreateItem(info));
+                inventory.AddItem(ItemFactory.Create(info));
             }
 
             List<ITradable> itemList = new List<ITradable>();
             foreach (ItemInfo info in config.ShopItemData)
             {
-                itemList.Add(ItemFactory.CreateItem(info));
+                itemList.Add(ItemFactory.Create(info));
             }
 
             player = new Player(config.PlayerData, inventory);
@@ -141,7 +136,7 @@ namespace SpartaDungeon
             player.UpdatePlayerStats();
             shop = new Shop(player, itemList);
             dungeon = new Dungeon(player, monsterList);
-
+            questMenu = new QuestMenu(player, config.QuestData);
             isGameOver = false;
         }
 

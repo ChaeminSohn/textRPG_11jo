@@ -51,7 +51,7 @@ namespace SpartaDungeon
     //ItemInfo를 기반으로 아이템 객체를 만들어주는 기능 제공
     public static class ItemFactory
     {
-        public static ITradable CreateItem(ItemInfo info)
+        public static ITradable Create(ItemInfo info)
         {
             switch (info.ItemType)
             {
