@@ -213,6 +213,8 @@ namespace SpartaDungeon
                     Skills.Add(new ArrowBomb());
                     break;
                 case Job.Assassin:
+                    Skills.Add(new LuckySeven());
+                    Skills.Add(new SavageBlow());
                     break;
             }
         }
