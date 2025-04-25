@@ -8,8 +8,12 @@ namespace SpartaDungeon
 {
     public enum EquipType
     {
-        Weapon = 0,
-        Armor = 1
+        Weapon = 0,     //무기
+        Armor = 1,      //방어구 - 한벌옷
+        Head,           //모자
+        Glove,          //장갑
+        Shoe,           //신발
+        SubWeapon       //보조 무기 - 방패 등
     }
     public class Equipment : ITradable  //장비 아이템을 구현하는 클래스
     {
@@ -48,8 +52,8 @@ namespace SpartaDungeon
         public void ShowInfo(bool showPrice)     //정보 표시 - 가격은 보여줄지 말지 선택
         {
             string typeFormatted = Utils.PadToWidth(Utils.EquipTypeDisplayNames[EquipType], 6);
-            string nameFormatted = Utils.PadToWidth(Name, 15);
-            string statFormatted = Utils.PadToWidth($"{Utils.StatDisplayNames[Stat]} +{StatValue}", 15);
+            string nameFormatted = Utils.PadToWidth(Name, 12);
+            string statFormatted = Utils.PadToWidth($"{Utils.StatDisplayNames[Stat]} +{StatValue}", 10);
             string descFormatted = Utils.PadToWidth(Description, 50);
             if (showPrice)
             {   //가격 표시 - 주로 상점에서 이용

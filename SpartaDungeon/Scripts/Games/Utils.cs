@@ -97,7 +97,11 @@ namespace SpartaDungeon
         public static Dictionary<EquipType, string> EquipTypeDisplayNames = new Dictionary<EquipType, string>
         {
             {EquipType.Armor, "방어구"},
-            {EquipType.Weapon, "무기"}
+            {EquipType.Weapon, "무기"},
+            {EquipType.Head, "모자"},
+            {EquipType.Glove, "장갑"},
+            {EquipType.Shoe, "신발"},
+            {EquipType.SubWeapon, "보조무기"}
         };
     }
 }

@@ -20,6 +20,8 @@ namespace SpartaDungeon
         Health,     //체력
         Attack,     //공격력
         Defense,    //방어력
+        CritChance,   //치명타율
+        EvadeChance    //회피율
     }
 
     public class Player : IBattleUnit
