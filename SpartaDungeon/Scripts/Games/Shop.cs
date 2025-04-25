@@ -65,13 +65,18 @@ namespace SpartaDungeon
             {
                 //상점 인터페이스 표시
                 Console.Clear();
-                Console.WriteLine("<상점>");
+                Console.WriteLine("<자유시장>");
                 Console.WriteLine("필요한 아이템을 얻을 수 있는 상점입니다.");
 
                 //플레이어 입력 받기
-                Console.WriteLine("\n1. 장비 아이템");
-                Console.WriteLine("2. 소비 아이템");
-                Console.WriteLine("3. 기타 아이템");
+                Console.WriteLine("\n1. 무기 상점");
+                Console.WriteLine("2. 방어구 상점");
+                Console.WriteLine("3. 투구 상점");
+                Console.WriteLine("4. 신발 상점");
+                Console.WriteLine("5. 장갑 상점");
+                Console.WriteLine("6. 보조무기 상점");
+                Console.WriteLine("7. 소비 아이템");
+                Console.WriteLine("8. 기타 아이템");
                 Console.WriteLine("0. 나가기");
                 Console.Write("\n원하시는 행동을 입력해주세요.");
                 switch (Utils.GetPlayerInput())
@@ -79,13 +84,28 @@ namespace SpartaDungeon
                     case 0:
                         return;
                     case 1:
-                        ShowCategory("장비 아이템", equipments, player.Inventory.Equipments);
+                        ShowCategory("무기 상점", equipments, player.Inventory.Equipments, EquipType.Weapon);
                         break;
                     case 2:
-                        ShowCategory("소비 아이템", usables, player.Inventory.Usables);
+                        ShowCategory("방어구 상점", equipments, player.Inventory.Equipments, EquipType.Armor);
                         break;
                     case 3:
-                        ShowCategory("기타 아이템", others, player.Inventory.Others);
+                        ShowCategory("투구 상점", equipments, player.Inventory.Equipments, EquipType.Head);
+                        break;
+                    case 4:
+                        ShowCategory("신발 상점", equipments, player.Inventory.Equipments, EquipType.Shoe);
+                        break;
+                    case 5:
+                        ShowCategory("장갑 상점", equipments, player.Inventory.Equipments, EquipType.Glove);
+                        break;
+                    case 6:
+                        ShowCategory("보조무기 상점", equipments, player.Inventory.Equipments, EquipType.SubWeapon);
+                        break;
+                    case 7:
+                        ShowCategory("소비 아이템", usables, player.Inventory.Usables, null);
+                        break;
+                    case 8:
+                        ShowCategory("기타 아이템", others, player.Inventory.Others, null);
                         break;
                     default:
                         Console.WriteLine("잘못된 입력입니다.");
@@ -95,7 +115,7 @@ namespace SpartaDungeon
             }
         }
 
-        private void ShowCategory(string categoryName, List<ITradable> shopItems, List<ITradable> playerItems)
+        private void ShowCategory(string categoryName, List<ITradable> shopItems, List<ITradable> playerItems , EquipType? equipType)
         {
             while (true)
             {
@@ -103,13 +123,22 @@ namespace SpartaDungeon
                 Console.WriteLine($"<{categoryName}>");
                 Console.WriteLine("\n[보유 메소]");
                 Console.WriteLine($"{player.Meso} 메소");
-                Console.WriteLine("\n[아이템 목록]\n");
+                ColorFont.Write("\n[아이템 목록]\n", Color.Green);
 
                 foreach (ITradable item in shopItems)
                 {
-                    Console.Write("- ");
-                    item.ShowInfo(true);
-                    Console.WriteLine();
+                    if(equipType == null)
+                    {
+                        Console.Write("- ");
+                        item.ShowInfo(true);
+                        Console.WriteLine();
+                    }
+                    else if(item.EquipType == equipType)
+                    {
+                        Console.Write("- ");
+                        item.ShowInfo(true);
+                        Console.WriteLine();
+                    }
                 }
 
                 Console.WriteLine("\n1. 아이템 구매");
@@ -121,7 +150,7 @@ namespace SpartaDungeon
                     case 0:
                         return;
                     case 1:
-                        BuyItems(shopItems);
+                        BuyItems(shopItems, equipType);
                         break;
                     case 2:
                         SellItems(playerItems);
@@ -134,7 +163,7 @@ namespace SpartaDungeon
             }
         }
 
-        public void BuyItems(List<ITradable> sellingItems) //아이템 구매 UI
+        public void BuyItems(List<ITradable> sellingItems , EquipType? equipType) //아이템 구매 UI
         {
             while (true)
             {
@@ -144,13 +173,23 @@ namespace SpartaDungeon
                 Console.WriteLine("\n[보유 메소]");
                 Console.WriteLine($"{player.Meso} 메소");
 
-                Console.WriteLine("\n[아이템 목록]");
+                ColorFont.Write("\n[아이템 목록]\n", Color.Green);
                 //아이템 목록 보여줌
                 int index = 1;
                 foreach (ITradable item in sellingItems)
                 {
-                    Console.Write($"- {index++}. ");
-                    item.ShowInfo(true);
+                    if (equipType == null)
+                    {
+                        Console.Write($"- {index++}. ");
+                        item.ShowInfo(true);
+                        Console.WriteLine();
+                    }
+                    else if (item.EquipType == equipType)
+                    {
+                        Console.Write($"- {index++}. ");
+                        item.ShowInfo(true);
+                        Console.WriteLine();
+                    }
                 }
                 Console.WriteLine("\n0. 나가기");
                 Console.WriteLine("\n구매할 아이템 번호를 입력하세요. ");
@@ -309,7 +348,7 @@ namespace SpartaDungeon
                 Console.WriteLine("\n[보유 메소]");
                 Console.WriteLine($"{player.Meso} 메소");
 
-                Console.WriteLine("\n[아이템 목록]");
+                ColorFont.Write("\n[아이템 목록]\n", Color.Green);
                 //아이템 목록 보여줌
                 int index = 1;
                 foreach (ITradable item in sellingItems)
