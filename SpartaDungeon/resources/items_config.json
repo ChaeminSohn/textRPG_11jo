@@ -187,35 +187,35 @@
             "Name": "머쉬맘의 포자",
             "Description": "머쉬맘의 포자이다.",
             "ItemType": "Other",
-            "Price": 100
+            "Price": 125
         },
         {
             "ID": 102,
             "Name": "킹 슬라임의 방울",
             "Description": "킹 슬라임의 방울을 떼어온 거이다.",
             "ItemType": "Other",
-            "Price": 200
+            "Price": 250
         },
         {
             "ID": 103,
             "Name": "블루 머쉬맘의 포자",
             "Description": "블루 머쉬맘의 포자이다.",
             "ItemType": "Other",
-            "Price": 300
+            "Price": 375
         },
         {
             "ID": 104,
             "Name": "주니어 발록의 발톱",
             "Description": "고대의 악마 주니어 발록의 발톱이다.",
             "ItemType": "Other",
-            "Price": 400
+            "Price": 500
         },
         {
             "ID": 105,
             "Name": "독버섯",
             "Description": "거대한 좀비 머쉬맘에 기생하는 독버섯이다.",
             "ItemType": "Other",
-            "Price": 500
+            "Price": 625
         },
         {
             "ID": 201,
@@ -782,7 +782,7 @@
             "Description": "푸른 약초로 만든 물약이다. Mp를 약 100 회복시킨다.",
             "ItemType": "Usable",
             "UsableType": "ManaPotion",
-            "Price": 130,
+            "Price": 100,
             "HealAmount": 100
         },
         {
