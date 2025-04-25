@@ -3,7 +3,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace SpartaDungeon
 {
-    public abstract class IBattleUnit
+    public abstract class BattleUnit
     {
         protected int level = 1;
         public string Name { get; set; }    //이름
