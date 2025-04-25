@@ -32,6 +32,7 @@ namespace SpartaDungeon
             if (File.Exists(savePath))  //세이브 파일이 존재할 경우
             {
                 Console.Clear();
+                Console.WriteLine(DotArt.asciiArt_0);
                 Console.WriteLine("세이브 파일이 존재합니다. 이어서 게임을 시작합니다.");
                 LoadData();
                 Utils.Pause(true);
@@ -40,6 +41,7 @@ namespace SpartaDungeon
             {
 
                 Console.Clear();
+                Console.WriteLine(DotArt.asciiArt_0);
                 Console.WriteLine("세이브 파일이 없습니다. 새로운 게임을 시작합니다.");
                 Utils.Pause(true);
                 NewGameSetting();
