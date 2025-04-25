@@ -26,8 +26,6 @@ namespace SpartaDungeon
 
         public event Action? OnEquipChanged;    //플레이어 장비 변환 이벤트
         public void SetOwner(Player player)     //인벤토리 주인(플레이어) 할당
-
-     
         {
             this.player = player;
         }
