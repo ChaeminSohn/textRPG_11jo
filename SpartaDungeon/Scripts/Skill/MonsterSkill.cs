@@ -15,7 +15,7 @@ namespace SpartaDungeon
             Damage = 1.3f;
         }
 
-        public override void Activate(IBattleUnit attacker, IBattleUnit defender, Monster[] monsters)
+        public override void Activate(BattleUnit attacker, BattleUnit defender, Monster[] monsters)
         {
             Console.WriteLine($"\n\n[{attacker.Name}]이 {Description}");
             Console.Write($"Lv.{attacker.Level} [{attacker.Name}] 의 ");
@@ -34,7 +34,7 @@ namespace SpartaDungeon
             Damage = 1.3f;
         }
 
-        public override void Activate(IBattleUnit attacker, IBattleUnit defender, Monster[] monsters)
+        public override void Activate(BattleUnit attacker, BattleUnit defender, Monster[] monsters)
         {
             Console.WriteLine($"\n\n[{attacker.Name}]이 {Description}");
             Console.Write($"Lv.{attacker.Level} [{attacker.Name}] 의 ");
@@ -53,7 +53,7 @@ namespace SpartaDungeon
             Damage = 0.9f;
         }
 
-        public override void Activate(IBattleUnit attacker, IBattleUnit defender, Monster[] monsters)
+        public override void Activate(BattleUnit attacker, BattleUnit defender, Monster[] monsters)
         {
             Console.WriteLine($"\n\n[{attacker.Name}]이 {Description}");
             Console.Write($"Lv.{attacker.Level} [{attacker.Name}] 의 ");
@@ -73,7 +73,7 @@ namespace SpartaDungeon
             Damage = 0.7f;
         }
 
-        public override void Activate(IBattleUnit attacker, IBattleUnit defender, Monster[] monsters)
+        public override void Activate(BattleUnit attacker, BattleUnit defender, Monster[] monsters)
         {
             Console.WriteLine($"\n\n[{attacker.Name}]이 {Description}");
             Console.Write($"Lv.{attacker.Level} [{attacker.Name}] 의 ");

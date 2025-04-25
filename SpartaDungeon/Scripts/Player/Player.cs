@@ -26,7 +26,7 @@ namespace SpartaDungeon
         EvadeChance    //회피율
     }
 
-    public class Player : IBattleUnit
+    public class Player : BattleUnit
     {
         public int MaxLevel { get; private set; }     //만랩
         public int Experience { get; private set; }   //경험치

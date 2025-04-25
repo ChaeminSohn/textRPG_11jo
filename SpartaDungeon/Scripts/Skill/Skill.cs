@@ -21,9 +21,9 @@ namespace SpartaDungeon
             MP = mp;
         }
 
-        public abstract void Activate(IBattleUnit attacker, IBattleUnit defender, Monster[] monsters);
+        public abstract void Activate(BattleUnit attacker, BattleUnit defender, Monster[] monsters);
 
-        protected void RandomTargetAttack(IBattleUnit attacker, Monster[] monsters, int num, float dmg) // 랜덤 몬스터를 num번 공격
+        protected void RandomTargetAttack(BattleUnit attacker, Monster[] monsters, int num, float dmg) // 랜덤 몬스터를 num번 공격
         {
             int dead = 0;
             int target;
