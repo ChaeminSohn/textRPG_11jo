@@ -72,7 +72,7 @@ namespace SpartaDungeon
             string playerName = GetNameFromPlayer(); ;
             Job playerJob = GetJobFromPlayer(); ;
             inventory = new Inventory();
-            player = new Player(playerName, playerJob, inventory);
+            player = new Player(playerName, playerJob, inventory, monsterList);
             shop = new Shop(player);
             dungeon = new Dungeon(player, monsterList);
             questMenu = new QuestMenu(player);
@@ -140,8 +140,6 @@ namespace SpartaDungeon
             isGameOver = false;
         }
 
-
-
         public void TownAction()
         {
             Console.Clear();
@@ -150,7 +148,7 @@ namespace SpartaDungeon
 
             Console.WriteLine("1. 상태 보기");
             Console.WriteLine("2. 인벤토리");
-            Console.WriteLine("3. 상점");
+            Console.WriteLine("3. 자유시장");
             Console.WriteLine("4. 던전 입장");
             Console.WriteLine("5. 휴식하기");
             Console.WriteLine("6. 게시판");
@@ -160,7 +158,7 @@ namespace SpartaDungeon
             switch (Utils.GetPlayerInput())
             {
                 case 1:     //상태창 표시
-                    ShowState();
+                    player.ShowState();
                     Console.Clear();
                     break;
                 case 2:     //인벤토리 열기
@@ -244,57 +242,6 @@ namespace SpartaDungeon
             }
         }
 
-
-
-        public void ShowState() // 상태 창
-        {
-            while (true)
-            {
-                Console.Clear();
-                Console.WriteLine("<상태 보기>");
-                Console.WriteLine("캐릭터의 정보가 표시됩니다.");
-
-                //플레이어 입력 받기
-                Console.WriteLine("\n1. 캐릭터 정보 ");
-                Console.WriteLine("2. 처치 현황");
-                Console.WriteLine("0. 나가기");
-                Console.Write("\n원하시는 행동을 입력해주세요.");
-                switch (Utils.GetPlayerInput())
-                {
-                    case 0:
-                        return;
-                    case 1:
-                        player.ShowPlayerInfo();
-                        Utils.Pause(true);
-                        break;
-                    case 2:
-                        ShowKillCount();
-                        Utils.Pause(true);
-                        break;
-                    default:
-                        Console.WriteLine("잘못된 입력입니다.");
-                        Utils.Pause(false);
-                        break;
-
-                }
-            }
-        }
-
-
-        public void ShowKillCount() // 킬 카운트 확인
-        {
-            Console.Clear();
-            Console.WriteLine("<상태 보기>");
-            Console.WriteLine("처치 현황이 표시됩니다.");
-            Console.WriteLine("\n[처치 현황]");
-            foreach (var kv in player.monsterKillCounts)
-            {
-                var info = monsterList.FirstOrDefault(m => m.Id == kv.Key); // 키 확인
-                var name = info != null ? info.Name : $"ID:{kv.Key}"; // 이름 확인
-                Console.WriteLine($"{name} : {kv.Value}마리");
-            }
-        }
-
         string GetNameFromPlayer()  //이름 입력
         {
             while (true)
@@ -358,7 +305,7 @@ namespace SpartaDungeon
                 Console.WriteLine();
                 int input = Utils.GetPlayerInput();
 
-                if (input >= 1 && input <= 3)   //입력이 1, 2, 3
+                if (input >= 1 && input <= 4)   //입력이 1, 2, 3
                 {
                     Job selectedJob = (Job)(input - 1);
                     while (true)

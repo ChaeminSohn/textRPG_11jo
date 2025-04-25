@@ -25,7 +25,7 @@ namespace SpartaDungeon
         public ItemType ItemType => itemInfo.ItemType;
         public EquipType EquipType => itemInfo.EquipType;
         public Stat Stat => itemInfo.Stat;
-        public int StatValue => itemInfo.StatValue;
+        public float StatValue => itemInfo.StatValue;
         public bool IsEquipped { get; private set; }
         public bool IsSoldOut { get; private set; }
 

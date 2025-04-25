@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Dynamic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,7 +13,8 @@ namespace SpartaDungeon
     {
         Warrior,
         Mage,
-        Archer
+        Archer,
+        Assassin
     }
 
     public enum Stat  //스탯 종류
@@ -34,9 +36,10 @@ namespace SpartaDungeon
         public int Meso { get; private set; }   //메소
         public Inventory Inventory { get; private set; }    //인벤토리
         public event Action? OnPlayerDie; //플레이어 사망 이벤트
+        private List<Monster> monsters;
         public Dictionary<int, int> monsterKillCounts; // 몬스터 킬 카운트
 
-        public Player(string name, Job job, Inventory inventory)    //새 게임 생성자
+        public Player(string name, Job job, Inventory inventory, List<Monster> monsters)    //새 게임 생성자
         {
 
             Name = name;
@@ -47,6 +50,7 @@ namespace SpartaDungeon
             LoadDefaultData();
             inventory.OnEquipChanged += UpdatePlayerStats;
             IsDead = false;
+            this.monsters = monsters;
             monsterKillCounts = new Dictionary<int, int>();
             InitializeSkills();
         }
@@ -93,6 +97,9 @@ namespace SpartaDungeon
                 case Job.Archer:    //궁수
                     defaultData = config.BaseArcherData;
                     break;
+                case Job.Assassin:    //궁수
+                    defaultData = config.BaseAssassinData;
+                    break;
                 default:
                     defaultData = config.BaseWarriorData;
                     break;
@@ -129,13 +136,13 @@ namespace SpartaDungeon
                     switch (item.Stat)
                     {
                         case Stat.Health:
-                            BonusFullHP += item.StatValue;
+                            BonusFullHP += (int)item.StatValue;
                             break;
                         case Stat.Attack:
-                            BonusAttack += item.StatValue;
+                            BonusAttack += (int)item.StatValue;
                             break;
                         case Stat.Defense:
-                            BonusDefense += item.StatValue;
+                            BonusDefense += (int)item.StatValue;
                             break;
                         default:
                             break;
@@ -179,26 +186,6 @@ namespace SpartaDungeon
             Meso += meso;
         }
 
-        public void ShowPlayerInfo()
-        {
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine("<상태 보기>");
-            Console.ResetColor();
-            Console.WriteLine("캐릭터의 정보가 표시됩니다.");
-            Console.WriteLine($"\nLv. {Level}");
-            Console.WriteLine($"경험치 :  {Experience} / {ExpThresholds[Level - 1]}");
-            Console.WriteLine($"{Name} ({Utils.JobDisplayNames[Job]})");
-            Console.WriteLine($"공격력 : {Attack}");
-            Console.WriteLine($"방어력 : {Defense}");
-            Console.WriteLine($"치명타율 : {CritChance}");
-            Console.WriteLine($"회피율 : {EvadeChance}");
-            Console.WriteLine($"체력 : {CurrentHP}/{FullHP}");
-            Console.WriteLine($"마나 : {CurrentMP}/{FullMP}");
-            Console.WriteLine($"메소 : {Meso} 메소");
-            ShowSkillList();
-        }
-
         public void ShowSkillList()
         {
             Console.WriteLine($"\n[스킬]");
@@ -225,6 +212,10 @@ namespace SpartaDungeon
                     Skills.Add(new ArrowBlow());
                     Skills.Add(new ArrowBomb());
                     break;
+                case Job.Assassin:
+                    Skills.Add(new LuckySeven());
+                    Skills.Add(new SavageBlow());
+                    break;
             }
         }
 
@@ -232,6 +223,74 @@ namespace SpartaDungeon
         {
             return new PlayerData(Name, Job, Level, MaxLevel, Experience, ExpThresholds, BaseFullHP, CurrentHP,
                 BaseAttack, BaseDefense, CritChance, EvadeChance, Meso, monsterKillCounts, FullMP, CurrentMP);
+        }
+
+        public void ShowPlayerInfo()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("<상태 보기>");
+            Console.ResetColor();
+            Console.WriteLine("캐릭터의 정보가 표시됩니다.");
+            Console.WriteLine($"\nLv. {Level}");
+            Console.WriteLine($"경험치 :  {Experience} / {ExpThresholds[Level - 1]}");
+            Console.WriteLine($"{Name} ({Utils.JobDisplayNames[Job]})");
+            Console.WriteLine($"공격력 : {Attack}");
+            Console.WriteLine($"방어력 : {Defense}");
+            Console.WriteLine($"치명타율 : {CritChance}");
+            Console.WriteLine($"회피율 : {EvadeChance}");
+            Console.WriteLine($"체력 : {CurrentHP}/{FullHP}");
+            Console.WriteLine($"마나 : {CurrentMP}/{FullMP}");
+            Console.WriteLine($"메소 : {Meso} 메소");
+            ShowSkillList();
+        }
+
+        public void ShowState() // 상태 창
+        {
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("<상태 보기>");
+                Console.WriteLine("캐릭터의 정보가 표시됩니다.");
+
+                //플레이어 입력 받기
+                Console.WriteLine("\n1. 캐릭터 정보 ");
+                Console.WriteLine("2. 처치 현황");
+                Console.WriteLine("0. 나가기");
+                Console.Write("\n원하시는 행동을 입력해주세요.");
+                switch (Utils.GetPlayerInput())
+                {
+                    case 0:
+                        return;
+                    case 1:
+                        ShowPlayerInfo();
+                        Utils.Pause(true);
+                        break;
+                    case 2:
+                        ShowKillCount();
+                        Utils.Pause(true);
+                        break;
+                    default:
+                        Console.WriteLine("잘못된 입력입니다.");
+                        Utils.Pause(false);
+                        break;
+
+                }
+            }
+        }
+
+        public void ShowKillCount() // 킬 카운트 확인
+        {
+            Console.Clear();
+            Console.WriteLine("<상태 보기>");
+            Console.WriteLine("처치 현황이 표시됩니다.");
+            Console.WriteLine("\n[처치 현황]");
+            foreach (var kv in monsterKillCounts)
+            {
+                var info = monsters.FirstOrDefault(m => m.Id == kv.Key); // 키 확인
+                var name = info != null ? info.Name : $"ID:{kv.Key}"; // 이름 확인
+                Console.WriteLine($"{name} : {kv.Value}마리");
+            }
         }
     }
 }

@@ -24,6 +24,8 @@ namespace SpartaDungeon
         public bool IsSoldOut { get; private set; }   //판매 여부
         public int ItemCount { get; set; } //아이템 개수
 
+        public EquipType EquipType { get; set; }
+
         public Usable(ItemInfo itemInfo)
         {
             this.itemInfo = itemInfo;

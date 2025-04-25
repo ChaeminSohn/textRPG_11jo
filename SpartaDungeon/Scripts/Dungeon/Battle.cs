@@ -233,7 +233,8 @@ namespace SpartaDungeon
 
         void EnemyTurnAction()  //몬스터 턴
         {
-            foreach (IBattleUnit monster in monsters)
+            Random randSkill = new Random();
+            foreach (Monster monster in monsters)
             {
                 if (!monster.IsDead)
                 {
@@ -241,7 +242,8 @@ namespace SpartaDungeon
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("Battle!");
                     Console.ResetColor();
-                    monster.AutoAttack(player);
+                    if(randSkill.NextDouble() < 0.5f && 100 < monster.Id) monster.Skills[0].Activate(monster, player, monsters); // 보스면 20%로 스킬공격
+                    else monster.AutoAttack(player);
                     Utils.Pause(true);
                 }
             }

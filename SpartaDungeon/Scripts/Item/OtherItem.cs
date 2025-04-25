@@ -19,7 +19,7 @@ namespace SpartaDungeon
         public ItemType ItemType => ItemType.Other;
         public bool IsSoldOut { get; private set; }
         public int ItemCount { get; private set; }
-
+        public EquipType EquipType { get; set; }
         public OtherItem(ItemInfo itemInfo)
         {
             this.itemInfo = itemInfo;
