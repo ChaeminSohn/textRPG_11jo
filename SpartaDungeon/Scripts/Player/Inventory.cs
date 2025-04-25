@@ -10,8 +10,10 @@ namespace SpartaDungeon
     //플레이어의 인벤토리를 구현하는 클래스
     //플레이어가 소유한 모든 아이템 관리
     //장비 아이템들의 장착 관리
+
     public class Inventory
     {
+
         Player player;
         public List<ITradable> Items { get; private set; } = new List<ITradable>(16); //보유중인 모든 아이템
         public List<ITradable> Equipments { get; private set; } = new List<ITradable>(); //장비 아이템
@@ -24,19 +26,20 @@ namespace SpartaDungeon
 
         public event Action? OnEquipChanged;    //플레이어 장비 변환 이벤트
         public void SetOwner(Player player)     //인벤토리 주인(플레이어) 할당
+
+     
         {
             this.player = player;
         }
 
-        //인벤토리에 아이템 추가
-        public void AddItem(ITradable item)  //객체를 직접 전달(장비 아이템)
+        public void AddItem(ITradable item)
         {
             Items.Add(item);
             if (item is Equipment equipment)
             {
                 Equipments.Add(equipment);
-                if (equipment.IsEquipped)   //장착중인 장비인 경우
-                {   //장착 해제 및 장착 목록에서 제거
+                if (equipment.IsEquipped)
+                {
                     EquippedItems[equipment.EquipType] = equipment;
                 }
             }
@@ -50,7 +53,7 @@ namespace SpartaDungeon
             }
         }
 
-        public void AddItem(ItemInfo itemInfo)  //정보만 전달하여 객체를 생성할지 결정(소비, 기타 아이템)
+        public void AddItem(ItemInfo itemInfo)
         {
             switch (itemInfo.ItemType)
             {
@@ -59,11 +62,11 @@ namespace SpartaDungeon
                     Equipments.Add(equipItem);
                     Items.Add(equipItem);
                     break;
-                case ItemType.Usable:   //소비, 기티 아이템은 이미 가지고 있는지 확인
+                case ItemType.Usable:
                     ITradable? existingUsable = Usables.FirstOrDefault(item => item.ID == itemInfo.ID);
-                    if (existingUsable != null)   //이미 가지고 있는 경우
+                    if (existingUsable != null)
                     {
-                        ((Usable)existingUsable).ChangeItemCount(itemInfo.ItemCount);      //개수만 추가
+                        ((Usable)existingUsable).ChangeItemCount(itemInfo.ItemCount);
                     }
                     else
                     {
@@ -74,9 +77,9 @@ namespace SpartaDungeon
                     break;
                 case ItemType.Other:
                     ITradable? existingOther = Others.FirstOrDefault(item => item.ID == itemInfo.ID);
-                    if (existingOther != null)   //이미 가지고 있는 경우
+                    if (existingOther != null)
                     {
-                        ((OtherItem)existingOther).ChangeItemCount(itemInfo.ItemCount);      //개수만 추가
+                        ((OtherItem)existingOther).ChangeItemCount(itemInfo.ItemCount);
                     }
                     else
                     {
@@ -87,14 +90,15 @@ namespace SpartaDungeon
                     break;
             }
         }
-        public void RemoveItem(ITradable item)  //인벤토리에서 아이템 제거
+
+        public void RemoveItem(ITradable item)
         {
             Items.Remove(item);
             if (item is Equipment equipment)
             {
                 Equipments.Remove(equipment);
-                if (equipment.IsEquipped)   //장착중인 장비인 경우
-                {   //장착 해제 및 장착 목록에서 제거
+                if (equipment.IsEquipped)
+                {
                     equipment.UnEquip();
                     EquippedItems[equipment.EquipType] = null;
                     OnEquipChanged?.Invoke();
@@ -110,7 +114,6 @@ namespace SpartaDungeon
             }
         }
 
-        //장비, 소비, 기타 아이템을 따로 표기하는 기능은 아직 구현 안됨
         public void ShowInventory()     // 2: 인벤토리 창 - 모든 아이템 표시
         {
             while (true)
@@ -146,7 +149,7 @@ namespace SpartaDungeon
             }
         }
 
-        public void ControlEquipments()     //장비 아이템 장착 관리
+        public void ControlEquipments()
         {
             while (true)
             {
@@ -173,28 +176,27 @@ namespace SpartaDungeon
 
                 int playerInput = Utils.GetPlayerInput();
 
-                if (playerInput == 0) //인풋 0 : 나가기
+                if (playerInput == 0)
                 {
                     return;
                 }
                 else if (playerInput > Equipments.Count || playerInput == -1)
-                {   //인풋이 아이템 개수보다 크거나 완전 잘못된 값일 때
+                {
                     Console.WriteLine("\n잘못된 입력입니다.");
                     Utils.Pause(false);
                 }
                 else
                 {
                     Equipment selected = (Equipment)Equipments[playerInput - 1];
-                    int equipIndex = (int)selected.EquipType;   //무기 : 0, 방어구 : 1
+                    int equipIndex = (int)selected.EquipType;
 
-                    if (selected.IsEquipped)    //이미 장착된 경우
+                    if (selected.IsEquipped)
                     {
-                        selected.UnEquip();     //장착 해제
+                        selected.UnEquip();
                         EquippedItems[selected.EquipType] = null;
                     }
                     else
                     {
-                        //같은 종류 장비가 이미 장착되어 있으면 해제
                         if (EquippedItems[selected.EquipType] != null)
                         {
                             EquippedItems[selected.EquipType]!.UnEquip();
@@ -207,6 +209,7 @@ namespace SpartaDungeon
                 }
             }
         }
+
 
         public void ControlUsables()
         {
@@ -280,6 +283,37 @@ namespace SpartaDungeon
             {
                 return;
             }
+
+        // ✅ 퀘스트 조건 체크를 위한 아이템 개수 조회
+        public int GetItemCount(int itemId)
+        {
+            var target = Items.FirstOrDefault(i => i.ID == itemId);
+            if (target is Usable usable)
+                return usable.ItemCount;
+            else if (target is OtherItem other)
+                return other.ItemCount;
+            return target != null ? 1 : 0; // 장비나 존재하는 기타 아이템
+        }
+
+        // ✅ 퀘스트 제출을 위한 아이템 차감
+        public bool ReduceItemCount(int itemId, int count)
+        {
+            var target = Items.FirstOrDefault(i => i.ID == itemId);
+            if (target is Usable usable && usable.ItemCount >= count)
+            {
+                usable.ChangeItemCount(-count);
+                if (usable.ItemCount == 0) RemoveItem(usable);
+                return true;
+            }
+            else if (target is OtherItem other && other.ItemCount >= count)
+            {
+                other.ChangeItemCount(-count);
+                if (other.ItemCount == 0) RemoveItem(other);
+                return true;
+            }
+            return false;
+
         }
     }
 }
+
