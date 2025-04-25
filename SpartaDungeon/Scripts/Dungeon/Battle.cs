@@ -78,8 +78,8 @@ namespace SpartaDungeon
                 ShowBattleInfo();
 
                 Console.WriteLine("\n1. 공격");
-                Console.WriteLine("2. 스킬");
-                Console.WriteLine("\n0. 도망가기");
+                ColorFont.Write("2. 스킬\n", Color.Blue);
+                ColorFont.Write("\n0. 도망가기\n", Color.Magenta);
 
                 Console.Write("\n원하시는 행동을 입력해주세요.");
 
@@ -115,7 +115,12 @@ namespace SpartaDungeon
                 Console.WriteLine("Battle!\n");
                 Console.ResetColor();
                 ShowBattleInfo();
-                if (isSkill == true) Console.WriteLine($"\n[스킬] \n {player.Skills[skillNum].Name} : {player.Skills[skillNum].Description}");
+                if (isSkill == true)
+                {
+                    ColorFont.Write("\n[스킬]", Color.Blue);
+                    Console.WriteLine($"\n{player.Skills[skillNum].Name} : {player.Skills[skillNum].Description}");
+                }
+
                 Console.WriteLine("\n0. 취소");
                 Console.WriteLine("\n대상을 선택해주세요.");
 
