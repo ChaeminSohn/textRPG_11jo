@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using SpartaDungeon.SpartaDungeon;
 
 namespace SpartaDungeon
 {
@@ -20,6 +21,8 @@ namespace SpartaDungeon
         bool isGameOver;
         string savePath;//저장 파일 경로
         List<Monster> monsterList = new List<Monster>();
+      
+        QuestMenu questMenu;
 
         public void GameStart()     //게임 시작
         {
@@ -75,6 +78,11 @@ namespace SpartaDungeon
             dungeon = new Dungeon(player, monsterList);
 
             isGameOver = false;
+
+     
+
+            questMenu = new QuestMenu(inventory);
+            questMenu.InitQuests();
         }
 
         void SaveData()     //게임 저장
@@ -98,14 +106,14 @@ namespace SpartaDungeon
 
         void LoadData()     //게임 불러오기
         {
-
             if (!ConfigLoader.TryLoad<GameSaveData>(savePath, out var config))
             {
                 Console.WriteLine("저장 데이터 불러오기 실패");
                 Utils.Pause(false);
                 return;
             }
-            //몬스터 데이터 불러오기
+
+            // 몬스터 데이터 불러오기
             if (ConfigLoader.TryLoad<MonsterConfig>(@"..\..\..\resources/monster_config.json", out var monsterConfig))
             {
                 monsterList = monsterConfig.Monster;
@@ -115,13 +123,15 @@ namespace SpartaDungeon
                 Console.WriteLine("몬스터 데이터를 불러오지 못했습니다.");
                 Utils.Pause(false);
             }
+
             inventory = new Inventory();
-            foreach (ItemInfo info in config.InventoryItemData)    //인벤토리 아이템 불러오기
+            foreach (ItemInfo info in config.InventoryItemData)
             {
                 inventory.AddItem(ItemFactory.CreateItem(info));
             }
+
             List<ITradable> itemList = new List<ITradable>();
-            foreach (ItemInfo info in config.ShopItemData)      //상점 아이템 불러오기
+            foreach (ItemInfo info in config.ShopItemData)
             {
                 itemList.Add(ItemFactory.CreateItem(info));
             }
@@ -131,10 +141,11 @@ namespace SpartaDungeon
             player.UpdatePlayerStats();
             shop = new Shop(player, itemList);
             dungeon = new Dungeon(player, monsterList);
+
             isGameOver = false;
         }
 
-        QuestMenu questMenu = new QuestMenu();
+
 
         public void TownAction()
         {

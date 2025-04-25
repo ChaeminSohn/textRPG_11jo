@@ -16,6 +16,7 @@ namespace SpartaDungeon
         }
 
         public override void Use(Player player)
+
         {
             base.Use(player);
             if (UsableType == UsableType.HealPotion)
