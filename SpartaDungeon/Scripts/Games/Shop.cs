@@ -123,7 +123,7 @@ namespace SpartaDungeon
                 Console.WriteLine($"<{categoryName}>");
                 Console.WriteLine("\n[보유 메소]");
                 Console.WriteLine($"{player.Meso} 메소");
-                Console.WriteLine("\n[아이템 목록]\n");
+                ColorFont.Write("\n[아이템 목록]\n", Color.Green);
 
                 foreach (ITradable item in shopItems)
                 {
@@ -150,7 +150,7 @@ namespace SpartaDungeon
                     case 0:
                         return;
                     case 1:
-                        BuyItems(shopItems);
+                        BuyItems(shopItems, equipType);
                         break;
                     case 2:
                         SellItems(playerItems);
@@ -163,7 +163,7 @@ namespace SpartaDungeon
             }
         }
 
-        public void BuyItems(List<ITradable> sellingItems) //아이템 구매 UI
+        public void BuyItems(List<ITradable> sellingItems , EquipType? equipType) //아이템 구매 UI
         {
             while (true)
             {
@@ -173,13 +173,23 @@ namespace SpartaDungeon
                 Console.WriteLine("\n[보유 메소]");
                 Console.WriteLine($"{player.Meso} 메소");
 
-                Console.WriteLine("\n[아이템 목록]");
+                ColorFont.Write("\n[아이템 목록]\n", Color.Green);
                 //아이템 목록 보여줌
                 int index = 1;
                 foreach (ITradable item in sellingItems)
                 {
-                    Console.Write($"- {index++}. ");
-                    item.ShowInfo(true);
+                    if (equipType == null)
+                    {
+                        Console.Write($"- {index++}. ");
+                        item.ShowInfo(true);
+                        Console.WriteLine();
+                    }
+                    else if (item.EquipType == equipType)
+                    {
+                        Console.Write($"- {index++}. ");
+                        item.ShowInfo(true);
+                        Console.WriteLine();
+                    }
                 }
                 Console.WriteLine("\n0. 나가기");
                 Console.WriteLine("\n구매할 아이템 번호를 입력하세요. ");
@@ -338,7 +348,7 @@ namespace SpartaDungeon
                 Console.WriteLine("\n[보유 메소]");
                 Console.WriteLine($"{player.Meso} 메소");
 
-                Console.WriteLine("\n[아이템 목록]");
+                ColorFont.Write("\n[아이템 목록]\n", Color.Green);
                 //아이템 목록 보여줌
                 int index = 1;
                 foreach (ITradable item in sellingItems)
