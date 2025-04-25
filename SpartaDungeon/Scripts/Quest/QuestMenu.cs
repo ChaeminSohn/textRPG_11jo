@@ -118,11 +118,11 @@ namespace SpartaDungeon
                 {
                     Quest selected = myQuests[playerInput - 1];
                     if (selected.Condition.CanComplete)
-                    {
+                    {   //퀘스트 완료 가능
                         selected.IsCompleted = true;
                         selected.Condition.OnQuestComplete(player);
-                        player.ChangeMeso(selected.Reward);
-                        myQuests.Remove(selected);
+                        player.ChangeMeso(selected.Reward);     //보상 메소 지급
+                        myQuests.Remove(selected);              //퀘스트 목록에서 삭제
                         Console.WriteLine($"[퀘스트 완료] {selected.Title} 퀘스트를 완료했습니다!");
                         Console.WriteLine($"보상으로 {selected.Reward} 메소를 획득했습니다.");
                     }

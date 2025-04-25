@@ -206,12 +206,13 @@ namespace SpartaDungeon
                 return;
             }
             killedMonsters.Add(monster);
-            {
-                if (MonsterDataBase.MonsterKillCount.ContainsKey(monster.Id))
-                    MonsterDataBase.MonsterKillCount[monster.Id]++;
-                else
-                    MonsterDataBase.MonsterKillCount[monster.Id] = 1;
-            }
+
+            //킬 카운트 상승
+            if (MonsterDataBase.MonsterKillCount.ContainsKey(monster.Id))
+                MonsterDataBase.MonsterKillCount[monster.Id]++;
+            else
+                MonsterDataBase.MonsterKillCount[monster.Id] = 1;
+
 
             player.GetEXP(monster.ExpReward);       //경험치 획득
             droppedMeso += monster.MesoReward;      //골드 획득 

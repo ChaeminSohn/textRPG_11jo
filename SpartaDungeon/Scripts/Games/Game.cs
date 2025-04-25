@@ -73,23 +73,25 @@ namespace SpartaDungeon
 
             inventory = new Inventory();
             foreach (ItemInfo item in saveData.InventoryItemData)
-            {
+            {   //인벤토리 재구성
                 inventory.AddItem(ItemFactory.Create(item));
             }
 
             List<ITradable> shopItems = new List<ITradable>();
             foreach (ItemInfo item in saveData.ShopItemData)
-            {
+            {   //상점 재구성
                 shopItems.Add(ItemFactory.Create(item));
             }
             player = new Player(saveData.PlayerData, inventory);
+            //퀘스트 재구성
+            questMenu = new QuestMenu(player, saveData.QuestData);
 
             player.RestoreAfterLoad();
             player.UpdatePlayerStats();
             shop = new Shop(player, shopItems);
             dungeon = new Dungeon(player);
             inn = new Inn();
-            questMenu = new QuestMenu(player, saveData.QuestData);
+
             MonsterDataBase.MonsterKillCount = new Dictionary<int, int>(saveData.MonsterKillData);
             inventory.SetOwner(player);
         }
