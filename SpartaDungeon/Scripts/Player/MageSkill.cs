@@ -21,6 +21,8 @@ namespace SpartaDungeon
 
             attacker.DamageResult(defender, Damage);
             attacker.DamageResult(defender, Damage);
+
+            attacker.UseMP(MP);
         }
     }
 
@@ -42,6 +44,8 @@ namespace SpartaDungeon
                 if (monster.IsDead == false)
                     attacker.DamageResult(monster, Damage);
             }
+
+            attacker.UseMP(MP);
         }
     }
 }
