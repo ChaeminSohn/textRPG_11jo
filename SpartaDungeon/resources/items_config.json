@@ -1,1470 +1,1473 @@
 {
-    "Others": [
-         {
-            "ID" : 10,
-            "Name" : "빨간 달팽이 껍질",
-            "Description" : "빨간 달팽이의 껍질을 벗긴 것이다.",
-            "ItemType" : "Other",
-            "Price" : 10
-         },
-         {
-            "ID" : 11,
-            "Name" : "파란 달팽이 껍질",
-            "Description" : "파란 달팽이의 껍질을 벗긴 것이다.",
-            "ItemType" : "Other",
-            "Price" : 10
-         },
-         {
-            "ID" : 12,
-            "Name" : "버섯의 포자",
-            "Description" : "버섯의 포자이다.",
-            "ItemType" : "Other",
-            "Price" : 10
-         },
-         {
-            "ID" : 13,
-            "Name" : "주황버섯의 갓",
-            "Description" : "주황버섯의 갓을 자른 것이다.",
-            "ItemType" : "Other",
-            "Price" : 10
-         },
-         {
-            "ID" : 14,
-            "Name" : "파란버섯의 갓",
-            "Description" : "파란버섯의 갓을 자른 것이다.",
-            "ItemType" : "Other",
-            "Price" : 10
-         },
-         {
-            "ID" : 15,
-            "Name" : "돼지의 머리",
-            "Description" : "돼지의 머리이다.",
-            "ItemType" : "Other",
-            "Price" : 10
-         },
-         {
-            "ID" : 16,
-            "Name" : "돼지의 리본",
-            "Description" : "리본돼지의 리본을 끊은 것이다.",
-            "ItemType" : "Other",
-            "Price" : 10
-         },
-         {
-            "ID" : 20,
-            "Name" : "물컹물컹한 액체",
-            "Description" : "점성이 높아 끈적끈적한 액체이다.",
-            "ItemType" : "Other",
-            "Price" : 20
-         },
-         {
-            "ID" : 21,
-            "Name" : "초록버섯의 갓",
-            "Description" : "초록버섯의 갓을 자른 것이다.",
-            "ItemType" : "Other",
-            "Price" : 20
-         },
-         {
-            "ID" : 22,
-            "Name" : "페어리의 더듬이",
-            "Description" : "페어리의 더듬이를 잘라온 것이다.",
-            "ItemType" : "Other",
-            "Price" : 20
-         },
-         {
-            "ID" : 23,
-            "Name" : "루팡의 바나나",
-            "Description" : "루팡이 좋아하는 맛있는 바나나이다.",
-            "ItemType" : "Other",
-            "Price" : 20
-         },
-         {
-            "ID" : 24,
-            "Name" : "이블아이의 꼬리",
-            "Description" : "이블아이의 꼬리를 자른 것이다.",
-            "ItemType" : "Other",
-            "Price" : 20
-         },
-         {
-            "ID" : 30,
-            "Name" : "옥토퍼스의 다리",
-            "Description" : "문어의 다리를 자른 것이다.",
-            "ItemType" : "Other",
-            "Price" : 30
-         },
-         {
-            "ID" : 31,
-            "Name" : "스티지의 날개",
-            "Description" : "작은 박쥐인 스티지의 날개를 때어온 것이다.",
-            "ItemType" : "Other",
-            "Price" : 30
-         },
-         {
-            "ID" : 32,
-            "Name" : "식탁보",
-            "Description" : "주니어 레이스가 쓰고 다니던 식탁보이다",
-            "ItemType" : "Other",
-            "Price" : 30
-         },
-         {
-            "ID" : 33,
-            "Name" : "이상한 느낌의 약",
-            "Description" : "레이스가 남긴 이상한 느낌이 드는 약이다.",
-            "ItemType" : "Other",
-            "Price" : 30
-         },
-         {
-            "ID" : 40,
-            "Name" : "나뭇가지",
-            "Description" : "나무의 가지를 때어온 것이다.",
-            "ItemType" : "Other",
-            "Price" : 40
-         },
-         {
-            "ID" : 41,
-            "Name" : "장작",
-            "Description" : "엑스텀프에서 때어낸 고품질 장작이다.",
-            "ItemType" : "Other",
-            "Price" : 40
-         },
-         {
-            "ID" : 42,
-            "Name" : "와일드보어의 송곳니",
-            "Description" : "와일드보어의 송곳니를 잘라온 것이다.",
-            "ItemType" : "Other",
-            "Price" : 40
-         },
-         {
-            "ID" : 43,
-            "Name" : "파이어보어의 송곳니",
-            "Description" : "파이어보어의 송곳니를 잘라온 것이다.",
-            "ItemType" : "Other",
-            "Price" : 40
-         },
-         {
-            "ID" : 44,
-            "Name" : "아이언보어의 갑옷 조각",
-            "Description" : "아이언보어의 단단한 갑옷의 작은 조각이다.",
-            "ItemType" : "Other",
-            "Price" : 40
-         },
-         {
-            "ID" : 50,
-            "Name" : "뿔버섯의 갓",
-            "Description" : "뿔버섯의 갓을 자른 것이다.",
-            "ItemType" : "Other",
-            "Price" : 50
-         },
-         {
-            "ID" : 51,
-            "Name" : "죽은 자의 부적",
-            "Description" : "좀비버섯의 부적을 떼어 온 것이다.",
-            "ItemType" : "Other",
-            "Price" : 50
-         },
-         {
-            "ID" : 52,
-            "Name" : "커즈아이의 꼬리",
-            "Description" : "커즈아이의 꼬리를 자른 것이다.",
-            "ItemType" : "Other",
-            "Price" : 50
-         },
-         {
-            "ID" : 53,
-            "Name" : "스톤골렘의 돌조각",
-            "Description" : "스톤골렘의 몸의 일부분을 이루고 있던 신비로운 돌조각이다.",
-            "ItemType" : "Other",
-            "Price" : 50
-         },
-         {
-            "ID" : 54,
-            "Name" : "다크 스톤골렘의 돌조각",
-            "Description" : "다크 스톤골렘의 몸의 일부분을 이루고 있던 신비로운 돌조각이다.",
-            "ItemType" : "Other",
-            "Price" : 50
-         },
-        {
-            "ID": 101,
-            "Name": "머쉬맘의 포자",
-            "Description": "머쉬맘의 포자이다.",
-            "ItemType": "Other",
-            "Price": 100
-        },
-        {
-            "ID": 102,
-            "Name": "킹 슬라임의 방울",
-            "Description": "킹 슬라임의 방울을 떼어온 거이다.",
-            "ItemType": "Other",
-            "Price": 200
-        },
-        {
-            "ID": 103,
-            "Name": "블루 머쉬맘의 포자",
-            "Description": "블루 머쉬맘의 포자이다.",
-            "ItemType": "Other",
-            "Price": 300
-        },
-        {
-            "ID": 104,
-            "Name": "주니어 발록의 발톱",
-            "Description": "고대의 악마 주니어 발록의 발톱이다.",
-            "ItemType": "Other",
-            "Price": 400
-        },
-        {
-            "ID": 105,
-            "Name": "독버섯",
-            "Description": "거대한 좀비 머쉬맘에 기생하는 독버섯이다.",
-            "ItemType": "Other",
-            "Price": 500
-        },
-        {
-            "ID": 201,
-            "Name": "에메랄드의 원석",
-            "Description": "초록빛을 띄는 보석의 원석이다. 제련시 희귀하게 마법의 가루(초록)을 얻을수있다",
-            "ItemType": "Other",
-            "Price": 50
-        },
-        {
-            "ID": 240,
-            "Name": "아다만티움 원석",
-            "Description": "무겁고 강한 아다만티움 원석이다. 제련시 희귀하게 마법의 가루(갈색)을 얻을수있다.",
-            "ItemType": "Other",
-            "Price": 50
-        },
-        {
-            "ID": 295,
-            "Name": "자수정의 원석",
-            "Description": "보랏빛을 띄는 보석의 원석이다.",
-            "ItemType": "Other",
-            "Price": 50
-        },
-        {
-            "ID": 342,
-            "Name": "오팔의 원석",
-            "Description": "여러 가지 색을 띄는 보석의 원석이다.",
-            "ItemType": "Other",
-            "Price": 50
-        },
-        {
-            "ID": 375,
-            "Name": "미스릴의 원석",
-            "Description": "가볍고 강한 미스릴의 원석이다. 제련시 희귀하게마법의 가루(초록)를 얻을 수 있다.",
-            "ItemType": "Other",
-            "Price": 50
-        },
-        {
-            "ID": 395,
-            "Name": "토파즈의 원석",
-            "Description": "노란빛을 띄는 보석의 원석이다.제련시 희귀하게 마법의 가루(노랑)을 얻을수 있다.",
-            "ItemType": "Other",
-            "Price": 50
-        },
-        {
-            "ID": 425,
-            "Name": "금의 원석",
-            "Description": "매우 희귀한 광석인 금의 원석이다. 제련시 희귀하게 마법의 가루(노랑)를 얻을 수 있다.",
-            "ItemType": "Other",
-            "Price": 50
-        },
-        {
-            "ID": 445,
-            "Name": "마법의 가루(파랑)",
-            "Description": "파란 빛을 띄는 마법의 가루이다. 제작 3레벨의 재료이다.",
-            "ItemType": "Other",
-            "Price": 200
-        },
-        {
-            "ID": 485,
-            "Name": "마법의 가루(초록)",
-            "Description": "초록 빛을 띄는 마법의 가루이다. 제작 5레벨의 재료이다.",
-            "ItemType": "Other",
-            "Price": 200
-        },
-        {
-            "ID": 558,
-            "Name": "강철의 원석",
-            "Description": "강한 강철의 원석이다. 제련시 희귀하게 마법의 가루(파랑)를 얻을 수 있다.",
-            "ItemType": "Other",
-            "Price": 50
-        }
-    ],
-    
-    "Usables": [
-        {
-            "ID": 1101,
-            "Name": "네미의 도시락",
-            "Description": "루디브리엄의 '네미'가 아버지인 장난감 공장의 '공장장 카호'를 위해 정성스럽게 싼 도시락이다.HP를 10회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 10,
-            "HealAmount": 10
-        },
-        {
-            "ID": 1102,
-            "Name": "레일리의 감",
-            "Description": "주황빛이 나는 잘 익은 감이다. Hp를 약 30 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 20,
-            "HealAmount": 30
-        },
-        {
-            "ID": 1103,
-            "Name": "대추",
-            "Description": "빨갛게 잘 익은 대추다. Hp를 약 30 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 20,
-            "HealAmount": 30
-        },
-        {
-            "ID": 1104,
-            "Name": "로저의 사과",
-            "Description": "빨갛게 잘 익은 사과이다. Hp를 약 30 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 20,
-            "HealAmount": 30
-        },
-        {
-            "ID": 1105,
-            "Name": "정의의 꿀밤",
-            "Description": "알이 크고 잘 익은 밤이다. Hp를 약 30 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 20,
-            "HealAmount": 30
-        },
-        {
-            "ID": 1106,
-            "Name": "배",
-            "Description": "크고 물이 많은 배이다. Hp를 약 30 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 20,
-            "HealAmount": 30
-        },
-        {
-            "ID": 1107,
-            "Name": "초보 모험가의 빨간 포션",
-            "Description": "붉은 약초로 만든 물약이다.초보 모험가를 위해 특별 제작 되었다. Hp를 약 40 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 30,
-            "HealAmount": 40
-        },
-        {
-            "ID": 1108,
-            "Name": "달걀",
-            "Description": "영양 만점의 계란이다. Hp를 약 50 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 50,
-            "HealAmount": 50
-        },
-        {
-            "ID": 1109,
-            "Name": "두부",
-            "Description": "콩으로 만든 건강에 좋은 식품이다. Hp를 약 50 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 50,
-            "HealAmount": 50
-        },
-        {
-            "ID": 1110,
-            "Name": "빨간 포션",
-            "Description": "붉은 약초로 만든 물약이다. Hp를 약 50 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 50,
-            "HealAmount": 50
-        },
-        {
-            "ID": 1111,
-            "Name": "빨간 포션 알약",
-            "Description": "빨간 포션을 정제하여 알약으로 만든 것이다. Hp를 약 50 회복시키며 부피가 작아서 더 많이 들 수 있다.",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 50,
-            "HealAmount": 50
-        },
-        {
-            "ID": 1112,
-            "Name": "맛있는 우유",
-            "Description": "농장에서 생산되는 신선한 우유이다. Hp를 약 100 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 100,
-            "HealAmount": 100
-        },
-        {
-            "ID": 1113,
-            "Name": "코코넛 주스",
-            "Description": "코코넛 열매에 구멍을 뚫어 빨대를 꼽아놓았다. Hp를 100씩 회복시켜준다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 130,
-            "HealAmount": 100
-        },
-        {
-            "ID": 1114,
-            "Name": "주황 포션",
-            "Description": "붉은 약초의 농축 물약이다. Hp를 약 150 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 150,
-            "HealAmount": 150
-        },
-        {
-            "ID": 1115,
-            "Name": "주황 포션 알약",
-            "Description": "주황 포션을 정제하여 알약으로 만든 것이다. Hp를 약 150 회복시키며 부피가 작아서 더 많이 들 수 있다.",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 150,
-            "HealAmount": 150
-        },
-        {
-            "ID": 1116,
-            "Name": "짐승의 고기",
-            "Description": "먹음직한 짐승의 고기이다. Hp를 약 100 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 150,
-            "HealAmount": 100
-        },
-        {
-            "ID": 1117,
-            "Name": "태국과자",
-            "Description": "태국에서 전통으로 내려오는 달콤한 과자다. Hp를 150 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 160,
-            "HealAmount": 150
-        },
-        {
-            "ID": 1118,
-            "Name": "통닭",
-            "Description": "닭고기를 잘 튀긴 음식이다. Hp를 약 200 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 180,
-            "HealAmount": 200
-        },
-        {
-            "ID": 1119,
-            "Name": "길쭉이 핫도그",
-            "Description": "케첩이 뿌려진 핫도그이다.. Hp를 약 300 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 250,
-            "HealAmount": 300
-        },
-        {
-            "ID": 1120,
-            "Name": "노블레스의 빨간 포션",
-            "Description": "에레브에서만 자라는 약초로 만든 물약이다. Hp를 약 300 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 250,
-            "HealAmount": 300
-        },
-        {
-            "ID": 1121,
-            "Name": "리엔 특제 빨간 포션",
-            "Description": "리엔에서만 자라는 약초들로 만든 물약이다. Hp를 약 300 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 250,
-            "HealAmount": 300
-        },
-        {
-            "ID": 1122,
-            "Name": "파워스웨트",
-            "Description": "운동한 후에 더욱 좋은 이온음료이다. 마시면 피로가 가시는 느낌에 흐음하는 표정이 된다. Hp를 300 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 260,
-            "HealAmount": 300
-        },
-        {
-            "ID": 1123,
-            "Name": "하얀 포션",
-            "Description": "붉은 약초의 고농축 물약이다. Hp를 약 300 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 280,
-            "HealAmount": 300
-        },
-        {
-            "ID": 1124,
-            "Name": "하얀 포션 알약",
-            "Description": "하얀 포션을 정제하여 알약으로 만든 것이다. Hp를 약 300 회복시키며 부피가 작아서 더 많이 들 수 있다.",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 280,
-            "HealAmount": 300
-        },
-        {
-            "ID": 1125,
-            "Name": "닭튀김",
-            "Description": "매우 맛있어 보이는 닭튀김이다. Hp를 400 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 350,
-            "HealAmount": 400
-        },
-        {
-            "ID": 1126,
-            "Name": "피자",
-            "Description": "갓 구워낸 피자이다. Hp를 약 400 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 350,
-            "HealAmount": 400
-        },
-        {
-            "ID": 1127,
-            "Name": "햄버거",
-            "Description": "불고기가 들어간 햄버거이다. Hp를 약 400 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 360,
-            "HealAmount": 400
-        },
-        {
-            "ID": 1128,
-            "Name": "뚱뚱이 핫도그",
-            "Description": "푸짐한 미국식 핫도그이다. Hp를 약500 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 400,
-            "HealAmount": 500
-        },
-        {
-            "ID": 1129,
-            "Name": "이블아이 꼬리말이",
-            "Description": "만든 재료를 추측할 수 없을만큼 훌륭한 요리이다. Hp 500 회복",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 410,
-            "HealAmount": 500
-        },
-        {
-            "ID": 1130,
-            "Name": "진저맨 쿠키",
-            "Description": "얼그레이 홍차를 넣어서 만든 고소하고 달콤한 진저맨 쿠키이다. hp를 약 500 회복시켜 준다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 420,
-            "HealAmount": 500
-        },
-        {
-            "ID": 1131,
-            "Name": "초밥(청란젓)",
-            "Description": "빅토리아 아일랜드 주변에서 잡은 신선한 물고기로 만든 초밥이다. Hp를 500 회복시켜준다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 430,
-            "HealAmount": 500
-        },
-        {
-            "ID": 1131,
-            "Name": "키노코라면(소금)",
-            "Description": "소금으로만 국물 맛을 낸 아리송한 맛의 라면이다. Hp를 500 회복시켜준다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 450,
-            "HealAmount": 500
-        },
-        {
-            "ID": 1132,
-            "Name": "마른 오징어",
-            "Description": "잘 구워진 마른 오징어다. Hp를 약 600 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 500,
-            "HealAmount": 600
-        },
-        {
-            "ID": 1133,
-            "Name": "돼지고기 산적",
-            "Description": "노란 왕도깨비가 좋아하는 돼지고기로 만든 산적이다. Hp가 800 회복된다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 800,
-            "HealAmount": 800
-        },
-        {
-            "ID": 1134,
-            "Name": "옥수수",
-            "Description": "옥수수를 꼬치에 꽂아 구운 음식이다.매우 맛있어보인다. Hp를 약800 회복시켜준다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 850,
-            "HealAmount": 800
-        },
-        {
-            "ID": 1135,
-            "Name": "키노코라면(돼지사골)",
-            "Description": "돼지 사골 국물로 맛을 낸 맛있는 라면이다. Hp를 800 회복시켜준다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 900,
-            "HealAmount": 800
-        },
-        {
-            "ID": 1136,
-            "Name": "건빵",
-            "Description": "1등 전투식량.꽤 딱딱해 보이지만 허기를 달래기에는 나쁘지 않아 보인다. Hp를 약 1000 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 1000,
-            "HealAmount": 1000
-        },
-        {
-            "ID": 1137,
-            "Name": "떡꼬치",
-            "Description": "매콤한 떡꼬치이다. 엄청 매워서 앗뜨거 표정이 되지만, 돌아서면 자꾸 생각나는 맛이다. Hp 1000 회복",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 1100,
-            "HealAmount": 1000
-        },
-        {
-            "ID": 1138,
-            "Name": "라면",
-            "Description": "노브의 노하우가 담겨있는 라면이다. Hp를 1000 회복시켜준다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 1150,
-            "HealAmount": 1000
-        },
-        {
-            "ID": 1139,
-            "Name": "복숭아 통조림",
-            "Description": "무릉의 괴짜 약재상 도의진이 만든 수제 복숭아 통조림이다. Hp를 약 1000 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 1200,
-            "HealAmount": 1000
-        },
-        {
-            "ID": 1140,
-            "Name": "장어 구이",
-            "Description": "잘 양념된 장어 구이이다. Hp를 약 1000 회복시켜준다",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 1300,
-            "HealAmount": 1000
-        },
-        {
-            "ID": 1141,
-            "Name": "체력 회복 포션 1000",
-            "Description": "연금술로 만든 물략이다. Hp를 약 1000 회복 시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 1300,
-            "HealAmount": 1000
-        },
-        {
-            "ID": 1142,
-            "Name": "체력 회복 알약 1000",
-            "Description": "연금술로 만든 알약이다. Hp를 약 1000 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 1400,
-            "HealAmount": 1000
-        },
-        {
-            "ID": 1143,
-            "Name": "초밥(참치 뱃살)",
-            "Description": "빅토리아 아일랜드 주변에서 잡은 신선한 물고기로 만든 초밥이다. Hp를 1000 회복시켜준다.",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 1450,
-            "HealAmount": 1000
-        },
-        {
-            "ID": 1144,
-            "Name": "초코범벅바",
-            "Description": "출출할땐 초코범벅바! 언제라도 든든한 한끼가 될 영양이 가득하다. Hp 1000씩 회복",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 1700,
-            "HealAmount": 1000
-        },
-        {
-            "ID": 1145,
-            "Name": "콜드아이 꼬리매운탕",
-            "Description": "'콜드'아이의 꼬리로 '매운'탕을 만들다니! 요리의 신이 아니면 만들수 없는 요리임에 분명하다. Hp 1000 회복",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 1800,
-            "HealAmount": 1000
-        },
-        {
-            "ID": 1146,
-            "Name": "진저레이디 쿠키",
-            "Description": "얼그레이 홍차를 넣어서 만든 고소하고 달콤한 진저레이디 쿠키다. Hp를 약 1200 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 2100,
-            "HealAmount": 1200
-        },
-        {
-            "ID": 1147,
-            "Name": "천하장사",
-            "Description": "맛도 만점, 영양도 만점의 소시지이다. Hp를 약 1200 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 2100,
-            "HealAmount": 1200
-        },
-        {
-            "ID": 1148,
-            "Name": "만두",
-            "Description": "밀가루를 반죽하여 얇게 밀어 소를 넣고 둥글게 빚은 음식이다. Hp를 약 1500 회복시켜준다.",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 2500,
-            "HealAmount": 1500
-        },
-        {
-            "ID": 1149,
-            "Name": "송편",
-            "Description": "맛있는 꿀이 들어있는 송편이다. Hp를 약1500 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "HealPotion",
-            "Price": 2600,
-            "HealAmount": 1500
-        },        
-        {       
-            "ID": 1401,
-            "Name": "초록사과",
-            "Description": "새콤하고 아삭한 초록사과이다. Mp를 약 30 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 50,
-            "HealAmount": 30
-        },
-        {
-            "ID": 1402,
-            "Name": "맛있는 주스",
-            "Description": "농장에서 생산되는 신선한 주스이다. Mp를 약 50 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 80,
-            "HealAmount": 50
-        },
-        {
-            "ID": 1403,
-            "Name": "오렌지",
-            "Description": "시고 달콤한 오렌지이다. Mp를 약 50 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 80,
-            "HealAmount": 50
-        },
-        {
-            "ID": 1404,
-            "Name": "초보 모험가의 파란 포션",
-            "Description": "푸른 약초로 만든 물약이다. 초보 모험가를 위해 특별 제작되었다. Mp를 약 80 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 110,
-            "HealAmount": 80
-        },
-        {
-            "ID": 1405,
-            "Name": "파란 포션",
-            "Description": "푸른 약초로 만든 물약이다. Mp를 약 100 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 130,
-            "HealAmount": 100
-        },
-        {
-            "ID": 1406,
-            "Name": "파란 포션 알약",
-            "Description": "파란 포션을 정제하여 알약으로 만든것이다. Mp를 약 100 회복시키며 부피가 작아서 더 많이 들 수 있다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 130,
-            "HealAmount": 100
-        },
-        {
-            "ID": 1407,
-            "Name": "레몬",
-            "Description": "매우 신 과일이다. Mp를 약 150 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 170,
-            "HealAmount": 150
-        },
-        {
-            "ID": 1408,
-            "Name": "사막의 이슬",
-            "Description": "카투스의 줄기에서 얻을 수 있는 순수한 물이다. Mp를 약 200 회복시킨다",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 200,
-            "HealAmount": 200
-        },
-        {
-            "ID": 1409,
-            "Name": "샐러드",
-            "Description": "신선한 야채로 만든 음식이다. Mp를 약 200 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 200,
-            "HealAmount": 200
-        },
-        {
-            "ID": 1410,
-            "Name": "어묵(꼬치)",
-            "Description": "맛있는 어묵과 각종 야채를 끼워 만든 어묵꼬치다. Mp를 250 회복시켜준다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 240,
-            "HealAmount": 250
-        },
-        {
-            "ID": 1411,
-            "Name": "노블레스의 파란 포션",
-            "Description": "에레브에서만 자라는 약초로 만든 물약이다. 퀵슬롯에 올려놓으면 보다 간편하게 사용할 수 있다. Mp를 약 300 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 280,
-            "HealAmount": 300
-        },
-        {
-            "ID": 1412,
-            "Name": "리엔 특제 파란 포션",
-            "Description": "리엔에서만 자라는 약초들로 만든 물약이다. Mp를 300 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 280,
-            "HealAmount": 300
-        },
-        {
-            "ID": 1413,
-            "Name": "마나 엘릭서",
-            "Description": "전설의 비약이다. Mp를 약 300 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 290,
-            "HealAmount": 300
-        },
-        {
-            "ID": 1414,
-            "Name": "마나 엘릭서 알약",
-            "Description": "마나 엘릭서를 정제하여 알약으로 만든 것이다. Mp를 약 300 회복시키며 부피가 작아서 더 많이 들 수 있다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 290,
-            "HealAmount": 300
-        },
-        {
-            "ID": 1415,
-            "Name": "춘권",
-            "Description": "맛있기로 소문난 집의 춘권이다. Mp를 400 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 350,
-            "HealAmount": 400
-        },
-        {
-            "ID": 1416,
-            "Name": "오렌지 주스",
-            "Description": "진짜 오렌지를 갈아서 만든 맛있는 주스이다. Mp를 약 450 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 400,
-            "HealAmount": 450
-        },
-        {
-            "ID": 1417,
-            "Name": "복숭아 주스",
-            "Description": "무릉의 괴짜 약재상 도의진이 만든 주스다. Mp를 약 500 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 500,
-            "HealAmount": 450
-        },
-        {
-            "ID": 1418,
-            "Name": "어묵(접시)",
-            "Description": "맛있는 어묵을 접시에 가득 담았다. Mp를 500 회복시켜준다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 500,
-            "HealAmount": 500
-        },
-        {
-            "ID": 1419,
-            "Name": "과일사탕꼬치",
-            "Description": "과일 맛이 나는 사탕을 꼬치에 꽃은 간식이다. Mp를 약 800 회복시켜준다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 850,
-            "HealAmount": 800
-        },
-        {
-            "ID": 1420,
-            "Name": "막대사탕",
-            "Description": "흰새고가 빨간색 줄무늬를 넣어서 만든 지팡이 모양의 사탕이다. Mp를 약 800 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 860,
-            "HealAmount": 800
-        },
-        {
-            "ID": 1421,
-            "Name": "맑은 물",
-            "Description": "매우 깨끗한 물이다. Mp를 약 800 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 860,
-            "HealAmount": 800
-        },
-        {
-            "ID": 1422,
-            "Name": "메밀묵",
-            "Description": "초록 왕도깨비가 좋아하는 메밀로 만든 묵이다.말랑말랑한 묵이 채반에 가득 담겨져 있다. Mp가 약 800 회복된다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 880,
-            "HealAmount": 800
-        },
-        {
-            "ID": 1423,
-            "Name": "토스트",
-            "Description": "갓 만든 토스트이다. 한입 베어 물면 신선한 채소와 고소한 치즈맛에 반짝반짝한 표정이 된다. Mp 800 회복",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 890,
-            "HealAmount": 800
-        },
-        {
-            "ID": 1424,
-            "Name": "포도 주스",
-            "Description": "진짜 포도를 갈아서 만든 맛있는 주스이다. Mp를 약 900 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 950,
-            "HealAmount": 900
-        },
-        {
-            "ID": 1425,
-            "Name": "마나 회복 포션 1000",
-            "Description": "연금술로 만든 물약이다. Mp를 약 1000 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 1000,
-            "HealAmount": 1000
-        },
-        {
-            "ID": 1426,
-            "Name": "마나 회복 알약 1000",
-            "Description": "연금술로 만든 알약이다. Mp를 약 1000 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 1000,
-            "HealAmount": 1000
-        },
-        {
-            "ID": 1427,
-            "Name": "별사탕",
-            "Description": "건빵의 영원한 짝꿍. 꽤 딱딱해 보이지만 떨어진 당을 채우기에는 나쁘지 않아 보인다. Mp를 약 1000 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 1100,
-            "HealAmount": 1000
-        },
-        {
-            "ID": 1428,
-            "Name": "마나 회복 포션 1500",
-            "Description": "연금술로 만든 물약이다. Mp를 약 1500 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 1500,
-            "HealAmount": 1500
-        },
-        {
-            "ID": 1429,
-            "Name": "마나 회복 알약 1500",
-            "Description": "연금술로 만든 알약이다. Mp를 약 1500 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 1500,
-            "HealAmount": 1500
-        },
-        {
-            "ID": 1430,
-            "Name": "한과",
-            "Description": "향긋한 냄세가 나는 전통 과자이다. Mp를 약 1500 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 1550,
-            "HealAmount": 1500
-        },
-        {
-            "ID": 1431,
-            "Name": "과일사탕",
-            "Description": "설탕코팅이 반짝반짝 유혹하는 달콤한 과일사탕이다. 한입 먹으면, 그 달콤한 맛에 절로반해 뿅 표정이 된다. Mp 2000 회복",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 1600,
-            "HealAmount": 2000
-        },
-        {
-            "ID": 1432,
-            "Name": "마나 회복 포션 2000",
-            "Description": "연금술로 만든 물약이다. Mp를 약 2000 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 2000,
-            "HealAmount": 2000
-        },
-        {
-            "ID": 1433,
-            "Name": "마나 회복 알약 2000",
-            "Description": "연금술로 만든 알약이다. Mp를 약 2000 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 2000,
-            "HealAmount": 2000
-        },
-        {
-            "ID": 1434,
-            "Name": "크로스헌터 마력 포션",
-            "Description": "크로스헌터들에게 보급되는 물약이다. Mp를 약 2000 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 2200,
-            "HealAmount": 2000
-        },
-        {
-            "ID": 1435,
-            "Name": "팥빙수",
-            "Description": "더위를 싹 날려버릴 만큼 시원한 빙수이다. Mp를 약 2000 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 2200,
-            "HealAmount": 2000
-        },
-        {
-            "ID": 1436,
-            "Name": "마나 회복 포션 2500",
-            "Description": "연금술로 만든 물약이다. Mp를 약 2500 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 2500,
-            "HealAmount": 2500
-        },
-        {
-            "ID": 1437,
-            "Name": "마나 회복 알약 2500",
-            "Description": "연금술로 만든 알약이다. Mp를 약 2500 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 2500,
-            "HealAmount": 2500
-        },
-        {
-            "ID": 1438,
-            "Name": "마나 회복 포션 3000",
-            "Description": "연금술로 만든 물약이다. Mp를 약 3000 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 3000,
-            "HealAmount": 3000
-        },
-        {
-            "ID": 1439,
-            "Name": "마나 회복 알약 3000",
-            "Description": "연금술로 만든 알약이다. Mp를 약 3000 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 3000,
-            "HealAmount": 3000
-        },
-        {
-            "ID": 1440,
-            "Name": "진저레이디 쿠키",
-            "Description": "얼그레이 홍차를 넣어서 만든 고소하고 달콤한 진저레이디 쿠키다. Mp를 약 3000 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 3100,
-            "HealAmount": 3000
-        },
-        {
-            "ID": 1441,
-            "Name": "천연 옥 송편",
-            "Description": "쑥떡처럼 보이지만 천연 옥으로 만들어진 매끄러운 송편이다. 사용시 Mp를 약 3000 올려준다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 3500,
-            "HealAmount": 3000
-        },
-        {
-            "ID": 1442,
-            "Name": "MP 충전 돼지바",
-            "Description": "달달 맛있는 돼지바!. Mp를 약 3000 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 3500,
-            "HealAmount": 3000
-        },
-        {
-            "ID": 1443,
-            "Name": "마나 회복 포션 3500",
-            "Description": "연금술로 만든 물약이다. Mp를 약 3500 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 3500,
-            "HealAmount": 3500
-        },
-        {
-            "ID": 1444,
-            "Name": "마나 회복 알약 3500",
-            "Description": "연금술로 만든 알약이다. Mp를 약 3500 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 3500,
-            "HealAmount": 3500
-        },
-        {
-            "ID": 1445,
-            "Name": "네네 양념치킨",
-            "Description": "속은 촉촉하고 겉은 바삭한 맛있는 네네치킨! 인벤토리에 넣어놓는 것이 아깝다. 빨리 먹고 싶다. Mp를 약 4000 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 4000,
-            "HealAmount": 4000
-        },
-        {
-            "ID": 1446,
-            "Name": "마나 회복 포션 4000",
-            "Description": "연금술로 만든 물약이다. Mp를 약 4000 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 4000,
-            "HealAmount": 4000
-        },
-        {
-            "ID": 1447,
-            "Name": "마나 회복 알약 4000",
-            "Description": "연금술로 만든 알약이다. Mp를 약 4000 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 4000,
-            "HealAmount": 4000
-        },
-        {
-            "ID": 1448,
-            "Name": "새벽의 이슬",
-            "Description": "새벽에 내려앉은 이슬을 모은 것이다. Mp를 약 2000 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 4100,
-            "HealAmount": 2000
-        },
-        {
-            "ID": 1449,
-            "Name": "크로스헌터 상급 마력 포션",
-            "Description": "크로스헌터에게 보급되는 물약이다. Mp를 약 4000 회복시킨다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 4200,
-            "HealAmount": 4000
-        },
-        {
-            "ID": 1450,
-            "Name": "김밥",
-            "Description": "속재료가 푸짐하게 들어간 맛있는 김밥이다. 입속에 넣으면 너무 맛있어서 초롱초롱한 표정이 된다. Mp4050  회복",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 4300,
-            "HealAmount": 4050
-        },
-        {
-            "ID": 1451,
-            "Name": "파란 포션 알약",
-            "Description": "파란 포션을 정제하여 알약으로 만든 것이다. Mp를 약 100 회복시키며 부피가 작아서 더 많이 들수있다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 200,
-            "HealAmount": 100
-        },
-        {
-            "ID": 1551,
-            "Name": "하얀 포션 알약",
-            "Description": "하얀 포션을 정제하여 알약으로 만든 것이다. Hp를 약 300 회복시키며 부피가 작아서 더 많이 들수있다.",
-            "ItemType": "Usable",
-            "UsableType": "ManaPotion",
-            "Price": 200,
-            "HealAmount": 300
-        }
-    ],
-    "Equipments": [ 
-        {
-            "ID": 2001,
-            "Name": "나무 몽둥이",
-            "Description": "초보자가 사용할수 있는 장비이다.",
-            "Price": 600,
-            "ItemType": "Equipment",
-            "EquipType": "Weapon",
-            "Stat": "Attack",
-            "StatValue": 2       
-        },
-        {
-            "ID": 2002,
-            "Name": "쇠도끼",
-            "Description": "초보자가 10레벨때 사용할수있는 좋은 도끼이다.",
-            "Price": 1500,
-            "ItemType": "Equipment",
-            "EquipType": "Weapon",
-            "Stat": "Attack",
-            "StatValue": 4    
-        },
-        {
-            "ID": 2003,
-            "Name": "왕푸",
-            "Description": "30제 무기로 블록골렘과 다크리티가 드랍하는 최상급 무기이다.",
-            "Price": 3000,
-            "ItemType": "Equipment",
-            "EquipType": "Weapon",
-            "Stat": "Attack",
-            "StatValue": 8
-        },
-        {
-            "ID": 2004,
-            "Name": "전설의 검",
-            "Description": "전설로만 전해져 온 최강의 검입니다.",
-            "Price": 55000,
-            "ItemType": "Equipment",
-            "EquipType": "Weapon",
-            "Stat": "Attack",
-            "StatValue": 55
-        },
-        {
-            "ID": 2005,
-            "Name": "루인해머",
-            "Description": "최강보스인 피아누스가 드랍하는 망치로. 무지막지한 파괴력을 자랑한다",
-            "Price": 65000,
-            "ItemType": "Equipment",
-            "EquipType": "Weapon",
-            "Stat": "Attack",
-            "StatValue": 80
-        },
-        {
-            "ID": 2101,
-            "Name": "빨간 줄무늬 티셔츠",
-            "Description": "메이플 최하위 몬스터 파란달팽이가 드랍하는 초보자용 티셔츠이다.",
-            "Price": 1000,
-            "ItemType": "Equipment",
-            "EquipType": "Armor",
-            "Stat": "Defense",
-            "StatValue": 10
-        },
-        {
-            "ID": 2102,
-            "Name": "회색 고무줄 바지",
-            "Description": "최하위 몬스터들이 드랍하는 초보자용 고무줄 바지 이다.",
-            "Price": 1000,
-            "ItemType": "Equipment",
-            "EquipType": "Armor",
-            "Stat": "Defense",
-            "StatValue": 13
-        }, 
-        {
-            "ID": 2103,
-            "Name": "블루네오스 바지",
-            "Description": "피아누스에게서 드랍되는 장비로 영롱한 파란빛을 띈다.",
-            "Price": 55000,
-            "ItemType": "Equipment",
-            "EquipType": "Armor",
-            "Stat": "Defense",
-            "StatValue": 70     
-        },
-        {
-            "ID": 2201,
-            "Name": "갈색 가죽 모자",
-            "Description": "모험을 막 시작한 초보자분들이 애용하는 모자이다.",
-            "Price": 500,
-            "ItemType": "Equipment",
-            "EquipType": "Head",
-            "Stat": "Defense",
-            "StatValue": 5     
-        },   
-        {
-            "ID": 2202,
-            "Name": "흰색 두건",
-            "Description": "컨닝시티에서 사들여온 모자이다.",
-            "Price": 1000,
-            "ItemType": "Equipment",
-            "EquipType": "Head",
-            "Stat": "Defense",
-            "StatValue": 8     
-        },
-        {
-            "ID": 2203,
-            "Name": "갈색 삿갓",
-            "Description": "페리온의 한 전사가 생각나는 모자이다.",
-            "Price": 2000,
-            "ItemType": "Equipment",
-            "EquipType": "Head",
-            "Stat": "Defense",
-            "StatValue": 15
-        },
-        {
-            "ID": 2204,
-            "Name": "실버플레닛",
-            "Description": "스켈레톤 사병이 드랍하는 고급스러운 투구이다. 업그레이드 가능 횟수는 7이다.",
-            "Price": 70000,
-            "ItemType": "Equipment",
-            "EquipType": "Head",
-            "Stat": "Defense",
-            "StatValue": 45
-        },
-        {
-            "ID": 2301,
-            "Name": "아르",
-            "Description": "주황버섯에게서 얻을 수 있는 장갑이다. 초보자들이 사용하기 좋게 만들어졌다.착용하면 치명타율이 올라간다",
-            "Price": 900,
-            "ItemType": "Equipment",
-            "EquipType": "Glove",
-            "Stat": "CritChance",
-            "StatValue": 3.5
-        },
-        {
-            "ID": 2302,
-            "Name": "브론즈 파우",
-            "Description": "크로코에게서 얻을 수 있는 장갑이다. 초보자들이 사용하면 몬스터들을 좀더 쉽게 잡을 수 있다.착용하면 치명타율이 올라간다.",
-            "Price": 13000,
-            "ItemType": "Equipment",
-            "EquipType": "Glove",
-            "Stat": "CritChance",
-            "StatValue": 10.4
-        },
-        {
-            "ID": 2303,
-            "Name": "브론즈 허스크",
-            "Description": "스켈레톤 장교에게서 얻을 수 있는 장갑이다. 확실히 장교출신의 힘이 담겨 있는거 같다. 착용하면 치명타율이 올라간다.",
-            "Price": 17000,
-            "ItemType": "Equipment",
-            "EquipType": "Glove",
-            "Stat": "CritChance",
-            "StatValue": 14.2
-        },
-        {
-            "ID": 2304,
-            "Name": "다크 엠페러",
-            "Description": "Lv.92 짜리 본피쉬에게서 얻을 수 있는 장갑이다. 상급 모험가들이 애용한다.착용하면 치명타율이 대폭 증가한다",
-            "Price": 25000,
-            "ItemType": "Equipment",
-            "EquipType": "Glove",
-            "Stat": "CritChance",
-            "StatValue": 20.5
-        },
-        {
-            "ID": 2401,
-            "Name": "흰색 고무신",
-            "Description": "주황버섯에게서 얻을 수 있는 신발이다. 고무신을 거꾸로 신는다는 말이 괜히 나온게 아니다. 착용하면 회피율이 올라간다.",
-            "Price": 900,
-            "ItemType": "Equipment",
-            "EquipType": "Shoe",
-            "Stat": "EvadeChance",
-            "StatValue": 2.0
-        },
-        {
-            "ID": 2402,
-            "Name": "레드 피에르 슈즈",
-            "Description": "스켈독에게서 얻을 수 있는 장갑이다. 스켈독이 신기엔 너무 작아보인다. 착용하면 회피율이 올라간다.",
-            "Price": 4900,
-            "ItemType": "Equipment",
-            "EquipType": "Shoe",
-            "Stat": "EvadeChance",
-            "StatValue": 4.3
-        },
-        {
-            "ID": 2403,
-            "Name": "레드 실키부츠",
-            "Description": "아쿠아 로드에 크립에게서 얻을 수 있는 신발이다. 빨간색으로 칠해져 있는게 특징이다. 착용하면 회피율이 올라간다.",
-            "Price": 8000,
-            "ItemType": "Equipment",
-            "EquipType": "Shoe",
-            "Stat": "EvadeChance",
-            "StatValue": 8.5
-        },
-        {
-            "ID": 2404,
-            "Name": "브라운 쉐도우부츠",
-            "Description": "최상위 몬스터인 콜드샤크에게서 얻을 수 있는 신발이다. 회피율을 무지막지하게 올려준다.",
-            "Price": 40000,
-            "ItemType": "Equipment",
-            "EquipType": "Shoe",
-            "Stat": "EvadeChance",
-            "StatValue": 16.4
-        },
-        {
-            "ID": 2501,
-            "Name": "강철 방패",
-            "Description": "옥토퍼스에게서 드랍되는 보조장비로 강철을 이용해서 만들었다.보조 무기로 쓰인다",
-            "Price": 600,
-            "ItemType": "Equipment",
-            "EquipType": "SubWeapon",
-            "Stat": "Defense",
-            "StatValue": 10
-        },
-        {
-            "ID": 2502,
-            "Name": "해골 방패",
-            "Description": "엄티에게서 드랍되는 장비로 해골 문양이 박혀있다. 보조 무기로 쓰인다",
-            "Price": 17000,
-            "ItemType": "Equipment",
-            "EquipType": "SubWeapon",
-            "Stat": "Defense",
-            "StatValue": 50
-        },
-        {
-            "ID": 2503,
-            "Name": "스틸 아퀼라 쉴드",
-            "Description": "스켈레톤 지휘관에게서 드랍되는 장비로 스켈레톤 지휘관이 들고다니던 방패이다. 보조 무기로 쓰인다",
-            "Price": 25000,
-            "ItemType": "Equipment",
-            "EquipType": "SubWeapon",
-            "Stat": "Defense",
-            "StatValue": 85
-        },
-        {
-            "ID": 2504,
-            "Name": "골드 칼칸",
-            "Description": "97.LV 리셀 스퀴드 에게서 드랍되는 장비로 금으로 만든 방패이다. 보조 무기로 쓰인다",
-            "Price": 35000 ,
-            "ItemType": "Equipment",
-            "EquipType": "SubWeapon",
-            "Stat": "Defense",
-            "StatValue": 95
-        }
-        
-    ], 
-    "ShopItems" :
-        {
-            "10" : 10,
-            "1110" : 99,
-            "1405" : 99,
-            "2001" : 1 ,
-            "2002" : 1, 
-            "2003" : 1, 
-            "2101" : 1, 
-            "2102" : 1, 
-            "2103" : 1, 
-            "2199" : 1,
-            "2201" : 1
-        }
+  "Others": [
+    {
+      "ID": 10,
+      "Name": "빨간 달팽이 껍질",
+      "Description": "빨간 달팽이의 껍질을 벗긴 것이다.",
+      "ItemType": "Other",
+      "Price": 10
+    },
+    {
+      "ID": 11,
+      "Name": "파란 달팽이 껍질",
+      "Description": "파란 달팽이의 껍질을 벗긴 것이다.",
+      "ItemType": "Other",
+      "Price": 10
+    },
+    {
+      "ID": 12,
+      "Name": "버섯의 포자",
+      "Description": "버섯의 포자이다.",
+      "ItemType": "Other",
+      "Price": 10
+    },
+    {
+      "ID": 13,
+      "Name": "주황버섯의 갓",
+      "Description": "주황버섯의 갓을 자른 것이다.",
+      "ItemType": "Other",
+      "Price": 10
+    },
+    {
+      "ID": 14,
+      "Name": "파란버섯의 갓",
+      "Description": "파란버섯의 갓을 자른 것이다.",
+      "ItemType": "Other",
+      "Price": 10
+    },
+    {
+      "ID": 15,
+      "Name": "돼지의 머리",
+      "Description": "돼지의 머리이다.",
+      "ItemType": "Other",
+      "Price": 10
+    },
+    {
+      "ID": 16,
+      "Name": "돼지의 리본",
+      "Description": "리본돼지의 리본을 끊은 것이다.",
+      "ItemType": "Other",
+      "Price": 10
+    },
+    {
+      "ID": 20,
+      "Name": "물컹물컹한 액체",
+      "Description": "점성이 높아 끈적끈적한 액체이다.",
+      "ItemType": "Other",
+      "Price": 20
+    },
+    {
+      "ID": 21,
+      "Name": "초록버섯의 갓",
+      "Description": "초록버섯의 갓을 자른 것이다.",
+      "ItemType": "Other",
+      "Price": 20
+    },
+    {
+      "ID": 22,
+      "Name": "페어리의 더듬이",
+      "Description": "페어리의 더듬이를 잘라온 것이다.",
+      "ItemType": "Other",
+      "Price": 20
+    },
+    {
+      "ID": 23,
+      "Name": "루팡의 바나나",
+      "Description": "루팡이 좋아하는 맛있는 바나나이다.",
+      "ItemType": "Other",
+      "Price": 20
+    },
+    {
+      "ID": 24,
+      "Name": "이블아이의 꼬리",
+      "Description": "이블아이의 꼬리를 자른 것이다.",
+      "ItemType": "Other",
+      "Price": 20
+    },
+    {
+      "ID": 30,
+      "Name": "옥토퍼스의 다리",
+      "Description": "문어의 다리를 자른 것이다.",
+      "ItemType": "Other",
+      "Price": 30
+    },
+    {
+      "ID": 31,
+      "Name": "스티지의 날개",
+      "Description": "작은 박쥐인 스티지의 날개를 때어온 것이다.",
+      "ItemType": "Other",
+      "Price": 30
+    },
+    {
+      "ID": 32,
+      "Name": "식탁보",
+      "Description": "주니어 레이스가 쓰고 다니던 식탁보이다",
+      "ItemType": "Other",
+      "Price": 30
+    },
+    {
+      "ID": 33,
+      "Name": "이상한 느낌의 약",
+      "Description": "레이스가 남긴 이상한 느낌이 드는 약이다.",
+      "ItemType": "Other",
+      "Price": 30
+    },
+    {
+      "ID": 40,
+      "Name": "나뭇가지",
+      "Description": "나무의 가지를 때어온 것이다.",
+      "ItemType": "Other",
+      "Price": 40
+    },
+    {
+      "ID": 41,
+      "Name": "장작",
+      "Description": "엑스텀프에서 때어낸 고품질 장작이다.",
+      "ItemType": "Other",
+      "Price": 40
+    },
+    {
+      "ID": 42,
+      "Name": "와일드보어의 송곳니",
+      "Description": "와일드보어의 송곳니를 잘라온 것이다.",
+      "ItemType": "Other",
+      "Price": 40
+    },
+    {
+      "ID": 43,
+      "Name": "파이어보어의 송곳니",
+      "Description": "파이어보어의 송곳니를 잘라온 것이다.",
+      "ItemType": "Other",
+      "Price": 40
+    },
+    {
+      "ID": 44,
+      "Name": "아이언보어의 갑옷 조각",
+      "Description": "아이언보어의 단단한 갑옷의 작은 조각이다.",
+      "ItemType": "Other",
+      "Price": 40
+    },
+    {
+      "ID": 50,
+      "Name": "뿔버섯의 갓",
+      "Description": "뿔버섯의 갓을 자른 것이다.",
+      "ItemType": "Other",
+      "Price": 50
+    },
+    {
+      "ID": 51,
+      "Name": "죽은 자의 부적",
+      "Description": "좀비버섯의 부적을 떼어 온 것이다.",
+      "ItemType": "Other",
+      "Price": 50
+    },
+    {
+      "ID": 52,
+      "Name": "커즈아이의 꼬리",
+      "Description": "커즈아이의 꼬리를 자른 것이다.",
+      "ItemType": "Other",
+      "Price": 50
+    },
+    {
+      "ID": 53,
+      "Name": "스톤골렘의 돌조각",
+      "Description": "스톤골렘의 몸의 일부분을 이루고 있던 신비로운 돌조각이다.",
+      "ItemType": "Other",
+      "Price": 50
+    },
+    {
+      "ID": 54,
+      "Name": "다크 스톤골렘의 돌조각",
+      "Description": "다크 스톤골렘의 몸의 일부분을 이루고 있던 신비로운 돌조각이다.",
+      "ItemType": "Other",
+      "Price": 50
+    },
+    {
+      "ID": 101,
+      "Name": "머쉬맘의 포자",
+      "Description": "머쉬맘의 포자이다.",
+      "ItemType": "Other",
+      "Price": 100
+    },
+    {
+      "ID": 102,
+      "Name": "킹 슬라임의 방울",
+      "Description": "킹 슬라임의 방울을 떼어온 거이다.",
+      "ItemType": "Other",
+      "Price": 200
+    },
+    {
+      "ID": 103,
+      "Name": "블루 머쉬맘의 포자",
+      "Description": "블루 머쉬맘의 포자이다.",
+      "ItemType": "Other",
+      "Price": 300
+    },
+    {
+      "ID": 104,
+      "Name": "주니어 발록의 발톱",
+      "Description": "고대의 악마 주니어 발록의 발톱이다.",
+      "ItemType": "Other",
+      "Price": 400
+    },
+    {
+      "ID": 105,
+      "Name": "독버섯",
+      "Description": "거대한 좀비 머쉬맘에 기생하는 독버섯이다.",
+      "ItemType": "Other",
+      "Price": 500
+    },
+    {
+      "ID": 201,
+      "Name": "에메랄드의 원석",
+      "Description": "초록빛을 띄는 보석의 원석이다. 제련시 희귀하게 마법의 가루(초록)을 얻을수있다",
+      "ItemType": "Other",
+      "Price": 50
+    },
+    {
+      "ID": 240,
+      "Name": "아다만티움 원석",
+      "Description": "무겁고 강한 아다만티움 원석이다. 제련시 희귀하게 마법의 가루(갈색)을 얻을수있다.",
+      "ItemType": "Other",
+      "Price": 50
+    },
+    {
+      "ID": 295,
+      "Name": "자수정의 원석",
+      "Description": "보랏빛을 띄는 보석의 원석이다.",
+      "ItemType": "Other",
+      "Price": 50
+    },
+    {
+      "ID": 342,
+      "Name": "오팔의 원석",
+      "Description": "여러 가지 색을 띄는 보석의 원석이다.",
+      "ItemType": "Other",
+      "Price": 50
+    },
+    {
+      "ID": 375,
+      "Name": "미스릴의 원석",
+      "Description": "가볍고 강한 미스릴의 원석이다. 제련시 희귀하게마법의 가루(초록)를 얻을 수 있다.",
+      "ItemType": "Other",
+      "Price": 50
+    },
+    {
+      "ID": 395,
+      "Name": "토파즈의 원석",
+      "Description": "노란빛을 띄는 보석의 원석이다.제련시 희귀하게 마법의 가루(노랑)을 얻을수 있다.",
+      "ItemType": "Other",
+      "Price": 50
+    },
+    {
+      "ID": 425,
+      "Name": "금의 원석",
+      "Description": "매우 희귀한 광석인 금의 원석이다. 제련시 희귀하게 마법의 가루(노랑)를 얻을 수 있다.",
+      "ItemType": "Other",
+      "Price": 50
+    },
+    {
+      "ID": 445,
+      "Name": "마법의 가루(파랑)",
+      "Description": "파란 빛을 띄는 마법의 가루이다. 제작 3레벨의 재료이다.",
+      "ItemType": "Other",
+      "Price": 200
+    },
+    {
+      "ID": 485,
+      "Name": "마법의 가루(초록)",
+      "Description": "초록 빛을 띄는 마법의 가루이다. 제작 5레벨의 재료이다.",
+      "ItemType": "Other",
+      "Price": 200
+    },
+    {
+      "ID": 558,
+      "Name": "강철의 원석",
+      "Description": "강한 강철의 원석이다. 제련시 희귀하게 마법의 가루(파랑)를 얻을 수 있다.",
+      "ItemType": "Other",
+      "Price": 50
+    }
+  ],
 
+  "Usables": [
+    {
+      "ID": 1101,
+      "Name": "네미의 도시락",
+      "Description": "루디브리엄의 '네미'가 아버지인 장난감 공장의 '공장장 카호'를 위해 정성스럽게 싼 도시락이다.HP를 10회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 10,
+      "HealAmount": 10
+    },
+    {
+      "ID": 1102,
+      "Name": "레일리의 감",
+      "Description": "주황빛이 나는 잘 익은 감이다. Hp를 약 30 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 20,
+      "HealAmount": 30
+    },
+    {
+      "ID": 1103,
+      "Name": "대추",
+      "Description": "빨갛게 잘 익은 대추다. Hp를 약 30 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 20,
+      "HealAmount": 30
+    },
+    {
+      "ID": 1104,
+      "Name": "로저의 사과",
+      "Description": "빨갛게 잘 익은 사과이다. Hp를 약 30 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 20,
+      "HealAmount": 30
+    },
+    {
+      "ID": 1105,
+      "Name": "정의의 꿀밤",
+      "Description": "알이 크고 잘 익은 밤이다. Hp를 약 30 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 20,
+      "HealAmount": 30
+    },
+    {
+      "ID": 1106,
+      "Name": "배",
+      "Description": "크고 물이 많은 배이다. Hp를 약 30 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 20,
+      "HealAmount": 30
+    },
+    {
+      "ID": 1107,
+      "Name": "초보 모험가의 빨간 포션",
+      "Description": "붉은 약초로 만든 물약이다.초보 모험가를 위해 특별 제작 되었다. Hp를 약 40 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 30,
+      "HealAmount": 40
+    },
+    {
+      "ID": 1108,
+      "Name": "달걀",
+      "Description": "영양 만점의 계란이다. Hp를 약 50 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 50,
+      "HealAmount": 50
+    },
+    {
+      "ID": 1109,
+      "Name": "두부",
+      "Description": "콩으로 만든 건강에 좋은 식품이다. Hp를 약 50 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 50,
+      "HealAmount": 50
+    },
+    {
+      "ID": 1110,
+      "Name": "빨간 포션",
+      "Description": "붉은 약초로 만든 물약이다. Hp를 약 50 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 50,
+      "HealAmount": 50
+    },
+    {
+      "ID": 1111,
+      "Name": "빨간 포션 알약",
+      "Description": "빨간 포션을 정제하여 알약으로 만든 것이다. Hp를 약 50 회복시키며 부피가 작아서 더 많이 들 수 있다.",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 50,
+      "HealAmount": 50
+    },
+    {
+      "ID": 1112,
+      "Name": "맛있는 우유",
+      "Description": "농장에서 생산되는 신선한 우유이다. Hp를 약 100 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 100,
+      "HealAmount": 100
+    },
+    {
+      "ID": 1113,
+      "Name": "코코넛 주스",
+      "Description": "코코넛 열매에 구멍을 뚫어 빨대를 꼽아놓았다. Hp를 100씩 회복시켜준다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 130,
+      "HealAmount": 100
+    },
+    {
+      "ID": 1114,
+      "Name": "주황 포션",
+      "Description": "붉은 약초의 농축 물약이다. Hp를 약 150 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 150,
+      "HealAmount": 150
+    },
+    {
+      "ID": 1115,
+      "Name": "주황 포션 알약",
+      "Description": "주황 포션을 정제하여 알약으로 만든 것이다. Hp를 약 150 회복시키며 부피가 작아서 더 많이 들 수 있다.",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 150,
+      "HealAmount": 150
+    },
+    {
+      "ID": 1116,
+      "Name": "짐승의 고기",
+      "Description": "먹음직한 짐승의 고기이다. Hp를 약 100 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 150,
+      "HealAmount": 100
+    },
+    {
+      "ID": 1117,
+      "Name": "태국과자",
+      "Description": "태국에서 전통으로 내려오는 달콤한 과자다. Hp를 150 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 160,
+      "HealAmount": 150
+    },
+    {
+      "ID": 1118,
+      "Name": "통닭",
+      "Description": "닭고기를 잘 튀긴 음식이다. Hp를 약 200 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 180,
+      "HealAmount": 200
+    },
+    {
+      "ID": 1119,
+      "Name": "길쭉이 핫도그",
+      "Description": "케첩이 뿌려진 핫도그이다.. Hp를 약 300 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 250,
+      "HealAmount": 300
+    },
+    {
+      "ID": 1120,
+      "Name": "노블레스의 빨간 포션",
+      "Description": "에레브에서만 자라는 약초로 만든 물약이다. Hp를 약 300 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 250,
+      "HealAmount": 300
+    },
+    {
+      "ID": 1121,
+      "Name": "리엔 특제 빨간 포션",
+      "Description": "리엔에서만 자라는 약초들로 만든 물약이다. Hp를 약 300 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 250,
+      "HealAmount": 300
+    },
+    {
+      "ID": 1122,
+      "Name": "파워스웨트",
+      "Description": "운동한 후에 더욱 좋은 이온음료이다. 마시면 피로가 가시는 느낌에 흐음하는 표정이 된다. Hp를 300 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 260,
+      "HealAmount": 300
+    },
+    {
+      "ID": 1123,
+      "Name": "하얀 포션",
+      "Description": "붉은 약초의 고농축 물약이다. Hp를 약 300 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 280,
+      "HealAmount": 300
+    },
+    {
+      "ID": 1124,
+      "Name": "하얀 포션 알약",
+      "Description": "하얀 포션을 정제하여 알약으로 만든 것이다. Hp를 약 300 회복시키며 부피가 작아서 더 많이 들 수 있다.",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 280,
+      "HealAmount": 300
+    },
+    {
+      "ID": 1125,
+      "Name": "닭튀김",
+      "Description": "매우 맛있어 보이는 닭튀김이다. Hp를 400 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 350,
+      "HealAmount": 400
+    },
+    {
+      "ID": 1126,
+      "Name": "피자",
+      "Description": "갓 구워낸 피자이다. Hp를 약 400 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 350,
+      "HealAmount": 400
+    },
+    {
+      "ID": 1127,
+      "Name": "햄버거",
+      "Description": "불고기가 들어간 햄버거이다. Hp를 약 400 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 360,
+      "HealAmount": 400
+    },
+    {
+      "ID": 1128,
+      "Name": "뚱뚱이 핫도그",
+      "Description": "푸짐한 미국식 핫도그이다. Hp를 약500 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 400,
+      "HealAmount": 500
+    },
+    {
+      "ID": 1129,
+      "Name": "이블아이 꼬리말이",
+      "Description": "만든 재료를 추측할 수 없을만큼 훌륭한 요리이다. Hp 500 회복",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 410,
+      "HealAmount": 500
+    },
+    {
+      "ID": 1130,
+      "Name": "진저맨 쿠키",
+      "Description": "얼그레이 홍차를 넣어서 만든 고소하고 달콤한 진저맨 쿠키이다. hp를 약 500 회복시켜 준다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 420,
+      "HealAmount": 500
+    },
+    {
+      "ID": 1131,
+      "Name": "초밥(청란젓)",
+      "Description": "빅토리아 아일랜드 주변에서 잡은 신선한 물고기로 만든 초밥이다. Hp를 500 회복시켜준다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 430,
+      "HealAmount": 500
+    },
+    {
+      "ID": 1131,
+      "Name": "키노코라면(소금)",
+      "Description": "소금으로만 국물 맛을 낸 아리송한 맛의 라면이다. Hp를 500 회복시켜준다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 450,
+      "HealAmount": 500
+    },
+    {
+      "ID": 1132,
+      "Name": "마른 오징어",
+      "Description": "잘 구워진 마른 오징어다. Hp를 약 600 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 500,
+      "HealAmount": 600
+    },
+    {
+      "ID": 1133,
+      "Name": "돼지고기 산적",
+      "Description": "노란 왕도깨비가 좋아하는 돼지고기로 만든 산적이다. Hp가 800 회복된다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 800,
+      "HealAmount": 800
+    },
+    {
+      "ID": 1134,
+      "Name": "옥수수",
+      "Description": "옥수수를 꼬치에 꽂아 구운 음식이다.매우 맛있어보인다. Hp를 약800 회복시켜준다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 850,
+      "HealAmount": 800
+    },
+    {
+      "ID": 1135,
+      "Name": "키노코라면(돼지사골)",
+      "Description": "돼지 사골 국물로 맛을 낸 맛있는 라면이다. Hp를 800 회복시켜준다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 900,
+      "HealAmount": 800
+    },
+    {
+      "ID": 1136,
+      "Name": "건빵",
+      "Description": "1등 전투식량.꽤 딱딱해 보이지만 허기를 달래기에는 나쁘지 않아 보인다. Hp를 약 1000 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 1000,
+      "HealAmount": 1000
+    },
+    {
+      "ID": 1137,
+      "Name": "떡꼬치",
+      "Description": "매콤한 떡꼬치이다. 엄청 매워서 앗뜨거 표정이 되지만, 돌아서면 자꾸 생각나는 맛이다. Hp 1000 회복",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 1100,
+      "HealAmount": 1000
+    },
+    {
+      "ID": 1138,
+      "Name": "라면",
+      "Description": "노브의 노하우가 담겨있는 라면이다. Hp를 1000 회복시켜준다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 1150,
+      "HealAmount": 1000
+    },
+    {
+      "ID": 1139,
+      "Name": "복숭아 통조림",
+      "Description": "무릉의 괴짜 약재상 도의진이 만든 수제 복숭아 통조림이다. Hp를 약 1000 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 1200,
+      "HealAmount": 1000
+    },
+    {
+      "ID": 1140,
+      "Name": "장어 구이",
+      "Description": "잘 양념된 장어 구이이다. Hp를 약 1000 회복시켜준다",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 1300,
+      "HealAmount": 1000
+    },
+    {
+      "ID": 1141,
+      "Name": "체력 회복 포션 1000",
+      "Description": "연금술로 만든 물략이다. Hp를 약 1000 회복 시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 1300,
+      "HealAmount": 1000
+    },
+    {
+      "ID": 1142,
+      "Name": "체력 회복 알약 1000",
+      "Description": "연금술로 만든 알약이다. Hp를 약 1000 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 1400,
+      "HealAmount": 1000
+    },
+    {
+      "ID": 1143,
+      "Name": "초밥(참치 뱃살)",
+      "Description": "빅토리아 아일랜드 주변에서 잡은 신선한 물고기로 만든 초밥이다. Hp를 1000 회복시켜준다.",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 1450,
+      "HealAmount": 1000
+    },
+    {
+      "ID": 1144,
+      "Name": "초코범벅바",
+      "Description": "출출할땐 초코범벅바! 언제라도 든든한 한끼가 될 영양이 가득하다. Hp 1000씩 회복",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 1700,
+      "HealAmount": 1000
+    },
+    {
+      "ID": 1145,
+      "Name": "콜드아이 꼬리매운탕",
+      "Description": "'콜드'아이의 꼬리로 '매운'탕을 만들다니! 요리의 신이 아니면 만들수 없는 요리임에 분명하다. Hp 1000 회복",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 1800,
+      "HealAmount": 1000
+    },
+    {
+      "ID": 1146,
+      "Name": "진저레이디 쿠키",
+      "Description": "얼그레이 홍차를 넣어서 만든 고소하고 달콤한 진저레이디 쿠키다. Hp를 약 1200 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 2100,
+      "HealAmount": 1200
+    },
+    {
+      "ID": 1147,
+      "Name": "천하장사",
+      "Description": "맛도 만점, 영양도 만점의 소시지이다. Hp를 약 1200 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 2100,
+      "HealAmount": 1200
+    },
+    {
+      "ID": 1148,
+      "Name": "만두",
+      "Description": "밀가루를 반죽하여 얇게 밀어 소를 넣고 둥글게 빚은 음식이다. Hp를 약 1500 회복시켜준다.",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 2500,
+      "HealAmount": 1500
+    },
+    {
+      "ID": 1149,
+      "Name": "송편",
+      "Description": "맛있는 꿀이 들어있는 송편이다. Hp를 약1500 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "HealPotion",
+      "Price": 2600,
+      "HealAmount": 1500
+    },
+    {
+      "ID": 1401,
+      "Name": "초록사과",
+      "Description": "새콤하고 아삭한 초록사과이다. Mp를 약 30 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 50,
+      "HealAmount": 30
+    },
+    {
+      "ID": 1402,
+      "Name": "맛있는 주스",
+      "Description": "농장에서 생산되는 신선한 주스이다. Mp를 약 50 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 80,
+      "HealAmount": 50
+    },
+    {
+      "ID": 1403,
+      "Name": "오렌지",
+      "Description": "시고 달콤한 오렌지이다. Mp를 약 50 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 80,
+      "HealAmount": 50
+    },
+    {
+      "ID": 1404,
+      "Name": "초보 모험가의 파란 포션",
+      "Description": "푸른 약초로 만든 물약이다. 초보 모험가를 위해 특별 제작되었다. Mp를 약 80 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 110,
+      "HealAmount": 80
+    },
+    {
+      "ID": 1405,
+      "Name": "파란 포션",
+      "Description": "푸른 약초로 만든 물약이다. Mp를 약 100 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 130,
+      "HealAmount": 100
+    },
+    {
+      "ID": 1406,
+      "Name": "파란 포션 알약",
+      "Description": "파란 포션을 정제하여 알약으로 만든것이다. Mp를 약 100 회복시키며 부피가 작아서 더 많이 들 수 있다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 130,
+      "HealAmount": 100
+    },
+    {
+      "ID": 1407,
+      "Name": "레몬",
+      "Description": "매우 신 과일이다. Mp를 약 150 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 170,
+      "HealAmount": 150
+    },
+    {
+      "ID": 1408,
+      "Name": "사막의 이슬",
+      "Description": "카투스의 줄기에서 얻을 수 있는 순수한 물이다. Mp를 약 200 회복시킨다",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 200,
+      "HealAmount": 200
+    },
+    {
+      "ID": 1409,
+      "Name": "샐러드",
+      "Description": "신선한 야채로 만든 음식이다. Mp를 약 200 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 200,
+      "HealAmount": 200
+    },
+    {
+      "ID": 1410,
+      "Name": "어묵(꼬치)",
+      "Description": "맛있는 어묵과 각종 야채를 끼워 만든 어묵꼬치다. Mp를 250 회복시켜준다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 240,
+      "HealAmount": 250
+    },
+    {
+      "ID": 1411,
+      "Name": "노블레스의 파란 포션",
+      "Description": "에레브에서만 자라는 약초로 만든 물약이다. 퀵슬롯에 올려놓으면 보다 간편하게 사용할 수 있다. Mp를 약 300 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 280,
+      "HealAmount": 300
+    },
+    {
+      "ID": 1412,
+      "Name": "리엔 특제 파란 포션",
+      "Description": "리엔에서만 자라는 약초들로 만든 물약이다. Mp를 300 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 280,
+      "HealAmount": 300
+    },
+    {
+      "ID": 1413,
+      "Name": "마나 엘릭서",
+      "Description": "전설의 비약이다. Mp를 약 300 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 290,
+      "HealAmount": 300
+    },
+    {
+      "ID": 1414,
+      "Name": "마나 엘릭서 알약",
+      "Description": "마나 엘릭서를 정제하여 알약으로 만든 것이다. Mp를 약 300 회복시키며 부피가 작아서 더 많이 들 수 있다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 290,
+      "HealAmount": 300
+    },
+    {
+      "ID": 1415,
+      "Name": "춘권",
+      "Description": "맛있기로 소문난 집의 춘권이다. Mp를 400 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 350,
+      "HealAmount": 400
+    },
+    {
+      "ID": 1416,
+      "Name": "오렌지 주스",
+      "Description": "진짜 오렌지를 갈아서 만든 맛있는 주스이다. Mp를 약 450 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 400,
+      "HealAmount": 450
+    },
+    {
+      "ID": 1417,
+      "Name": "복숭아 주스",
+      "Description": "무릉의 괴짜 약재상 도의진이 만든 주스다. Mp를 약 500 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 500,
+      "HealAmount": 450
+    },
+    {
+      "ID": 1418,
+      "Name": "어묵(접시)",
+      "Description": "맛있는 어묵을 접시에 가득 담았다. Mp를 500 회복시켜준다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 500,
+      "HealAmount": 500
+    },
+    {
+      "ID": 1419,
+      "Name": "과일사탕꼬치",
+      "Description": "과일 맛이 나는 사탕을 꼬치에 꽃은 간식이다. Mp를 약 800 회복시켜준다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 850,
+      "HealAmount": 800
+    },
+    {
+      "ID": 1420,
+      "Name": "막대사탕",
+      "Description": "흰새고가 빨간색 줄무늬를 넣어서 만든 지팡이 모양의 사탕이다. Mp를 약 800 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 860,
+      "HealAmount": 800
+    },
+    {
+      "ID": 1421,
+      "Name": "맑은 물",
+      "Description": "매우 깨끗한 물이다. Mp를 약 800 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 860,
+      "HealAmount": 800
+    },
+    {
+      "ID": 1422,
+      "Name": "메밀묵",
+      "Description": "초록 왕도깨비가 좋아하는 메밀로 만든 묵이다.말랑말랑한 묵이 채반에 가득 담겨져 있다. Mp가 약 800 회복된다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 880,
+      "HealAmount": 800
+    },
+    {
+      "ID": 1423,
+      "Name": "토스트",
+      "Description": "갓 만든 토스트이다. 한입 베어 물면 신선한 채소와 고소한 치즈맛에 반짝반짝한 표정이 된다. Mp 800 회복",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 890,
+      "HealAmount": 800
+    },
+    {
+      "ID": 1424,
+      "Name": "포도 주스",
+      "Description": "진짜 포도를 갈아서 만든 맛있는 주스이다. Mp를 약 900 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 950,
+      "HealAmount": 900
+    },
+    {
+      "ID": 1425,
+      "Name": "마나 회복 포션 1000",
+      "Description": "연금술로 만든 물약이다. Mp를 약 1000 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 1000,
+      "HealAmount": 1000
+    },
+    {
+      "ID": 1426,
+      "Name": "마나 회복 알약 1000",
+      "Description": "연금술로 만든 알약이다. Mp를 약 1000 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 1000,
+      "HealAmount": 1000
+    },
+    {
+      "ID": 1427,
+      "Name": "별사탕",
+      "Description": "건빵의 영원한 짝꿍. 꽤 딱딱해 보이지만 떨어진 당을 채우기에는 나쁘지 않아 보인다. Mp를 약 1000 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 1100,
+      "HealAmount": 1000
+    },
+    {
+      "ID": 1428,
+      "Name": "마나 회복 포션 1500",
+      "Description": "연금술로 만든 물약이다. Mp를 약 1500 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 1500,
+      "HealAmount": 1500
+    },
+    {
+      "ID": 1429,
+      "Name": "마나 회복 알약 1500",
+      "Description": "연금술로 만든 알약이다. Mp를 약 1500 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 1500,
+      "HealAmount": 1500
+    },
+    {
+      "ID": 1430,
+      "Name": "한과",
+      "Description": "향긋한 냄세가 나는 전통 과자이다. Mp를 약 1500 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 1550,
+      "HealAmount": 1500
+    },
+    {
+      "ID": 1431,
+      "Name": "과일사탕",
+      "Description": "설탕코팅이 반짝반짝 유혹하는 달콤한 과일사탕이다. 한입 먹으면, 그 달콤한 맛에 절로반해 뿅 표정이 된다. Mp 2000 회복",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 1600,
+      "HealAmount": 2000
+    },
+    {
+      "ID": 1432,
+      "Name": "마나 회복 포션 2000",
+      "Description": "연금술로 만든 물약이다. Mp를 약 2000 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 2000,
+      "HealAmount": 2000
+    },
+    {
+      "ID": 1433,
+      "Name": "마나 회복 알약 2000",
+      "Description": "연금술로 만든 알약이다. Mp를 약 2000 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 2000,
+      "HealAmount": 2000
+    },
+    {
+      "ID": 1434,
+      "Name": "크로스헌터 마력 포션",
+      "Description": "크로스헌터들에게 보급되는 물약이다. Mp를 약 2000 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 2200,
+      "HealAmount": 2000
+    },
+    {
+      "ID": 1435,
+      "Name": "팥빙수",
+      "Description": "더위를 싹 날려버릴 만큼 시원한 빙수이다. Mp를 약 2000 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 2200,
+      "HealAmount": 2000
+    },
+    {
+      "ID": 1436,
+      "Name": "마나 회복 포션 2500",
+      "Description": "연금술로 만든 물약이다. Mp를 약 2500 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 2500,
+      "HealAmount": 2500
+    },
+    {
+      "ID": 1437,
+      "Name": "마나 회복 알약 2500",
+      "Description": "연금술로 만든 알약이다. Mp를 약 2500 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 2500,
+      "HealAmount": 2500
+    },
+    {
+      "ID": 1438,
+      "Name": "마나 회복 포션 3000",
+      "Description": "연금술로 만든 물약이다. Mp를 약 3000 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 3000,
+      "HealAmount": 3000
+    },
+    {
+      "ID": 1439,
+      "Name": "마나 회복 알약 3000",
+      "Description": "연금술로 만든 알약이다. Mp를 약 3000 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 3000,
+      "HealAmount": 3000
+    },
+    {
+      "ID": 1440,
+      "Name": "진저레이디 쿠키",
+      "Description": "얼그레이 홍차를 넣어서 만든 고소하고 달콤한 진저레이디 쿠키다. Mp를 약 3000 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 3100,
+      "HealAmount": 3000
+    },
+    {
+      "ID": 1441,
+      "Name": "천연 옥 송편",
+      "Description": "쑥떡처럼 보이지만 천연 옥으로 만들어진 매끄러운 송편이다. 사용시 Mp를 약 3000 올려준다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 3500,
+      "HealAmount": 3000
+    },
+    {
+      "ID": 1442,
+      "Name": "MP 충전 돼지바",
+      "Description": "달달 맛있는 돼지바!. Mp를 약 3000 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 3500,
+      "HealAmount": 3000
+    },
+    {
+      "ID": 1443,
+      "Name": "마나 회복 포션 3500",
+      "Description": "연금술로 만든 물약이다. Mp를 약 3500 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 3500,
+      "HealAmount": 3500
+    },
+    {
+      "ID": 1444,
+      "Name": "마나 회복 알약 3500",
+      "Description": "연금술로 만든 알약이다. Mp를 약 3500 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 3500,
+      "HealAmount": 3500
+    },
+    {
+      "ID": 1445,
+      "Name": "네네 양념치킨",
+      "Description": "속은 촉촉하고 겉은 바삭한 맛있는 네네치킨! 인벤토리에 넣어놓는 것이 아깝다. 빨리 먹고 싶다. Mp를 약 4000 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 4000,
+      "HealAmount": 4000
+    },
+    {
+      "ID": 1446,
+      "Name": "마나 회복 포션 4000",
+      "Description": "연금술로 만든 물약이다. Mp를 약 4000 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 4000,
+      "HealAmount": 4000
+    },
+    {
+      "ID": 1447,
+      "Name": "마나 회복 알약 4000",
+      "Description": "연금술로 만든 알약이다. Mp를 약 4000 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 4000,
+      "HealAmount": 4000
+    },
+    {
+      "ID": 1448,
+      "Name": "새벽의 이슬",
+      "Description": "새벽에 내려앉은 이슬을 모은 것이다. Mp를 약 2000 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 4100,
+      "HealAmount": 2000
+    },
+    {
+      "ID": 1449,
+      "Name": "크로스헌터 상급 마력 포션",
+      "Description": "크로스헌터에게 보급되는 물약이다. Mp를 약 4000 회복시킨다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 4200,
+      "HealAmount": 4000
+    },
+    {
+      "ID": 1450,
+      "Name": "김밥",
+      "Description": "속재료가 푸짐하게 들어간 맛있는 김밥이다. 입속에 넣으면 너무 맛있어서 초롱초롱한 표정이 된다. Mp4050  회복",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 4300,
+      "HealAmount": 4050
+    },
+    {
+      "ID": 1451,
+      "Name": "파란 포션 알약",
+      "Description": "파란 포션을 정제하여 알약으로 만든 것이다. Mp를 약 100 회복시키며 부피가 작아서 더 많이 들수있다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 200,
+      "HealAmount": 100
+    },
+    {
+      "ID": 1551,
+      "Name": "하얀 포션 알약",
+      "Description": "하얀 포션을 정제하여 알약으로 만든 것이다. Hp를 약 300 회복시키며 부피가 작아서 더 많이 들수있다.",
+      "ItemType": "Usable",
+      "UsableType": "ManaPotion",
+      "Price": 200,
+      "HealAmount": 300
+    }
+  ],
+  "Equipments": [
+    {
+      "ID": 2001,
+      "Name": "나무 몽둥이",
+      "Description": "초보자가 사용할수 있는 장비이다.",
+      "Price": 600,
+      "ItemType": "Equipment",
+      "EquipType": "Weapon",
+      "Stat": "Attack",
+      "StatValue": 2
+    },
+    {
+      "ID": 2002,
+      "Name": "쇠도끼",
+      "Description": "초보자가 10레벨때 사용할수있는 좋은 도끼이다.",
+      "Price": 1500,
+      "ItemType": "Equipment",
+      "EquipType": "Weapon",
+      "Stat": "Attack",
+      "StatValue": 4
+    },
+    {
+      "ID": 2003,
+      "Name": "왕푸",
+      "Description": "30제 무기로 블록골렘과 다크리티가 드랍하는 최상급 무기이다.",
+      "Price": 3000,
+      "ItemType": "Equipment",
+      "EquipType": "Weapon",
+      "Stat": "Attack",
+      "StatValue": 8
+    },
+    {
+      "ID": 2004,
+      "Name": "전설의 검",
+      "Description": "전설로만 전해져 온 최강의 검입니다.",
+      "Price": 55000,
+      "ItemType": "Equipment",
+      "EquipType": "Weapon",
+      "Stat": "Attack",
+      "StatValue": 55
+    },
+    {
+      "ID": 2005,
+      "Name": "루인해머",
+      "Description": "최강보스인 피아누스가 드랍하는 망치로. 무지막지한 파괴력을 자랑한다",
+      "Price": 65000,
+      "ItemType": "Equipment",
+      "EquipType": "Weapon",
+      "Stat": "Attack",
+      "StatValue": 80
+    },
+    {
+      "ID": 2101,
+      "Name": "빨간 줄무늬 티셔츠",
+      "Description": "메이플 최하위 몬스터 파란달팽이가 드랍하는 초보자용 티셔츠이다.",
+      "Price": 1000,
+      "ItemType": "Equipment",
+      "EquipType": "Armor",
+      "Stat": "Defense",
+      "StatValue": 10
+    },
+    {
+      "ID": 2102,
+      "Name": "회색 고무줄 바지",
+      "Description": "최하위 몬스터들이 드랍하는 초보자용 고무줄 바지 이다.",
+      "Price": 1000,
+      "ItemType": "Equipment",
+      "EquipType": "Armor",
+      "Stat": "Defense",
+      "StatValue": 13
+    },
+    {
+      "ID": 2103,
+      "Name": "블루네오스 바지",
+      "Description": "피아누스에게서 드랍되는 장비로 영롱한 파란빛을 띈다.",
+      "Price": 55000,
+      "ItemType": "Equipment",
+      "EquipType": "Armor",
+      "Stat": "Defense",
+      "StatValue": 70
+    },
+    {
+      "ID": 2201,
+      "Name": "갈색 가죽 모자",
+      "Description": "모험을 막 시작한 초보자분들이 애용하는 모자이다.",
+      "Price": 500,
+      "ItemType": "Equipment",
+      "EquipType": "Head",
+      "Stat": "Defense",
+      "StatValue": 5
+    },
+    {
+      "ID": 2202,
+      "Name": "흰색 두건",
+      "Description": "컨닝시티에서 사들여온 모자이다.",
+      "Price": 1000,
+      "ItemType": "Equipment",
+      "EquipType": "Head",
+      "Stat": "Defense",
+      "StatValue": 8
+    },
+    {
+      "ID": 2203,
+      "Name": "갈색 삿갓",
+      "Description": "페리온의 한 전사가 생각나는 모자이다.",
+      "Price": 2000,
+      "ItemType": "Equipment",
+      "EquipType": "Head",
+      "Stat": "Defense",
+      "StatValue": 15
+    },
+    {
+      "ID": 2204,
+      "Name": "실버플레닛",
+      "Description": "스켈레톤 사병이 드랍하는 고급스러운 투구이다. 업그레이드 가능 횟수는 7이다.",
+      "Price": 70000,
+      "ItemType": "Equipment",
+      "EquipType": "Head",
+      "Stat": "Defense",
+      "StatValue": 45
+    },
+    {
+      "ID": 2301,
+      "Name": "아르",
+      "Description": "주황버섯에게서 얻을 수 있는 장갑이다. 초보자들이 사용하기 좋게 만들어졌다.착용하면 치명타율이 올라간다",
+      "Price": 900,
+      "ItemType": "Equipment",
+      "EquipType": "Glove",
+      "Stat": "CritChance",
+      "StatValue": 1
+    },
+    {
+      "ID": 2302,
+      "Name": "브론즈 파우",
+      "Description": "크로코에게서 얻을 수 있는 장갑이다. 초보자들이 사용하면 몬스터들을 좀더 쉽게 잡을 수 있다.착용하면 치명타율이 올라간다.",
+      "Price": 13000,
+      "ItemType": "Equipment",
+      "EquipType": "Glove",
+      "Stat": "CritChance",
+      "StatValue": 10.4
+    },
+    {
+      "ID": 2303,
+      "Name": "브론즈 허스크",
+      "Description": "스켈레톤 장교에게서 얻을 수 있는 장갑이다. 확실히 장교출신의 힘이 담겨 있는거 같다. 착용하면 치명타율이 올라간다.",
+      "Price": 17000,
+      "ItemType": "Equipment",
+      "EquipType": "Glove",
+      "Stat": "CritChance",
+      "StatValue": 14.2
+    },
+    {
+      "ID": 2304,
+      "Name": "다크 엠페러",
+      "Description": "Lv.92 짜리 본피쉬에게서 얻을 수 있는 장갑이다. 상급 모험가들이 애용한다.착용하면 치명타율이 대폭 증가한다",
+      "Price": 25000,
+      "ItemType": "Equipment",
+      "EquipType": "Glove",
+      "Stat": "CritChance",
+      "StatValue": 20.5
+    },
+    {
+      "ID": 2401,
+      "Name": "흰색 고무신",
+      "Description": "주황버섯에게서 얻을 수 있는 신발이다. 고무신을 거꾸로 신는다는 말이 괜히 나온게 아니다. 착용하면 회피율이 올라간다.",
+      "Price": 900,
+      "ItemType": "Equipment",
+      "EquipType": "Shoe",
+      "Stat": "EvadeChance",
+      "StatValue": 2.0
+    },
+    {
+      "ID": 2402,
+      "Name": "레드 피에르 슈즈",
+      "Description": "스켈독에게서 얻을 수 있는 장갑이다. 스켈독이 신기엔 너무 작아보인다. 착용하면 회피율이 올라간다.",
+      "Price": 4900,
+      "ItemType": "Equipment",
+      "EquipType": "Shoe",
+      "Stat": "EvadeChance",
+      "StatValue": 4.3
+    },
+    {
+      "ID": 2403,
+      "Name": "레드 실키부츠",
+      "Description": "아쿠아 로드에 크립에게서 얻을 수 있는 신발이다. 빨간색으로 칠해져 있는게 특징이다. 착용하면 회피율이 올라간다.",
+      "Price": 8000,
+      "ItemType": "Equipment",
+      "EquipType": "Shoe",
+      "Stat": "EvadeChance",
+      "StatValue": 8.5
+    },
+    {
+      "ID": 2404,
+      "Name": "브라운 쉐도우부츠",
+      "Description": "최상위 몬스터인 콜드샤크에게서 얻을 수 있는 신발이다. 회피율을 무지막지하게 올려준다.",
+      "Price": 40000,
+      "ItemType": "Equipment",
+      "EquipType": "Shoe",
+      "Stat": "EvadeChance",
+      "StatValue": 16.4
+    },
+    {
+      "ID": 2501,
+      "Name": "강철 방패",
+      "Description": "옥토퍼스에게서 드랍되는 보조장비로 강철을 이용해서 만들었다.보조 무기로 쓰인다",
+      "Price": 600,
+      "ItemType": "Equipment",
+      "EquipType": "SubWeapon",
+      "Stat": "Defense",
+      "StatValue": 10
+    },
+    {
+      "ID": 2502,
+      "Name": "해골 방패",
+      "Description": "엄티에게서 드랍되는 장비로 해골 문양이 박혀있다. 보조 무기로 쓰인다",
+      "Price": 17000,
+      "ItemType": "Equipment",
+      "EquipType": "SubWeapon",
+      "Stat": "Defense",
+      "StatValue": 50
+    },
+    {
+      "ID": 2503,
+      "Name": "스틸 아퀼라 쉴드",
+      "Description": "스켈레톤 지휘관에게서 드랍되는 장비로 스켈레톤 지휘관이 들고다니던 방패이다. 보조 무기로 쓰인다",
+      "Price": 25000,
+      "ItemType": "Equipment",
+      "EquipType": "SubWeapon",
+      "Stat": "Defense",
+      "StatValue": 85
+    },
+    {
+      "ID": 2504,
+      "Name": "골드 칼칸",
+      "Description": "97.LV 리셀 스퀴드 에게서 드랍되는 장비로 금으로 만든 방패이다. 보조 무기로 쓰인다",
+      "Price": 35000,
+      "ItemType": "Equipment",
+      "EquipType": "SubWeapon",
+      "Stat": "Defense",
+      "StatValue": 95
+    }
+
+  ],
+
+  "ShopItems": {
+    "10": 10,
+    "1110": 99,
+    "1405": 99,
+    "2001": 1,
+    "2101": 1,
+    "2103": 1,
+    "2201": 1,
+    "2202": 1,
+    "2301": 1,
+    "2302": 1,
+    "2401": 1,
+    "2402": 1,
+    "2501": 1,
+    "2502": 1
+  }
 }
+

@@ -86,7 +86,9 @@ namespace SpartaDungeon
         {
             {Stat.Health, "체력"},
             {Stat.Attack, "공격력"},
-            {Stat.Defense, "방어력"}
+            {Stat.Defense, "방어력"},
+            {Stat.CritChance, "치명타율"},
+            {Stat.EvadeChance, "회피율"}
         };
         public static Dictionary<ItemType, string> ItemTypeDisplayNames = new Dictionary<ItemType, string>
         {

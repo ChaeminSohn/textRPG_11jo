@@ -153,7 +153,7 @@ namespace SpartaDungeon
 
             Console.WriteLine("1. 상태 보기");
             Console.WriteLine("2. 인벤토리");
-            Console.WriteLine("3. 상점");
+            Console.WriteLine("3. 자유시장");
             Console.WriteLine("4. 던전 입장");
             Console.WriteLine("5. 휴식하기");
             Console.WriteLine("6. 게시판");
