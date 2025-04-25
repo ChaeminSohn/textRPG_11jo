@@ -10,7 +10,14 @@ namespace SpartaDungeon
     internal class Shop
     {
         public List<ITradable> Items { get; private set; } = new List<ITradable>();      //판매하는 모든 아이템
-        List<ITradable> equipments = new List<ITradable>();     //판매하는 장비 아이템
+        List<ITradable> equipments = new List<ITradable>();     //판매하는 모든 장비 아이템
+        List<ITradable> weaponList = new List<ITradable>();
+        List<ITradable> armorList = new List<ITradable>(); 
+        List<ITradable> headList = new List<ITradable>();
+        List<ITradable> shoeList = new List<ITradable>();
+        List<ITradable> gloveList = new List<ITradable>();
+        List<ITradable> subWeaponList = new List<ITradable>();
+
         List<ITradable> usables = new List<ITradable>();   //판매하는 소비 아이템 목록
         List<ITradable> others = new List<ITradable>();     //판매하는 기타 아이템 목록
         Player player;
@@ -37,6 +44,7 @@ namespace SpartaDungeon
             Items.AddRange(equipments);
             Items.AddRange(usables);
             Items.AddRange(others);
+            EquipmentDivision(equipments);
         }
         public Shop(Player player, List<ITradable> items)   //게임 불러오기 생성자
         {
@@ -57,7 +65,39 @@ namespace SpartaDungeon
                         break;
                 }
             }
+            EquipmentDivision(items);
         }
+
+        public void EquipmentDivision(List<ITradable> items) // 장비 아이템 분배
+        {
+            foreach (ITradable item in items)
+            {
+                switch (item.EquipType)
+                {
+                    case EquipType.Weapon:
+                        weaponList.Add(item);
+                        break;
+                    case EquipType.Armor:
+                        armorList.Add(item);
+                        break;
+                    case EquipType.Head:
+                        headList.Add(item);
+                        break;
+                    case EquipType.Glove:
+                        gloveList.Add(item);
+                        break;
+                    case EquipType.Shoe:
+                        shoeList.Add(item);
+                        break;
+                    case EquipType.SubWeapon:
+                        subWeaponList.Add(item);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
 
         public void ShowShop() // 3: 상점 창
         {
@@ -85,22 +125,22 @@ namespace SpartaDungeon
                     case 0:
                         return;
                     case 1:
-                        ShowCategory("무기 상점", equipments, player.Inventory.Equipments, EquipType.Weapon);
+                        ShowCategory("무기 상점", weaponList, player.Inventory.Equipments, EquipType.Weapon);
                         break;
                     case 2:
-                        ShowCategory("방어구 상점", equipments, player.Inventory.Equipments, EquipType.Armor);
+                        ShowCategory("방어구 상점", armorList, player.Inventory.Equipments, EquipType.Armor);
                         break;
                     case 3:
-                        ShowCategory("투구 상점", equipments, player.Inventory.Equipments, EquipType.Head);
+                        ShowCategory("투구 상점", headList, player.Inventory.Equipments, EquipType.Head);
                         break;
                     case 4:
-                        ShowCategory("신발 상점", equipments, player.Inventory.Equipments, EquipType.Shoe);
+                        ShowCategory("신발 상점", shoeList, player.Inventory.Equipments, EquipType.Shoe);
                         break;
                     case 5:
-                        ShowCategory("장갑 상점", equipments, player.Inventory.Equipments, EquipType.Glove);
+                        ShowCategory("장갑 상점", gloveList, player.Inventory.Equipments, EquipType.Glove);
                         break;
                     case 6:
-                        ShowCategory("보조무기 상점", equipments, player.Inventory.Equipments, EquipType.SubWeapon);
+                        ShowCategory("보조무기 상점", subWeaponList, player.Inventory.Equipments, EquipType.SubWeapon);
                         break;
                     case 7:
                         ShowCategory("소비 아이템", usables, player.Inventory.Usables, null);
