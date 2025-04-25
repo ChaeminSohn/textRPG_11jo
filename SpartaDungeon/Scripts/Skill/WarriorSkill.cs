@@ -13,7 +13,7 @@ namespace SpartaDungeon
     {
         public float Damage { get; private set; }
 
-        public PawerStrike() : base("파워 스트라이크", "MP 12 소비, 적 하나에 데미지 260%", 12)
+        public PawerStrike() : base("파워 스트라이크", "MP 12 소비, 적 하나에게 데미지 260%", 12)
         {
             Damage = 2.6f;
         }

@@ -136,13 +136,13 @@ namespace SpartaDungeon
                     switch (item.Stat)
                     {
                         case Stat.Health:
-                            BonusFullHP += item.StatValue;
+                            BonusFullHP += (int)item.StatValue;
                             break;
                         case Stat.Attack:
-                            BonusAttack += item.StatValue;
+                            BonusAttack += (int)item.StatValue;
                             break;
                         case Stat.Defense:
-                            BonusDefense += item.StatValue;
+                            BonusDefense += (int)item.StatValue;
                             break;
                         default:
                             break;
@@ -213,6 +213,8 @@ namespace SpartaDungeon
                     Skills.Add(new ArrowBomb());
                     break;
                 case Job.Assassin:
+                    Skills.Add(new LuckySeven());
+                    Skills.Add(new SavageBlow());
                     break;
             }
         }

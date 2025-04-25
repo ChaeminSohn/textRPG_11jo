@@ -21,7 +21,7 @@ namespace SpartaDungeon
         //장비 전용 필드
         public EquipType EquipType { get; set; } = default; //장착 종류(방어구, 무기)
         public Stat Stat { get; set; } = default;   // 스탯 종류(공격력, 방어력, 체력)
-        public int StatValue { get; set; } = -1;    // 스탯 값
+        public float StatValue { get; set; } = -1;    // 스탯 값
         public bool IsEquipped { get; set; } = false; //플레이어 착용 여부
 
         //소비, 기타 전용 필드
@@ -30,7 +30,7 @@ namespace SpartaDungeon
         public int HealAmount { get; set; } = 0;   //포션의 체력 회복량
 
         //장비 아이템 생성자
-        public ItemInfo(int id, string name, ItemType itemType, EquipType equipType, Stat stat, int statValue, string description, int price,
+        public ItemInfo(int id, string name, ItemType itemType, EquipType equipType, Stat stat, float statValue, string description, int price,
              bool isSoldOut, bool isEquipped)
         {
             ID = id;
