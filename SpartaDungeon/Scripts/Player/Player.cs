@@ -188,7 +188,7 @@ namespace SpartaDungeon
 
         public void ShowSkillList()
         {
-            Console.WriteLine($"\n[스킬]");
+            ColorFont.Write("\n[스킬]\n", Color.Blue);
 
             for (int i = 0; i < Skills.Count; i++)
             {

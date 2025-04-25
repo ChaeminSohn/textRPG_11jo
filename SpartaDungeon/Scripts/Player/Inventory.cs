@@ -123,7 +123,7 @@ namespace SpartaDungeon
                 Console.WriteLine("\n1. 장비 아이템");
                 Console.WriteLine("2. 소비 아이템");
                 Console.WriteLine("3. 기타 아이템");
-                Console.WriteLine("0. 나가기");
+                ColorFont.Write("\n0. 나가기\n", Color.Magenta);
                 Console.Write("\n원하시는 행동을 입력해주세요.");
 
                 switch (Utils.GetPlayerInput())
@@ -155,7 +155,7 @@ namespace SpartaDungeon
                 Console.WriteLine("인벤토리 - 장비 아이템");
                 Console.WriteLine("장비 아이템을 장착/해제할 수 있습니다.");
 
-                Console.WriteLine("\n[아이템 목록]");
+                ColorFont.Write("\n[아이템 목록]\n", Color.Green);
                 for (int i = 0; i < Equipments.Count; i++)
                 {
                     if (((Equipment)Equipments[i]).IsEquipped)
@@ -169,7 +169,7 @@ namespace SpartaDungeon
                     Equipments[i].ShowInfo(false);
                 }
 
-                Console.WriteLine("\n0. 나가기");
+                ColorFont.Write("\n0. 나가기\n", Color.Magenta);
                 Console.Write("\n장착/해제할 아이템 번호를 입력하세요. ");
 
                 int playerInput = Utils.GetPlayerInput();
@@ -216,7 +216,7 @@ namespace SpartaDungeon
                 Console.Clear();
                 Console.WriteLine("인벤토리 - 소비 아이템");
                 Console.WriteLine("보유 중인 아이템을 관리할 수 있습니다.");
-                Console.WriteLine("\n[아이템 목록]");
+                ColorFont.Write("\n[아이템 목록]\n", Color.Green);
                 for (int i = 0; i < Usables.Count; i++)
                 {
                     Console.Write($"- {i + 1}.  ");
@@ -266,14 +266,14 @@ namespace SpartaDungeon
             Console.Clear();
             Console.WriteLine("인벤토리 - 기타 아이템");
             Console.WriteLine("보유 중인 아이템을 관리할 수 있습니다.");
-            Console.WriteLine("\n[아이템 목록]");
+            ColorFont.Write("\n[아이템 목록]\n", Color.Green);
             foreach (ITradable item in Others)
             {
                 Console.Write("- ");
                 item.ShowInfo(false);
             }
 
-            Console.WriteLine("\n0. 나가기");
+            ColorFont.Write("\n0. 나가기\n", Color.Magenta);
             Console.Write("\n원하시는 행동을 입력해주세요.");
             int playerInput = Utils.GetPlayerInput();
 
