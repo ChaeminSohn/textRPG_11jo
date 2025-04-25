@@ -12,7 +12,7 @@ namespace SpartaDungeon
         public List<ITradable> Items { get; private set; } = new List<ITradable>();      //판매하는 모든 아이템
         List<ITradable> equipments = new List<ITradable>();     //판매하는 모든 장비 아이템
         List<ITradable> weaponList = new List<ITradable>();
-        List<ITradable> armorList = new List<ITradable>(); 
+        List<ITradable> armorList = new List<ITradable>();
         List<ITradable> headList = new List<ITradable>();
         List<ITradable> shoeList = new List<ITradable>();
         List<ITradable> gloveList = new List<ITradable>();
@@ -65,7 +65,7 @@ namespace SpartaDungeon
                         break;
                 }
             }
-            EquipmentDivision(items);
+            EquipmentDivision(equipments);
         }
 
         public void EquipmentDivision(List<ITradable> items) // 장비 아이템 분배
@@ -156,7 +156,7 @@ namespace SpartaDungeon
             }
         }
 
-        private void ShowCategory(string categoryName, List<ITradable> shopItems, List<ITradable> playerItems , EquipType? equipType)
+        private void ShowCategory(string categoryName, List<ITradable> shopItems, List<ITradable> playerItems, EquipType? equipType)
         {
             while (true)
             {
@@ -168,13 +168,13 @@ namespace SpartaDungeon
 
                 foreach (ITradable item in shopItems)
                 {
-                    if(equipType == null)
+                    if (equipType == null)
                     {
                         Console.Write("- ");
                         item.ShowInfo(true);
                         Console.WriteLine();
                     }
-                    else if(item.EquipType == equipType)
+                    else if (item.EquipType == equipType)
                     {
                         Console.Write("- ");
                         item.ShowInfo(true);
@@ -204,7 +204,7 @@ namespace SpartaDungeon
             }
         }
 
-        public void BuyItems(List<ITradable> sellingItems , EquipType? equipType) //아이템 구매 UI
+        public void BuyItems(List<ITradable> sellingItems, EquipType? equipType) //아이템 구매 UI
         {
             while (true)
             {
@@ -271,6 +271,7 @@ namespace SpartaDungeon
                                 case 1:
                                     player.ChangeMeso(-selectedItem.Price);
                                     player.Inventory.AddItem(selectedItem);
+                                    selectedItem.OnTrade();
                                     Console.WriteLine("\n구매 감사합니다!");
                                     Utils.Pause(true);
                                     break;
