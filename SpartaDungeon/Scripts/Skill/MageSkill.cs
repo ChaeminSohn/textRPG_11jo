@@ -10,7 +10,7 @@ namespace SpartaDungeon
     {
         public float Damage { get; private set; }
 
-        public MagicClaw() : base("매직클로", "MP 20 소비, 적 하나에 데미지 150% 두번 공격", 20)
+        public MagicClaw() : base("매직클로", "MP 20 소비, 적 하나에게 데미지 150% 두번 공격", 20)
         {
             Damage = 1.5f;
         }
