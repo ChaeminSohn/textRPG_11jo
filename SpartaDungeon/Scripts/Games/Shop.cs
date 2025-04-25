@@ -77,8 +77,9 @@ namespace SpartaDungeon
                 Console.WriteLine("6. 보조무기 상점");
                 Console.WriteLine("7. 소비 아이템");
                 Console.WriteLine("8. 기타 아이템");
-                Console.WriteLine("0. 나가기");
+                ColorFont.Write("\n0. 나가기\n", Color.Magenta);
                 Console.Write("\n원하시는 행동을 입력해주세요.");
+
                 switch (Utils.GetPlayerInput())
                 {
                     case 0:
@@ -143,7 +144,7 @@ namespace SpartaDungeon
 
                 Console.WriteLine("\n1. 아이템 구매");
                 Console.WriteLine("2. 아이템 판매");
-                Console.WriteLine("0. 나가기");
+                ColorFont.Write("\n0. 나가기\n", Color.Magenta);
                 Console.Write("\n원하시는 행동을 입력해주세요.");
                 switch (Utils.GetPlayerInput())
                 {
@@ -191,7 +192,7 @@ namespace SpartaDungeon
                         Console.WriteLine();
                     }
                 }
-                Console.WriteLine("\n0. 나가기");
+                ColorFont.Write("\n0. 나가기\n", Color.Magenta);
                 Console.WriteLine("\n구매할 아이템 번호를 입력하세요. ");
                 int playerInput = Utils.GetPlayerInput();
 
@@ -356,7 +357,7 @@ namespace SpartaDungeon
                     Console.Write($"- {index++}. ");
                     item.ShowInfo(false);
                 }
-                Console.WriteLine("\n0. 나가기");
+                ColorFont.Write("\n0. 나가기\n", Color.Magenta);
                 Console.WriteLine("\n판매할 아이템 번호를 입력하세요. ");
                 int playerInput = Utils.GetPlayerInput();
 
