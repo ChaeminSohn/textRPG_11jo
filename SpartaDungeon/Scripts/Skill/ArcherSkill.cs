@@ -10,7 +10,7 @@ namespace SpartaDungeon
     {
         public float Damage { get; private set; }
 
-        public ArrowBlow() : base("애로우 블로우", "MP 14 소비, 적 하나에 데미지 260%", 14)
+        public ArrowBlow() : base("애로우 블로우", "MP 14 소비, 적 하나에게 데미지 260%", 14)
         {
             Damage = 2.6f;
         }
