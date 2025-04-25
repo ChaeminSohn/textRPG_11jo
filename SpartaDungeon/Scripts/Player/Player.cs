@@ -36,9 +36,8 @@ namespace SpartaDungeon
         public int Meso { get; private set; }   //메소
         public Inventory Inventory { get; private set; }    //인벤토리
         public event Action? OnPlayerDie; //플레이어 사망 이벤트
-        private List<Monster> monsters;
 
-        public Player(string name, Job job, Inventory inventory, List<Monster> monsters)    //새 게임 생성자
+        public Player(string name, Job job, Inventory inventory)    //새 게임 생성자
         {
 
             Name = name;
@@ -49,7 +48,6 @@ namespace SpartaDungeon
             LoadDefaultData();
             inventory.OnEquipChanged += UpdatePlayerStats;
             IsDead = false;
-            this.monsters = monsters;
             InitializeSkills();
         }
 
