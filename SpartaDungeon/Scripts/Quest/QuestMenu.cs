@@ -23,6 +23,10 @@ namespace SpartaDungeon
                 Quest quest = new Quest(info);
                 (info.IsAccepted ? myQuests : availableQuests).Add(quest);
             }
+            foreach (Quest quest in myQuests)
+            {
+                quest.Condition.OnDataLoad();
+            }
         }
 
         public List<QuestInfo> GetQuestSaveData()

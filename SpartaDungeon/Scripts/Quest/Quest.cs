@@ -21,8 +21,8 @@ namespace SpartaDungeon
 
         public bool IsAccepted { get; set; }  //퀘스트 수락 여부
         public bool IsCompleted { get; set; } //퀘스트 완료 여부
-        public Dictionary<int, int> TargetCount { get; set; }    // ID, 개수
-        public Dictionary<int, int> CurrentCount { get; set; }
+        public Dictionary<int, int> TargetCount { get; set; } = new Dictionary<int, int>();  // ID, 개수
+        public Dictionary<int, int> CurrentCount { get; set; } = new Dictionary<int, int>();
         public Dictionary<int, int> RequiredItems = new Dictionary<int, int>();
 
 
@@ -35,7 +35,6 @@ namespace SpartaDungeon
             IsAccepted = info.IsAccepted;
             IsCompleted = info.IsCompleted;
             TargetCount = info.TargetCount;
-            CurrentCount = info.CurrentCount;
             // 조건 생성
             Condition = QuestConditionFactory.Create(info);
         }
@@ -48,8 +47,8 @@ namespace SpartaDungeon
                 Reward = Reward,
                 IsAccepted = IsAccepted,
                 IsCompleted = IsCompleted,
-                TargetCount = TargetCount,
-                CurrentCount = CurrentCount
+                TargetCount = Condition.TargetCount,
+                CurrentCount = Condition.CurrentCount
             };
         }
         public void DisplayDetails()

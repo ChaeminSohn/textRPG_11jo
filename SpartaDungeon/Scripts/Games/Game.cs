@@ -27,7 +27,7 @@ namespace SpartaDungeon
         {
             savePath = Path.Combine(folderPath, "saveData.json");
             ItemDataBase.Load(@"..\..\..\resources/items_config.json");
-            MonsterDataBase.Load(Path.Combine(folderPath, "monster_config.json"));
+            MonsterDataBase.Load(folderPath);
             QuestDataBase.Load(Path.Combine(folderPath, "quest_config.json"));
             if (File.Exists(savePath))  //세이브 파일이 존재할 경우
             {
@@ -93,8 +93,8 @@ namespace SpartaDungeon
                 shopItemData.Add(item.GetItemInfo());
             }
             Utils.Pause(false);
-            GameSaveData gameSaveData = new GameSaveData(player.GetPlayerData(),
-                inventoryItemData, shopItemData, questMenu.GetQuestSaveData());
+            GameSaveData gameSaveData = new GameSaveData(player.GetPlayerData(), inventoryItemData, shopItemData,
+             questMenu.GetQuestSaveData(), new Dictionary<int, int>(MonsterDataBase.MonsterKillCount));
             string json = JsonSerializer.Serialize(gameSaveData);
             File.WriteAllText(savePath, json);
         }

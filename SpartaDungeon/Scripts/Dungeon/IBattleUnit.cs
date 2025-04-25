@@ -65,7 +65,7 @@ namespace SpartaDungeon
         {
             CurrentMP -= mp;
             if (CurrentMP <= 0)
-                CurrentHP = 0;
+                CurrentMP = 0;
         }
 
 

@@ -202,10 +202,10 @@ namespace SpartaDungeon
             }
             killedMonsters.Add(monster);
             {
-                if (player.monsterKillCounts.ContainsKey(monster.Id))
-                    player.monsterKillCounts[monster.Id]++;
+                if (MonsterDataBase.MonsterKillCount.ContainsKey(monster.Id))
+                    MonsterDataBase.MonsterKillCount[monster.Id]++;
                 else
-                    player.monsterKillCounts[monster.Id] = 1;
+                    MonsterDataBase.MonsterKillCount[monster.Id] = 1;
             }
 
             player.GetEXP(monster.ExpReward);       //경험치 획득
@@ -242,7 +242,7 @@ namespace SpartaDungeon
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("Battle!");
                     Console.ResetColor();
-                    if(randSkill.NextDouble() < 0.5f && 100 < monster.Id) monster.Skills[0].Activate(monster, player, monsters); // 보스면 20%로 스킬공격
+                    if (randSkill.NextDouble() < 0.5f && 100 < monster.Id) monster.Skills[0].Activate(monster, player, monsters); // 보스면 20%로 스킬공격
                     else monster.AutoAttack(player);
                     Utils.Pause(true);
                 }

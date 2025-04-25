@@ -6,6 +6,9 @@ namespace SpartaDungeon
     {
         bool CanComplete { get; }       //완료 가능 여부
 
+        Dictionary<int, int> TargetCount { get; set; }
+        Dictionary<int, int> CurrentCount { get; set; }
+
         void ShowCondition();
         void OnQuestExcepted();
         void OnDataLoad();      //게임 불러오기 시 실행
@@ -24,9 +27,9 @@ namespace SpartaDungeon
         //게임 불러오기 시 (총 처치 수) - (퀘스트 처치 수)로 다시 계산
 
         // (몬스터 ID, 개수)
-        public Dictionary<int, int> StartKillCount = new Dictionary<int, int>();
-        public Dictionary<int, int> TargetCount = new Dictionary<int, int>();
-        public Dictionary<int, int> CurrentCount = new Dictionary<int, int>();
+        public Dictionary<int, int> StartKillCount { get; set; } = new Dictionary<int, int>();
+        public Dictionary<int, int> TargetCount { get; set; } = new Dictionary<int, int>();
+        public Dictionary<int, int> CurrentCount { get; set; } = new Dictionary<int, int>();
 
         public void ShowCondition()
         {
@@ -86,8 +89,8 @@ namespace SpartaDungeon
         public bool CanComplete { get; set; }
 
         // (아이템 ID, 개수)
-        public Dictionary<int, int> TargetCount = new Dictionary<int, int>();
-        public Dictionary<int, int> CurrentCount = new Dictionary<int, int>();
+        public Dictionary<int, int> TargetCount { get; set; } = new Dictionary<int, int>();
+        public Dictionary<int, int> CurrentCount { get; set; } = new Dictionary<int, int>();
 
 
         public void ShowCondition()

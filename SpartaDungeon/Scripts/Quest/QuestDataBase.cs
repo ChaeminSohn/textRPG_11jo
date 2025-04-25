@@ -20,7 +20,10 @@ namespace SpartaDungeon
     {
         public static IQuestCondition Create(QuestInfo info)
         {
-            if (info.CurrentCount == null) info.CurrentCount = new Dictionary<int, int>();
+            if (info.CurrentCount == null)
+            {
+                info.CurrentCount = new Dictionary<int, int>();
+            }
 
             switch (info.Type)
             {
