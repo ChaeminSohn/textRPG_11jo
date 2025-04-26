@@ -1,15 +1,59 @@
-using System.Linq.Expressions;
-using System.Threading;
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using NAudio.Wave;
 
 namespace SpartaDungeon
 {
+    
+    public class LoopStream : WaveStream
+    {
+        private readonly WaveStream sourceStream;
+
+        public LoopStream(WaveStream sourceStream)
+        {
+            this.sourceStream = sourceStream;
+        }
+
+        public override WaveFormat WaveFormat => sourceStream.WaveFormat;
+
+       
+        public override long Length => long.MaxValue;
+
+        public override long Position
+        {
+            get => sourceStream.Position;
+            set => sourceStream.Position = value;
+        }
+
+        public override int Read(byte[] buffer, int offset, int count)
+        {
+            int totalBytesRead = 0;
+
+            while (totalBytesRead < count)
+            {
+                int bytesRead = sourceStream.Read(buffer, offset + totalBytesRead, count - totalBytesRead);
+                if (bytesRead == 0)
+                {
+                    
+                    sourceStream.Position = 0;
+                    bytesRead = sourceStream.Read(buffer, offset + totalBytesRead, count - totalBytesRead);
+                    if (bytesRead == 0)
+                    {
+                        break;
+                    }
+                }
+                totalBytesRead += bytesRead;
+            }
+            return totalBytesRead;
+        }
+    }
+
     internal class Dungeon
     {
         private Player player;
         private static Random random;
         private List<Monster> monsters;
-
 
         private readonly Dictionary<Difficulty, string> dungeonIntroductions = new Dictionary<Difficulty, string>
         {
@@ -19,7 +63,6 @@ namespace SpartaDungeon
             { Difficulty.Hard,     "돼지와 나무...꾼?" },
             { Difficulty.VeryHard, "템은 다 맞추고 오시는거 맞죠? 못 잡으실거에요ㅎㅎ" }
         };
-
 
         private readonly Dictionary<Difficulty, string> dungeonDecorations = new Dictionary<Difficulty, string>
         {
@@ -50,14 +93,12 @@ namespace SpartaDungeon
   *****************************" }
         };
 
-
         private readonly string hiddenBossRoomDecoration =
 @"  _________________________________
  /                                 \
 |      ELNAS (ABANDONED MINE)       |
 |   Heart of the Ruined Mine        |
  \_________________________________/";
-
 
         private Dictionary<Difficulty, bool> stageCleared = new Dictionary<Difficulty, bool>
         {
@@ -68,7 +109,6 @@ namespace SpartaDungeon
             { Difficulty.VeryHard, false }
         };
 
-
         private readonly Dictionary<Difficulty, string> bossDialogues = new Dictionary<Difficulty, string>
         {
             { Difficulty.VeryEasy, "머쉬맘: ㅂ...ㅓ....ㅅ..ㅓ..ㅅ!!!!!" },
@@ -78,12 +118,20 @@ namespace SpartaDungeon
             { Difficulty.VeryHard, "좀비 머쉬맘: 안녕하세요 좀비입니다. 버섯이죠!" }
         };
 
-
-
         private readonly string hiddenBossDialogue = "원석의 힘으로 자쿰이 소환됩니다.";
 
-       
+        // NAudio 관련 필드와 난이도별 BGM 파일 경로
+        private readonly Dictionary<Difficulty, string> dungeonBgms = new Dictionary<Difficulty, string>
+        {
+            { Difficulty.VeryEasy, "Audio/bgm_veryeasy.mp3" },
+            { Difficulty.Easy,     "Audio/bgm_easy.mp3" },
+            { Difficulty.Normal,   "Audio/bgm_normal.mp3" },
+            { Difficulty.Hard,     "Audio/bgm_hard.mp3" },
+            { Difficulty.VeryHard, "Audio/bgm_veryhard.mp3" }
+        };
 
+        private IWavePlayer waveOutDevice;
+        private AudioFileReader audioFileReader;
 
         public Dungeon(Player player, List<Monster> monsters)
         {
@@ -114,8 +162,6 @@ namespace SpartaDungeon
                 Console.WriteLine("0. 나가기");
 
                 int input = Utils.GetPlayerInput();
-
-
 
                 if (input == 6 && stageCleared.Values.All(x => x))
                 {
@@ -177,12 +223,16 @@ namespace SpartaDungeon
                         exitDungeon = true;
                     }
                 }
+                StopBgm();
                 return;
             }
         }
 
         private int ShowDungeonIntro(Difficulty difficulty, bool cleared)
         {
+            // 해당 난이도의 BGM을 재생합니다.
+            PlayBgm(difficulty);
+
             int minLevel = difficulty switch
             {
                 Difficulty.VeryEasy => 1,
@@ -205,7 +255,6 @@ namespace SpartaDungeon
 
             Console.Clear();
 
-            // 던전 꾸밈 출력
             if (dungeonDecorations.TryGetValue(difficulty, out string? decoration))
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -236,13 +285,48 @@ namespace SpartaDungeon
             return input;
         }
 
+        private void PlayBgm(Difficulty difficulty)
+        {
+            StopBgm();
+
+            if (dungeonBgms.TryGetValue(difficulty, out string bgmPath))
+            {
+                try
+                {
+                    audioFileReader = new AudioFileReader(bgmPath);
+                    var loop = new LoopStream(audioFileReader);
+                    waveOutDevice = new WaveOutEvent();
+                    waveOutDevice.Init(loop);
+                    waveOutDevice.Play();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"BGM 재생 오류: {ex.Message}");
+                }
+            }
+        }
+
+        private void StopBgm()
+        {
+            if (waveOutDevice != null)
+            {
+                waveOutDevice.Stop();
+                waveOutDevice.Dispose();
+                waveOutDevice = null;
+            }
+            if (audioFileReader != null)
+            {
+                audioFileReader.Dispose();
+                audioFileReader = null;
+            }
+        }
+
         private void StartNormalBattle(Difficulty difficulty)
         {
             List<Monster> normalMonsters = GenerateNormalMonsters(difficulty);
             Battle battle = new Battle(player, normalMonsters.ToArray());
             battle.StartBattle();
         }
-
 
         private void StartBossBattle(Difficulty difficulty)
         {
@@ -258,7 +342,6 @@ namespace SpartaDungeon
             battle.StartBattle();
         }
 
-
         private void StartHiddenBossBattle()
         {
             Console.Clear();
@@ -266,7 +349,6 @@ namespace SpartaDungeon
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine(hiddenBossRoomDecoration);
             Console.ResetColor();
-
 
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine(hiddenBossDialogue);
@@ -277,7 +359,6 @@ namespace SpartaDungeon
             Battle battle = new Battle(player, new Monster[] { hiddenBoss });
             battle.StartBattle();
         }
-
 
         private List<Monster> GenerateNormalMonsters(Difficulty difficulty)
         {
@@ -294,16 +375,13 @@ namespace SpartaDungeon
             return selectedMonsters;
         }
 
-
         private Monster GenerateBoss(Difficulty difficulty)
         {
             int bossId = GetBossId(difficulty);
             Monster? boss = monsters.FirstOrDefault(mon => mon.Id == bossId);
             if (boss == null)
             {
-
                 Console.WriteLine($"[경고] 보스는 휴가중");
-
                 boss = monsters.First();
             }
             boss = boss.Clone();
@@ -311,24 +389,19 @@ namespace SpartaDungeon
             return boss;
         }
 
-
         private Monster GenerateHiddenBoss()
         {
             int hiddenBossId = 999;
             Monster? boss = monsters.FirstOrDefault(mon => mon.Id == hiddenBossId);
             if (boss == null)
             {
-
                 Console.WriteLine($"[경고] 보스는 휴가중");
-
                 boss = monsters.First();
             }
             boss = boss.Clone();
-
             boss.Level = random.Next(20, 26);
             return boss;
         }
-
 
         private List<Monster> FilterMonstersByDifficulty(Difficulty difficulty)
         {
@@ -357,7 +430,6 @@ namespace SpartaDungeon
             var filtered = monsters.Where(mon => mon.Id >= minId && mon.Id <= maxId).ToList();
             return filtered.Count > 0 ? filtered : monsters;
         }
-
 
         private int GetBossId(Difficulty difficulty)
         {
@@ -389,11 +461,11 @@ namespace SpartaDungeon
         {
             return difficulty switch
             {
-                Difficulty.VeryEasy => random.Next(1, 4),    // 1 ~ 3
-                Difficulty.Easy => random.Next(3, 6),         // 3 ~ 5
-                Difficulty.Normal => random.Next(5, 8),       // 5 ~ 7
-                Difficulty.Hard => random.Next(7, 10),         // 7 ~ 9
-                Difficulty.VeryHard => random.Next(9, 11),      // 9 ~ 10
+                Difficulty.VeryEasy => random.Next(1, 4),
+                Difficulty.Easy => random.Next(3, 6),
+                Difficulty.Normal => random.Next(5, 8),
+                Difficulty.Hard => random.Next(7, 10),
+                Difficulty.VeryHard => random.Next(9, 11),
                 _ => 1
             };
         }
@@ -402,16 +474,17 @@ namespace SpartaDungeon
         {
             return difficulty switch
             {
-                Difficulty.VeryEasy => random.Next(3, 5),     // 예: 3 ~ 4
-                Difficulty.Easy => random.Next(5, 7),          // 예: 5 ~ 6
-                Difficulty.Normal => random.Next(7, 9),        // 예: 7 ~ 8
-                Difficulty.Hard => random.Next(9, 11),         // 예: 9 ~ 10
-                Difficulty.VeryHard => random.Next(11, 13),      // 예: 11 ~ 12
+                Difficulty.VeryEasy => random.Next(3, 5),
+                Difficulty.Easy => random.Next(5, 7),
+                Difficulty.Normal => random.Next(7, 9),
+                Difficulty.Hard => random.Next(9, 11),
+                Difficulty.VeryHard => random.Next(11, 13),
                 _ => 1
             };
         }
     }
 
+    // 원본 스크립트에 있던 난이도(enum) 정의를 그대로 포함합니다.
     public enum Difficulty
     {
         VeryEasy,
