@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace SpartaDungeon
 {
-    public enum QuestType
+    public enum QuestType   //퀘스트 종류
     {
-        KillMonster,
-        CollectItem
+        KillMonster,      //몬스터 처치 
+        CollectItem     //아이템 수집 
     }
     internal class Quest
     {
@@ -53,8 +53,7 @@ namespace SpartaDungeon
         }
         public void DisplayDetails()
         {
-            //int reward = int.Parse(Reward);  // 예외 처리 가능
-            Console.WriteLine($"\n===== 퀘스트 상세 정보 =====");
+            Console.WriteLine($"\n===== 퀘스트 상세 정보 =====\n");
             Console.WriteLine($"제목     : {Title}");
             Console.WriteLine($"설명     : {Description}");
             Condition.ShowCondition();

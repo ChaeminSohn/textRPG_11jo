@@ -54,7 +54,7 @@ namespace SpartaDungeon
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("=== 퀘스트 게시판 ===");
+                Console.WriteLine("=== 퀘스트 게시판 ===\n");
                 Console.WriteLine("1. 내 퀘스트");
                 Console.WriteLine("2. 새 퀘스트");
                 Console.WriteLine("0. 뒤로가기");
@@ -83,7 +83,7 @@ namespace SpartaDungeon
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("=== 내 퀘스트 목록 ===");
+                Console.WriteLine("=== 내 퀘스트 목록 ===\n");
 
                 if (myQuests.Count == 0)
                 {
@@ -141,7 +141,7 @@ namespace SpartaDungeon
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("=== 새 퀘스트 목록 ===");
+                Console.WriteLine("=== 새 퀘스트 목록 ===\n");
 
                 for (int i = 0; i < availableQuests.Count; i++)
                 {

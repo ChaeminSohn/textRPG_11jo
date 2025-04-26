@@ -11,7 +11,5 @@ namespace SpartaDungeon
         public QuestType Type { get; set; }  //퀘스트 타입
         public Dictionary<int, int> TargetCount { get; set; }    // ID, 개수
         public Dictionary<int, int> CurrentCount { get; set; }
-
-        //public QuestConditionInfo Condition;    //퀘스트 조건, 진행 상황
     }
 }

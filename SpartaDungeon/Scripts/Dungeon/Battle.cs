@@ -191,6 +191,12 @@ namespace SpartaDungeon
                 {
                     return;
                 }
+                else if (player.CurrentMP < player.Skills[skillNumInput - 1].MP)
+                {
+                    Console.WriteLine("마나가 부족합니다.");
+                    Utils.Pause(false);
+                    continue;
+                }
                 else
                 {
                     PlayerAttackAction(skillNumInput - 1);

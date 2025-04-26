@@ -9,6 +9,7 @@ namespace SpartaDungeon
                 Console.Clear();
                 Console.WriteLine("메이플 월드에 오신 걸 환영합니다!");
                 Console.WriteLine("플레이어 이름을 입력해주세요.");
+                Console.Write("\n>>");
                 string? input = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(input) || input.Length < 2 || input.Length > 12)
                 {

@@ -11,7 +11,7 @@ using System.Threading;
 
 namespace SpartaDungeon
 {
-    
+
     public class LoopStream : WaveStream
     {
         private readonly WaveStream sourceStream;
@@ -23,7 +23,7 @@ namespace SpartaDungeon
 
         public override WaveFormat WaveFormat => sourceStream.WaveFormat;
 
-       
+
         public override long Length => long.MaxValue;
 
         public override long Position
@@ -41,7 +41,7 @@ namespace SpartaDungeon
                 int bytesRead = sourceStream.Read(buffer, offset + totalBytesRead, count - totalBytesRead);
                 if (bytesRead == 0)
                 {
-                    
+
                     sourceStream.Position = 0;
                     bytesRead = sourceStream.Read(buffer, offset + totalBytesRead, count - totalBytesRead);
                     if (bytesRead == 0)
@@ -145,7 +145,7 @@ namespace SpartaDungeon
         public Dungeon(Player player)
         {
             this.player = player;
-           
+
             random = new Random();
         }
 
@@ -232,7 +232,7 @@ namespace SpartaDungeon
                         exitDungeon = true;
                     }
                 }
-                StopBgm();
+                SoundManager.StopBgm();
                 return;
             }
         }
@@ -240,7 +240,8 @@ namespace SpartaDungeon
         private int ShowDungeonIntro(Difficulty difficulty, bool cleared)
         {
             // 해당 난이도의 BGM을 재생합니다.
-            PlayBgm(difficulty);
+            SoundManager.PlayBgm(dungeonBgms[difficulty]);
+            //PlayBgm(difficulty);
 
             int minLevel = difficulty switch
             {
@@ -294,41 +295,6 @@ namespace SpartaDungeon
             return input;
         }
 
-        private void PlayBgm(Difficulty difficulty)
-        {
-            StopBgm();
-
-            if (dungeonBgms.TryGetValue(difficulty, out string bgmPath))
-            {
-                try
-                {
-                    audioFileReader = new AudioFileReader(bgmPath);
-                    var loop = new LoopStream(audioFileReader);
-                    waveOutDevice = new WaveOutEvent();
-                    waveOutDevice.Init(loop);
-                    waveOutDevice.Play();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"BGM 재생 오류: {ex.Message}");
-                }
-            }
-        }
-
-        private void StopBgm()
-        {
-            if (waveOutDevice != null)
-            {
-                waveOutDevice.Stop();
-                waveOutDevice.Dispose();
-                waveOutDevice = null;
-            }
-            if (audioFileReader != null)
-            {
-                audioFileReader.Dispose();
-                audioFileReader = null;
-            }
-        }
 
         private void StartNormalBattle(Difficulty difficulty)
         {
@@ -513,7 +479,7 @@ namespace SpartaDungeon
         }
     }
 
- 
+
     public enum Difficulty
     {
         VeryEasy,
