@@ -59,7 +59,7 @@ namespace SpartaDungeon
     {
         private Player player;
         private static Random random;
-        //private List<Monster> monsters;
+        private List<Monster> monsters;
 
         private readonly Dictionary<Difficulty, string> dungeonIntroductions = new Dictionary<Difficulty, string>
         {
