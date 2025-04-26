@@ -1340,7 +1340,7 @@
             "ItemType": "Equipment",
             "EquipType": "Glove",
             "Stat": "CritChance",
-            "StatValue": 3.5
+            "StatValue": 3
         },
         {
             "ID": 2302,
@@ -1350,7 +1350,7 @@
             "ItemType": "Equipment",
             "EquipType": "Glove",
             "Stat": "CritChance",
-            "StatValue": 10.4
+            "StatValue": 10
         },
         {
             "ID": 2303,
@@ -1360,7 +1360,7 @@
             "ItemType": "Equipment",
             "EquipType": "Glove",
             "Stat": "CritChance",
-            "StatValue": 14.2
+            "StatValue": 14
         },
         {
             "ID": 2304,
@@ -1370,7 +1370,7 @@
             "ItemType": "Equipment",
             "EquipType": "Glove",
             "Stat": "CritChance",
-            "StatValue": 20.5
+            "StatValue": 20
         },
         {
             "ID": 2401,
@@ -1380,7 +1380,7 @@
             "ItemType": "Equipment",
             "EquipType": "Shoe",
             "Stat": "EvadeChance",
-            "StatValue": 2.0
+            "StatValue": 2
         },
         {
             "ID": 2402,
@@ -1390,7 +1390,7 @@
             "ItemType": "Equipment",
             "EquipType": "Shoe",
             "Stat": "EvadeChance",
-            "StatValue": 4.3
+            "StatValue": 4
         },
         {
             "ID": 2403,
@@ -1400,7 +1400,7 @@
             "ItemType": "Equipment",
             "EquipType": "Shoe",
             "Stat": "EvadeChance",
-            "StatValue": 8.5
+            "StatValue": 8
         },
         {
             "ID": 2404,
@@ -1410,7 +1410,7 @@
             "ItemType": "Equipment",
             "EquipType": "Shoe",
             "Stat": "EvadeChance",
-            "StatValue": 16.4
+            "StatValue": 16
         },
         {
             "ID": 2501,
