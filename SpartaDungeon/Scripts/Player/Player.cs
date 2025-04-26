@@ -246,6 +246,7 @@ namespace SpartaDungeon
             Console.WriteLine($"마나 : {CurrentMP}/{FullMP}");
             Console.WriteLine($"메소 : {Meso} 메소");
             ShowSkillList();
+            ShowEquippedItems();
         }
 
         public void ShowState() // 상태 창
@@ -296,6 +297,16 @@ namespace SpartaDungeon
                 {
                     Console.WriteLine($"{MonsterDataBase.MonsterDict[kv.Key].Name} : {kv.Value}마리");
                 }
+            }
+        }
+
+        public void ShowEquippedItems()
+        {
+            ColorFont.Write("\n[장비]\n", Color.Blue);
+            foreach (var kv in Inventory.EquippedItems)
+            {
+                if(Inventory.EquippedItems[kv.Key] != null)
+                    Inventory.EquippedItems[kv.Key].ShowInfo(false);
             }
         }
     }
