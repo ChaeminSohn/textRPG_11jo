@@ -17,7 +17,6 @@ namespace SpartaDungeon
         List<ITradable> shoeList = new List<ITradable>();
         List<ITradable> gloveList = new List<ITradable>();
         List<ITradable> subWeaponList = new List<ITradable>();
-
         List<ITradable> usables = new List<ITradable>();   //판매하는 소비 아이템 목록
         List<ITradable> others = new List<ITradable>();     //판매하는 기타 아이템 목록
         Player player;
