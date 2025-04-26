@@ -101,6 +101,7 @@ namespace SpartaDungeon
 
         public void ShowShop() // 3: 상점 창
         {
+            SoundManager.PlayBgm("bgm_shop.mp3");
             while (true)
             {
                 //상점 인터페이스 표시

@@ -130,17 +130,12 @@ namespace SpartaDungeon
         // NAudio 관련 필드와 난이도별 BGM 파일 경로
         private readonly Dictionary<Difficulty, string> dungeonBgms = new Dictionary<Difficulty, string>
         {
-            { Difficulty.VeryEasy, "Audio/bgm_veryeasy.mp3" },
-            { Difficulty.Easy,     "Audio/bgm_easy.mp3" },
-            { Difficulty.Normal,   "Audio/bgm_normal.mp3" },
-            { Difficulty.Hard,     "Audio/bgm_hard.mp3" },
-            { Difficulty.VeryHard, "Audio/bgm_veryhard.mp3" }
+            { Difficulty.VeryEasy, "bgm_veryeasy.mp3" },
+            { Difficulty.Easy,     "bgm_easy.mp3" },
+            { Difficulty.Normal,   "bgm_normal.mp3" },
+            { Difficulty.Hard,     "bgm_hard.mp3" },
+            { Difficulty.VeryHard, "bgm_veryhard.mp3" }
         };
-
-
-        private IWavePlayer waveOutDevice;
-        private AudioFileReader audioFileReader;
-
 
         public Dungeon(Player player)
         {

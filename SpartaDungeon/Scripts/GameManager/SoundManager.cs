@@ -7,11 +7,17 @@ namespace SpartaDungeon
     {
         static IWavePlayer? waveOutDevice;
         static AudioFileReader? audioFileReader;
+        static string? currentBgmName;  //현재 재생중인 BGM
 
-        public static void PlayBgm(string path)
+        public static void PlayBgm(string fileName)
         {
+            // 이미 같은 음악을 재생 중이면 아무것도 하지 않음
+            if (currentBgmName == fileName && waveOutDevice?.PlaybackState == PlaybackState.Playing)
+            {
+                return;
+            }
             StopBgm();
-
+            string path = Path.Combine(PathConstants.AudioFolder, fileName);
             if (File.Exists(path))
             {
                 try

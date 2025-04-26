@@ -17,13 +17,12 @@ namespace SpartaDungeon
         Dungeon dungeon;
         Inn inn = new Inn();
         bool isGameOver;
-        List<Monster> monsterList = new List<Monster>();
         QuestMenu questMenu;
 
         public void GameStart()     //게임 시작
         {
             LoadDatabases();
-
+            SoundManager.PlayBgm("bgm_title.mp3");
             if (File.Exists(PathConstants.SaveFilePath))  //세이브 파일이 존재할 경우
             {
                 Console.Clear();
@@ -40,7 +39,7 @@ namespace SpartaDungeon
                 Utils.Pause(true);
                 StartNewGame();
             }
-
+            SoundManager.PlayBgm("bgm_town.mp3");
             MainGameLoop();
         }
 
@@ -116,8 +115,7 @@ namespace SpartaDungeon
         {
             Console.Clear();
             Console.WriteLine("메이플 월드에 오신 여러분 환영합니다.");
-            Console.WriteLine("이곳에서 던전으로 들어가기전 활동을 할 수 있습니다.\n\n");
-
+            Console.WriteLine("이곳에서 자유롭게 활동을 할 수 있습니다.\n\n");
             Console.WriteLine("1. 상태 보기");
             Console.WriteLine("2. 인벤토리");
             Console.WriteLine("3. 자유시장");
