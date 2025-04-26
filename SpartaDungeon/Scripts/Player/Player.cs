@@ -189,17 +189,7 @@ namespace SpartaDungeon
             Meso += meso;
         }
 
-        public void ShowSkillList()
-        {
-            ColorFont.Write("\n[스킬]\n", Color.Blue);
-
-            for (int i = 0; i < Skills.Count; i++)
-            {
-                Console.WriteLine($"{i + 1}. {Skills[i].Name} : {Skills[i].Description}");
-            }
-        }
-
-        private void InitializeSkills()
+        private void InitializeSkills() // 스킬 초기화
         {
             switch (Job)
             {
@@ -228,11 +218,11 @@ namespace SpartaDungeon
                 BaseAttack, BaseDefense, BaseCritChance, BaseEvadeChance, Meso, FullMP, CurrentMP);
         }
 
-        public void ShowPlayerInfo()
+        public void ShowPlayerInfo() // 플레이어 정보 확인
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine("<상태 보기>");
+            ColorFont.Write("<상태 보기>\n", Color.DarkYellow);
             Console.ResetColor();
             Console.WriteLine("캐릭터의 정보가 표시됩니다.");
             Console.WriteLine($"\nLv. {Level}");
@@ -254,13 +244,13 @@ namespace SpartaDungeon
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("<상태 보기>");
+                ColorFont.Write("<상태 보기>\n", Color.DarkYellow);
                 Console.WriteLine("캐릭터의 정보가 표시됩니다.");
 
                 //플레이어 입력 받기
                 Console.WriteLine("\n1. 캐릭터 정보 ");
                 Console.WriteLine("2. 처치 현황");
-                Console.WriteLine("0. 나가기");
+                ColorFont.Write("\n0. 나가기\n", Color.Magenta);
                 Console.Write("\n원하시는 행동을 입력해주세요.");
                 switch (Utils.GetPlayerInput())
                 {
@@ -286,7 +276,7 @@ namespace SpartaDungeon
         public void ShowKillCount() // 킬 카운트 확인
         {
             Console.Clear();
-            Console.WriteLine("<상태 보기>");
+            ColorFont.Write("<상태 보기>\n", Color.DarkYellow);
             Console.WriteLine("처치 현황이 표시됩니다.");
             Console.WriteLine("\n[처치 현황]");
             foreach (var kv in MonsterDataBase.MonsterKillCount)
@@ -300,13 +290,51 @@ namespace SpartaDungeon
             }
         }
 
-        public void ShowEquippedItems()
+        public void ShowEquippedItems() // 장착 장비 확인
         {
             ColorFont.Write("\n[장비]\n", Color.Blue);
             foreach (var kv in Inventory.EquippedItems)
             {
-                if(Inventory.EquippedItems[kv.Key] != null)
-                    Inventory.EquippedItems[kv.Key].ShowInfo(false);
+                if (Inventory.EquippedItems[kv.Key] != null)
+                {
+                    switch (Inventory.EquippedItems[kv.Key].EquipType)
+                    {
+                        case EquipType.Weapon:
+                            ColorFont.Write("\n[무기]\n", Color.Green);
+                            Console.WriteLine($"{Inventory.EquippedItems[kv.Key].Name} | 공격력 : + {Inventory.EquippedItems[kv.Key].StatValue}");
+                            break;
+                        case EquipType.Armor:
+                            ColorFont.Write("\n[방어구]\n", Color.Green);
+                            Console.WriteLine($"{Inventory.EquippedItems[kv.Key].Name} | 방어력 : + {Inventory.EquippedItems[kv.Key].StatValue}");
+                            break;
+                        case EquipType.Head:
+                            ColorFont.Write("\n[투구]\n", Color.Green);
+                            Console.WriteLine($"{Inventory.EquippedItems[kv.Key].Name} | 방어력 : + {Inventory.EquippedItems[kv.Key].StatValue}");
+                            break;
+                        case EquipType.Glove:
+                            ColorFont.Write("\n[장갑]\n", Color.Green);
+                            Console.WriteLine($"{Inventory.EquippedItems[kv.Key].Name} | 치명타율 : + {Inventory.EquippedItems[kv.Key].StatValue}");
+                            break;
+                        case EquipType.Shoe:
+                            ColorFont.Write("\n[신발]\n", Color.Green);
+                            Console.WriteLine($"{Inventory.EquippedItems[kv.Key].Name} | 회피율 : + {Inventory.EquippedItems[kv.Key].StatValue}");
+                            break;
+                        case EquipType.SubWeapon:
+                            ColorFont.Write("\n[서브무기]\n", Color.Green);
+                            Console.WriteLine($"{Inventory.EquippedItems[kv.Key].Name} | 방어력 : + {Inventory.EquippedItems[kv.Key].StatValue}");
+                            break;
+                    }
+                }
+            }
+        }
+
+        public void ShowSkillList() // 스킬 리스트 확인
+        {
+            ColorFont.Write("\n[스킬]\n", Color.Blue);
+
+            for (int i = 0; i < Skills.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {Skills[i].Name} : {Skills[i].Description}");
             }
         }
     }

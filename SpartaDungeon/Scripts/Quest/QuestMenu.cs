@@ -54,10 +54,10 @@ namespace SpartaDungeon
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("=== 퀘스트 게시판 ===\n");
+                ColorFont.Write("<퀘스트 게시판>\n", Color.DarkYellow);
                 Console.WriteLine("1. 내 퀘스트");
                 Console.WriteLine("2. 새 퀘스트");
-                Console.WriteLine("0. 뒤로가기");
+                ColorFont.Write("\n0. 뒤로가기\n", Color.Magenta);
 
                 switch (Utils.GetPlayerInput())
                 {
@@ -83,7 +83,7 @@ namespace SpartaDungeon
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("=== 내 퀘스트 목록 ===\n");
+                ColorFont.Write("<내 퀘스트>\n", Color.DarkYellow);
 
                 if (myQuests.Count == 0)
                 {
@@ -141,7 +141,7 @@ namespace SpartaDungeon
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("=== 새 퀘스트 목록 ===\n");
+                ColorFont.Write("<새 퀘스트>\n", Color.DarkYellow);
 
                 for (int i = 0; i < availableQuests.Count; i++)
                 {

@@ -77,7 +77,7 @@ namespace SpartaDungeon
                 Console.ResetColor();
                 ShowBattleInfo();
 
-                Console.WriteLine("\n1. 공격");
+                ColorFont.Write("\n1. 공격\n", Color.DarkRed);
                 ColorFont.Write("2. 스킬\n", Color.Blue);
                 ColorFont.Write("\n0. 도망가기\n", Color.Magenta);
 

@@ -150,7 +150,7 @@ namespace SpartaDungeon
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("사냥터 입장");
+                Console.WriteLine("<사냥터 입장>");
                 Console.ResetColor();
                 Console.WriteLine("원하시는 곳을 선택하세요.\n");
                 Console.WriteLine("1. 헤네시스");
@@ -163,7 +163,7 @@ namespace SpartaDungeon
                 {
                     Console.WriteLine("6. 엘나스(폐광)");
                 }
-                Console.WriteLine("0. 나가기");
+                ColorFont.Write("\n0. 나가기\n", Color.Magenta);
 
                 int input = Utils.GetPlayerInput();
 
@@ -267,13 +267,13 @@ namespace SpartaDungeon
                 Console.ResetColor();
             }
 
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("이곳은 어딜까요?!");
-            Console.ResetColor();
-            Console.WriteLine($"선택한 사냥터: {difficulty}");
+            //Console.ForegroundColor = ConsoleColor.Cyan;
+            //Console.WriteLine("이곳은 어딜까요?!");
+            //Console.ResetColor();
+            //Console.WriteLine($"선택한 사냥터: {difficulty}\n");
 
             if (dungeonIntroductions.TryGetValue(difficulty, out string? introduction))
-                Console.WriteLine(introduction);
+                ColorFont.Write(introduction, Color.Cyan);
             else
                 Console.WriteLine("사냥터 개업준비중...");
 

@@ -125,7 +125,7 @@ namespace SpartaDungeon
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("<인벤토리>");
+                ColorFont.Write("<인벤토리>\n", Color.DarkYellow);
                 Console.WriteLine("보유 중인 아이템을 확인할 수 있습니다.");
 
                 Console.WriteLine("\n1. 무기");
@@ -180,7 +180,7 @@ namespace SpartaDungeon
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("인벤토리 - 장비 아이템");
+                ColorFont.Write("인벤토리 - 장비 아이템\n", Color.DarkYellow);
                 Console.WriteLine("장비 아이템을 장착/해제할 수 있습니다.");
                 ColorFont.Write("\n[아이템 목록]\n", Color.Green);
                 
@@ -243,7 +243,7 @@ namespace SpartaDungeon
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("인벤토리 - 소비 아이템");
+                ColorFont.Write("인벤토리 - 소비 아이템\n", Color.DarkYellow);
                 Console.WriteLine("보유 중인 아이템을 관리할 수 있습니다.");
                 ColorFont.Write("\n[아이템 목록]\n", Color.Green);
                 for (int i = 0; i < Usables.Count; i++)
@@ -293,7 +293,7 @@ namespace SpartaDungeon
         public void ControlOthers()
         {
             Console.Clear();
-            Console.WriteLine("인벤토리 - 기타 아이템");
+            ColorFont.Write("인벤토리 - 기타 아이템\n", Color.DarkYellow);
             Console.WriteLine("보유 중인 아이템을 관리할 수 있습니다.");
             ColorFont.Write("\n[아이템 목록]\n", Color.Green);
             foreach (ITradable item in Others)

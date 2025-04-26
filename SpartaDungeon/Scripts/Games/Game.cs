@@ -118,15 +118,17 @@ namespace SpartaDungeon
         {
             SoundManager.PlayBgm("bgm_town.mp3");
             Console.Clear();
-            Console.WriteLine("메이플 월드에 오신 여러분 환영합니다.");
+            ColorFont.Write("메이플 월드", Color.DarkYellow);
+            Console.Write("에 오신 여러분 환영합니다.\n");
             Console.WriteLine("이곳에서 자유롭게 활동을 할 수 있습니다.\n\n");
+
             Console.WriteLine("1. 상태 보기");
             Console.WriteLine("2. 인벤토리");
             Console.WriteLine("3. 자유시장");
             Console.WriteLine("4. 던전 입장");
-            Console.WriteLine("5. 휴식하기");
+            Console.WriteLine("5. 여관");
             Console.WriteLine("6. 게시판");
-            Console.WriteLine("7. 게임 종료\n");
+            ColorFont.Write("7. 게임 종료\n", Color.Magenta);
             Console.Write("\n원하시는 행동을 입력해주세요.");
 
             switch (Utils.GetPlayerInput())
@@ -169,7 +171,7 @@ namespace SpartaDungeon
                 Console.WriteLine("게임을 종료하시겠습니까?");
                 Console.WriteLine("진행상황은 자동으로 저장됩니다.");
                 Console.WriteLine("\n1. 계속하기");
-                Console.WriteLine("2. 게임 종료");
+                ColorFont.Write("2. 게임 종료\n", Color.Magenta);
 
                 Console.Write("\n원하시는 행동을 입력해주세요.");
                 switch (Utils.GetPlayerInput())
@@ -208,7 +210,7 @@ namespace SpartaDungeon
                 Console.Clear();
                 Console.WriteLine("You Died");
                 Console.WriteLine("\n1. 다시 시작하기");
-                Console.WriteLine("\n2. 게임 종료");
+                ColorFont.Write("2. 게임 종료\n", Color.Magenta);
                 Console.Write("\n원하시는 행동을 입력해주세요.");
 
                 switch (Utils.GetPlayerInput())

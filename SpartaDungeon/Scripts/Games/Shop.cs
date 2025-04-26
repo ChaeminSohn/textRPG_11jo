@@ -105,7 +105,7 @@ namespace SpartaDungeon
             {
                 //상점 인터페이스 표시
                 Console.Clear();
-                Console.WriteLine("<자유시장>");
+                ColorFont.Write("<자유시장>\n", Color.DarkYellow);
                 Console.WriteLine("필요한 아이템을 얻을 수 있는 상점입니다.");
 
                 //플레이어 입력 받기
@@ -161,7 +161,7 @@ namespace SpartaDungeon
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine($"<{categoryName}>");
+                ColorFont.Write($"<{categoryName}>\n", Color.DarkYellow);
                 Console.WriteLine("\n[보유 메소]");
                 Console.WriteLine($"{player.Meso} 메소");
                 ColorFont.Write("\n[아이템 목록]\n", Color.Green);
@@ -200,7 +200,7 @@ namespace SpartaDungeon
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("<아이템 구매>");
+                ColorFont.Write("<아이템 구매>\n", Color.DarkYellow);
                 Console.WriteLine("필요한 아이템을 살 수 있습니다.");
                 Console.WriteLine("\n[보유 메소]");
                 Console.WriteLine($"{player.Meso} 메소");
@@ -244,7 +244,7 @@ namespace SpartaDungeon
                         {
                             //구매 확정 단계
                             Console.WriteLine($"\n{selectedItem.Name}");
-                            Console.WriteLine($"아이템 가격 : {selectedItem.Price} meso , 보유 메소 : {player.Meso} 메소");
+                            Console.WriteLine($"아이템 가격 : {selectedItem.Price} 메소 , 보유 메소 : {player.Meso} 메소");
                             Console.WriteLine("1. 구매");
                             Console.WriteLine("2. 다시 생각해본다");
                             Console.Write("\n원하시는 행동을 입력해주세요.");
@@ -367,7 +367,7 @@ namespace SpartaDungeon
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("<아이템 판매>");
+                ColorFont.Write("<아이템 판매>\n", Color.DarkYellow);
                 Console.WriteLine("선택한 아이템을 팔 수 있습니다.");
                 Console.WriteLine("\n[보유 메소]");
                 Console.WriteLine($"{player.Meso} 메소");
