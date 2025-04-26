@@ -15,7 +15,7 @@ namespace SpartaDungeon
             Damage = 1.5f;
         }
 
-        public override void Activate(IBattleUnit attacker, IBattleUnit defender, Monster[] monsters)
+        public override void Activate(BattleUnit attacker, BattleUnit defender, Monster[] monsters)
         {
             Console.Write($"\n\nLv.{attacker.Level} [{attacker.Name}] 의 ");
             ColorFont.Write($"[{Name}]\n\n", Color.Blue);
@@ -36,7 +36,7 @@ namespace SpartaDungeon
             Damage = 2.0f;
         }
 
-        public override void Activate(IBattleUnit attacker, IBattleUnit defender, Monster[] monsters)
+        public override void Activate(BattleUnit attacker, BattleUnit defender, Monster[] monsters)
         {
             Console.Write($"\n\nLv.{attacker.Level} [{attacker.Name}] 의 ");
             ColorFont.Write($"[{Name}]\n\n", Color.Blue);

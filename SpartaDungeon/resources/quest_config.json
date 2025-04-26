@@ -1,0 +1,48 @@
+[
+    {
+      "Title": "간단하고 맛있는 옥토퍼스다리구이",
+      "Description": "컨닝시티 옥토퍼스 사냥터로 가 옥토퍼스다리를 구해보자.",
+      "Reward" : 500,
+       "Type": "KillMonster",
+       "TargetCount": {
+         "30": 1
+      }
+    },
+    {
+      "Title": "모자가 필요해!",
+      "Description": "헤네시스 사낭터로 가 주황버섯을 잡아 갓을 얻자!",
+      "Reward" : 300,
+      "Type": "CollectItem",
+      "TargetCount": {
+        "13": 1
+      }  
+    },
+    {
+      "Title": "알록달록 달팽이 껍질을 모아봐요!",
+      "Description": "빨간 달팽이 1마리, 파란달팽이 1마리를 잡아 아이템을 얻어보자.",
+      "Reward" : 300,
+      "Type": "CollectItem",
+      "TargetCount": {
+        "10": 1,
+        "11": 1
+      }
+    },
+    {
+      "Title": "커즈아이 꼬리구이?",
+      "Description": "슬리피우드 사냥터에서 커즈아이 꼬리를 구해보자.",
+      "Reward" : 300,
+      "Type": "CollectItem",
+      "TargetCount": {
+        "52": 1
+      }
+    },
+    {
+      "Title": "현상수배 킹 슬라임",
+      "Description": "엘리니아 던전 보스몹을 잡자.",
+      "Reward" : 1000,
+      "Type": "KillMonster",
+      "TargetCount": {
+        "102": 1  
+      }
+    }
+  ]

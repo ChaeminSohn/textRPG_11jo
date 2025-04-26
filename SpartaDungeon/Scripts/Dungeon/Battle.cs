@@ -78,8 +78,8 @@ namespace SpartaDungeon
                 ShowBattleInfo();
 
                 Console.WriteLine("\n1. 공격");
-                Console.WriteLine("2. 스킬");
-                Console.WriteLine("\n0. 도망가기");
+                ColorFont.Write("2. 스킬\n", Color.Blue);
+                ColorFont.Write("\n0. 도망가기\n", Color.Magenta);
 
                 Console.Write("\n원하시는 행동을 입력해주세요.");
 
@@ -115,7 +115,12 @@ namespace SpartaDungeon
                 Console.WriteLine("Battle!\n");
                 Console.ResetColor();
                 ShowBattleInfo();
-                if (isSkill == true) Console.WriteLine($"\n[스킬] \n {player.Skills[skillNum].Name} : {player.Skills[skillNum].Description}");
+                if (isSkill == true)
+                {
+                    ColorFont.Write("\n[스킬]", Color.Blue);
+                    Console.WriteLine($"\n{player.Skills[skillNum].Name} : {player.Skills[skillNum].Description}");
+                }
+
                 Console.WriteLine("\n0. 취소");
                 Console.WriteLine("\n대상을 선택해주세요.");
 
@@ -201,12 +206,13 @@ namespace SpartaDungeon
                 return;
             }
             killedMonsters.Add(monster);
-            {
-                if (player.monsterKillCounts.ContainsKey(monster.Id))
-                    player.monsterKillCounts[monster.Id]++;
-                else
-                    player.monsterKillCounts[monster.Id] = 1;
-            }
+
+            //킬 카운트 상승
+            if (MonsterDataBase.MonsterKillCount.ContainsKey(monster.Id))
+                MonsterDataBase.MonsterKillCount[monster.Id]++;
+            else
+                MonsterDataBase.MonsterKillCount[monster.Id] = 1;
+
 
             player.GetEXP(monster.ExpReward);       //경험치 획득
             droppedMeso += monster.MesoReward;      //골드 획득 
@@ -242,7 +248,7 @@ namespace SpartaDungeon
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("Battle!");
                     Console.ResetColor();
-                    if(randSkill.NextDouble() < 0.5f && 100 < monster.Id) monster.Skills[0].Activate(monster, player, monsters); // 보스면 20%로 스킬공격
+                    if (randSkill.NextDouble() < 0.5f && 100 < monster.Id) monster.Skills[0].Activate(monster, player, monsters); // 보스면 20%로 스킬공격
                     else monster.AutoAttack(player);
                     Utils.Pause(true);
                 }

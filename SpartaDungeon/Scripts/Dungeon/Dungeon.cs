@@ -1,7 +1,13 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using NAudio.Wave;
+using System.Linq.Expressions;
+using System.Reflection.Metadata.Ecma335;
+using System.Runtime.InteropServices;
+using System.Threading;
+
 
 namespace SpartaDungeon
 {
@@ -53,7 +59,7 @@ namespace SpartaDungeon
     {
         private Player player;
         private static Random random;
-        private List<Monster> monsters;
+        //private List<Monster> monsters;
 
         private readonly Dictionary<Difficulty, string> dungeonIntroductions = new Dictionary<Difficulty, string>
         {
@@ -120,6 +126,7 @@ namespace SpartaDungeon
 
         private readonly string hiddenBossDialogue = "원석의 힘으로 자쿰이 소환됩니다.";
 
+
         // NAudio 관련 필드와 난이도별 BGM 파일 경로
         private readonly Dictionary<Difficulty, string> dungeonBgms = new Dictionary<Difficulty, string>
         {
@@ -130,13 +137,15 @@ namespace SpartaDungeon
             { Difficulty.VeryHard, "Audio/bgm_veryhard.mp3" }
         };
 
+
         private IWavePlayer waveOutDevice;
         private AudioFileReader audioFileReader;
 
-        public Dungeon(Player player, List<Monster> monsters)
+
+        public Dungeon(Player player)
         {
             this.player = player;
-            this.monsters = monsters;
+           
             random = new Random();
         }
 
@@ -375,28 +384,44 @@ namespace SpartaDungeon
             return selectedMonsters;
         }
 
-        private Monster GenerateBoss(Difficulty difficulty)
+
+
+
+        private Monster? GenerateBoss(Difficulty difficulty)
+
         {
             int bossId = GetBossId(difficulty);
-            Monster? boss = monsters.FirstOrDefault(mon => mon.Id == bossId);
+            Monster? boss = MonsterDataBase.MonsterDict[bossId];
             if (boss == null)
             {
                 Console.WriteLine($"[경고] 보스는 휴가중");
+
                 boss = monsters.First();
+
+                return null;
+
             }
             boss = boss.Clone();
             boss.Level = GetBossLevel(difficulty);
             return boss;
         }
 
-        private Monster GenerateHiddenBoss()
+
+
+
+        private Monster? GenerateHiddenBoss()
+
         {
             int hiddenBossId = 999;
-            Monster? boss = monsters.FirstOrDefault(mon => mon.Id == hiddenBossId);
+            Monster? boss = MonsterDataBase.MonsterDict[hiddenBossId];
             if (boss == null)
             {
                 Console.WriteLine($"[경고] 보스는 휴가중");
+
                 boss = monsters.First();
+
+                return null;
+
             }
             boss = boss.Clone();
             boss.Level = random.Next(20, 26);
@@ -427,8 +452,12 @@ namespace SpartaDungeon
                     minId = 1; maxId = int.MaxValue;
                     break;
             }
-            var filtered = monsters.Where(mon => mon.Id >= minId && mon.Id <= maxId).ToList();
-            return filtered.Count > 0 ? filtered : monsters;
+            var filtered = MonsterDataBase.MonsterDict
+               .Where(pair => pair.Key >= minId && pair.Key <= maxId)
+               .Select(pair => pair.Value)
+               .ToList();
+
+            return filtered.Count > 0 ? filtered : MonsterDataBase.MonsterDict.Values.ToList();
         }
 
         private int GetBossId(Difficulty difficulty)
@@ -484,7 +513,7 @@ namespace SpartaDungeon
         }
     }
 
-    // 원본 스크립트에 있던 난이도(enum) 정의를 그대로 포함합니다.
+ 
     public enum Difficulty
     {
         VeryEasy,

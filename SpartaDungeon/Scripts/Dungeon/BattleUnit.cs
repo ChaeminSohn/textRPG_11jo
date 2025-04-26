@@ -3,7 +3,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace SpartaDungeon
 {
-    public abstract class IBattleUnit
+    public abstract class BattleUnit
     {
         protected int level = 1;
         public string Name { get; set; }    //이름
@@ -65,7 +65,7 @@ namespace SpartaDungeon
         {
             CurrentMP -= mp;
             if (CurrentMP <= 0)
-                CurrentHP = 0;
+                CurrentMP = 0;
         }
 
 
@@ -76,7 +76,7 @@ namespace SpartaDungeon
 
         protected abstract void LevelUpStats(); // 레벨 업 능력치 상승
 
-        public int FinalDamage(IBattleUnit defender, float skillDmg) //최종 데미지 계산
+        public int FinalDamage(BattleUnit defender, float skillDmg) //최종 데미지 계산
         {
             Random _rand = new Random();
             int baseDamage; // 데미지
@@ -100,7 +100,7 @@ namespace SpartaDungeon
             return finalDamage;
         }
 
-        public void AutoAttack(IBattleUnit defender) // 기본 공격
+        public void AutoAttack(BattleUnit defender) // 기본 공격
         {
             Console.WriteLine($"\n\nLv.{Level} [{Name}] 의 공격!");
 
@@ -114,7 +114,7 @@ namespace SpartaDungeon
             DamageResult(defender, 0);
         }
 
-        public void DamageResult(IBattleUnit defender, float skillDmg) // 데미지 결과
+        public void DamageResult(BattleUnit defender, float skillDmg) // 데미지 결과
         {
             int previousHP = defender.CurrentHP;
             int dmg = FinalDamage(defender, skillDmg);

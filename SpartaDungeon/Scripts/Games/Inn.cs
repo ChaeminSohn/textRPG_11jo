@@ -13,7 +13,7 @@ namespace SpartaDungeon
                 Console.WriteLine($"500 메소를 내면 체력과 마나를 전부 회복할 수 있습니다." +
                     $" (보유 메소 : {player.Meso} 메소)");
                 Console.WriteLine("\n1. 휴식하기");
-                Console.WriteLine("0. 나가기");
+                ColorFont.Write("\n0. 나가기\n", Color.Magenta);
                 Console.Write("\n원하시는 행동을 입력해주세요.");
 
                 switch (Utils.GetPlayerInput())

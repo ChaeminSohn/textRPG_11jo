@@ -8,7 +8,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace SpartaDungeon
 {
-    public class Monster : IBattleUnit
+    public class Monster : BattleUnit
     {
         public int Id { get; set; }
         public int ExpReward { get; set; }  //처치 시 보상 경험치

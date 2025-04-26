@@ -17,6 +17,13 @@ namespace SpartaDungeon
         Player player;
         public List<ITradable> Items { get; private set; } = new List<ITradable>(16); //보유중인 모든 아이템
         public List<ITradable> Equipments { get; private set; } = new List<ITradable>(); //장비 아이템
+        public List<ITradable> weaponList = new List<ITradable>();
+        public List<ITradable> armorList = new List<ITradable>();
+        public List<ITradable> headList = new List<ITradable>();
+        public List<ITradable> shoeList = new List<ITradable>();
+        public List<ITradable> gloveList = new List<ITradable>();
+        public List<ITradable> subWeaponList = new List<ITradable>();
+
         public List<ITradable> Usables { get; private set; } = new List<ITradable>(); //소비 아이템
         public List<ITradable> Others { get; private set; } = new List<ITradable>(); //기타 아이템
         public Dictionary<EquipType, Equipment?> EquippedItems =  //플레이어가 장비중인 아이템 
@@ -36,6 +43,7 @@ namespace SpartaDungeon
             if (item is Equipment equipment)
             {
                 Equipments.Add(equipment);
+                EquipmentDivision(equipment);
                 if (equipment.IsEquipped)
                 {
                     EquippedItems[equipment.EquipType] = equipment;
@@ -120,21 +128,41 @@ namespace SpartaDungeon
                 Console.WriteLine("<인벤토리>");
                 Console.WriteLine("보유 중인 아이템을 확인할 수 있습니다.");
 
-                Console.WriteLine("\n1. 장비 아이템");
-                Console.WriteLine("2. 소비 아이템");
-                Console.WriteLine("3. 기타 아이템");
-                Console.WriteLine("0. 나가기");
+                Console.WriteLine("\n1. 무기");
+                Console.WriteLine("2. 방어구");
+                Console.WriteLine("3. 투구");
+                Console.WriteLine("4. 신발");
+                Console.WriteLine("5. 장갑");
+                Console.WriteLine("6. 보조무기");
+                Console.WriteLine("7. 소비 아이템");
+                Console.WriteLine("8. 기타 아이템");
+                ColorFont.Write("\n0. 나가기\n", Color.Magenta);
                 Console.Write("\n원하시는 행동을 입력해주세요.");
 
                 switch (Utils.GetPlayerInput())
                 {
                     case 1:
-                        ControlEquipments();
+                        ControlEquipments(weaponList);
                         break;
                     case 2:
-                        ControlUsables();
+                        ControlEquipments(armorList);
                         break;
                     case 3:
+                        ControlEquipments(headList);
+                        break;
+                    case 4:
+                        ControlEquipments(shoeList);
+                        break;
+                    case 5:
+                        ControlEquipments(gloveList);
+                        break;
+                    case 6:
+                        ControlEquipments(subWeaponList);
+                        break;
+                    case 7:
+                        ControlUsables();
+                        break;
+                    case 8:
                         ControlOthers();
                         break;
                     case 0:
@@ -147,18 +175,18 @@ namespace SpartaDungeon
             }
         }
 
-        public void ControlEquipments()
+        public void ControlEquipments(List<ITradable> itemList)
         {
             while (true)
             {
                 Console.Clear();
                 Console.WriteLine("인벤토리 - 장비 아이템");
                 Console.WriteLine("장비 아이템을 장착/해제할 수 있습니다.");
-
-                Console.WriteLine("\n[아이템 목록]");
-                for (int i = 0; i < Equipments.Count; i++)
+                ColorFont.Write("\n[아이템 목록]\n", Color.Green);
+                
+                for (int i = 0; i < itemList.Count; i++)
                 {
-                    if (((Equipment)Equipments[i]).IsEquipped)
+                    if (((Equipment)itemList[i]).IsEquipped)
                     {
                         Console.Write($"- {i + 1} [E]");
                     }
@@ -166,10 +194,11 @@ namespace SpartaDungeon
                     {
                         Console.Write($"- {i + 1}    ");
                     }
-                    Equipments[i].ShowInfo(false);
+                    itemList[i].ShowInfo(false);
+
                 }
 
-                Console.WriteLine("\n0. 나가기");
+                ColorFont.Write("\n0. 나가기\n", Color.Magenta);
                 Console.Write("\n장착/해제할 아이템 번호를 입력하세요. ");
 
                 int playerInput = Utils.GetPlayerInput();
@@ -178,14 +207,14 @@ namespace SpartaDungeon
                 {
                     return;
                 }
-                else if (playerInput > Equipments.Count || playerInput == -1)
+                else if (playerInput > itemList.Count || playerInput == -1)
                 {
                     Console.WriteLine("\n잘못된 입력입니다.");
                     Utils.Pause(false);
                 }
                 else
                 {
-                    Equipment selected = (Equipment)Equipments[playerInput - 1];
+                    Equipment selected = (Equipment)itemList[playerInput - 1];
                     int equipIndex = (int)selected.EquipType;
 
                     if (selected.IsEquipped)
@@ -216,7 +245,7 @@ namespace SpartaDungeon
                 Console.Clear();
                 Console.WriteLine("인벤토리 - 소비 아이템");
                 Console.WriteLine("보유 중인 아이템을 관리할 수 있습니다.");
-                Console.WriteLine("\n[아이템 목록]");
+                ColorFont.Write("\n[아이템 목록]\n", Color.Green);
                 for (int i = 0; i < Usables.Count; i++)
                 {
                     Console.Write($"- {i + 1}.  ");
@@ -266,14 +295,14 @@ namespace SpartaDungeon
             Console.Clear();
             Console.WriteLine("인벤토리 - 기타 아이템");
             Console.WriteLine("보유 중인 아이템을 관리할 수 있습니다.");
-            Console.WriteLine("\n[아이템 목록]");
+            ColorFont.Write("\n[아이템 목록]\n", Color.Green);
             foreach (ITradable item in Others)
             {
                 Console.Write("- ");
                 item.ShowInfo(false);
             }
 
-            Console.WriteLine("\n0. 나가기");
+            ColorFont.Write("\n0. 나가기\n", Color.Magenta);
             Console.Write("\n원하시는 행동을 입력해주세요.");
             int playerInput = Utils.GetPlayerInput();
 
@@ -295,22 +324,47 @@ namespace SpartaDungeon
         }
 
         // ✅ 퀘스트 제출을 위한 아이템 차감
-        public bool ReduceItemCount(int itemId, int count)
+        public void ReduceItemCount(int itemId, int count)
         {
             var target = Items.FirstOrDefault(i => i.ID == itemId);
             if (target is Usable usable && usable.ItemCount >= count)
             {
                 usable.ChangeItemCount(-count);
                 if (usable.ItemCount == 0) RemoveItem(usable);
-                return true;
+
             }
             else if (target is OtherItem other && other.ItemCount >= count)
             {
                 other.ChangeItemCount(-count);
                 if (other.ItemCount == 0) RemoveItem(other);
-                return true;
             }
-            return false;
+        }
+
+        public void EquipmentDivision(Equipment equipment) // 장비 아이템 분배
+        {
+                switch (equipment.EquipType)
+                {
+                    case EquipType.Weapon:
+                        weaponList.Add(equipment);
+                        break;
+                    case EquipType.Armor:
+                        armorList.Add(equipment);
+                        break;
+                    case EquipType.Head:
+                        headList.Add(equipment);
+                        break;
+                    case EquipType.Glove:
+                        gloveList.Add(equipment);
+                        break;
+                    case EquipType.Shoe:
+                        shoeList.Add(equipment);
+                        break;
+                    case EquipType.SubWeapon:
+                        subWeaponList.Add(equipment);
+                        break;
+                    default:
+                        break;
+                }
 
         }
     }

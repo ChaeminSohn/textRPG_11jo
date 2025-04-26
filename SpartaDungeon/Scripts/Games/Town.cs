@@ -1,0 +1,7 @@
+namespace SpartaDungeon
+{
+    class Town
+    {
+
+    }
+}

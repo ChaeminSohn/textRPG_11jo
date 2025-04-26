@@ -6,6 +6,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+
 namespace SpartaDungeon
 {
     public enum Job    //직업 종류
@@ -25,7 +26,7 @@ namespace SpartaDungeon
         EvadeChance    //회피율
     }
 
-    public class Player : IBattleUnit
+    public class Player : BattleUnit
     {
         public int MaxLevel { get; private set; }     //만랩
         public int Experience { get; private set; }   //경험치
@@ -36,10 +37,7 @@ namespace SpartaDungeon
         public Inventory Inventory { get; private set; }    //인벤토리
         public event Action? OnPlayerDie; //플레이어 사망 이벤트
 
-        private List<Monster> monsters;
-        public Dictionary<int, int> monsterKillCounts; // 몬스터 킬 카운트
-
-        public Player(string name, Job job, Inventory inventory, List<Monster> monsters)    //새 게임 생성자
+        public Player(string name, Job job, Inventory inventory)    //새 게임 생성자
         {
 
             Name = name;
@@ -50,8 +48,6 @@ namespace SpartaDungeon
             LoadDefaultData();
             inventory.OnEquipChanged += UpdatePlayerStats;
             IsDead = false;
-            this.monsters = monsters;
-            monsterKillCounts = new Dictionary<int, int>();
             InitializeSkills();
         }
 
@@ -71,7 +67,6 @@ namespace SpartaDungeon
             CritChance = playerData.CritChance;
             EvadeChance = playerData.EvadeChance;
             Meso = playerData.Meso;
-            monsterKillCounts = playerData.MonsterKillCounts;
             FullMP = playerData.FullMP;
             CurrentMP = playerData.CurrentMP;
             InitializeSkills();
@@ -188,7 +183,7 @@ namespace SpartaDungeon
 
         public void ShowSkillList()
         {
-            Console.WriteLine($"\n[스킬]");
+            ColorFont.Write("\n[스킬]\n", Color.Blue);
 
             for (int i = 0; i < Skills.Count; i++)
             {
@@ -222,7 +217,7 @@ namespace SpartaDungeon
         public PlayerData GetPlayerData()   //플레이어 데이터 추출
         {
             return new PlayerData(Name, Job, Level, MaxLevel, Experience, ExpThresholds, BaseFullHP, CurrentHP,
-                BaseAttack, BaseDefense, CritChance, EvadeChance, Meso, monsterKillCounts, FullMP, CurrentMP);
+                BaseAttack, BaseDefense, CritChance, EvadeChance, Meso, FullMP, CurrentMP);
         }
 
         public void ShowPlayerInfo()
@@ -285,11 +280,14 @@ namespace SpartaDungeon
             Console.WriteLine("<상태 보기>");
             Console.WriteLine("처치 현황이 표시됩니다.");
             Console.WriteLine("\n[처치 현황]");
-            foreach (var kv in monsterKillCounts)
+            foreach (var kv in MonsterDataBase.MonsterKillCount)
             {
-                var info = monsters.FirstOrDefault(m => m.Id == kv.Key); // 키 확인
-                var name = info != null ? info.Name : $"ID:{kv.Key}"; // 이름 확인
-                Console.WriteLine($"{name} : {kv.Value}마리");
+                // var info = monsters.FirstOrDefault(m => m.Id == kv.Key); // 키 확인
+                // var name = info != null ? info.Name : $"ID:{kv.Key}"; // 이름 확인
+                if (kv.Value >= 1)
+                {
+                    Console.WriteLine($"{MonsterDataBase.MonsterDict[kv.Key].Name} : {kv.Value}마리");
+                }
             }
         }
     }
