@@ -63,11 +63,11 @@ namespace SpartaDungeon
 
         private readonly Dictionary<Difficulty, string> dungeonIntroductions = new Dictionary<Difficulty, string>
         {
-            { Difficulty.VeryEasy, "버섯...좋아하세요?!" },
-            { Difficulty.Easy,     "개발하다보니 슬라임을 만들고 있는 건에 대하여..." },
-            { Difficulty.Normal,   "문어와 유령의 공통점은?? '두발'로 설 수 없습니다. 탈모죠..." },
-            { Difficulty.Hard,     "돼지와 나무...꾼?" },
-            { Difficulty.VeryHard, "템은 다 맞추고 오시는거 맞죠? 못 잡으실거에요ㅎㅎ" }
+            { Difficulty.VeryEasy, "초보자들의 성지, 헤네시스에 오신 것을 환영합니다." },
+            { Difficulty.Easy,     "메이플월드에서 가장 높은 숲, 엘리니아에 오신 것을 환영합니다." },
+            { Difficulty.Normal,   "가장 비열한 자들의 도시, 커닝시티에 오신 것을 환영합니다." },
+            { Difficulty.Hard,     "메마른 땅 위에 세워진 전사들의 마을, 페이온에 오신 것을 환영합니다." },
+            { Difficulty.VeryHard, "끝 없는 꿈의 숲, 슬리피우드에 오신 것을 환영합니다." }
         };
 
         private readonly Dictionary<Difficulty, string> dungeonDecorations = new Dictionary<Difficulty, string>
@@ -117,11 +117,11 @@ namespace SpartaDungeon
 
         private readonly Dictionary<Difficulty, string> bossDialogues = new Dictionary<Difficulty, string>
         {
-            { Difficulty.VeryEasy, "머쉬맘: ㅂ...ㅓ....ㅅ..ㅓ..ㅅ!!!!!" },
-            { Difficulty.Easy,     "킹슬라임: 다시 태어나보니 내가 킹슬라임?!" },
-            { Difficulty.Normal,   "블루 머쉬맘: ㅂ...ㅡ..ㄹ..ㄹ..ㅜ.....버섯!!!" },
-            { Difficulty.Hard,     "주니어 발록: 난 도대체 무슨 말을 해야하지???" },
-            { Difficulty.VeryHard, "좀비 머쉬맘: 안녕하세요 좀비입니다. 버섯이죠!" }
+            { Difficulty.VeryEasy, "어디선가 커다란 버섯이 나타났습니다." },
+            { Difficulty.Easy,     "뿡야!!!!" },
+            { Difficulty.Normal,   "어디선가 커다란 파란 버섯이 나타났습니다." },
+            { Difficulty.Hard,     "그르렁거리는 소리가 들립니다. 사악한 존재가 모습을 드러냈습니다." },
+            { Difficulty.VeryHard, "어디선가 음산한 기운을 풍기는 커다란 버섯이 나타났습니다." }
         };
 
         private readonly string hiddenBossDialogue = "원석의 힘으로 자쿰이 소환됩니다.";
