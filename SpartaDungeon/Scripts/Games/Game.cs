@@ -27,12 +27,18 @@ namespace SpartaDungeon
             Console.WriteLine(DotArt.asciiArt_0);
             if (File.Exists(PathConstants.SaveFilePath))  //세이브 파일이 존재할 경우
             {
+                Console.Clear();
+                ColorFont.Write(DotArt.asciiArt_2, Color.Red);
+                ColorFont.Write(DotArt.asciiArt_3, Color.Yellow);
                 Console.WriteLine("세이브 파일이 존재합니다. 이어서 게임을 시작합니다.");
                 Utils.Pause(true);
                 LoadGame();
             }
             else    //세이브 파일이 존재하지 않을 경우
             {
+                Console.Clear();
+                ColorFont.Write(DotArt.asciiArt_2, Color.Red);
+                ColorFont.Write(DotArt.asciiArt_3, Color.Yellow);
                 Console.WriteLine("세이브 파일이 없습니다. 새로운 게임을 시작합니다.");
                 Utils.Pause(true);
                 StartNewGame();
