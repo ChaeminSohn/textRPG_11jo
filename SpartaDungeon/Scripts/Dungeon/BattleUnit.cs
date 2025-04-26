@@ -106,7 +106,8 @@ namespace SpartaDungeon
 
         public void AutoAttack(BattleUnit defender) // 기본 공격
         {
-            Console.WriteLine($"\n\nLv.{Level} [{Name}] 의 공격!");
+            Console.Write($"\n\nLv.{Level} [{Name}] 의 ");
+            ColorFont.Write("공격!\n", Color.DarkRed);
 
             Random rand = new Random();
             if (rand.NextDouble() < defender.EvadeChance)   //회피 판정

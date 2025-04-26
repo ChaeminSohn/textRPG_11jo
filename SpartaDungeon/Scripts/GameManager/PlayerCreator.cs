@@ -7,7 +7,8 @@ namespace SpartaDungeon
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("메이플 월드에 오신 걸 환영합니다!");
+                ColorFont.Write("메이플 월드", Color.DarkYellow);
+                Console.Write("에 오신 여러분 환영합니다.\n");
                 Console.WriteLine("플레이어 이름을 입력해주세요.");
                 Console.Write("\n>>");
                 string? input = Console.ReadLine();

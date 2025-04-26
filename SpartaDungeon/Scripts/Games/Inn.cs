@@ -9,7 +9,7 @@ namespace SpartaDungeon
                 int health = player.CurrentHP;
                 int mana = player.CurrentMP;
                 Console.Clear();
-                Console.WriteLine("<휴식하기>");
+                ColorFont.Write("<여관>\n", Color.DarkYellow);
                 Console.WriteLine($"500 메소를 내면 체력과 마나를 전부 회복할 수 있습니다." +
                     $" (보유 메소 : {player.Meso} 메소)");
                 Console.WriteLine("\n1. 휴식하기");
