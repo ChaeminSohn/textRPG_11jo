@@ -1396,7 +1396,7 @@
             "ID": 2403,
             "Name": "레드 실키부츠",
             "Description": "아쿠아 로드에 크립에게서 얻을 수 있는 신발이다. 빨간색으로 칠해져 있는게 특징이다. 착용하면 회피율이 올라간다.",
-            "Price": 8000,
+            "Price": 8900,
             "ItemType": "Equipment",
             "EquipType": "Shoe",
             "Stat": "EvadeChance",
@@ -1406,7 +1406,7 @@
             "ID": 2404,
             "Name": "브라운 쉐도우부츠",
             "Description": "최상위 몬스터인 콜드샤크에게서 얻을 수 있는 신발이다. 회피율을 무지막지하게 올려준다.",
-            "Price": 40000,
+            "Price": 19900,
             "ItemType": "Equipment",
             "EquipType": "Shoe",
             "Stat": "EvadeChance",
@@ -1414,43 +1414,43 @@
         },
         {
             "ID": 2501,
-            "Name": "강철 방패",
-            "Description": "옥토퍼스에게서 드랍되는 보조장비로 강철을 이용해서 만들었다.보조 무기로 쓰인다",
-            "Price": 600,
+            "Name": "사각 나무 방패",
+            "Description": "전 직업이 착용 가능한 범용성 좋은 방패",
+            "Price": 1000,
+            "ItemType": "Equipment",
+            "EquipType": "SubWeapon",
+            "Stat": "Defense",
+            "StatValue": 5
+        },
+        {
+            "ID": 2502,
+            "Name": "냄비 뚜껑",
+            "Description": "라면이 먹고 싶어지는 유니크한 방어 아이템",
+            "Price": 2000,
             "ItemType": "Equipment",
             "EquipType": "SubWeapon",
             "Stat": "Defense",
             "StatValue": 10
         },
         {
-            "ID": 2502,
-            "Name": "해골 방패",
-            "Description": "엄티에게서 드랍되는 장비로 해골 문양이 박혀있다. 보조 무기로 쓰인다",
-            "Price": 17000,
-            "ItemType": "Equipment",
-            "EquipType": "SubWeapon",
-            "Stat": "Defense",
-            "StatValue": 50
-        },
-        {
             "ID": 2503,
             "Name": "스틸 아퀼라 쉴드",
-            "Description": "스켈레톤 지휘관에게서 드랍되는 장비로 스켈레톤 지휘관이 들고다니던 방패이다. 보조 무기로 쓰인다",
-            "Price": 25000,
+            "Description": "스켈레톤 지휘관에게서 드랍되는 장비로 스켈레톤 지휘관이 들고다니던 방패이다.",
+            "Price": 10000,
             "ItemType": "Equipment",
             "EquipType": "SubWeapon",
             "Stat": "Defense",
-            "StatValue": 85
+            "StatValue": 60
         },
         {
             "ID": 2504,
             "Name": "골드 칼칸",
-            "Description": "97.LV 리셀 스퀴드 에게서 드랍되는 장비로 금으로 만든 방패이다. 보조 무기로 쓰인다",
-            "Price": 35000 ,
+            "Description": "리셀 스퀴드 에게서 드랍되는 장비로 금으로 만든 방패이다.",
+            "Price": 25000,
             "ItemType": "Equipment",
             "EquipType": "SubWeapon",
             "Stat": "Defense",
-            "StatValue": 95
+            "StatValue": 90
         }
         
     ], 
