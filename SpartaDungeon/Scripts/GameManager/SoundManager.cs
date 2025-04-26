@@ -27,6 +27,7 @@ namespace SpartaDungeon
                     waveOutDevice = new WaveOutEvent();
                     waveOutDevice.Init(loop);
                     waveOutDevice.Play();
+                    currentBgmName = fileName;
                 }
                 catch (Exception ex)
                 {

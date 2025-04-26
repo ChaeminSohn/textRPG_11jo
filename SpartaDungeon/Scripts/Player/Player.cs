@@ -64,8 +64,8 @@ namespace SpartaDungeon
             CurrentHP = playerData.CurrentHP;
             BaseAttack = playerData.BaseAttack;
             BaseDefense = playerData.BaseDefense;
-            CritChance = playerData.CritChance;
-            EvadeChance = playerData.EvadeChance;
+            BaseCritChance = playerData.BaseCritChance;
+            BaseEvadeChance = playerData.BaseEvadeChance;
             Meso = playerData.Meso;
             FullMP = playerData.FullMP;
             CurrentMP = playerData.CurrentMP;
@@ -75,7 +75,7 @@ namespace SpartaDungeon
         public void LoadDefaultData()
         {
             //플레이어 기본 데이터 파일 읽어오기
-            if (!ConfigLoader.TryLoad<PlayerConfig>(@"..\..\..\resources/player_config.json", out var config))
+            if (!ConfigLoader.TryLoad<PlayerConfig>(PathConstants.PlayerConfigPath, out var config))
             {
                 Console.WriteLine("플레이어 설정을 불러오지 못했습니다.");
                 return;
@@ -105,8 +105,8 @@ namespace SpartaDungeon
             CurrentHP = BaseFullHP;
             BaseAttack = defaultData.BaseAttack;
             BaseDefense = defaultData.BaseDefense;
-            CritChance = defaultData.CritChance;
-            EvadeChance = defaultData.EvadeChance;
+            BaseCritChance = defaultData.BaseCritChance;
+            BaseEvadeChance = defaultData.BaseEvadeChance;
             Meso = defaultData.Meso;
             FullMP = defaultData.FullMP;
             CurrentMP = FullMP;
@@ -124,6 +124,8 @@ namespace SpartaDungeon
             BonusFullHP = 0;
             BonusAttack = 0;
             BonusDefense = 0;
+            BonusCritChance = 0;
+            BonusEvadeChance = 0;
             foreach (Equipment? item in Inventory.EquippedItems.Values)
             {
                 if (item != null)
@@ -138,6 +140,12 @@ namespace SpartaDungeon
                             break;
                         case Stat.Defense:
                             BonusDefense += (int)item.StatValue;
+                            break;
+                        case Stat.CritChance:
+                            BonusCritChance += item.StatValue;
+                            break;
+                        case Stat.EvadeChance:
+                            BonusEvadeChance += item.StatValue;
                             break;
                         default:
                             break;
@@ -217,7 +225,7 @@ namespace SpartaDungeon
         public PlayerData GetPlayerData()   //플레이어 데이터 추출
         {
             return new PlayerData(Name, Job, Level, MaxLevel, Experience, ExpThresholds, BaseFullHP, CurrentHP,
-                BaseAttack, BaseDefense, CritChance, EvadeChance, Meso, FullMP, CurrentMP);
+                BaseAttack, BaseDefense, BaseCritChance, BaseEvadeChance, Meso, FullMP, CurrentMP);
         }
 
         public void ShowPlayerInfo()

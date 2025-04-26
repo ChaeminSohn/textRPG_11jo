@@ -39,7 +39,6 @@ namespace SpartaDungeon
                 Utils.Pause(true);
                 StartNewGame();
             }
-            SoundManager.PlayBgm("bgm_town.mp3");
             MainGameLoop();
         }
 
@@ -113,6 +112,7 @@ namespace SpartaDungeon
 
         public void TownAction()
         {
+            SoundManager.PlayBgm("bgm_town.mp3");
             Console.Clear();
             Console.WriteLine("메이플 월드에 오신 여러분 환영합니다.");
             Console.WriteLine("이곳에서 자유롭게 활동을 할 수 있습니다.\n\n");

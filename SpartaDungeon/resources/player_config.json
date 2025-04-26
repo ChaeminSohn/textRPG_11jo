@@ -5,8 +5,8 @@
     "FullMP" : 60,
     "BaseAttack" : 10,
     "BaseDefense" : 5,
-    "CritChance" : 0.1,
-    "EvadeChance" : 0,
+    "BaseCritChance" : 0.1,
+    "BaseEvadeChance" : 0,
     "Meso" : 100000,
     "ExpThresholds" : [1, 3, 5, 10, 20, 40, 80, 120, 200, 500],
     "MaxLevel" : 10
@@ -17,8 +17,8 @@
     "FullMP" : 100,
     "BaseAttack" : 12,
     "BaseDefense" : 3,
-    "CritChance" : 0.1,
-    "EvadeChance" : 0.1,
+    "BaseCritChance" : 0.1,
+    "BaseEvadeChance" : 0.1,
     "Meso" : 1000,
     "ExpThresholds" : [1, 3, 5, 10, 20, 40, 80, 120, 200, 500],
     "MaxLevel" : 10
@@ -29,8 +29,8 @@
     "FullMP" : 80,
     "BaseAttack" : 9,
     "BaseDefense" : 3,
-    "CritChance" : 0.4,
-    "EvadeChance" : 0.2,
+    "BaseCritChance" : 0.4,
+    "BaseEvadeChance" : 0.2,
     "Meso" : 1000,
     "ExpThresholds" : [1, 3, 5, 10, 20, 40, 80, 120, 200, 500],
     "MaxLevel" : 10
@@ -41,8 +41,8 @@
     "FullMP" : 80,
     "BaseAttack" : 10,
     "BaseDefense" : 4,
-    "CritChance" : 0.3,
-    "EvadeChance" : 0.3,
+    "BaseCritChance" : 0.3,
+    "BaseEvadeChance" : 0.3,
     "Meso" : 1000,
     "ExpThresholds" : [1, 3, 5, 10, 20, 40, 80, 120, 200, 500],
     "MaxLevel" : 10

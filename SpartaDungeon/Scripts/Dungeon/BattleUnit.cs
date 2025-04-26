@@ -29,8 +29,12 @@ namespace SpartaDungeon
         public int BonusDefense { get; protected set; }   //추가 방어력
         public int Defense => BaseDefense + BonusDefense;   //방어력
         public bool IsDead { get; set; }      //사망 여부
-        public float CritChance { get; set; }    //치명타 확률
-        public float EvadeChance { get; set; }      //회피 확률
+        public float BaseCritChance { get; protected set; }    //기본 치명타 확률
+        public float BonusCritChance { get; protected set; }    //추가 치명타 확률
+        public float CritChance => BaseCritChance + BonusCritChance;
+        public float BaseEvadeChance { get; set; }      //기본 회피 확률
+        public float BonusEvadeChance { get; set; }      //추가 회피 확률
+        public float EvadeChance => BaseEvadeChance + BonusEvadeChance;      //회피 확률
         public int FullMP { get; protected set; }  //최대 마나
         public int CurrentMP { get; protected set; }      //현재 마나
 

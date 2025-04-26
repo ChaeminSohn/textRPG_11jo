@@ -35,8 +35,8 @@ namespace SpartaDungeon
             BaseDefense = defense;
             ExpReward = expReward;
             MesoReward = mesoReward;
-            CritChance = critChance;
-            EvadeChance = evadeChance;
+            BaseCritChance = critChance;
+            BaseEvadeChance = evadeChance;
             IsDead = false;
             Drops = drops;
             InitializeSkills();
