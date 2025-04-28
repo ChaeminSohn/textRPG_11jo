@@ -221,8 +221,8 @@
             Console.WriteLine($"{Name} ({Utils.JobDisplayNames[Job]})");
             Console.WriteLine($"공격력 : {Attack}");
             Console.WriteLine($"방어력 : {Defense}");
-            Console.WriteLine($"치명타율 : {CritChance * 100} %");
-            Console.WriteLine($"회피율 : {EvadeChance * 100} %");
+            Console.WriteLine($"치명타율 : {CritChance * 100:F2} %");
+            Console.WriteLine($"회피율 : {EvadeChance * 100:F2} %");
             Console.WriteLine($"체력 : {CurrentHP}/{FullHP}");
             Console.WriteLine($"마나 : {CurrentMP}/{FullMP}");
             Console.WriteLine($"메소 : {Meso} 메소");
