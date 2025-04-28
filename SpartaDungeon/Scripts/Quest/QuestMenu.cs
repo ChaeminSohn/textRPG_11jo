@@ -1,4 +1,4 @@
-namespace SpartaDungeon
+namespace SpartaDungeon.Scripts.Quest
 {
     internal class QuestMenu
     {
