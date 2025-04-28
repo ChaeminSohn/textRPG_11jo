@@ -1,6 +1,4 @@
-﻿using SpartaDungeon.Scripts.Quest;
-
-namespace SpartaDungeon
+﻿namespace SpartaDungeon
 {
     internal class Game
     {

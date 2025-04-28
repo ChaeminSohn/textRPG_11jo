@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Dynamic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SpartaDungeon
+﻿namespace SpartaDungeon
 {
     public enum Job    //직업 종류
     {

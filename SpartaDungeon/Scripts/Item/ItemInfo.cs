@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.Json.Serialization;
-
-namespace SpartaDungeon
+﻿namespace SpartaDungeon
 {
     [Serializable]
     public struct ItemInfo    //아이템 정보를 관리하는 구조체

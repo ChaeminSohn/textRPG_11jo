@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SpartaDungeon
+﻿namespace SpartaDungeon
 {
-    public static class DotArt
-    {
-        public static string asciiArt_0 = @" 
+        public static class DotArt
+        {
+                public static string asciiArt_0 = @" 
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢕⢕⠤⡀⠀⠀⢠⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠄⡆⡔⡔⡔⡔⡌⡎⡕⡥⡪⠠⠊⠀⠀⠀⠀⠀
@@ -23,7 +17,7 @@ namespace SpartaDungeon
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢺⠀⠀⠷⠤⠦⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ";
 
-        public static string asciiArt_1 = @"
+                public static string asciiArt_1 = @"
 
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠴⠊⠋⠉⠉⠉⠚⠦⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠈⠱⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -45,8 +39,8 @@ namespace SpartaDungeon
 ⠀⠀⠀⠀⠀⠀⠀⠈⠑⠂⠤⠤⠥⢊⣐⢡⢡⣑⢌⡢⣑⢔⡐⡌⠦⠅⠎⠈⠁⠀⠀⠀⠀⠀⠀⠀
             ";
 
-        public static string asciiArt_2 = 
-@"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                public static string asciiArt_2 =
+        @"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢕⢕⠤⡀⠀⠀⢠⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠄⡆⡔⡔⡔⡔⡌⡎⡕⡥⡪⠠⠊⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠕⡕⡕⡕⡕⡕⣕⢵⣫⡒⠀⠀⠀⠀⠀
@@ -57,8 +51,8 @@ namespace SpartaDungeon
                                        ⠀⢐⠇⠁
 ";
 
-        public static string asciiArt_3 =
-@"⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⠀
+                public static string asciiArt_3 =
+        @"⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⠀
 ⠀⠀⢔⡤⢢⡘⡖⢽⠁⠀⠀⠀⠀⠀⠀⢀⣸⣀⣽⡀⠀⠀⠀⢰⠄⠀⠀⠀⡷⠰⠰⠀⠀⢠⣠⣠⡀⢲⠆
 ⠀⠀⢸⣂⣹⡘⣝⢼⢀⢤⠦⣄⠈⢽⠠⠴⠔⠴⠔⠴⠤⠀⡔⠋⠳⠤⢀⡠⣉⣻⢨⢁⣀⢢⠦⠲⠃⢸⠅
 ⠀⠀⠀⠀⠀⠀⠧⢹⠨⢧⣀⡼⠂⣹⠀⢀⣋⣃⣻⡂⠀⠆⠆⠆⠆⠆⠆⠀⠀⠀⠀⠀⠀⠈⠋⠙⠉⢸⠅
@@ -66,5 +60,5 @@ namespace SpartaDungeon
 ";
 
 
-    }
+        }
 }

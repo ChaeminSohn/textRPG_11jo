@@ -1,5 +1,3 @@
-using System.Collections;
-
 namespace SpartaDungeon
 {
     public static class ItemDataBase  //json 파일 아이템 리스트 저장용 클래스

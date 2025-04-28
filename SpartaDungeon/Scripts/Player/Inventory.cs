@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SpartaDungeon
+﻿namespace SpartaDungeon
 {
     //플레이어의 인벤토리를 구현하는 클래스
     //플레이어가 소유한 모든 아이템 관리
@@ -183,7 +176,7 @@ namespace SpartaDungeon
                 ColorFont.Write("인벤토리 - 장비 아이템\n", Color.DarkYellow);
                 Console.WriteLine("장비 아이템을 장착/해제할 수 있습니다.");
                 ColorFont.Write("\n[아이템 목록]\n", Color.Green);
-                
+
                 for (int i = 0; i < itemList.Count; i++)
                 {
                     if (((Equipment)itemList[i]).IsEquipped)
@@ -342,29 +335,29 @@ namespace SpartaDungeon
 
         public void EquipmentDivision(Equipment equipment) // 장비 아이템 분배
         {
-                switch (equipment.EquipType)
-                {
-                    case EquipType.Weapon:
-                        weaponList.Add(equipment);
-                        break;
-                    case EquipType.Armor:
-                        armorList.Add(equipment);
-                        break;
-                    case EquipType.Head:
-                        headList.Add(equipment);
-                        break;
-                    case EquipType.Glove:
-                        gloveList.Add(equipment);
-                        break;
-                    case EquipType.Shoe:
-                        shoeList.Add(equipment);
-                        break;
-                    case EquipType.SubWeapon:
-                        subWeaponList.Add(equipment);
-                        break;
-                    default:
-                        break;
-                }
+            switch (equipment.EquipType)
+            {
+                case EquipType.Weapon:
+                    weaponList.Add(equipment);
+                    break;
+                case EquipType.Armor:
+                    armorList.Add(equipment);
+                    break;
+                case EquipType.Head:
+                    headList.Add(equipment);
+                    break;
+                case EquipType.Glove:
+                    gloveList.Add(equipment);
+                    break;
+                case EquipType.Shoe:
+                    shoeList.Add(equipment);
+                    break;
+                case EquipType.SubWeapon:
+                    subWeaponList.Add(equipment);
+                    break;
+                default:
+                    break;
+            }
 
         }
     }

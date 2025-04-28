@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SpartaDungeon
+﻿namespace SpartaDungeon
 {
     internal static class Utils //다양한 곳에서 자주 쓰이는 기능을 모아놓은 클래스
     {

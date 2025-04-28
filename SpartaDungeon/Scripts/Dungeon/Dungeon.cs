@@ -1,13 +1,4 @@
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using NAudio.Wave;
-using System.Linq.Expressions;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.InteropServices;
-using System.Threading;
-
 
 namespace SpartaDungeon
 {

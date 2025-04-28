@@ -1,5 +1,3 @@
-using System.Diagnostics.Tracing;
-
 namespace SpartaDungeon
 {
     public class PlayerData     //플레이어의 중요한 정보를 따로 저장하는 클래스

@@ -1,6 +1,3 @@
-using System.Dynamic;
-using static System.Net.Mime.MediaTypeNames;
-
 namespace SpartaDungeon
 {
     public abstract class BattleUnit

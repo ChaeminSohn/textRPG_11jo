@@ -1,5 +1,3 @@
-using System.Dynamic;
-
 namespace SpartaDungeon
 {
     public interface IQuestCondition

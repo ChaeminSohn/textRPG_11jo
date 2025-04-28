@@ -1,6 +1,3 @@
-using System.Threading;
-using Microsoft.VisualBasic;
-
 namespace SpartaDungeon
 {
     internal class Battle
