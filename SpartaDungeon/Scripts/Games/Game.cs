@@ -49,8 +49,8 @@
             string playerName = PlayerCreator.GetPlayerName();
             Job job = PlayerCreator.SelectJob();
             inventory = new Inventory();
-            inventory.SetOwner(player);
             player = new Player(playerName, job, inventory);
+            inventory.SetOwner(player);
             shop = new Shop(player);
             dungeon = new Dungeon(player);
             inn = new Inn();
